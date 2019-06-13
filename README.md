@@ -1,2 +1,4 @@
 # Dissertation
-Physics PhD dissertation 
+Stephen Hageman's physics phd dissertation written in LaTex
+
+
