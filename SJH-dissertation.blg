@@ -6,6 +6,4 @@ A level-1 auxiliary file: chapter1.aux
 A level-1 auxiliary file: chapter2.aux
 A level-1 auxiliary file: appendix1.aux
 The style file: unsrt.bst
-I found no \citation commands---while reading file SJH-dissertation.aux
 Database file #1: dissbib.bib
-(There was 1 error message)
