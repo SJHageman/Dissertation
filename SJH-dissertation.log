@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.12.4)  12 JUN 2019 21:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.12.4)  12 JUN 2019 21:26
 entering extended mode
 **./SJH-dissertation.tex
 (SJH-dissertation.tex
@@ -908,7 +908,26 @@ ne 64.
 \openout2 = `acronyms.aux'.
 
 (acronyms.tex) (SJH-dissertation.aux (abstract.aux) (acknowledgements.aux)
-(vita.aux) (chapter1.aux) (chapter2.aux
+(vita.aux) (chapter1.aux
+
+LaTeX Warning: Label `my_anita' multiply defined.
+
+) (chapter2.aux
+
+LaTeX Warning: Label `two_source' multiply defined.
+
+
+LaTeX Warning: Label `intro_ts' multiply defined.
+
+
+LaTeX Warning: Label `theory_ts' multiply defined.
+
+
+LaTeX Warning: Label `my_anita' multiply defined.
+
+
+LaTeX Warning: Label `MCP_ts_harmonics' multiply defined.
+
 
 LaTeX Warning: Label `my_anita' multiply defined.
 
@@ -1100,110 +1119,71 @@ No file SJH-dissertation.acr.
 
  (chapter1.tex
 Chapter 1.
-
-LaTeX Warning: Reference `anita2' on page 1 undefined on input line 5.
-
-<figures/Introduction/6_forthesis.png, id=139, 635.976pt x 344.487pt>
-File: figures/Introduction/6_forthesis.png Graphic file (type png)
-<use figures/Introduction/6_forthesis.png>
-Package pdftex.def Info: figures/Introduction/6_forthesis.png  used on input li
-ne 11.
-(pdftex.def)             Requested size: 216.81pt x 117.4394pt.
-[1
-
-
-
- <./figures/Introduction/6_forthesis.png>]
-<figures/messengers_2.png, id=148, 903.375pt x 572.1375pt>
-File: figures/messengers_2.png Graphic file (type png)
-<use figures/messengers_2.png>
-Package pdftex.def Info: figures/messengers_2.png  used on input line 31.
-(pdftex.def)             Requested size: 433.62001pt x 274.6316pt.
-<figures/cosmogenic_2.png, id=149, 506.89375pt x 205.76875pt>
-File: figures/cosmogenic_2.png Graphic file (type png)
-<use figures/cosmogenic_2.png>
-Package pdftex.def Info: figures/cosmogenic_2.png  used on input line 45.
-(pdftex.def)             Requested size: 346.89732pt x 140.822pt.
-<figures/kneeankle.png, id=150, 762.85pt x 548.0475pt>
-File: figures/kneeankle.png Graphic file (type png)
-<use figures/kneeankle.png>
-Package pdftex.def Info: figures/kneeankle.png  used on input line 49.
-(pdftex.def)             Requested size: 346.89732pt x 249.21147pt.
-<figures/uhe_process.png, id=151, 906.38625pt x 273.02pt>
-File: figures/uhe_process.png Graphic file (type png)
-<use figures/uhe_process.png>
-Package pdftex.def Info: figures/uhe_process.png  used on input line 56.
-(pdftex.def)             Requested size: 433.62001pt x 130.61485pt.
- [2 <./figures/messengers_2.png>]
-[3 <./figures/cosmogenic_2.png> <./figures/kneeankle.png>]
-<figures/anita_where_energy.png, id=167, 895.345pt x 545.03625pt>
-File: figures/anita_where_energy.png Graphic file (type png)
-<use figures/anita_where_energy.png>
-Package pdftex.def Info: figures/anita_where_energy.png  used on input line 69.
-
-(pdftex.def)             Requested size: 390.25536pt x 237.57121pt.
- [4 <./figures/uhe_process.png>]
-<figures/askaryan_in_ice.png, id=175, 989.1354pt x 395.5578pt>
-File: figures/askaryan_in_ice.png Graphic file (type png)
-<use figures/askaryan_in_ice.png>
-Package pdftex.def Info: figures/askaryan_in_ice.png  used on input line 88.
-(pdftex.def)             Requested size: 433.62001pt x 173.40617pt.
-<figures/flights_table.png, id=178, 693.3102pt x 352.1958pt>
-File: figures/flights_table.png Graphic file (type png)
-<use figures/flights_table.png>
-Package pdftex.def Info: figures/flights_table.png  used on input line 103.
-(pdftex.def)             Requested size: 433.62001pt x 220.28305pt.
-<figures/anita_cartoon_updated.png, id=179, 1046.9514pt x 677.4108pt>
-File: figures/anita_cartoon_updated.png Graphic file (type png)
-<use figures/anita_cartoon_updated.png>
-Package pdftex.def Info: figures/anita_cartoon_updated.png  used on input line 
-111.
-(pdftex.def)             Requested size: 390.25536pt x 252.50897pt.
-) [5 <./figures/anita_where_energy.png>] [6 <./figures/askaryan_in_ice.png> <./
-figures/flights_table.png>] [7 <./figures/anita_cartoon_updated.png>]
-\openout2 = `chapter2.aux'.
-
- (chapter2.tex
-Chapter 2.
-<figures/Two_source/ts_filament_gas_cell.png, id=197, 1927.2pt x 1084.05pt>
+<figures/Two_source/ts_filament_gas_cell.png, id=103, 1927.2pt x 1084.05pt>
 File: figures/Two_source/ts_filament_gas_cell.png Graphic file (type png)
 <use figures/Two_source/ts_filament_gas_cell.png>
 Package pdftex.def Info: figures/Two_source/ts_filament_gas_cell.png  used on i
 nput line 20.
 (pdftex.def)             Requested size: 390.25536pt x 219.51892pt.
-[8
+[1
 
 
 
-] [9 <./figures/Two_source/ts_filament_gas_cell.png>] [10]
-<figures/Two_source/MCP_ts_harmonics.png, id=212, 423.68288pt x 377.0085pt>
+] [2 <./figures/Two_source/ts_filament_gas_cell.png>] [3]
+<figures/Two_source/MCP_ts_harmonics.png, id=120, 423.68288pt x 377.0085pt>
 File: figures/Two_source/MCP_ts_harmonics.png Graphic file (type png)
 <use figures/Two_source/MCP_ts_harmonics.png>
 Package pdftex.def Info: figures/Two_source/MCP_ts_harmonics.png  used on input
  line 29.
 (pdftex.def)             Requested size: 390.25536pt x 347.28346pt.
- [11] [12 <./figures/Two_source/MCP_ts_harmonics.png>] [13]
-<figures/Two_source/dOD_dn.pdf, id=226, 363.84615pt x 258.9392pt>
+ [4] [5 <./figures/Two_source/MCP_ts_harmonics.png>] [6]
+<figures/Two_source/dOD_dn.pdf, id=134, 363.84615pt x 258.9392pt>
 File: figures/Two_source/dOD_dn.pdf Graphic file (type pdf)
 <use figures/Two_source/dOD_dn.pdf>
 Package pdftex.def Info: figures/Two_source/dOD_dn.pdf  used on input line 38.
 (pdftex.def)             Requested size: 390.25536pt x 277.73386pt.
-) [14 <./figures/Two_source/dOD_dn.pdf>] [15] [16]
+) [7 <./figures/Two_source/dOD_dn.pdf>]
+[8] [9]
+\openout2 = `chapter2.aux'.
+
+ (chapter2.tex
+Chapter 2.
+File: figures/Two_source/ts_filament_gas_cell.png Graphic file (type png)
+<use figures/Two_source/ts_filament_gas_cell.png>
+Package pdftex.def Info: figures/Two_source/ts_filament_gas_cell.png  used on i
+nput line 20.
+(pdftex.def)             Requested size: 390.25536pt x 219.51892pt.
+[10
+
+
+
+] [11] [12]
+File: figures/Two_source/MCP_ts_harmonics.png Graphic file (type png)
+<use figures/Two_source/MCP_ts_harmonics.png>
+Package pdftex.def Info: figures/Two_source/MCP_ts_harmonics.png  used on input
+ line 29.
+(pdftex.def)             Requested size: 390.25536pt x 347.28346pt.
+ [13] [14] [15]
+File: figures/Two_source/dOD_dn.pdf Graphic file (type pdf)
+<use figures/Two_source/dOD_dn.pdf>
+Package pdftex.def Info: figures/Two_source/dOD_dn.pdf  used on input line 38.
+(pdftex.def)             Requested size: 390.25536pt x 277.73386pt.
+) [16] [17] [18]
 \openout2 = `appendix1.aux'.
 
  (appendix1.tex
 Appendix A.
-[17
+[19
 
 
 
-] [18] [19] [20] [21]) [22] (SJH-dissertation.bbl
+] [20] [21] [22] [23]) [24] (SJH-dissertation.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 171.
- [23
+ [25
 
 
 
@@ -1215,55 +1195,36 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 171.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 171.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 171.
  ) 
 Here is how much of TeX's memory you used:
- 24358 strings out of 492969
- 416847 string characters out of 3127030
- 801941 words of memory out of 3000000
- 27805 multiletter control sequences out of 15000+200000
- 541283 words of font info for 54 fonts, out of 3000000 for 9000
+ 24271 strings out of 492969
+ 414994 string characters out of 3127030
+ 798095 words of memory out of 3000000
+ 27745 multiletter control sequences out of 15000+200000
+ 540984 words of font info for 53 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
- 46i,12n,89p,2037b,491s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{glo:anita} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{glo:uhe} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{glo:grbs} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{subfigure.3.2} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{subfigure.3.1} has been referenced but does not exi
-st, replaced by a fixed one
-
-<C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmbx10.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmbx12.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Tebe/AppData/Local/P
-rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Tebe/AppD
-ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/User
-s/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.p
-fb><C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr6.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr8.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr9.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Tebe/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Tebe/AppData/
-Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Te
-be/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on SJH-dissertation.pdf (33 pages, 16670861 bytes).
+ 46i,6n,79p,2037b,480s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmbx10.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Tebe/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Tebe/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Tebe/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Us
+ers/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12
+.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr6.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr8.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Tebe/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Tebe/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Tebe/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on SJH-dissertation.pdf (35 pages, 15022673 bytes).
 PDF statistics:
- 423 PDF objects out of 1000 (max. 8388607)
- 75 named destinations out of 1000 (max. 500000)
- 229 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 346 PDF objects out of 1000 (max. 8388607)
+ 60 named destinations out of 1000 (max. 500000)
+ 144 words of extra memory for PDF output out of 10000 (max. 10000000)
 
