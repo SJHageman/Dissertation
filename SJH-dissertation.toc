@@ -2,15 +2,27 @@
 \contentsline {front}{Abstract}{ii}{chapter*.1}
 \contentsline {front}{Dedication}{iii}{section*.2}
 \contentsline {front}{Acknowledgments}{iv}{chapter*.3}
-\contentsline {front}{Vita}{vi}{chapter*.4}
-\contentsline {front}{\textbf {List of Figures}}{viii}{section*.5}
-\contentsline {front}{\textbf {List of Abbreviations}}{ix}{section*.6}
+\contentsline {front}{Vita}{v}{chapter*.4}
+\contentsline {front}{\textbf {List of Figures}}{vii}{section*.5}
+\contentsline {front}{\textbf {List of Abbreviations}}{viii}{section*.6}
 \contentsline {part}{Chapters}{\pageref {chapter.1}}{chapter.1}
-\contentsline {chapter}{\numberline {1}Two-source high harmonic generation}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}HHG}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Theory}{1}{section.1.2}
-\contentsline {chapter}{\numberline {2}Two-source high harmonic generation}{10}{chapter.2}
-\contentsline {section}{\numberline {2.1}Introduction}{10}{section.2.1}
-\contentsline {section}{\numberline {2.2}Theory}{10}{section.2.2}
-\contentsline {chapter}{Appendix \numberline {A}Beamline design}{19}{Appendix.1.A}
-\contentsline {chapter}{Bibliography}{25}{section*.13}
+\contentsline {chapter}{\numberline {2}Two-source high harmonic generation}{2}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introduction}{2}{section.2.1}
+\contentsline {section}{\numberline {2.2}Theory}{2}{section.2.2}
+\contentsline {chapter}{\numberline {3}Theory of attosecond transient absorption}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{11}{section.3.1}
+\contentsline {section}{\numberline {3.2}Theory}{11}{section.3.2}
+\contentsline {chapter}{\numberline {4}Design and construction of experimental apparatus}{20}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{20}{section.4.1}
+\contentsline {section}{\numberline {4.2}Beamline}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}Photon Spectrometer}{21}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Spectrometer Calibration}{22}{subsection.4.3.1}
+\contentsline {chapter}{\numberline {5}Transient absorption of argon: Fano resonances}{24}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{24}{section.5.1}
+\contentsline {chapter}{\numberline {6}Two-source transient absorption spectroscopy}{27}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduction}{27}{section.6.1}
+\contentsline {chapter}{Appendix \numberline {A}Beamline design}{28}{Appendix.1.A}
+\contentsline {chapter}{Bibliography}{34}{section*.13}
