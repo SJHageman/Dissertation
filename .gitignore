@@ -263,3 +263,6 @@ TSWLatexianTemp*
 
 # standalone packages
 *.sta
+
+#unsure, but not needed
+*.ist
