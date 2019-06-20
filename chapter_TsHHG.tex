@@ -4,23 +4,23 @@
 \section{Introduction}
 \label{intro_ts}
 
-A common difficulty in working with extreme ultraviolet (XUV) light is the lack of efficient and broadband optics, especially beam splitters. Here, we introduce a method for generating two sources of XUV light by high harmonic generation using a phase grating.  This phase grating allows for precise and stable control of the phase delay between the two generate XUV beams.  This can be thought of as an inline interferometer, and it can have applications for XUV Fourier transform spectroscopy, as well as transient absorption spectroscopy \cite{diffuse}.
+A common difficulty in working with extreme ultraviolet (XUV) light is the lack of efficient and broadband optics, especially beam splitters. Here, we introduce a method for generating two sources of XUV light by high harmonic generation using a phase grating.  This phase grating allows for precise and stable control of the phase delay between the two generate XUV beams.  This can be thought of as an inline interferometer, and it can have applications for XUV Fourier transform spectroscopy, as well as transient absorption spectroscopy.
 
 \section{Theory}
 \label{theory_ts}
 
-In order to generate two ostensibly identical XUV pulses, we take advantage of a diffractive optical element known as a beam splitting grating.\cite{ROMERO_chapter6}   The idea is to introduce a periodic phase step in the beam, which will cause the beam to diffract into different orders.  The phase step is designed such that the +1 and -1 orders are most efficiently populated, with an efficiency of up to 81$\%$.  These will be used to generate spatially separated harmonics.
+In order to generate two ostensibly identical XUV pulses, we take advantage of a diffractive optical element known as a beam splitting grating.   The idea is to introduce a periodic phase step in the beam, which will cause the beam to diffract into different orders.  The phase step is designed such that the +1 and -1 orders are most efficiently populated, with an efficiency of up to 81$\%$.  These will be used to generate spatially separated harmonics.
 
 A key advantage to this method is that it allows for control of the relative phase between the two sources generating harmonics.  By translating the grating relative to the beam, the relative phase difference between the +1 and -1 orders goes from -2$\pi$ to 2$\pi$.  This can be seen in the phase of the electric field at the focus:
 
-\begin{equation}\label{ep:field}
+\begin{equation}\label{eq:field}
 	S(x) = \sum_{n} E(x - x_{n})
 \end{equation}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/Two_source/romero_beam_shaping_schematic.png}
-	\caption{Schematic of using a diffractive optical element to shape the beam profile at the focus. Adapted from RomeroSPIE2010}
+	\caption{Schematic demonstrating how to use a diffractive optical element to shape the beam profile at the focal plane. A collimated coherent beam is incident upon a diffractive optical element which shapes the phase of the incident beam, and then a lens is as a transform element to Fourier transform the beam at the focal plane.  The intensity profile at the focal plane can be controlled by altering the spatial dependence of the phase imparted upon the incident beam by the phase element. Adapted from \cite{romero_mathematical_2010-1}}
 	\label{fourier_beam_shaping_scheme}
 \end{figure}
 
@@ -28,7 +28,7 @@ A key advantage to this method is that it allows for control of the relative pha
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/Two_source/ts_filament_gas_cell.png}
 	\caption{Camera image of two sources generating a filament in a gas cell. Image was taken while chamber was vented and at ambient pressure.}
-	\label{my_anita}
+	\label{ts_filament}
 \end{figure}
 
 \lipsum
