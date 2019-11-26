@@ -18,7 +18,7 @@
 % (You can also use pdflatex if you prefer.)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[11pt, double, phd]{osudiss-2} 
+\documentclass[11pt, onehalf, phd]{osudiss-2} 
 % The `11pt' option is unnecessary since it is the default
 
 % `onehalf' sets the line spacing to one-and-a-half spacing instead of
@@ -33,6 +33,7 @@
 \usepackage{graphicx} % for importing images in figures - you definitely want this!
 \usepackage{lipsum} % for fake latin text---you probably don't want this
 \usepackage{verbatimbox}
+
 
 % For instance... see osudiss-2.pdf for some suggestions, if you don't
 % have a clue
@@ -52,7 +53,8 @@
 \usepackage[sort&compress]{natbib}
 
 %required to have latex automatically generate subfigures (i.e. (a), (b) etc)
-\usepackage{subfig}
+%\usepackage{subfig}
+\usepackage{subcaption}
 \usepackage[export]{adjustbox}
 \setcounter{lofdepth}{2}
 \PassOptionsToPackage{obeyspaces}{url}
@@ -136,7 +138,7 @@
 %\listoftables 
 
 %print glossary - comment out if you don't want this.  Make sure you also add \glsdisablehyper if you don't want to print a glossary, but do use the %glossaries package to keep track of acronyms
-\clearpage %remove if you don't want a page break before list of abbreviations
+%\clearpage %remove if you don't want a page break before list of abbreviations
 \PrintListofAbbreviations{List of Abbreviations} %Title is in { } - change if desired
 %\printglossary[type=\acronymtype]
 
