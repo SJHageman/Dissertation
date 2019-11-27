@@ -31,7 +31,7 @@ This problem can be theoretically described in terms of Fourier optics \cite{dic
 	u(x,y,z)=\frac{i k}{2\pi z}e^{i k z}e^{i k (x^2+y^2)/2z}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}u(\xi,\eta,0) e^{ik(\xi^{2}+\eta^{2})/2z} e^{-ik(x\xi + y\eta)/z} \diff\xi\diff\eta
 \end{equation}
 
-where $u(\xi,\eta,0)$ is the incoming field and $k=2\pi/\lambda$ is the wavenumber.  Now, if one assumes that the phase element is placed at $z=0$, then immediately after passing through the thin phase element in Fig. \ref{beam_shaping_scheme} the field is given by
+where $u(\xi,\eta,0)$ is the incoming field and $k=2\pi/\lambda$ is the wavenumber.  Now, if one assumes that the phase element is placed at $z=0$, then immediately after passing through the thin phase element in Fig. \ref{fig:beam_shaping_scheme} the field is given by
 
 \begin{equation}
 	u(\xi,\eta,0)=f(\xi,\eta)e^{i\phi(\xi,\eta)}.
@@ -60,11 +60,11 @@ Now, the idea is to rewrite this field profile at the focal plane into a more in
 The Fourier transform of this function $g(\xi,\eta)$ is given by
 
 \begin{equation}
-	G(\alpha,\beta)=\frac{ik}{2\pi f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(\xi,\eta)e^{i\psi(\xi,\eta)}
-	e^{-i(\alpha\xi + \beta\eta)}\diff\xi\diff\eta.
+	G(a,b)=\frac{ik}{2\pi f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(\xi,\eta)e^{i\psi(\xi,\eta)}
+	e^{-i(a\xi + b\eta)}\diff\xi\diff\eta.
 \end{equation}
 
-By setting $\alpha=kx/f$ and $\beta = ky/f$ and taking the square complex modulus, one obtains the equation
+By setting $a=kx/f$ and $b=ky/f$ and taking the square complex modulus, one obtains the equation
 
 \begin{equation}
 	\rvert G(kx/f,ky/f)\rvert^{2} = \frac{k^2}{(2\pi f)^2} \bigg\rvert\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}
@@ -77,7 +77,9 @@ By comparing this equation with the square complex modulus of the field at the f
 	\rvert u(x,y,f)\rvert^2 = \rvert G(kx/f,ky/f)\rvert^2
 \end{equation}
 
-Thus, we have shown that the intensity of the field at $z=f$, $\rvert u \rvert^2$, is given by the Fourier transform of the combined phase imparted upon the incident field by both the phase element and the Fourier transform lens, $\rvert G\rvert^2$.  So, by tuning the frequency components of the phase imparted upon the beam, one can, in principle, produced a specific beam shape $I(x,y)$.
+Thus, we have shown that the intensity of the field at $z=f$, $\rvert u \rvert^2$, is given by the Fourier transform of the combined phase imparted upon the incident field by both the phase element and the Fourier transform lens, $\rvert G\rvert^2$.  So, by tuning the frequency components of the phase imparted upon the beam $\phi(x,y)$, one can, in principle, produced a specific beam shape $I(x,y)$.
+
+%add beta parameter scaling?????
 
 \subsection{Beam splitting grating}
 \subsection{Imperfect phase grating}
