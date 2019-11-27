@@ -8,11 +8,12 @@ A common difficulty in working with extreme ultraviolet (XUV) light is the lack 
 
 \section{Theory}
 \subsection{Laser beam shaping using diffractive optics}
-\label{theory_ts}
+\label{sec:beam_shaping}
 %Describe general problem of beam shaping using DOEs. see \cite{romeroMathematicalAspectsLaser2010,romeroMathematicalTheoryLaser2010,romeroTheoryOptimalBeam2007}
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!COME BACK TO THIS SECTION LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 In many experimental designs, it is advantageous to be able to shape the spatial intensity distribution of light to be something other than a typical Gaussian beam.  A common example of this is generating a beam with an approximately constant intensity across it's spatial profile (a flat-top beam).  For the experiments described herein, we will be interested in duplicating an input beam with relative phase control between the two duplicate beams.  Both of these examples are part of the general concept of laser beam shaping.  The challenge is to design an optical system such that given an input beam profile $I_{in}(x,y)$ we can generate the desired output beam profile $I_{out}(x,y)$. Ideally, this optical system is designed in such a way that it can be nearly lossless.\footnote{In the limit of geometric optics it is possible to make the optical system, in principle, lossless, however this is not generally possible when one considers the wave nature of light.}  The relevant optical system which will be used is shown in figure \ref{fig:beam_shaping_scheme}.  The system consists of a phase element which modifies the input field by $\phi(x,y)$ and a Fourier transform lens which adds a quadratic phase to the beam to focus it at the focal plane.  By appropriate choice of the phase profile of the phase element, one can produce the desired beam profile at the focal plane.
 
 
@@ -25,63 +26,103 @@ In many experimental designs, it is advantageous to be able to shape the spatial
 
 
 This problem can be theoretically described in terms of Fourier optics \cite{dickeyLaserBeamShaping2000, romeroMathematicalAspectsLaser2010, goodmanIntroductionFourierOptics2005}.  If one assumes that a field $u(x,y,0)$ is incident upon an an aperture at $z=0$, then the field for $z>0$ can be written under the Fresnel approximation by the Fresnel integral
-
 \begin{equation}
 \label{fresnel_integral}
 	u(x,y,z)=\frac{i k}{2\pi z}e^{i k z}e^{i k (x^2+y^2)/2z}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}u(\xi,\eta,0) e^{ik(\xi^{2}+\eta^{2})/2z} e^{-ik(x\xi + y\eta)/z} \diff\xi\diff\eta
 \end{equation}
-
 where $u(\xi,\eta,0)$ is the incoming field and $k=2\pi/\lambda$ is the wavenumber.  Now, if one assumes that the phase element is placed at $z=0$, then immediately after passing through the thin phase element in Fig. \ref{fig:beam_shaping_scheme} the field is given by
-
 \begin{equation}
 	u(\xi,\eta,0)=f(\xi,\eta)e^{i\phi(\xi,\eta)}.
 \end{equation} 
-
 After propagating through the thin Fourier transform lens of focal length $f$, the field at the focal plane is now given by
-
 \begin{equation}
 \label{eqn:field_at_focus}
 	u(x,y,f)=\frac{ik}{2\pi f}e^{ikf}e^{ik(x^2+y^2)/2f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(\xi,\eta)e^{i\psi(\xi,\eta)}
 	e^{-ik(x\xi + y\eta)/f}\diff\xi\diff\eta
 \end{equation}
-
 where
-
 \begin{equation}
 	\psi(\xi,\eta)=\phi(\xi,\eta) + k(\xi^2 + \eta^2)/2f.
 \end{equation}
 
 Now, the idea is to rewrite this field profile at the focal plane into a more intuitive form by introducing the equation
-
 \begin{equation}
 	g(\xi,\eta)=\frac{ik}{2\pi f}f(\xi,\eta)e^{i\psi(\xi,\eta)}.
 \end{equation}
-
 The Fourier transform of this function $g(\xi,\eta)$ is given by
-
 \begin{equation}
+\label{eqn:big_G}
 	G(a,b)=\frac{ik}{2\pi f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(\xi,\eta)e^{i\psi(\xi,\eta)}
 	e^{-i(a\xi + b\eta)}\diff\xi\diff\eta.
 \end{equation}
-
 By setting $a=kx/f$ and $b=ky/f$ and taking the square complex modulus, one obtains the equation
-
 \begin{equation}
 	\rvert G(kx/f,ky/f)\rvert^{2} = \frac{k^2}{(2\pi f)^2} \bigg\rvert\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}
 	f(\xi,\eta)e^{i\psi(\xi,\eta)}e^{-ik(x\xi+y\eta)/f}\diff\xi\diff\eta\bigg\rvert^{2}.
 \end{equation}
-
 By comparing this equation with the square complex modulus of the field at the focal plane (equation \ref{eqn:field_at_focus}), one finds the relationship
-
 \begin{equation}
-	\rvert u(x,y,f)\rvert^2 = \rvert G(kx/f,ky/f)\rvert^2
+\label{eqn:Fourier_focal_plane}
+	\rvert u(x,y,f)\rvert^2 = \rvert G(kx/f,ky/f)\rvert^2.
 \end{equation}
 
-Thus, we have shown that the intensity of the field at $z=f$, $\rvert u \rvert^2$, is given by the Fourier transform of the combined phase imparted upon the incident field by both the phase element and the Fourier transform lens, $\rvert G\rvert^2$.  So, by tuning the frequency components of the phase imparted upon the beam $\phi(x,y)$, one can, in principle, produced a specific beam shape $I(x,y)$.
+From this last equality we have shown that the intensity of the field at at the focal plane $\rvert u(z=f)\rvert^2$, is given by the Fourier transform of the combined phase imparted upon the incident field by both the phase element and the Fourier transform lens, $\rvert G\rvert^2$. So, if one wants a specific beam shape $Q(x,y)$ at the focal plane, then by tuning the frequency components of the phase imparted upon the beam $\phi(x,y)$ and the focal length $f$ used then one can achieve the desired beam profile, such that
+\begin{equation}
+\label{eqn:beam_shaping_equality}
+	\rvert G(kx/f,ky/f)\rvert^2=Q(x,y).
+\end{equation}
+This problem is difficult in general, so the challenge in many beam shaping problems is to try and minimize the error between the true field and the desired field, and to further complicate the matter, many applications will require different notions of error to be used.  For example, if one needs the energy distribution to be as close as possible to the desired profile, then the $\ell_2$-norm would be appropriate.  However, if the maximum intensity is of concern, then the $\ell_\infty$-norm combined with the $\ell_2$-norm would be the appropriate notion of error.
 
-%add beta parameter scaling?????
+It is possible to gain more insight into how difficult a beam shaping problem will be by reformulating the problem in terms of relevant length scales.  The idea is to introduce a dimensionless parameter whose magnitude will reflect the validity of underlying assumptions, and so for a given value of this parameter one can intuitively understand the performance (or lack thereof) of the beam shaping system.  This is done by reformulating the above situation in terms of the natural length scales of both the incoming field and the desired field at the focal plane
+\begin{align}
+	I_{\mathrm{input}} &= \rvert f(x,y)\rvert^2=\rvert\hat{f}(x/\sigma,y/\sigma)\rvert^2\\
+	I_{\mathrm{desired}} &= Q(x,y)=\hat{Q}(x/d,y/d)
+\end{align}
+where $\sigma$ is the characteristic length scale of the input field (typically the beam radius) and $d$ is the characteristic length scale of the desired field.  By expressing the fields in this way, we can now introduce the dimensionless parameter
+\begin{equation}
+\label{eqn:beta_parameter}
+	\beta=\frac{2\pi\sigma d}{\lambda f}.
+\end{equation}
+Using this dimensionless parameter, one can rewrite equations \ref{eqn:big_G} and \ref{eqn:beam_shaping_equality} as
+\begin{align}
+\label{eqn:new_G}
+	G(\chi,\nu) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} g(\xi,\eta)e^{-i(\chi\xi+\nu\eta)}e^{i\beta\hat{\psi}(\xi,\eta)} \diff\xi\diff\eta\\
+\label{eqn:beta_beam_shaping_equality}
+	\rvert G(\chi, \nu)\rvert^2 &= \frac{4\pi^2 A}{\beta^2}Q(\chi/\beta,\nu/\beta)
+\end{align}
+where $\chi=x\sigma k /f$, $\nu=y\sigma k /f$, $A$ is a constant, and $\hat{\psi} = \beta\psi$. From equation \ref{eqn:new_G}, it is clear that the functions $g$ and $G$ are related by a Fourier transform, so they must obey the uncertainty relation given by
+\begin{equation}
+	\mu_g \mu_G\geq 1
+\end{equation}
+where $\mu$ is the second moment.  Now, if one were to choose the phase profile of the phase element $\phi(x,y)$ such that equation \ref{eqn:beta_beam_shaping_equality} is satisfied, then one finds that $\mu_G=\beta^2\mu_Q$.  This then leads to the inequality
+\begin{equation}
+\label{eqn:beta_inequalty}
+	\beta^2 \mu_G\mu_Q\geq 1.
+\end{equation}
+It can be seen that for large vales of $\beta$ this inequality can be readily satisfied.  However, for very small values of $\beta$ this inequality cannot be met and it will not be possible to produce the desired beam profile.  From this, it can be seen that having a large value of $\beta$ makes the beam shaping problem more tractable.  The physical interpretation of $\beta$ is that is a measure of validity of geometric optics.  It can be shown that when $\beta$ is large a stationary phase method can be used to expand equation \label{eqn:new_G}, and the lowest order term can be derived using a geometric optics approximation and higher order terms are related to the effects of diffraction \cite{dickeyLaserBeamShaping2000, romeroMathematicalAspectsLaser2010}.
 
-\subsection{Beam splitting grating}
+In this section, the general problem of laser beam shaping has been introduced and formulated as a problem in Fourier analysis, and by rewriting everything in terms of natural length scales we can infer which types of beam shaping problems will be more tractable using geometrical optics approximations.  The discussion so far has been kept very abstract, but in the next section the problem of interest will be introduced and these ideas will become more concrete.
+
+\subsection{Beam splitting phase grating}
+\label{sec:phase_grating}
+Now that the general theory behind laser beam shaping has been introduced, we move on to the specific problem at hand.  The idea is to produce two nearly identical XUV beams through \gls{hhg} using two nearly identical \gls{ir} beams.  The challenge is how to produce two nearly identical \gls{ir} beams while minimizing the energy lost in the process.  An additional requirement is that we can control the relative phase between these two \gls{ir} beams.  All of these requirements can be met through the use of a beam splitting phase grating.
+
+As shown in section \ref{sec:beam_shaping}, the beam shape at the focal plane of a lens can be controlled through appropriate choice of a phase element and the spatially dependent phase $\phi(x,y)$ which is imparted upon the incoming beam.  We will still consider the schematic shown in figure \ref{fig:beam_shaping_scheme}.  However, the phase element which will be considered in this section (the beam splitting phase grating) will only modify the phase in one dimension, $\phi(x,y)=\phi(x)$, and it will be a periodic function with a period of $d$, $\phi(x)=\phi(x+d)$. If we expand the function $P(x)=e^{i\phi(x)}$ in a Fourier expansion
+\begin{align}
+	P(x) = \sum_{n=-\infty}^{\infty}a_n e^{\frac{i2\pi n x }{d}}\\
+	a_n = \frac{1}{d}\int_{-d/2}^{d/2} P(\tilde{x})e^{\frac{-i2\pi n\tilde{x}}{d}}\diff\tilde{x},
+\end{align}
+then it can be shown (see Appendix \ref{app:SWPG}) that each of the Fourier coefficients represents a diffracted beam and the energy contained in each diffracted beam is given by the square complex modulus of the Fourier coefficient $\rvert a_n\rvert^2$.  Thus, by making our phase element in figure \ref{fig:beam_shaping_scheme} a phase grating, we have split the beam into many diffraction orders.  We have specified the period of the phase grating by requiring $\phi(x)=\phi(x+d)$, however we have not yet determined its shape.  This can be accomplished by specifying the distribution of energy into the various diffraction orders.  Since we want to split the incoming beam into two duplicate beams, we are searching for $d$-periodic function such that puts equal energy into two diffraction orders and a maximal amount of the input energy is put into those two orders. It can be shown (see Appendix \ref{app:SWPG}) that the $d$-periodic function which meets these criteria is a $0-\pi$ \gls{swpg} given by
+\begin{equation}
+\label{eqn:swpg}
+	P(x,x_0) = \mathrm{sign}\Bigg( \cos\bigg( \frac{2\pi(x-x_0)}{d}\bigg)\Bigg).
+\end{equation} 
+From this equation, it can be seen that the phase of the incoming beam is modulated by either $0$ or $\pi$, and this is shown in figure \ref{}.
+
+
+
+
+
 \subsection{Imperfect phase grating}
 \section{Two-source high harmonic generation}
 
