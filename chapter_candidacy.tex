@@ -109,19 +109,83 @@ Now that the general theory behind laser beam shaping has been introduced, we mo
 
 As shown in section \ref{sec:beam_shaping}, the beam shape at the focal plane of a lens can be controlled through appropriate choice of a phase element and the spatially dependent phase $\phi(x,y)$ which is imparted upon the incoming beam.  We will still consider the schematic shown in figure \ref{fig:beam_shaping_scheme}.  However, the phase element which will be considered in this section (the beam splitting phase grating) will only modify the phase in one dimension, $\phi(x,y)=\phi(x)$, and it will be a periodic function with a period of $d$, $\phi(x)=\phi(x+d)$. If we expand the function $P(x)=e^{i\phi(x)}$ in a Fourier expansion
 \begin{align}
+\label{eqn:Fourier_coeff_def}
 	P(x) = \sum_{n=-\infty}^{\infty}a_n e^{\frac{i2\pi n x }{d}}\\
 	a_n = \frac{1}{d}\int_{-d/2}^{d/2} P(\tilde{x})e^{\frac{-i2\pi n\tilde{x}}{d}}\diff\tilde{x},
 \end{align}
 then it can be shown (see Appendix \ref{app:SWPG}) that each of the Fourier coefficients represents a diffracted beam and the energy contained in each diffracted beam is given by the square complex modulus of the Fourier coefficient $\rvert a_n\rvert^2$.  Thus, by making our phase element in figure \ref{fig:beam_shaping_scheme} a phase grating, we have split the beam into many diffraction orders.  We have specified the period of the phase grating by requiring $\phi(x)=\phi(x+d)$, however we have not yet determined its shape.  This can be accomplished by specifying the distribution of energy into the various diffraction orders.  Since we want to split the incoming beam into two duplicate beams, we are searching for $d$-periodic function such that puts equal energy into two diffraction orders and a maximal amount of the input energy is put into those two orders. It can be shown (see Appendix \ref{app:SWPG}) that the $d$-periodic function which meets these criteria is a $0-\pi$ \gls{swpg} given by
 \begin{equation}
 \label{eqn:swpg}
-	P(x,x_0) = \mathrm{sign}\Bigg( \cos\bigg( \frac{2\pi(x-x_0)}{d}\bigg)\Bigg).
+	P(x,x_0) = \mathrm{sign}\Bigg( \cos\bigg( \frac{2\pi(x-x_0)}{d}\bigg)\Bigg)
 \end{equation} 
-From this equation, it can be seen that the phase of the incoming beam is modulated by either $0$ or $\pi$, and this is shown in figure \ref{}.
+where $x_0$ is an offset of position of the \gls{swpg} in the plane transverse to the optical axis. From this equation, it can be seen that the phase of the incoming beam is modulated by either $0$ or $\pi$, and this is shown in figure \ref{fig:swpg} for $x_0=0$ and $x_0=d/10$. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/swpg.png}
+	\caption{Plot of the phase function $\phi(x-x_0)$ in units of $\pi$ for a $0-\pi$ \gls{swpg} with a period of $d$.  The dark blue curve (light blue) shows the phase function for $x_0 = 0$ ($x_0=d/10$). }
+	\label{fig:swpg}
+\end{figure}
+
+From equation \ref{eqn:Fourier_coeff_def}, we can calculate the Fourier coefficients $a_n(x_0)$ for the \gls{swpg} for $n=0$ and $n\neq0$.  These Fourier coefficients determines how the energy is distributed between the different diffraction orders.  For the zeroth-order case ($n=0$), we find that
+\begin{equation}
+\begin{aligned}
+a_0(x_0) &= \frac{1}{d}\int_{-d/2}^{d/2} \mathrm{sign}\Bigg( \cos\bigg( \frac{2\pi(\tilde{x}-x_0)}{d}\bigg)\Bigg) \diff\tilde{x}\\
+a_0(x_0) &=\frac{1}{d}\Bigg[ -\int_{-\frac{d}{2}}^{-\frac{d}{4}+x_0}\diff\tilde{x} 
++\int_{-\frac{d}{4}+x_0}^{\frac{d}{4}+x_0}\diff\tilde{x}
+-\int_{\frac{d}{4}+x_0}^{\frac{d}{2}}\diff\tilde{x}
+\Bigg]\\
+a_0(x_0) &=0.
+\end{aligned}
+\end{equation}
+This demonstrates that zero energy is put into the zeroth-order diffraction for the $0-\pi$ \swpg.  For the other diffraction orders, we find that
+\begingroup
+\allowdisplaybreaks
+\begin{equation}
+	\begin{aligned}
+		a_n(x_0) &= \frac{1}{d}\int_{-d/2}^{d/2} \mathrm{sign}\Bigg( \cos\bigg( \frac{2\pi(\tilde{x}-x_0)}{d}\bigg)\Bigg) e^{\frac{-i2\pi n\tilde{x}}{d}}\diff\tilde{x}\\
+		&=\frac{1}{d}\Bigg[ -\int_{-\frac{d}{2}}^{-\frac{d}{4}+x_0} e^{-\frac{i2\pi n x}{d}}\diff\tilde{x} 
+		+\int_{-\frac{d}{4}+x_0}^{\frac{d}{4}+x_0} e^{-\frac{i2\pi n x}{d}}\diff\tilde{x}
+		-\int_{\frac{d}{4}+x_0}^{\frac{d}{2}} e^{-\frac{i2\pi n x}{d}}\diff\tilde{x}
+		\Bigg]\\
+		&=\frac{1}{i2\pi n}\Bigg[
+		e^{\frac{i\pi n}{2}-\frac{i2\pi n x_0}{d}} - e^{i n \pi}
+		+ e^{\frac{i\pi n}{2}-\frac{i2\pi n x_0}{d}} - e^{-\frac{i\pi n}{2}-\frac{i2\pi n x_0}{d}}
+		+e^{-i n \pi} - e^{-\frac{i\pi n}{2}-\frac{i2\pi n x_0}{d}}
+		\Bigg]\\
+		&=\frac{1}{i\pi n}\Bigg[e^{\frac{i\pi n}{2}-\frac{i2\pi n x_0}{d}}-e^{-\frac{i\pi n}{2}-\frac{i2\pi n x_0}{d}} \Bigg] = \frac{\sin (n\pi/2)}{n\pi/2}e^{-i\frac{2\pi n x_0}{d}}\\
+		a_n(x_0) &= \mathrm{sinc}(\frac{n\pi}{2})e^{-i n \frac{2\pi x_0}{d}}.
+	\end{aligned}
+\end{equation}
+\endgroup
+Since $\mathrm{sinc}(n\pi/2)=0$ for even $n$, we see that only the odd orders of diffraction from the \gls{swpg}  are populated. The distribution of energy between the different diffraction orders is plotted in figure \ref{fig:a_n}, and from this figure it is immediately clear that our choice of the $0-\pi$ \gls{swpg} has succeeded in putting most of the input energy equally into two diffraction orders, namely the $\pm1$ orders.  The efficiency of this phase grating can be defined as
+\begin{equation}
+	\eta=\rvert a_1\rvert^2 + \rvert a_{-1}\rvert^2 =\frac{8}{\pi^2}\approx 0.8106,
+\end{equation} 
+which means that approximately $81\%$ of the input energy will be put into the two orders that we want.  It should be noted that $\sum_{n}\rvert a_n\rvert^2=1$, which means that while we can't get perfect conversion of energy into two orders this is still a lossless design.
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/a_n.png}
+	\caption{Square complex modulus of the Fourier coefficients $a_n$ of the $0-\pi$ \gls{swpg}. The square complex modulus is proportional to the energy put into each diffraction order.  As can be seen from figure, the $\pm1$ orders have the most energy put into them at $4/\pi^2\approx41.1\%$ each.  All even orders have zero energy.}
+	\label{fig:a_n}
+\end{figure}
+
+A very important feature of the \gls{swpg}
 
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/focus_intensity.png}
+	\caption{Intensity profile $S(\tilde{x})$ at the focal plane. Horizontal units are scaled by the spacing between orders, $\tilde{x_1}=\lambda f/d$.  Calculated by numerically propagation using Fresnel integral.}
+	\label{fig:s^2}
+\end{figure}
 
-
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/LP_images.png}
+	\caption{Intensity profile of the input beam measured by a thermal camera. Phase imparted by \gls{swpg}}
+	\label{fig:LP_inputs}
+\end{figure}
 
 \subsection{Imperfect phase grating}
 \section{Two-source high harmonic generation}
