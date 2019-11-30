@@ -118,7 +118,7 @@ then it can be shown (see Appendix \ref{app:SWPG}) that each of the Fourier coef
 \label{eqn:swpg}
 	P(x,x_0) = \mathrm{sign}\Bigg( \cos\bigg( \frac{2\pi(x-x_0)}{d}\bigg)\Bigg)
 \end{equation} 
-where $x_0$ is an offset of position of the \gls{swpg} in the plane transverse to the optical axis. From this equation, it can be seen that the phase of the incoming beam is modulated by either $0$ or $\pi$, and this is shown in figure \ref{fig:swpg} for $x_0=0$ and $x_0=d/10$. 
+where $x_0$ is an offset of position of the \gls{swpg} in the plane transverse to the optical axis. From this equation, it can be seen that the phase of the incoming beam is modulated by either $0$ or $\pi$, and this is shown in figure \ref{fig:swpg} for $x_0=0$ and $x_0=d/10$.
 
 \begin{figure}
 	\centering
@@ -129,6 +129,7 @@ where $x_0$ is an offset of position of the \gls{swpg} in the plane transverse t
 
 From equation \ref{eqn:Fourier_coeff_def}, we can calculate the Fourier coefficients $a_n(x_0)$ for the \gls{swpg} for $n=0$ and $n\neq0$.  These Fourier coefficients determines how the energy is distributed between the different diffraction orders.  For the zeroth-order case ($n=0$), we find that
 \begin{equation}
+\label{eqn:a0_no_zeta}
 \begin{aligned}
 a_0(x_0) &= \frac{1}{d}\int_{-d/2}^{d/2} \mathrm{sign}\Bigg( \cos\bigg( \frac{2\pi(\tilde{x}-x_0)}{d}\bigg)\Bigg) \diff\tilde{x}\\
 a_0(x_0) &=\frac{1}{d}\Bigg[ -\int_{-\frac{d}{2}}^{-\frac{d}{4}+x_0}\diff\tilde{x} 
@@ -142,6 +143,7 @@ This demonstrates that zero energy is put into the zeroth-order diffraction for 
 \begingroup
 \allowdisplaybreaks
 \begin{equation}
+\label{eqn:swpg_fourier_coeff_a_n}
 	\begin{aligned}
 		a_n(x_0) &= \frac{1}{d}\int_{-d/2}^{d/2} \mathrm{sign}\Bigg( \cos\bigg( \frac{2\pi(\tilde{x}-x_0)}{d}\bigg)\Bigg) e^{\frac{-i2\pi n\tilde{x}}{d}}\diff\tilde{x}\\
 		&=\frac{1}{d}\Bigg[ -\int_{-\frac{d}{2}}^{-\frac{d}{4}+x_0} e^{-\frac{i2\pi n x}{d}}\diff\tilde{x} 
@@ -158,25 +160,108 @@ This demonstrates that zero energy is put into the zeroth-order diffraction for 
 	\end{aligned}
 \end{equation}
 \endgroup
-Since $\mathrm{sinc}(n\pi/2)=0$ for even $n$, we see that only the odd orders of diffraction from the \gls{swpg}  are populated. The distribution of energy between the different diffraction orders is plotted in figure \ref{fig:a_n}, and from this figure it is immediately clear that our choice of the $0-\pi$ \gls{swpg} has succeeded in putting most of the input energy equally into two diffraction orders, namely the $\pm1$ orders.  The efficiency of this phase grating can be defined as
+Since $\mathrm{sinc}(n\pi/2)=0$ for even integers $n$, we see that only the odd orders of diffraction from the \gls{swpg}  are populated. The distribution of energy between the different diffraction orders is plotted in figure \ref{fig:a_n}, and from this figure it is immediately clear that our choice of the $0-\pi$ \gls{swpg} has succeeded in putting most of the input energy equally into two diffraction orders, namely the $\pm1$ orders.  The efficiency of this phase grating can be defined as
 \begin{equation}
 	\eta=\rvert a_1\rvert^2 + \rvert a_{-1}\rvert^2 =\frac{8}{\pi^2}\approx 0.8106,
 \end{equation} 
-which means that approximately $81\%$ of the input energy will be put into the two orders that we want.  It should be noted that $\sum_{n}\rvert a_n\rvert^2=1$, which means that while we can't get perfect conversion of energy into two orders this is still a lossless design.
+which means that approximately $81\%$ of the input energy will be put into the two orders that we want.  It should be noted that $\sum_{n}\rvert a_n\rvert^2=1$, which means that while we can't get perfect conversion of energy into only two orders this is still a lossless design.
 \begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/Two_source/a_n.png}
+	\includegraphics[width=0.8\textwidth]{figures/Two_source/a_n.png}
 	\caption{Square complex modulus of the Fourier coefficients $a_n$ of the $0-\pi$ \gls{swpg}. The square complex modulus is proportional to the energy put into each diffraction order.  As can be seen from figure, the $\pm1$ orders have the most energy put into them at $4/\pi^2\approx41.1\%$ each.  All even orders have zero energy.}
 	\label{fig:a_n}
 \end{figure}
 
-A very important feature of the \gls{swpg}
+With these Fourier coefficients in hand, we can now calculate the field profile at the focus.  This is done by using equation \ref{eqn:field_at_focus}
+\begin{equation}
+\label{eqn:swpg_field_at_focus}
+	\begin{aligned}
+		\tilde{S}(\tilde{x}) &= \frac{i k A}{2\pi f}e^{ikf}e^{i\frac{k\tilde{x}^2}{2f}}\int_{-\infty}^{\infty}S(x,x_0)e^{-ikx\tilde{x}/f}\diff x\\
+		\tilde{S}(\tilde{x}) &= \frac{i k A}{2\pi f}e^{ikf}e^{i\frac{k\tilde{x}^2}{2f}}\int_{-\infty}^{\infty} E(x) \sum_{n=-\infty}^{\infty}a_n(x_0)e^{-i\frac{2\pi nx}{d}} e^{-ikx\tilde{x}/f}\diff x\\
+		\tilde{S}(\tilde{x}) &= \frac{i k A}{2\pi f}e^{ikf}e^{i\frac{k\tilde{x}^2}{2f}}\sum_{n=-\infty}^{\infty}a_n(x_0) \int_{-\infty}^{\infty} E(x) e^{-i\frac{2\pi x}{\lambda f}(\tilde{x} - n\frac{\lambda f}{d})}\diff x\\
+		\tilde{S}(\tilde{x}) &= \sum_{n=-\infty}^{\infty} a_n(x_0) \tilde{E}(\tilde{x} - \tilde{x}_n)
+	\end{aligned}
+\end{equation}
+where
+\begin{equation}
+	\tilde{E}(\tilde{x}) = \frac{i k A}{2\pi f}e^{ikf}e^{i\frac{k\tilde{x}^2}{2f}} \int_{-\infty}^{\infty}E(x)e^{-ikx\tilde{x}/f}\diff x,
+\end{equation}
+$x_n=n\lambda f/d$, and $A$ is a constant to account for the $y$ dimension in equation \ref{eqn:field_at_focus} which is being neglected for clarity in this discussion.  Substituting in equation \ref{eqn:swpg_fourier_coeff_a_n} into equation \ref{eqn:swpg_field_at_focus} yields
+\begin{equation}
+\label{eqn:swpg_field_at_focus_simple}
+	\tilde{S}(\tilde{x}, x_0)=\sum_{n\neq 0}\mathrm{sinc}(\frac{n\pi}{2})\tilde{E}(\tilde{x}-\tilde{x}_n)e^{-in\frac{2\pi x_0}{d}}
+\end{equation}
+which is the field at the focal plane. From this equation, the role of the transverse offset $x_0$ immediately becomes clear.  It is used to control the relative phase between diffraction orders of the \gls{swpg}.  The phase difference between the two most populated orders, the $n=\pm 1$, is given by
+\begin{equation}
+\label{eqn:phase_diff}
+	\Delta\phi_{\pm 1}=2\bigg(\frac{2\pi x_0}{d}\bigg).
+\end{equation}
+Therefore, by controlling the offset of the \gls{swpg} we can control the relative phase between the two orders of interest over a range of $[0,4\pi]$.
 
+So far, we have demonstrated that a binary $0-\pi$ \gls{swpg} can theoretically achieve our requirements of an efficient beam duplicator with phase control between the two duplicate beams.  However, all of the results shown above have been only considering the monochromatic case, and for the experiments of interest we will using a femtosecond \gls{ir} pulse with bandwidth on the order of 50 nm.  This presents a challenge because the \gls{swpg} will be constructed by etching a fused-silica plate to have the desired phase step of $\pi$, and the inherent dispersion as the beam passes through the material means that the step will be $\pi$ for only one wavelength.  Thus, it is important to get a handle on how an imperfect phase step affects the properties of the \gls{swpg}.  To do this, we introduce a non-$\pi$ phase step into the above analysis by a parameter $\zeta$, such that
+\begin{equation}
+\label{eqn:zeta}
+	\phi(x,x_0,\zeta)=\zeta \phi(x,x_0).
+\end{equation}
+Going back to \ref{eqn:a0_no_zeta}, we can calculate the zero-order term for $\zeta\neq1$.
+\begin{equation}
+\label{eqn:a_0_zeta}
+	\begin{aligned}
+	a_0(x_0,\zeta) &= \frac{1}{d}\int_{-\frac{d}{2}}^{\frac{d}{2}} e^{\zeta\phi(\tilde{x},x_0)}\diff\tilde{x}\\
+	&= \frac{1}{d}\Bigg[\int_{-\frac{d}{2}}^{-\frac{d}{4}+x_0}e^{i\zeta\pi}\diff\tilde{x}
+	+ \int_{-\frac{d}{4}+x_0}^{\frac{d}{4}+x_0} \diff\tilde{x}
+	+ \int_{\frac{d}{4}+x_0}^{\frac{d}{2}} e^{i\zeta\pi}\diff\tilde{x} \Bigg]\\
+	&=\frac{1}{d} \bigg[\frac{d}{2} + \frac{d}{2}e^{i\zeta\pi} \bigg] = \frac{e^{i\zeta\pi/2}}{2}\bigg[ e^{i\zeta\pi/2} 
+	+ e^{-i\zeta\pi/2}\bigg]\\
+	a_0 & = \cos\bigg(\frac{\pi}{2}\zeta\bigg)e^{i\zeta\pi/2}
+	\end{aligned}
+\end{equation}
+Previously, for $\zeta=1$ we found that the zeroth order term was not populated by the \gls{swpg} ($a_0=0$), however from the above equation we can clearly see that the non-$\pi$ phase step has introduced a population in the zeroth order.  The percent of the total input energy that is placed into the zeroth order is $\rvert a_0(\zeta)=\cos^2(\zeta\pi/2)$. Furthermore, from equation \ref{eqn:swpg_fourier_coeff_a_n} we can also calculate the other orders for $\zeta\neq1$.
+\begin{equation}
+\label{eqn:a_n_zeta}
+	\begin{aligned}
+	a_n(x_0,\zeta) &= \frac{1}{d}\int_{-\frac{d}{2}}^{\frac{d}{2}} e^{\zeta\phi(\tilde{x},x_0)}e^{-i n \frac{2\pi\tilde{x}}{d}}\diff\tilde{x}\\
+	&= \frac{1}{d}\Bigg[\int_{-\frac{d}{2}}^{-\frac{d}{4}+x_0}e^{i\zeta\pi-i n \frac{2\pi\tilde{x}}{d}} \diff\tilde{x}
+	+ \int_{-\frac{d}{4}+x_0}^{\frac{d}{4}+x_0}e^{-i n \frac{2\pi\tilde{x}}{d}} \diff\tilde{x}
+	+ \int_{\frac{d}{4}+x_0}^{\frac{d}{2}} e^{i\zeta\pi-i n \frac{2\pi\tilde{x}}{d}}\diff\tilde{x} \Bigg]\\
+	a_n(x_0, \zeta) & = \mathrm{sinc}\bigg(\frac{n\pi}{2}\bigg)\sin\bigg(\frac{\pi}{2}\zeta\bigg) e^{i\frac{\pi}{2} (\zeta - 1)} e^{-in\frac{2\pi x_0}{d}}\\
+	a_n(x_0,\zeta) &= a_n(x_0)\sin\bigg(\frac{\pi}{2}\zeta\bigg)e^{i\frac{\pi}{2}(\zeta-1)}
+	\end{aligned}
+\end{equation} 
+From this equation, we can see that the non-$\pi$ phase step has not populated the even diffraction orders, but the odd orders have an overall phase shift and are reduced in amplitude by a factor of $\sin(\zeta\pi/2)$.  This should be expected because we saw from equation \ref{eqn:a_0_zeta} that the zeroth order was populated by a fractional energy of $\rvert \cos(\zeta\pi/2)\rvert^2$.  Since this is a lossless system ($\sum_{n}\rvert a_n\rvert^2 = 1$), the energy that is populating the zeroth order is coming from all of the odd orders that were populated. This redistribution of energy by $\zeta\neq1$ is shown in \ref{fig:a_n_zeta}.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/Two_source/focus_intensity.png}
-	\caption{Intensity profile $S(\tilde{x})$ at the focal plane. Horizontal units are scaled by the spacing between orders, $\tilde{x_1}=\lambda f/d$.  Calculated by numerically propagation using Fresnel integral.}
+	\includegraphics[width=0.8\textwidth]{figures/Two_source/a_n_zeta.png}
+	\caption{Square complex modulus of the Fourier coefficients $a_n$ of the $0-\pi$ \gls{swpg} for several values of $\zeta$. The square complex modulus is proportional to the energy put into each diffraction order.  As can be seen from figure, the $\pm1$ orders have the most energy put into them even for $\zeta\neq 1$.  All non-zero even orders have zero energy.}
+	\label{fig:a_n_zeta}
+\end{figure}
+
+From equations \ref{eqn:a_0_zeta} and \ref{eqn:a_n_zeta}, we now have a notion of how the \gls{swpg} is behaving across the bandwidth of our femtosecond pulses.  In particular, so long as $\zeta$ is close to 1, then the $\pm1$ orders are still the most intense, and as the grating offset $x_0$ is varied the phase difference between the $\pm1$ orders remains $\Delta\phi_{\pm1}=2\bigg(\frac{2\pi x_0}{d}\bigg)$ even though the overall spectral phase is modified by a factor of $e^{i\zeta\pi/2}$.  To set a scale for what $\zeta$ close to 1 means, consider the case when the zeroth order is equal in amplitude to the the $\pm3$ orders, $\rvert a_0(x_0,\zeta)\rvert = \rvert a_{\pm3}(x_0,\zeta)$.  In this case, $\rvert \xi - 1\rvert=\rvert\frac{2}{\pi}\tan^{-1}(3\pi/2)-1\approx0.13$.  Therefore, it is reasonable to state the $0-\pi$ \gls{swpg} maintains its phase control duplication properties for $\rvert\zeta - 1\rvert<0.13$.
+
+\subsection{Square-wave phase grating for high-harmonic generation}
+With the theory behind the \gls{swpg} well established, the specific grating parameters that were chosen with \gls{hhg} in mind will be discussed in this section.  The laser source that will be considered is the output of a HE-TOPAS optical parametric amplifier produced by Light Conversion.  The TOPAS is pumped by a Spitfire ACE Ti:Sapphire system from Spectra-Physics.  The Spitfire ACE system is capable of producing  12 mJ, 60 fs (20 nm FWHM bandwidth) pulses at 1 kHz.  Using this system, the TOPAS is able to generate up to a combined 6 mJ of signal and idler. The signal range is from 1200 nm to 1600 nm, and within this range the TOPAS can output a nominally 70 fs pulse of up to 3 mJ with a tuneable central wavelength.  A design wavelength of 1350 nm was chosen for the \gls{swpg} because the TOPAS performance is optimal around this wavelength.
+
+Once the design wavelength for the phase grating is selected, then the physical size of the step is determined by dispersion of the material selected.  For our phase gratings, Corning HPFS 7980 was used.  The refractive index and the corresponding $\zeta$ parameter is shown in figure \ref{fig:n_zeta}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/n_zeta.png}
+	\caption{Refractive index (blue curve and axis) and the $\zeta$ parameter (red curve and axis).  For a 70 nm bandwith pulse centered at 1350 nm, $\zeta - 1$ varies from -0.025 to 0.025 assuming normal incidence.}
+	\label{fig:n_zeta}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/silios_sketch.png}
+	\caption{Schematic of the two \gls{swpg} which were purchased.  They are constructed by etching the phase step in Corning HPFS 7980 fused-silica.}
+	\label{fig:silios_sketch}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/intensity_and_phase.png}
+	\caption{Intensity profile $S(\tilde{x})$ at the focal plane. Horizontal units are scaled by the spacing between orders, $\tilde{x_1}=\lambda f/d$.  Phase is also plotted for two different offset positions $x_0=d/3$ and $x_0=d/5$.  This demonstrates the ability of the \gls{swpg} to generate two sources and control the relative phase between them.}
 	\label{fig:s^2}
 \end{figure}
 
@@ -187,14 +272,10 @@ A very important feature of the \gls{swpg}
 	\label{fig:LP_inputs}
 \end{figure}
 
-\subsection{Imperfect phase grating}
+
 \section{Two-source high harmonic generation}
 
 
-\begin{equation}
-\label{eq:field}
-S(x) = \sum_{n} E(x - x_{n})
-\end{equation}
 
 
 
@@ -213,7 +294,7 @@ S(x) = \sum_{n} E(x - x_{n})
 		\includegraphics[width=\textwidth]{figures/Two_source/focus_profile}
 		\label{fig:focus_profile}
 	\end{subfigure}
-	\caption{(a) Two-channel model for Feshbach resonance.  Incident atoms in the entrance channel (the open channel) couple to a bound state of energy $E_{c}$ supported by the closed channel.  Since collisions take place for $E\rightarrow 0$, tuning $E_{c}$ to 0 allows for the resonant coupling to occur. (b) Scattering length near a resonance where a bound state crosses the scattering threshold. Inset shows the quadratic behavior of the binding energy near the resonance.}
+	\caption{(a) (b)}
 \end{figure}
 
 
@@ -257,7 +338,6 @@ S(x) = \sum_{n} E(x - x_{n})
 	\label{ts_filament}
 \end{figure}
 
-%\lipsum
 
 \begin{figure}
 	\centering
@@ -265,6 +345,3 @@ S(x) = \sum_{n} E(x - x_{n})
 	\caption{Camera image of the output of the phosphor screen.  Harmonics are visible by eye.}
 	\label{MCP_ts_harmonics}
 \end{figure}
-
-
-%\lipsum
