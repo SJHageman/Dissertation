@@ -81,7 +81,7 @@ It is possible to gain more insight into how difficult a beam shaping problem wi
 where $\sigma$ is the characteristic length scale of the input field (typically the beam radius) and $d$ is the characteristic length scale of the desired field.  By expressing the fields in this way, we can now introduce the dimensionless parameter
 \begin{equation}
 \label{eqn:beta_parameter}
-	\beta=\frac{2\pi\sigma d}{\lambda f}.
+	\beta=\frac{2\pi\sigma D}{\lambda f}.
 \end{equation}
 Using this dimensionless parameter, one can rewrite equations \ref{eqn:big_G} and \ref{eqn:beam_shaping_equality} as
 \begin{align}
@@ -196,7 +196,14 @@ which is the field at the focal plane. From this equation, the role of the trans
 \label{eqn:phase_diff}
 	\Delta\phi_{\pm 1}=2\bigg(\frac{2\pi x_0}{d}\bigg).
 \end{equation}
-Therefore, by controlling the offset of the \gls{swpg} we can control the relative phase between the two orders of interest over a range of $[0,4\pi]$.
+Therefore, by controlling the offset of the \gls{swpg} we can control the relative phase between the two orders of interest over a range of $[0,4\pi]$.  Additionally, one can begin to see from equation \ref{eqn:field_at_focus} that the intensity profile at the focal plane consists of copies of the focused input field at $x_n = n\lambda f/d$.  An example intensity profile at the focal plane is shown in figure \ref{fig:s^2}. In this figure the $\pm1$ orders are shown to be the most intense, and the phase is extracted for two different grating offset positions $x_0$.   
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/intensity_and_phase.png}
+	\caption{Intensity profile $S(\tilde{x})$ at the focal plane. Horizontal units are scaled by the spacing between orders, $\tilde{x_1}=\lambda f/d$.  Phase is also plotted for two different offset positions $x_0=d/3$ and $x_0=d/5$.  This demonstrates the ability of the \gls{swpg} to generate two sources and control the relative phase between them.}
+	\label{fig:s^2}
+\end{figure}
+
 
 So far, we have demonstrated that a binary $0-\pi$ \gls{swpg} can theoretically achieve our requirements of an efficient beam duplicator with phase control between the two duplicate beams.  However, all of the results shown above have been only considering the monochromatic case, and for the experiments of interest we will using a femtosecond \gls{ir} pulse with bandwidth on the order of 50 nm.  This presents a challenge because the \gls{swpg} will be constructed by etching a fused-silica plate to have the desired phase step of $\pi$, and the inherent dispersion as the beam passes through the material means that the step will be $\pi$ for only one wavelength.  Thus, it is important to get a handle on how an imperfect phase step affects the properties of the \gls{swpg}.  To do this, we introduce a non-$\pi$ phase step into the above analysis by a parameter $\zeta$, such that
 \begin{equation}
@@ -242,8 +249,12 @@ From equations \ref{eqn:a_0_zeta} and \ref{eqn:a_n_zeta}, we now have a notion o
 \subsection{Square-wave phase grating for high-harmonic generation}
 With the theory behind the \gls{swpg} well established, the specific grating parameters that were chosen with \gls{hhg} in mind will be discussed in this section.  The laser source that will be considered is the output of a HE-TOPAS optical parametric amplifier produced by Light Conversion.  The TOPAS is pumped by a Spitfire ACE Ti:Sapphire system from Spectra-Physics.  The Spitfire ACE system is capable of producing  12 mJ, 60 fs (20 nm FWHM bandwidth) pulses at 1 kHz.  Using this system, the TOPAS is able to generate up to a combined 6 mJ of signal and idler. The signal range is from 1200 nm to 1600 nm, and within this range the TOPAS can output a nominally 70 fs pulse of up to 3 mJ with a tuneable central wavelength.  A design wavelength of 1350 nm was chosen for the \gls{swpg} because the TOPAS performance is optimal around this wavelength.
 
-Once the design wavelength for the phase grating is selected, then the physical size of the step is determined by dispersion of the material selected.  For our phase gratings, Corning HPFS 7980 was used.  The refractive index and the corresponding $\zeta$ parameter is shown in figure \ref{fig:n_zeta}.
-
+Once the design wavelength for the phase grating is selected, then the physical size, $L$, of the step is determined by dispersion of the material selected by the relationship $\phi=\pi=2\pi n L/\lambda$.  For our phase gratings, Corning HPFS 7980 was used, and with this material $L\approx0.466\mu m$.  The refractive index and the corresponding $\zeta$ parameter is shown in figure \ref{fig:n_zeta}. The limitation that $\zeta=1$ for only the design wavelength can be relaxed somewhat by introducing a a nonzero angle of incidence between the incoming beam and the \gls{swpg} to effectively increase the optical path length of the step.  If this angle is $\theta$, then the $\zeta$ parameter can be written as
+\begin{equation}
+\label{eqn:zeta_theta}
+	\zeta(\lambda,\theta)=\sec\theta\bigg(  \frac{n(\lambda)\lambda_0}{\lambda n_0} \bigg)
+\end{equation}
+where $\lambda_0$ is the design wavelength and $n_0$ is the refractive index at the design wavelength.  This factor is shown in figure \ref{fig:n_zeta}.  From this figure, it is clear that even though the \gls{swpg} is designed for a specific wavelength it can be used over a broad range of wavelengths that are longer than the design wavelength. Of course, at higher angles of incidence propagation effects might be non-negligible, and those effects are neglected here. 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/Two_source/n_zeta.png}
@@ -254,23 +265,43 @@ Once the design wavelength for the phase grating is selected, then the physical 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/Two_source/zeta_theta.png}
-	\caption{Refractive index (blue curve and axis) and the $\zeta$ parameter (red curve and axis).  For a 70 nm bandwith pulse centered at 1350 nm, $\zeta - 1$ varies from -0.025 to 0.025 assuming normal incidence.}
+	\caption{Non-$\pi$ phase step parameter $\zeta(\lambda,\theta)$ calculated for a range of relevant wavelengths and incident angles.  The ability to effectively tune the optical path length of the step enables the \gls{swpg} to be used for a much larger range of wavelengths that are longer than the initial design wavelength.}
 	\label{fig:zeta_theta}
 \end{figure}
 
+The final remaining design parameter that must be considered is the choice of grating period. The choice of period is critical for the performance of the \gls{swpg}, and must be chosen with care.  To get insight into how to select the correct period, we will reintroduce the $\beta$ parameter from equation \ref{eqn:beta_parameter}.  For the specific situation we are considering, the $\beta$ parameter is
+\begin{equation}
+\label{eqn:beta_swpg}
+	\begin{aligned}
+		\beta &= \frac{2\pi \sigma D}{\lambda f} = \frac{2\pi\sigma\big(\frac{\lambda f}{d}\big)}{\lambda f}\\
+		&= 2\pi\bigg(\frac{\sigma}{d}\bigg)
+	\end{aligned}
+\end{equation}
+where $\sigma$ is the input beam radius and $D=\tilde{x}_1=\lambda f /d$ is that characteristic length scale at the focal plane because it represents the separation between the different diffraction orders in the focal plane.  The beam profile at the focus can be calculated for various parameters of $\beta$, and is shown in figure \ref{fig:intensity_vs_beta}.
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/focus_intensity_beta_sigma.png}
+	\caption{Calculation of intensity at the focal plane of the \gls{swpg} for various parameters of $\beta$.  Calculation is done my numerically propagating the measured beam profile shown in \ref{fig:LP_inputs}.  $\beta$ is varied by adjusting the radius of the input beam profile.  As $\beta\rightarrow0$, one can see that the perfomance of the \gls{swpg} deteriorates and not longer produces well separated sources.}
+	\label{fig:intensity_vs_beta}
+\end{figure}
+In the limit as $\beta\rightarrow0$ the condition $d\gg\sigma$ must hold, and this condition implies that the source separation is approaching the waist radius of each diffraction order $\tilde{\sigma}$.  Once the separation between orders becomes comparable to the separation between orders ($\tilde{\sigma}\approx\tilde{x}_1$), then each diffraction order will strongly interfere with it's neighboring orders.  The effect of the interference is that our sources can no longer be thought of as independent beams, and as the grating offset $x_0$ is varied there will be a strong modulation of both the amplitude and phase of each of diffraction order.  This can be seen by using equation \ref{eqn:swpg_field_at_focus} to write the intensity at the focal plane
+\begin{equation}
+	\begin{aligned}
+	\rvert\tilde{S}(\tilde{x},\phi_1)\rvert^2 &= \sum_{n=-\infty}^{\infty}\sum_{n'=-\infty}^{\infty} a_n \tilde{E}(\tilde{x} - \tilde{x}_n)e^{-in\phi_1}a_{n'} \tilde{E}(\tilde{x} - \tilde{x}_{n'})e^{-in'\phi_1}\\
+	&= \sum_{q=-\infty}^{\infty}e^{-iq\phi_1}\sum_{n=-\infty}^{\infty} a_n\tilde{E}(\tilde{x}-\tilde{x}_n) a_{n-q}\tilde{E}(\tilde{x}-\tilde{x}_{n-q})\\
+	&= \sum_{n=-\infty}^{\infty}\tilde{E}_{2n+1}^2(\tilde{x}) + 2\sum_{q=1}^{\infty}\cos(2q\phi_1) \sum_{n=-\infty}^{\infty}\tilde{E}_{2n+1}(\tilde{x})\tilde{E}_{2n-2q+1}(\tilde{x})
+	\end{aligned}
+\end{equation}
+where $\tilde{E}_n(\tilde{x})=\rvert a_n\rvert\tilde{E}(\tilde{x} - \tilde{x}_n)$. The second term demonstrates that as the grating offset $x_0$ is varied, the intensity of a diffraction order $2n+1$ will be modulated by an oscillatory term $\cos(2q\phi_1)$.  The amplitude of this oscillation is determined by the overlap of the diffraction orders.  Thus, for a grating such that $d\gg\sigma$ the oscillations will be very large because the source separation will be comparable to the beam waist of each order.
+
+While it has become clear that choosing a grating period such that $\sigma\gg d$ is the ideal case for the performance fo the \gls{swpg} as a beam duplicator, there is another consideration that must be made for our particular application.  In particular, we would like to generate high-harmonics from the $\pm1$ orders, and it order to do that we must send both sources through a gas medium generated by a supersonic gas jet.  This becomes increasingly difficult to handle as the source separation becomes large because the nozzle diameter must also increase.  Since this needs to be done in vacuum, at a certain point the pumping requirements become untenable.  So, in light of these considerations, the grating periods that were chosen were 2.5 mm and 3.5 mm.  A schematic of the gratings are shown in figure \ref{fig:silios_sketch}.
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/Two_source/silios_sketch.png}
 	\caption{Schematic of the two \gls{swpg} which were purchased.  They are constructed by etching the phase step in Corning HPFS 7980 fused-silica.}
 	\label{fig:silios_sketch}
 \end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1.0\textwidth]{figures/Two_source/intensity_and_phase.png}
-	\caption{Intensity profile $S(\tilde{x})$ at the focal plane. Horizontal units are scaled by the spacing between orders, $\tilde{x_1}=\lambda f/d$.  Phase is also plotted for two different offset positions $x_0=d/3$ and $x_0=d/5$.  This demonstrates the ability of the \gls{swpg} to generate two sources and control the relative phase between them.}
-	\label{fig:s^2}
-\end{figure}
+Using these gratings and a $f=400$ mm lens at 1450 nm, we are able to achieve a source separation of 331 $\mu m$ and 464 $\mu m$ for the $d=3.5$ mm and $d=2.5$ mm.  These parameters correspond to $\beta\approx7$ for the 3.5 mm grating and $\beta\approx10$ for the 2.5 mm grating for an input beam radius of $\sigma=4$ mm.
 
 \begin{figure}
 	\centering
@@ -280,29 +311,41 @@ Once the design wavelength for the phase grating is selected, then the physical 
 \end{figure}
 
 
-\section{Two-source high harmonic generation}
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/ref_img_pow_spec.png}
+	\caption{reference image and power spectrum of spatial frequencies}
+	\label{fig:ref_img_pow_spec}
+\end{figure}
 
 
-
-
-
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/harmonic_spatialgrams.png}
+	\caption{reference image and power spectrum of spatial frequencies}
+	\label{fig:harmonic_spatialgrams}
+\end{figure}
 
 
 
 \begin{figure}
 	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-		\caption{}
-		\includegraphics[width=\textwidth]{figures/Two_source/spatial_profile}
-		\label{fig:spatial_profile}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
-		\caption{}
-		\includegraphics[width=\textwidth]{figures/Two_source/focus_profile}
-		\label{fig:focus_profile}
-	\end{subfigure}
-	\caption{(a) (b)}
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/full_spatialgram.png}
+	\caption{full spatialgram}
+	\label{fig:full_spatialgram}
 \end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Two_source/full_spatialgram_w2w.png}
+	\caption{full spatialgram with $\omega-2\omega$ generation conditions}
+	\label{fig:full_spatialgram_w2w}
+\end{figure}
+
+
+\section{Two-source high harmonic generation}
+
 
 
 \begin{equation}
