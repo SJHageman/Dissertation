@@ -83,20 +83,20 @@ where $\sigma$ is the characteristic length scale of the input field (typically 
 Using this dimensionless parameter, one can rewrite equations \ref{eqn:big_G} and \ref{eqn:beam_shaping_equality} as
 \begin{align}
 \label{eqn:new_G}
-	G(\chi,\nu) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} g(\xi,\eta)e^{-i(\chi\xi+\nu\eta)}e^{i\beta\hat{\psi}(\xi,\eta)} \diff\xi\diff\eta\\
+	G(\chi,\nu) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} g(\xi,\eta)e^{-i(\chi\xi+\nu\eta)}e^{i\beta\hat{\phi}(\xi,\eta)} \diff\xi\diff\eta\\
 \label{eqn:beta_beam_shaping_equality}
 	\rvert G(\chi, \nu)\rvert^2 &= \frac{4\pi^2 A}{\beta^2}Q(\chi/\beta,\nu/\beta)
 \end{align}
-where $\chi=x\sigma k /f$, $\nu=y\sigma k /f$, $A$ is a constant, and $\hat{\psi} = \beta\psi$. From equation \ref{eqn:new_G}, it is clear that the functions $g$ and $G$ are related by a Fourier transform, so they must obey the uncertainty relation given by
+where $\chi=x\sigma k /f$, $\nu=y\sigma k /f$, $A$ is a constant, and $\hat{\phi} = \beta\phi$. From equation \ref{eqn:new_G}, it is clear that the functions $g$ and $G$ are related by a Fourier transform, so they must obey the uncertainty relation given by
 \begin{equation}
 	\mu_g \mu_G\geq 1
 \end{equation}
 where $\mu$ is the second moment.  Now, if one were to choose the phase profile of the phase element $\phi(x,y)$ such that equation \ref{eqn:beta_beam_shaping_equality} is satisfied, then one finds that $\mu_G=\beta^2\mu_Q$.  This then leads to the inequality
 \begin{equation}
 \label{eqn:beta_inequalty}
-	\beta^2 \mu_G\mu_Q\geq 1.
+	\beta^2 \mu_g\mu_Q\geq 1.
 \end{equation}
-It can be seen that for large vales of $\beta$ this inequality can be readily satisfied.  However, for very small values of $\beta$ this inequality cannot be met and it will not be possible to produce the desired beam profile.  From this, it can be seen that having a large value of $\beta$ makes the beam shaping problem more tractable.  The physical interpretation of $\beta$ is that is a measure of validity of geometric optics.  It can be shown that when $\beta$ is large a stationary phase method can be used to expand equation \label{eqn:new_G}, and the lowest order term can be derived using a geometric optics approximation and higher order terms are related to the effects of diffraction \cite{dickeyLaserBeamShaping2000, romeroMathematicalAspectsLaser2010}.
+It can be seen that for large vales of $\beta$ this inequality can be readily satisfied. However, for very small values of $\beta$ this inequality cannot be met and it will not be possible to produce the desired beam profile.  From this, it can be seen that having a large value of $\beta$ makes the beam shaping problem more tractable.  The physical interpretation of $\beta$ is that is a measure of validity of geometric optics.  It can be shown that when $\beta$ is large a stationary phase method can be used to expand equation \ref{eqn:new_G}, and the lowest order term can be derived using a geometric optics approximation \cite{dickeyLaserBeamShaping2000, romeroMathematicalAspectsLaser2010}.
 
 In this section, the general problem of laser beam shaping has been introduced and formulated as a problem in Fourier analysis, and by rewriting everything in terms of natural length scales we can infer which types of beam shaping problems will be more tractable using geometrical optics approximations.  The discussion so far has been kept very abstract, but in the next section the problem of interest will be introduced and these ideas will become more concrete.
 
