@@ -108,15 +108,30 @@ From the spatial profile shown in figure \ref{fig:harmonic_phase_shift}, the thr
 	\caption{(a) Spatial profile of harmonic order 29 as the silicon sample is translated through the two sources. Three regimes are clear from the spatial profile, and they correspond to both sources going through vacuum, only one source going through the sample, and both sources going through the sample. (b) Fringe contrast extracted from the spatial frequency corresponding to this harmonic order.}
 	\label{fig:harmonic_fringe_contrast}
 \end{figure}
-In addition to the fringe shift that is show in figure \ref{fig:harmonic_phase_shift}, there is also a change in fringe contrast that can be seen as the sample is translated through the two sources.  This change in fringe contrast is shown in figure \ref{fig:harmonic_fringe_contrast}.  The contrast shows the three distinct regimes that were seen in the fringe shift.  Similarly to the fringe shift, it can be seen that there is only a change in fringe contrast when only one of the sources is going through the sample.  From this contrast, it is possible to calculate the imaginary part of the refractive index. 
+In addition to the fringe shift that is show in figure \ref{fig:harmonic_phase_shift}, there is also a change in fringe contrast that can be seen as the sample is translated through the two sources.  In general, the fringe contrast can be defined as the relative difference of of the maximum and minimum values of an interference pattern, such that
+\begin{equation}
+	V=\frac{I_{max} - I_min{}}{I_{max} + I_{min}}
+\end{equation}
+is the fringe visibility or contrast.  When considering the case of two interfering beams, this fringe contrast can be written as
+\begin{equation}
+\label{eqn:fringe_visibility} 
+	V = \frac{2\sqrt{I_1 I_2}}{I_1 + I_2}\gamma_{12}
+\end{equation}
+where $I_1$ and $I_2$ are the intensity of the two beams and $\gamma_{12}$ is the coherence between them \cite{hemmersMulticolorXUVInterferometry2009, ditmireSpatialCoherenceMeasurement1996, wilsonDoubleSlitInterferometry2012}. 
+This change in fringe contrast is shown in figure \ref{fig:harmonic_fringe_contrast}.  The contrast shows the three distinct regimes that were seen in the fringe shift.  Similarly to the fringe shift, it can be seen that there is only a change in fringe contrast when only one of the sources is going through the sample.  From this contrast, it is possible to calculate the imaginary part of the refractive index.  This can be done using the relationship
+\begin{equation}
+\label{eqn:beta_fringe_contrast}
+	\beta = -\frac{\lambda}{2\pi L}\ln\Bigg[\frac{V_0}{V}\Bigg(1-\sqrt{1-\bigg(\frac{V}{V_0}\bigg)^2}\Bigg)\Bigg]
+\end{equation} 
+where $V_0$ is the contrast with the sample and $V$ is the contrast with the sample present in one of the sources \cite{hemmersMulticolorXUVInterferometry2009}.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/refractive_index/db_cxro.pdf}
-	\caption{(a) Real part of the refractive index measured using a SWPG.  Shows excellent agreement with the values from CXRO. (b) Imaginary part of the refractive index measured using a SWPG.  Overall shape agrees with CXRO, however there is a factor of 2 difference in amplitude.}
+	\caption{(a) Real part of the refractive index measured using a SWPG.  Shows excellent agreement with the values from CXRO. (b) Imaginary part of the refractive index measured using a SWPG. Shows excellent agreement with the values obtained from CXRO.}
 	\label{fig:measured_delta_beta}
 \end{figure}
-By combining both the fringe shift and the change in fringe contrast, we can now calculate both the real and imaginary part of the refractive index of Si over the range 25 - 60 eV.  The results are shown in figure \ref{fig:measured_delta_beta}.  As can be seen in the figure, there is excellent agreement between the measured real part when compared to the values that can be obtained from CXRO \cite{henkeXRayInteractionsPhotoabsorption1993}.  The imaginary part shows a factor of 2 difference in amplitude, however the overall shape agrees well with CXRO. The origin of the amplitude difference is still being analyzed.
+By combining both the fringe shift and the change in fringe contrast, we can now calculate both the real and imaginary part of the refractive index of Si over the range 25 - 60 eV.  The results are shown in figure \ref{fig:measured_delta_beta}.  As can be seen in the figure, there is excellent agreement between the measured real and imaginary part when compared to the values that can be obtained from CXRO \cite{henkeXRayInteractionsPhotoabsorption1993}.
 
 \section{Conclusion}
 In this chapter, the complex refractive index was introduced and a method to measure both the real and imaginary parts was proposed. The method relies on the use of a $0-\pi$ SWPG to generate two relative phase locked XUV sources whose interference acts as an inline Mach-Zehnder interferometer.  By introducing a sample into one of the sources, the corresponding fringe shift and change in fringe contrast gives access to the real and imaginary parts of the refractive index.  A sample of Si was fabricated to test this method, and measuring it's refractive index shows excellent agreement between our measured results and the literature. By demonstrating that it is possible to accurately extract both the real and imaginary parts, we have accurately characterized the ground state of a condensed matter system.  The next step is to extract the dynamic real and imaginary parts that are induced by dressing the sample with another IR field.  This will be discussed in a later chapter.
