@@ -7,8 +7,32 @@
 \section{Theory}
 \label{sec:atas_theory}
 
-\section{Fano resonances in Argon}
+\section{Autoionization resonances}
 \label{sec:fano_ar}
+
+One of the most extensively studied phenomenons using ATS has been autoionization of noble gas atoms in the time-domain \cite{wangAttosecondTimeResolvedAutoionization2010, ottAttosecondMultidimensionalInterferometry2012, stoossRealTimeReconstructionStrongFieldDriven2018, kaldunExtractingPhaseAmplitude2014, kaldunObservingUltrafastBuildup2016}.  Autoionization was first observed in 1935 by Beutler \cite{beutlerUeberAbsorptionsserienArgon1935} by studying photoabsorption of noble gas atoms, and it manifested itself as sharp, asymmetric peaks in the absorption spectrum.  These features were theoretically described by Fano in a seminal paper in 1961 \cite{fanoSulloSpettroDi1935, fanoEffectsConfigurationInteraction1961} as the result of interference between two pathways: direct ionization to the continuum and autoionization from a discrete state that is embedded in and coupled to the continuum. The theoretical framework that he developed can be treated as a more general formalism that describes interference between discrete and continuous pathways.\footnote{A very similar theory was independently developed by Feshbach in the context of nuclear physics, and these two theories have been unified by further theoretical work \cite{feshbachUnifiedTheoryNuclear1958, feshbachUnifiedTheoryNuclear1962, bhatiaLineshapeParameters1P1984}
+	.} For this very reason, "Fano" resonances can be observed in a plethora of atomic, molecular, and condensed matter systems \cite{miroshnichenkoFanoResonancesNanoscale2010}.
+
+\subsection{Time-independent autoionization: Fano's original work}
+\label{sec:og_fano}
+
+As noted above, Fano's theoretical explanation of the photoabsorption spectrum observed by Beutler in noble gas atoms is based on interference between two pathways.  The relevant level diagram to describe this interference is shown in figure \ref{fig:fano_level_diagram}, and specifically we will be considering the autoionization resonances in Ar because they will be used in the ATS experiments described in this chapter and in the following chapter.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ATS/fano_level_diagram.pdf}
+	\caption{Level diagram of argon showing the effect of autionization states on XUV photoabsorption. There are two possible pathways for ionization with a photon of energy $\Omega$: (1) direct ionization to a continuum state (left side of figure) and (2) excitation to a bound state in the continuum (right side of figure).  In case (2), there is coupling between the bound state and the continuum through the configuration interaction.  This allows for the bound state to decay to the same contiuum state as in case (1).  These effect leads to interference between these two pathways.}
+	\label{fig:fano_level_diagram}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/ATS/cs_phase.pdf}
+	\caption{(a) Calculation of the photoabsorption cross section near a resonance for the listed $q$ parameters.  The change from symmetric to antisymmetric profiles can be seen as the $q$ parameter is varied. (b) Calculation of the phase across the resonance for different $q$ parameter. The $\pi$ phase jump clearly depends on $q$, and it occurs when $\epsilon=-q$ and not at the resonance energy $E_r$. Calculations based on U. Fano's original work \cite{fanoEffectsConfigurationInteraction1961}.}
+	\label{fig:cross_sec_and_phase}
+\end{figure}
 
 \begin{table}[]
 	\centering
@@ -25,12 +49,6 @@
 	\label{table:fano_params}
 \end{table}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{figures/ATS/fano_level_diagram.pdf}
-	\caption{Incomplete level diagram}
-	\label{fig:fano_level_diagram}
-\end{figure}
 
 \begin{figure}
 	\centering
@@ -39,6 +57,7 @@
 	\label{fig:fano_gs_pcs}
 \end{figure}
 
+\subsection{Time-dependent autoionization}
 
 \section{Strong-field Transient Absorption in Argon}
 \label{sec:ATS_ar}
