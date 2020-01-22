@@ -1224,7 +1224,7 @@ Ultrafast spectroscopy traces the dynamics of a transient excited state in heliu
   number = {24}
 }
 
-@misc{ottAttosecondMultidimensionalInterferometry2012,
+@phdthesis{ottAttosecondMultidimensionalInterferometry2012,
   title = {Attosecond Multidimensional Interferometry of Single and Two Correlated Electrons in Atoms},
   author = {Ott, Christian Reinhold},
   year = {2012},
@@ -1232,7 +1232,6 @@ Ultrafast spectroscopy traces the dynamics of a transient excited state in heliu
   abstract = {Within this work, electron dynamics in atoms are experimentally and numerically investigated on their natural attosecond time scales. To access these dynamics, ultrashort and moderately-intense few-cycle laser pulses are superposed with attosecond pulsed radiation in the extreme-ultraviolet spectral region. Both these sources are combined in a new experimental vacuum setup which was designed and built up from scratch, also in order to generate the attosecond pulses. Novel experimental schemes are developed which involve the temporal and spectral interferometric utilization of both ultrashort light sources and include the multidimensional spectroscopy employing different dynamical parameters. These are the intensity and the carrier-envelope phase of the laser pulses, as well as their temporal delay with respect to the attosecond pulses. Scientifically, the observation and control of the quantum-motion of bound electrons, as well as the laser-driven quasi-classical motion of free electrons was a key goal of this work. In particular, a bound two-electron wave packet in helium on attosecond time scales was experimentally observed for the first time. This was realized by combining unprecedented high temporal and spectral resolution. In addition, a new coupling mechanism of several doubly-excited states to an effective single-electron continuum is identified and analyzed. Both these two-electron states as well as single-electron states are interferometrically investigated with access to the phase of their quantum-mechanical wave function. This allows the observation and control of the quantum dynamics of two correlated electrons in atoms on the attosecond time scale which was demonstrated within the scope of this work.},
   copyright = {info:eu-repo/semantics/openAccess},
   file = {C\:\\Users\\Tebe\\Zotero\\storage\\AI6LFLHL\\Ott - 2012 - Attosecond multidimensional interferometry of sing.pdf;C\:\\Users\\Tebe\\Zotero\\storage\\EFYJCERX\\13602.html},
-  howpublished = {https://archiv.ub.uni-heidelberg.de/volltextserver/13602/},
   language = {eng},
   type = {Dissertation}
 }
