@@ -89,12 +89,23 @@ Substituting the coefficients in equations \ref{eqn:expansion_coeff_a} and \ref{
 \end{equation}
 This can be further simplified by  introducing a modified discrete state given by
 \begin{equation}
-	\ket{\Phi} = \ket{\psi_b}+\mathrm{PV}\int\diff \varepsilon'\frac{V_\varepsilon'}{E-\varepsilon'}\ket{\psi_{\varepsilon'}}.
+	\ket{\Phi} = \ket{\psi_b}+\mathrm{PV}\int\diff \varepsilon'\frac{V_\varepsilon'}{E-\varepsilon'}\ket{\psi_{\varepsilon'}},
 \end{equation}
-Finally, the eigenstate $\ket{\Psi_E}$ can be expressed as
+which allows us to express the eigenstate $\ket{\Psi_E}$ as
 \begin{equation}
+\label{eqn:eigen_with_a_b}
 	\ket{\Psi_E}=\frac{\sin\Delta(E)}{\pi V_{E}}\ket{\Phi} - \cos\Delta(E)\ket{\psi_E}.
 \end{equation}
+Finally, the argument of equation \ref{eqn:expansion_coeff_delta_F} can be written in terms of an important parameter, the reduced energy given by
+\begin{equation}
+\label{eqn:normalized_eng}
+	\epsilon = \frac{E-(E_b+F(E))}{\Gamma(E)/2} = \frac{E-E_\Phi}{\Gamma/2}
+\end{equation}
+where
+\begin{equation}
+	\Gamma(E) = 2\pi\abs{V_E}^2\approx\Gamma(E_b)=\Gamma.
+\end{equation}
+The interpretation of the modified bound state $\ket{\Phi}$ is that the configuration interaction is mixing the original discrete state $\ket{\psi_b}$ and the continuum states $\ket{\psi_\varepsilon'}$. So, for an energetic window near $E=E_\Phi$, one can consider the resonance energy to be $E_b$ and the resonance linewidth to be $\Gamma$.  Since $\Gamma=2\pi\abs{V_E}^2$, the resonance linewidth and the natural lifetime $h/\Gamma$ are directly related to the strength of the coupling between bound states and continuum states though the configuration interaction. Therefore, stronger (weaker) coupling would lead to faster (slower) decay from bound to continuum states, respectively.  From this, it can be seen that an external field that  is able to modify the strength of the configuration interaction, then that will lead to a change in the linewidth and position of the resonance.
 
 
 \begin{figure}
