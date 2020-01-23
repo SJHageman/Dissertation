@@ -21,7 +21,7 @@ As noted above, Fano's theoretical explanation of the photoabsorption spectrum o
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/ATS/fano_level_diagram.pdf}
-	\caption{Level diagram of argon showing the effect of autionization states on XUV photoabsorption. There are two possible pathways for ionization with a photon of energy $\Omega$: (1) direct ionization to a continuum state (left side of figure) and (2) excitation to a bound state in the continuum (right side of figure).  In case (2), there is coupling between the bound state and the continuum through the configuration interaction.  This allows for the bound state to decay to the same contiuum state as in case (1).  These effect leads to interference between these two pathways.}
+	\caption{Level diagram of argon showing the effect of autionization states on XUV photoabsorption. There are two possible pathways for ionization with a photon of energy $\Omega$: (1) direct ionization to a continuum state (left side of figure) and (2) excitation to a bound state in the continuum (right side of figure).  In case (2), there is coupling between the bound state and the continuum through the configuration interaction.  This allows for the bound state to decay to the same continuum state as in case (1).  These effect leads to interference between these two pathways.}
 	\label{fig:fano_level_diagram}
 \end{figure}
 
@@ -77,8 +77,9 @@ using the expansion in eqn. \ref{eqn:eigenstate_expansion}.  This results in a s
 \end{align}
 where
 \begin{align}
-\label{eqn:expansion_coeff_delta_F}
+\label{eqn:expansion_coeff_delta}
 	\Delta(E) &= -\arctan\bigg(\frac{\pi\lvert V_E \rvert^2}{E-E_b-F(E)}\bigg)\\
+\label{eqn:expansion_coeff_delta_F}
 	F(E) &= \mathrm{PV}\int\diff\varepsilon'\frac{\lvert V_{\varepsilon'}\rvert^2}{E-\varepsilon'} 
 \end{align}
 and $\mathrm{PV}$ is the Cauchy principal value. The term  $F(E)$ is an energy-dependent shift of the bound state that depends upon the strength of the configuration interaction $\abs{V_{\varepsilon'}}^2$.  This shift can be either positive or negative, depending upon the sign of $\partial_{\varepsilon'}\abs{V_{\varepsilon'}}^2$ at $\varepsilon'=E$, where $\partial_{\varepsilon'}$ is the partial derivative with respect to $\varepsilon'$.  Thus, any change in  $V_{\varepsilon'}$ by an external field will lead to a shift in the resonance position.
@@ -109,13 +110,64 @@ The interpretation of the modified bound state $\ket{\Phi}$ is that the configur
 
 Now that the eigenstates of the Hamiltonian $\hat{H}$ have been expanded, we will turn our attention to the photoabsorption spectrum.  In the original experiments done by Beutler, a sharp, asymmetric absorption profile was seen in the photoabsorption spectrum of noble gas atoms in the XUV \cite{beutlerUeberAbsorptionsserienArgon1935}.  From the expanded eigenstate given in equation \ref{eqn:eigen_with_a_b}, we can begin see how this asymmetric absorption profile might arise.  The coefficients in the expansion are proportional to sine and cosine functions of the reduced energy $\epsilon$, and, since they are odd and even functions of $\epsilon$, this will lead to constructive and destructive interference on either side of the resonance.  It is precisely this effect that will give rise to the asymmetric absorption lineshape.
 
- 
+To derive the photoabsorption spectrum, we will consider a transition from the ground state of the atom $\ket{g}$ by a XUV photon of energy $\Omega$.  This can be described through the use of the dipole transition operator
+\begin{equation}
+\label{eqn:dipole}
+	\hat{D}=-e\mathbf{\hat{r}}\cdot\mathbf{E}_{XUV}(t)
+\end{equation}
+where $\mathbf{E}_{XUV}(t)$ is the electric field of the XUV.  Using this operator, the transition probability is given by the matrix element
+\begin{equation}
+\label{eqn:transition_me}
+	\begin{aligned}
+		\braket{\Psi_E|\hat{D}|g} &= \frac{1}{\pi V^*_{E}}\sin\Delta(E)\braket{\Phi|\hat{D}|g}-\cos\Delta(E)\braket{\psi_E|\hat{D}|g}\\
+		&= \cos\Delta(E)\braket{\psi_E|\hat{D}|g}\Bigg[\tan\Delta(E)\frac{1}{\pi V^*_E}\frac{\braket{\Phi|\hat{D}|g}}{\braket{\psi_E|\hat{D}|g}} -1\Bigg].
+	\end{aligned} 
+\end{equation}
+At this point, we can now introduce the well-known and important $q$ parameter, given by
+\begin{equation}
+\label{eqn:q-parameter}
+	q(E) = \frac{1}{\pi V^*_E}\frac{\braket{\Phi|\hat{D}|g}}{\braket{\psi_E|\hat{D}|g}}\approx q(E_b)=q.
+\end{equation}
+The $q$ parameter describes the asymmetry of the resonance, and it is related to the ratio of transitions to the modified bound state $\ket{\Phi}$ and the continuum states $\ket{\psi_E}$.  Combining equations \ref{eqn:transition_me}, \ref{eqn:q-parameter}, and \ref{eqn:expansion_coeff_delta}, we arrive at
+\begin{align}
+	\braket{\Psi_E|\hat{D}|g} &=-\cos\Delta(E)\braket{\psi_E|\hat{D}|g}\Bigg[\frac{\pi\abs{V_E}^2}{E-(E_b+F(E))}q+1\Bigg]\\
+	&=-\cos\Delta(E)\braket{\psi_E|\hat{D}|g}\Bigg[\frac{\Gamma/2}{E-(E_b+F(E))}q+1\Bigg],
+\end{align}
+and this can be further simplified using the reduced energy $\epsilon$, which yields
+\begin{align}
+	\braket{\Psi_E|\hat{D}|g} &= -\braket{\psi_E|\hat{D}|g}\cos\Delta(E)\bigg(\frac{q}{\epsilon}+1\bigg)\\
+\label{eqn:fano_matirx_elements}
+	\braket{\Psi_E|\hat{D}|g} &= \braket{\psi_E|\hat{D}|g}\frac{q+\epsilon}{\epsilon+i}.
+\end{align}
+Finally, using this relationship the ratio of transition probabilities can be calculated and leads to the well known Fano lineshape,
+\begin{equation}
+\label{eqn:transition_prob_ratio}
+	\frac{\abs{\braket{\Psi_E|\hat{D}|g}}^2}{\abs{\braket{\psi_E|\hat{D}|g}}^2}=\frac{(q+\epsilon)^2}{\epsilon^2 + 1}.
+\end{equation}
+This ratio is proportional to the photoabsorption cross section, and is plotted for various $q$ parameters in figure \ref{fig:cross_sec_and_phase}.  As can be seen, the lineshape's symmetry dramatically depends upon the $q$ parameter, and the cross section even goes to zero at different energies, depending upon $q$. This is a direct consequence of the destructive interference from the configuration states, as was predicted earlier in the derivation. Additionally, the spectral phase of the Fano profile can also be extracted, given by 
+\begin{equation}
+	\theta(\epsilon)=\arg\bigg[\frac{q+\epsilon}{\epsilon+i}\bigg],
+\end{equation}
+and is plotted in figure \ref{fig:cross_sec_and_phase} (b).  For increasing $\epsilon$, the phase increases until $\epsilon=-q$ when there is a $\pi$ phase jump, and thereafter the phase continues to increase until is asymptotically approaches its original value.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/ATS/cs_phase.pdf}
-	\caption{(a) Calculation of the photoabsorption cross section near a resonance for the listed $q$ parameters.  The change from symmetric to antisymmetric profiles can be seen as the $q$ parameter is varied. (b) Calculation of the phase across the resonance for different $q$ parameter. The $\pi$ phase jump clearly depends on $q$, and it occurs when $\epsilon=-q$ and not at the resonance energy $E_r$. Calculations based on U. Fano's original work \cite{fanoEffectsConfigurationInteraction1961}.}
+	\caption{(a) Calculation of the photoabsorption cross section near a resonance for the listed $q$ parameters.  The change from symmetric to asymmetric profiles can be seen as the $q$ parameter is varied. (b) Calculation of the phase across the resonance for different $q$ parameter. The $\pi$ phase jump clearly depends on $q$, and it occurs when $\epsilon=-q$ and not at the resonance energy $E_r$. Calculations based on U. Fano's original work \cite{fanoEffectsConfigurationInteraction1961}.}
 	\label{fig:cross_sec_and_phase}
 \end{figure}
+
+Experimentally the photoabsorption cross section is often fit to the form
+\begin{equation}
+\label{eqn:sigma_pcs}
+	\sigma_\mathrm{PCS}=a\frac{(q+\epsilon)^2}{\epsilon^2+1}+\sigma_{NR}
+\end{equation}
+where $a$ scales the strength of the Fano profile and $\sigma_{NR}$ is  a non-resonant cross section that is included to account for other continuum states that might be present.
+
+
+ 
+
+
+
 
 \begin{table}[]
 	\centering
@@ -131,7 +183,6 @@ Now that the eigenstates of the Hamiltonian $\hat{H}$ have been expanded, we wil
 	\caption{Paramters of the $3s3p^6np$ Fano resonances in argon. These values were extracted from experimental cross sections, see \cite{caretteMulticonfigurationalHartreeFockClosecoupling2013}.}
 	\label{table:fano_params}
 \end{table}
-
 
 \begin{figure}
 	\centering
