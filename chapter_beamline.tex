@@ -11,6 +11,7 @@
 \subsection{Time Delay Control}
 \label{sec:delay_wedges}
 
+To control the relative delay between the XUV and IR pulses in the interaction region, a 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Beamline/wedge_calibration.pdf}
@@ -22,7 +23,7 @@
 \begin{align}
 	a'&=a+\Delta x \tan\theta\\
 	b'&=b-\Delta x \bigg(\frac{\sin\theta}{\cos\psi}\bigg)\\
-	c'&=c-\Delta x \tan\theta\sin\theta\frac{\cos(\frac{\pi}{4})+\psi}{\sin(\frac{\pi}{4}+\theta+\psi)}
+	c'&=c-\Delta x \tan\theta\sin\theta\frac{\cos(\frac{\pi}{4}+\psi)}{\sin(\frac{\pi}{4}+\theta+\psi)}
 \end{align}
 
 where
@@ -32,7 +33,7 @@ where
 
 \begin{equation}
 \label{eqn:time_delay}
-	\Delta\tau = \frac{\Delta x}{c}\Bigg[(n-1)\tan\theta - \frac{\sin\theta}{\cos\psi}-(n-1)\tan\theta\sin\theta\bigg(\frac{\cos(\frac{\pi}{4})+\psi}{\sin(\frac{\pi}{4}+\theta+\psi)}\bigg)\Bigg]
+	\Delta\tau = \frac{\Delta x}{c}\Bigg[(n-1)\tan\theta - \frac{\sin\theta}{\cos\psi}-(n-1)\tan\theta\sin\theta\bigg(\frac{\cos(\frac{\pi}{4}+\psi)}{\sin(\frac{\pi}{4}+\theta+\psi)}\bigg)\Bigg]
 \end{equation}
 
 \section{Photon Spectrometer}
