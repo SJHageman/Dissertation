@@ -11,7 +11,8 @@
 \subsection{Time Delay Control}
 \label{sec:delay_wedges}
 
-To control the relative delay between the XUV and IR pulses in the interaction region, there are typcially two methods that can be employed optically.  The first to to use a retro-reflector that is mounted on a motorized stage.
+An important consideration in pump/probe experiments is how to control the delay between the pump and probe pulses.  To control this delay, there are typically two methods that can be employed optically.  The first to to use a retro-reflector that is mounted on a motorized stage \cite{jagerAttosecondTransientAbsorption2018, jagerAttosecondTransientAbsorption2017, bellTransientAbsorptionSpectroscopy2013, jiangChargeCarrierDynamics2015, borjaElectronDynamicsSolids2016, chengAttoseondTransientAbsorption2015}.  With this method, the delay is simply related to the displacement of the motorized stage by the relationship $\Delta\tau = 2\Delta x/c$.  This means that a displacement of 10 nm by the motorized stage would lead to a delay of 67 as, whereas a displacement of 2 in. would lead to a delay of 339 ps. This setup is advantageous if large delays are required (10s of ps to a few ns), however for the short time steps that are required for an attosecond measurement (typically on the order of 100 as) the requirements on the motor being used to move the retro are very high.  Since a 100 as step would equate to a translation of 15nm, this would require the use of a piezelectric motor.  Piezo motors and their associated electronics tend to be expensive, and they have inherent problems because they exhibit nonlinear movement due to hysteresis and they tend to drift and creep after actuation.  This can be abated through a feedback sensor and operating it in a closed-loop mode, however the quality of the sensor and electronics determines how effectively these problems are minimized.
+
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Beamline/wedge_calibration.pdf}
@@ -19,22 +20,27 @@ To control the relative delay between the XUV and IR pulses in the interaction r
 	\label{fig:wedges}
 \end{figure}
 
-
+The second common method to control the delay between the pump and probe pulse is to use a pair of glass wedges \cite{chirlaAttosecondPulseGeneration2011, gormanAttosecondProbingElectron2018, kiesewetterDynamicsNearThresholdAttosecond2019}. A schematic of how this is achieved is shown in figure \ref{fig:wedges}.  In this scheme, only one of the glass wedges is motorized, and the direction of translation is perpendicular to the input beam and parallel to the first glass face.  The path that a ray would take through the wedge pair is shown before ($a\rightarrow b\rightarrow c$) and after ($a' \rightarrow b'\rightarrow c'$) translation by an amount $\Delta x$.  Assuming that the wedge angle is $\theta$, the path after translation by $\Delta x$ can be written as
 \begin{align}
+\label{eqn:path_lengths}
 	a'&=a+\Delta x \tan\theta\\
 	b'&=b-\Delta x \bigg(\frac{\sin\theta}{\cos\psi}\bigg)\\
 	c'&=c-\Delta x \tan\theta\sin\theta\frac{\cos(\frac{\pi}{4}+\psi)}{\sin(\frac{\pi}{4}+\theta+\psi)}
 \end{align}
-
 where
 \begin{equation}
 	\psi = \arcsin(n\sin\theta)
 \end{equation}
-
+is given by Snell's Law \cite{pedrottiIntroductionOptics2007}. From the difference in optical path length between these two paths, one can calculate the time delay $\Delta\tau$ introduced by a translation of $\Delta x$, and this relationship is given by
 \begin{equation}
 \label{eqn:time_delay}
-	\Delta\tau = \frac{\Delta x}{c}\Bigg[(n-1)\tan\theta - \frac{\sin\theta}{\cos\psi}-(n-1)\tan\theta\sin\theta\bigg(\frac{\cos(\frac{\pi}{4}+\psi)}{\sin(\frac{\pi}{4}+\theta+\psi)}\bigg)\Bigg]
+	\Delta\tau = \frac{\Delta x}{c}\Bigg[(n-1)\tan\theta - \frac{\sin\theta}{\cos\psi}-(n-1)\tan\theta\sin\theta\bigg(\frac{\cos(\frac{\pi}{4}+\psi)}{\sin(\frac{\pi}{4}+\theta+\psi)}\bigg)\Bigg].
 \end{equation}
+For a pair wedges made out of fused silica with a wedge angle of $\theta=5^\circ$ and a beam of wavelength 1430 nm, equation \ref{eqn:time_delay} becomes
+\begin{equation}
+	\Delta\tau = \Bigg(100.653 \bigg[\frac{\mathrm{as}}{\mathrm{\mu m}}\bigg]\Bigg)\Delta x.
+\end{equation}
+This entails that a translation of 1 $\mu$m would lead to a delay of only 100 as.  This reduction in motor step to delay step ratio compared to the retroreflector case means that the requirements on the motorized stage are greatly reduced.  Additionally, since the glass wedges are a transmissive optic, they are inherently less sensitive to vibrations when compared to a retroreflector.
 
 \section{Photon Spectrometer}
 \label{sec:photon_spec}
