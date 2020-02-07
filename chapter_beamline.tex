@@ -7,12 +7,16 @@
 
 \section{Beamline}
 \label{sec:full_beamline}
-\begin{figure}
+
+
+\begin{sidewaysfigure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/Beamline/beampath_sketch.pdf}
-	\caption{Incomplete schematic of beampath}
+	\includegraphics[width=1.0\textwidth]{figures/Beamline/beampath_sketch_3.pdf}
+	\caption{Schematic of the beam path for the TABLe interferometer. The input laser is shown in red, its second harmonic in  blue, and the generated XUV in purple.  \textbf{BS}: Beamsplitter (Thorlabs BSF20-C), \textbf{I$_1$} and \textbf{I$_2$}: Irises used for alignment into interferometer. \textbf{DW}: Delay wedges for fine delay control, see section \ref{sec:delay_wedges}. \textbf{CF}: Color filter to remove parasitic colors from TOPAS (Thorlabs FELH1000). \textbf{HWP}: Half-wave plate. \textbf{WGP}: Wire grid polarizer. \textbf{RR}: Retro reflector for coarse delay adjustment.  \textbf{FM}: Flip mirror. \textbf{TC}: Thermal camera used for alignment.  \textbf{L$_1$}: $f=-300$ mm lens (Thorlabs LF1015-C). \textbf{L$_2$}: $f=500$ mm lens (Thorlabs LA1380-C). \textbf{VW}: Vacuum window, 3 mm CaF$_2$, \textbf{HM}: Hole mirror with 10 mm hole.  \textbf{L$_3$}: $f=-400$ mm lens.  \textbf{L$_4$}: $f=500$ mm lens. \textbf{SWPG}: Square-wave phase grating. \textbf{L$_5$}: $f=400$ mm lens.  \textbf{BBO}: Second-harmonic generation crystal.  \textbf{Ca}l: Calcite. \textbf{GS}: Gas source for HHG. \textbf{MF}: Metallic filter. \textbf{EM}: Ellipsoidal mirror. \textbf{GC/SS}: Gas cell or solid sample. \textbf{RM}: Removable mirror for \textit{in-situ} diagnotics.    \textbf{ICC}: camera for \textit{in-situ} diagnotics. \textbf{DG}: VLS diffraction grating. \textbf{BB}: Baffles to block zero order diffraction.  \textbf{MCP/P}: Microchannel plate and phosphor.  \textbf{AC}: Andor Neo 5.5 CMOS camera.}
 	\label{fig:beampath_sketch}
-\end{figure}
+\end{sidewaysfigure}
+
+
 \subsection{Time Delay Control}
 \label{sec:delay_wedges}
 
@@ -20,7 +24,7 @@ An important consideration in pump/probe experiments is how to control the delay
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Beamline/wedge_calibration.pdf}
+	\includegraphics[width=0.8\textwidth]{figures/Beamline/wedge_calibration.pdf}
 	\caption{Schematic of the FS wedges used to control the time delay between the IR and XUV pulses in the dressing and generation arms interferometer, respectively. The wedges are aligned such that the input beam is normal to the first wedge face, and the beam exits the wedges normal to the last face of the second wedge.  Only one of the wedges is motorized and is shown before and after a displacement by an amount $\Delta x$.}
 	\label{fig:wedges}
 \end{figure}
@@ -52,6 +56,29 @@ In the TABLe apparatus, both types of delay control have been implemented, as sh
 
 To finely control the delay, a pair of glass wedges is used.  These wedges are made out of fused silica, and have a wedge angle of $\theta=5^\circ$.  The first of the two wedges are motorized in manner similar to that shown in figure \ref{fig:wedges}.  The stage that the first wedge is mounted to has a total travel of 1 inch, and it is controlled by a Thorlabs Z825B DC servo motor.  This "pencil" motor, as it is known in the lab, has a minimum repeatable incremental motion of 0.2 $\mu$m and is encoded, so it's absolute position is known to within the homing accuracy of $\pm1$ $\mu$m.  From equation \ref{eqn:numerical_relationship_wedges}, using these wedges at 1430 nm with a step size of 1 $\mu$m will give a delay of 101 as.
 
+
+\subsection{IR Dressing Intensity}
+\label{sec:dressing_intensity}
+
+An important consideration in any ATS experiment is the intensity of the IR field that is used as a probe/dressing field. Ideally, one would like to be able to control the intensity such that both perturbative and strong-field regimes can be accessed with the same optical setup.  This can be achieved by selecting an optical setup that has a high peak intensity and then attenuate the beam 
+to achieve a lower intensity.  Attenuation can be achieved through the use of neutral density (ND) filters, however they can lead to several complications.  Since the ND filter would be placed in only one arm of the interferometer to control only the dressing intensity, any variation in thickness between different ND filters would lead to a change in temporal overlap.  Additionally, any change in positioning when witching ND filters will lead to a slight change in spatial overlap. The method to attenuate the beam that was implemented in the TABLe interferometer was a half-wave plate (HWP) and a wire grid polarizer (WGP).  By rotating the polarization using the HWP, we can finely control the intensity  of the dressing field by using the WGP to transmit only one component of the rotated polarization.  The WGP is set such that the initial polarization is maintained, and this insures that the polarization of the IR and XUV are parallel in the interaction region.  A second WGP is used to increase the effective extinction ratio to ensure that the field is linearly polarized even when the field is being strongly attenuated.  The extinction ratio of one of the WGP (Thorlabs WP25M-UB) is approximately 12500:1 at 1430 nm.  Using this setup in conjunction with a beam splitter that reflects 8\% of the input energy to the dressing arm, the pulse energy can be tuned between 1 $\mu$J and 100 $\mu$J.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Beamline/dressing_arm.pdf}
+	\caption{Optical layout of the dressing arm of the TABLe interferometer. HWP and WGP are used to finely control the power in the dressing arm.  The lenses L$_1$ and L$_2$ were chosen to achieve a high intensity at the focal plane in the target chamber.  This was done to have the cpability to drive stong-field processes in a gas medium \cite{kiesewetterDynamicsNearThresholdAttosecond2019}.  See figure \ref{fig:beampath_sketch} for full details of the interferometer.}
+	\label{fig:dressing_arm}
+\end{figure}
+
+
+
+\begin{sidewaysfigure}%[ht]
+	\includegraphics[width=\textwidth]{figures/Beamline/pump_intensity_profiles_1430nm_1uj.pdf}
+	\caption{(a) Beam profile of the signal from the TOPAS pumped by the Spitfire laser system.  Wavelength is 1430 nm and the pulse is normalized to 1 $\mu$J of pulse energy.  Beam profile was measured using a thermal camera, and is used as the input to the beam propagation simulation that is initiated just before L$_1$ in figure \ref{fig:dressing_arm}. (b) Numerically propagated beam profile just after L$_2$ in figure \ref{fig:dressing_arm}. (c) Beam profile just after reflecting off the hole mirror.  (d) Calculated intensity profile at the focal plane in the interaction region. (d) Lineout of the calculated intensity profile.  For an input pulse energy of 1 $\mu$J, a peak intensity of 0.33 TW/cm$^2$ can be achieved.  (f) Integrated average power at different point in the calculation.  The main source of energy loss is due to the hole mirror, which only reflects 52\% of the incident light.  The hole mirror has an inner radius of 5 mm in this case.}
+	\label{fig:dressing_intensity}
+\end{sidewaysfigure}
+
+
 \subsection{Spatial and Temporal Overlap}
 \label{sec:temporal_overlap}
 
@@ -61,15 +88,6 @@ To finely control the delay, a pair of glass wedges is used.  These wedges are m
 	\caption{INCOMPLETE: Autocorrelation to find temporal overlap.}
 	\label{fig:fine_scan_temporal_overlap}
 \end{figure}
-
-\subsection{IR Dressing Intensity}
-\label{sec:dressing_intensity}
-
-\begin{sidewaysfigure}[ht]
-	\includegraphics[width=\textwidth]{figures/Beamline/pump_intensity.png}
-	\caption{INCOMPLETE: In the TABLe apparatus, both types of delay control have been implemented, as shown in figure \ref{fig:beampath_sketch}.  The retroreflector is mounted on a translation stage with 2 inches of travel that is controlled manually with a micrometer.  The primary use for the retroreflector is to make coarse adjustments to the dressing arm to account for changes in temporal overlap between the two arms of the interferometer.  Typically, this is due to adjustments made to the interferometer itself (such as introducing new optics) or due to changes in the input laser, usually either pointing or wavelength.  }
-	\label{fig:dressing_intensity}
-\end{sidewaysfigure}
 
 \subsection{Gas Sources for HHG}
 \label{sec:gas_source}
