@@ -164,10 +164,6 @@ Experimentally the photoabsorption cross section is generally fit to the form
 where $\sigma_a$ scales the strength of the Fano profile and $\sigma_{NR}$ is  a non-resonant cross section that is included to account for absorption from  other continuum states that might be present.  
 
 
- 
-
-
-
 
 \begin{table}[]
 	\centering
@@ -191,16 +187,83 @@ where $\sigma_a$ scales the strength of the Fano profile and $\sigma_{NR}$ is  a
 	\label{fig:fano_gs_pcs}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{figures/ATS/fano_fit.pdf}
-	\caption{Incomplete}
-	\label{fig:fano_fit}
-\end{figure}
 
 \subsection{Time-dependent autoionization}
+\label{sec:time_dependent_autoionization}
+%
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!!!!!!!!! ATOMIC UNITS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%
+Up until this point, Fano resonances have been discussed in a time-independent manner in the frequency domain.  However, one would ideally like to describe these autoionizing resonances in the time domain, as that will lend itself to the experiments described herein. This description was primarily done by W.-C. Chu and C.D. Lin \cite{chuTheoryUltrafastAutoionization2010}, and it has been used to interpret many ATS experiments  \cite{kaldunExtractingPhaseAmplitude2014,ottLorentzMeetsFano2013,ottReconstructionControlTimedependent2014, stoossRealTimeReconstructionStrongFieldDriven2018}.  The basic assumption that is made in this treatment is that the XUV pulse that excites from the ground state to the Fano resonance is a Dirac-$\delta$ function in time, $\mathbf{E}_{XUV}=E_0\delta(t)\mathbf{z}$.  This impulsive excitation is generally a reasonable  approximation for an attosecond XUV pulse that is shorter in duration than the typical lifetimes of these resonances.  From this assumption, it is possible to analytically describe the dipole response of the system in the time domain.
+
+
+The derivation of the dipole response follows naturally from the theory described in the previous section. Assuming that the XUV impulsively excites at $t=0$ from the ground state $\ket{g}$ to the bound and continuum states $\ket{\psi_b}$ and $\ket{\psi_\varepsilon}$, the wave function for times $t>0$ can be in the configuration states, such that
+\begin{equation}
+\label{eqn:wvfnc_expansion}
+	\ket{\Psi(t)}=e^{-i\varepsilon_gt}\ket{g}+c_b(t)\ket{\psi_b}+\int c_\varepsilon(t)\ket{\psi_\varepsilon}\diff \varepsilon.
+\end{equation}
+Since the configuration states $\ket{\psi_b}$ and $\ket{\psi_\varepsilon}$ are not eigenstates of the total Hamiltonian, the expansion coefficients $c_b$ and $c_\varepsilon$ are explicitly time dependent. The evolution of these coefficients is governed by the Time-Dependent Schr{\"o}dinger Equation (TDSE)
+\begin{equation}
+\label{eqn:tdse}
+	i\frac{\partial}{\partial t}\ket{\Psi(t)}=\hat{H}\ket{\Psi(t)},
+\end{equation}
+and using this equation, the time dependence of the expansion coefficients can be expressed as the coupled differential equations given by
+\begin{equation}
+\label{eqn:coupled_pde}
+	\begin{aligned}
+		\frac{\partial c_{\varepsilon}}{\partial t} &= -iV_\varepsilon c_b(t)-i\varepsilon c_\varepsilon(t)\\
+		\frac{\partial c_b}{\partial t} &= -i\varepsilon_r c_b(t)-iV_\varepsilon \int c_\varepsilon(t) \diff \varepsilon.
+	\end{aligned}
+\end{equation}
+Assuming the initial values $c_b^{(0)}$ and $c_\varepsilon^{(0)}$ are known, then the solutions to equations \ref{eqn:coupled_pde} are given by
+\begin{equation}
+\label{eqn:coefficients}
+	\begin{aligned}
+		c_b(t) &= c_b^{(0)}\bigg(1-\frac{i}{q}\bigg)e^{-i\varepsilon_r}e^{-\frac{\Gamma}{2}t}\\
+		c_\varepsilon(t) &= \frac{c_\varepsilon^{(0)}}{\epsilon + i}e^{-i\varepsilon_r t}\bigg[ (q+\epsilon)e^{-i(E-E_r)t}-(q-i)e^{-\frac{\Gamma}{2}t}\bigg],
+	\end{aligned}
+\end{equation}
+where, as in the previous section, $q=c_b^{(0)}/(\pi V c_\varepsilon^{(0)})$, $\Gamma=2\pi\rvert V \lvert^2$, and $\epsilon=(\varepsilon-\varepsilon_r)/(\Gamma/2)$. 
+
+With the time dependent wave function now in hand, the induced dipole $d(t)$ can now be calculated for $t>0$ by evaluating  $d(t)=\braket{\Psi(t)|z|\Psi(t)}$.  Using equations \ref{eqn:wvfnc_expansion} and \ref{eqn:coefficients}, this gives
+\begin{equation}
+\label{eqn:dip}
+	\begin{aligned}
+		d(t)&=c_b(t)e^{-i\varepsilon_g t}\braket{\psi_b|z|g}^* + \int c_\varepsilon(t)e^{i\varepsilon_g t}\braket{\psi_\varepsilon|z|g}^* + c.c.\\
+		&=c_b^{(0)}\braket{\psi_b|z|g}^*e^{-i\Omega_r t}\Bigg[\bigg(1-\frac{i}{q}\bigg)e^{-\frac{\Gamma}{2}t}+ \frac{1}{(\pi V q)^2}\int \frac{(q+\epsilon)e^{-i\frac{\Gamma}{2}\epsilon t}-(q-i)e^{\frac{\Gamma}{2}t}}{\epsilon+i}\diff\varepsilon\Bigg] + c.c.,
+	\end{aligned}
+\end{equation}
+where $\Omega_r=E_r-E_g$ is the resonance photon energy.  The complex conjugate term in equation \ref{eqn:dip} is a counter-rotating term, and by invoking the rotating wave approximation, it can be dropped.  Equation \ref{eqn:dip} can further be evaluated to give
+\begin{equation}
+	\begin{aligned}
+	d(t) &= c_b^{(0)}\braket{\psi_b|z|g}^*e^{-i\Omega_r t}\frac{1}{q^2}\Bigg[q(q-i)e^{-\frac{\Gamma}{2}t}+\frac{2}{\pi\Gamma}\int \frac{(q+\epsilon)e^{-i\frac{\Gamma}{2}\epsilon t}-(q-i)e^{\frac{\Gamma}{2}t}}{\epsilon+i}\diff\varepsilon\Bigg]\\
+	&= c_b^{(0)}\braket{\psi_b|z|g}^*e^{-i\Omega_r t}\frac{1}{q^2}\Bigg[q(q-i)e^{-\frac{\Gamma}{2}t} + \frac{1}{\pi} \int e^{-i\frac{\Gamma}{2}\epsilon t}\diff\epsilon + \frac{q-i}{\pi}\int \frac{e^{-i\frac{\Gamma}{2}\epsilon t} - e^{-\frac{\Gamma}{2}t}}{\epsilon+i} \diff\epsilon\Bigg]\\
+	&=c_b^{(0)}\braket{\psi_b|z|g}^*e^{-i\Omega_r t}\frac{1}{q^2} \Bigg[ q(q-i)e^{-\frac{\Gamma}{2}t}+ \frac{4}{\Gamma}\delta(t) + \frac{q-i}{\pi}e^{-\frac{\Gamma}{2}t}2\pi i + \frac{q-i}{\pi}e^{-\frac{\Gamma}{2}t}\pi i \Bigg]\\
+	&=c_b^{(0)}\braket{\psi_b|z|g}^*\frac{1}{q^2}\bigg[ \frac{4}{\Gamma}\delta(t)+(q-i)^2e^{-i\Omega_r t}}e^{-\frac{\Gamma}{2}t}\bigg].
+	\end{aligned}
+\end{equation}
+If we assume that $\braket{\psi_b|z|g}$ is real and the expansion coefficient is $c_b^{(0)}$ purely imaginary, then we can finally arrive at the form of the dipole that is reported in \cite{chuTheoryUltrafastAutoionization2010,ottLorentzMeetsFano2013,kaldunFanoResonancesTime2014},
+\begin{equation}
+\label{eqn:dipole_time_domain}
+	d(t)\propto i\bigg[ 2\delta(t) + \frac{\Gamma}{2}(q-i)^2 e^{-i\Omega_r t}e^{\frac{\Gamma}{2}t} \bigg].
+\end{equation}
+This form of the dipole can be understood intuitively as arising naturally from the two interfering processes that are occusing: direct ionization and autoionization.  The first $\delta$ function in equation \ref{eqn:dipole_time_domain} represents direct ionization to the continuum, and the second term in 
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/dipole_sketch.pdf}
+	\caption{Incomplete}
+	\label{fig:dipole_sketch}
+\end{figure}
 
 \subsection{Dipole Control Model}
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/dipole_sketch_dressing.pdf}
+	\caption{Incomplete}
+	\label{fig:dipole_sketch_dressing}
+\end{figure}
+
 
 \begin{figure}
 	\centering
@@ -212,8 +275,22 @@ where $\sigma_a$ scales the strength of the Fano profile and $\sigma_{NR}$ is  a
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/ATS/dipole_components.pdf}
-	\caption{Incomplete}
+	\caption{$\varphi_1=0$}
 	\label{fig:dip_components}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/DCM_non_res_high_low.pdf}
+	\caption{$\phi_0=4p$ $a_1=0,\phi_1=0$, $a_1=0.8,\phi_1=\pi/2$}
+	\label{fig:non_res_high_low}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/DCM_res_high_low.pdf}
+	\caption{$\phi_0=4p$ $a_1=0,\phi_1=0$, $a_1=0.8,\phi_1=\pi/2$}
+	\label{fig:res_high_low}
 \end{figure}
 
 \section{Strong-field Transient Absorption in Argon}
@@ -221,6 +298,13 @@ where $\sigma_a$ scales the strength of the Fano profile and $\sigma_{NR}$ is  a
 
 \subsection{Experimental setup}
 \label{sec:ATS_ar_exp_setup}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ATS/fano_fit.pdf}
+	\caption{Incomplete}
+	\label{fig:fano_fit}
+\end{figure}
 
 \subsection{Results}
 \label{sec:ATS_ar_results}
