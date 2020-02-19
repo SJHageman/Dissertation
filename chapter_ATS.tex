@@ -240,7 +240,7 @@ where $\Omega_r=E_r-E_g$ is the resonance photon energy.  The complex conjugate 
 	d(t) &= c_b^{(0)}\braket{\psi_b|z|g}^*e^{-i\Omega_r t}\frac{1}{q^2}\Bigg[q(q-i)e^{-\frac{\Gamma}{2}t}+\frac{2}{\pi\Gamma}\int \frac{(q+\epsilon)e^{-i\frac{\Gamma}{2}\epsilon t}-(q-i)e^{\frac{\Gamma}{2}t}}{\epsilon+i}\diff\varepsilon\Bigg]\\
 	&= c_b^{(0)}\braket{\psi_b|z|g}^*e^{-i\Omega_r t}\frac{1}{q^2}\Bigg[q(q-i)e^{-\frac{\Gamma}{2}t} + \frac{1}{\pi} \int e^{-i\frac{\Gamma}{2}\epsilon t}\diff\epsilon + \frac{q-i}{\pi}\int \frac{e^{-i\frac{\Gamma}{2}\epsilon t} - e^{-\frac{\Gamma}{2}t}}{\epsilon+i} \diff\epsilon\Bigg]\\
 	&=c_b^{(0)}\braket{\psi_b|z|g}^*e^{-i\Omega_r t}\frac{1}{q^2} \Bigg[ q(q-i)e^{-\frac{\Gamma}{2}t}+ \frac{4}{\Gamma}\delta(t) + \frac{q-i}{\pi}e^{-\frac{\Gamma}{2}t}2\pi i + \frac{q-i}{\pi}e^{-\frac{\Gamma}{2}t}\pi i \Bigg]\\
-	&=c_b^{(0)}\braket{\psi_b|z|g}^*\frac{1}{q^2}\bigg[ \frac{4}{\Gamma}\delta(t)+(q-i)^2e^{-i\Omega_r t}}e^{-\frac{\Gamma}{2}t}\bigg].
+	&=c_b^{(0)}\braket{\psi_b|z|g}^*\frac{1}{q^2}\bigg[ \frac{4}{\Gamma}\delta(t)+(q-i)^2e^{-i\Omega_r t}e^{-\frac{\Gamma}{2}t}\bigg].
 	\end{aligned}
 \end{equation}
 If we assume that $\braket{\psi_b|z|g}$ is real and the expansion coefficient is $c_b^{(0)}$ purely imaginary, then we can finally arrive at the form of the dipole that is reported in \cite{chuTheoryUltrafastAutoionization2010,ottLorentzMeetsFano2013,kaldunFanoResonancesTime2014},
@@ -248,11 +248,11 @@ If we assume that $\braket{\psi_b|z|g}$ is real and the expansion coefficient is
 \label{eqn:dipole_time_domain}
 	d(t)\propto i\bigg[ 2\delta(t) + \frac{\Gamma}{2}(q-i)^2 e^{-i\Omega_r t}e^{\frac{\Gamma}{2}t} \bigg].
 \end{equation}
-This form of the dipole can be understood intuitively as arising naturally from the two interfering processes that are occusing: direct ionization and autoionization.  The first $\delta$ function in equation \ref{eqn:dipole_time_domain} represents direct ionization to the continuum, and the second term in 
+This form of the dipole can be understood intuitively as arising naturally from the two interfering processes that are occusing: direct ionization and autoionization.  The first $\delta$-function in equation \ref{eqn:dipole_time_domain} represents direct ionization to the continuum, and the second term represents decay from the bound state to the continuum with a lifetime of $\hbar/\Gamma$.  A schematic of the dipole after an impulsive XUV pulse is shown in  figure \ref{fig:dipole_sketch}.
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/ATS/dipole_sketch.pdf}
-	\caption{Incomplete}
+	\caption{Illustration of the dipole moment after a $\delta(t)$ excitation pulse.}
 	\label{fig:dipole_sketch}
 \end{figure}
 

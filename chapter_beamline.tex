@@ -24,7 +24,7 @@ An important consideration in pump/probe experiments is how to control the delay
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/Beamline/wedge_calibration.pdf}
+	\includegraphics[width=0.8\textwidth]{figures/Beamline/wedge_delay_calibration.pdf}
 	\caption{Schematic of the FS wedges used to control the time delay between the IR and XUV pulses in the dressing and generation arms interferometer, respectively. The wedges are aligned such that the input beam is normal to the first wedge face, and the beam exits the wedges normal to the last face of the second wedge.  Only one of the wedges is motorized and is shown before and after a displacement by an amount $\Delta x$.}
 	\label{fig:wedges}
 \end{figure}
@@ -34,7 +34,7 @@ The second common method to control the delay between the pump and probe pulse i
 \label{eqn:path_lengths}
 	a'&=a+\Delta x \tan\theta\\
 	b'&=b-\Delta x \bigg(\frac{\sin\theta}{\cos\psi}\bigg)\\
-	c'&=c-\Delta x \tan\theta\sin\theta\frac{\cos(\frac{\pi}{4}+\psi)}{\sin(\frac{\pi}{4}+\theta+\psi)}
+	c'&=c+\Delta x \tan\theta\bigg(\frac{\sin(\psi-\theta)}{\cos\theta}\bigg)
 \end{align}
 where
 \begin{equation}
@@ -43,12 +43,12 @@ where
 is given by Snell's Law \cite{pedrottiIntroductionOptics2007}. From the difference in optical path length between these two paths, one can calculate the time delay $\Delta\tau$ introduced by a translation of $\Delta x$, and this relationship is given by
 \begin{equation}
 \label{eqn:time_delay}
-	\Delta\tau = \frac{\Delta x}{c}\Bigg[(n-1)\tan\theta - \frac{\sin\theta}{\cos\psi}-(n-1)\tan\theta\sin\theta\bigg(\frac{\cos(\frac{\pi}{4}+\psi)}{\sin(\frac{\pi}{4}+\theta+\psi)}\bigg)\Bigg].
+	\Delta\tau = \frac{\Delta x}{c}\Bigg[n\tan\theta - \frac{\sin\theta}{\cos\psi}-n\tan\theta\bigg(\frac{\sin(\psi-\theta)}{\cos\theta}\bigg)\Bigg].
 \end{equation}
-For a pair wedges made out of fused silica with a wedge angle of $\theta=5^\circ$ and a beam of wavelength 1430 nm, equation \ref{eqn:time_delay} becomes
+For a pair wedges made out of fused silica (Infrasil) with a wedge angle of $\theta=4^\circ$ and a beam of wavelength 1430 nm (n=1.4454), equation \ref{eqn:time_delay} becomes
 \begin{equation}
 \label{eqn:numerical_relationship_wedges}
-	\Delta\tau = \Bigg(101 \bigg[\frac{\mathrm{as}}{\mathrm{\mu m}}\bigg]\Bigg)\Delta x.
+	\Delta\tau = \Bigg(114 \bigg[\frac{\mathrm{as}}{\mathrm{\mu m}}\bigg]\Bigg)\Delta x.
 \end{equation}
 This entails that a translation of 1 $\mu$m would lead to a delay of only 100 as.  This reduction in motor step to delay step ratio compared to the retroreflector case means that the requirements on the motorized stage are greatly reduced.  Additionally, since the glass wedges are a transmissive optic, they are inherently less sensitive to vibrations when compared to a retroreflector.
 
