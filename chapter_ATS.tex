@@ -195,6 +195,7 @@ where $\sigma_a$ scales the strength of the Fano profile and $\sigma_{NR}$ is  a
 %!!!!!!!!!!!!!!!!!!!!!!!!!!! ATOMIC UNITS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 %
+
 Up until this point, Fano resonances have been discussed in a time-independent manner in the frequency domain.  However, one would ideally like to describe these autoionizing resonances in the time domain, as that will lend itself to the experiments described herein. This description was primarily done by W.-C. Chu and C.D. Lin \cite{chuTheoryUltrafastAutoionization2010}, and it has been used to interpret many ATS experiments  \cite{kaldunExtractingPhaseAmplitude2014,ottLorentzMeetsFano2013,ottReconstructionControlTimedependent2014, stoossRealTimeReconstructionStrongFieldDriven2018}.  The basic assumption that is made in this treatment is that the XUV pulse that excites from the ground state to the Fano resonance is a Dirac-$\delta$ function in time, $\mathbf{E}_{XUV}=E_0\delta(t)\mathbf{z}$.  This impulsive excitation is generally a reasonable  approximation for an attosecond XUV pulse that is shorter in duration than the typical lifetimes of these resonances.  From this assumption, it is possible to analytically describe the dipole response of the system in the time domain.
 
 
@@ -226,6 +227,14 @@ Assuming the initial values $c_b^{(0)}$ and $c_\varepsilon^{(0)}$ are known, the
 \end{equation}
 where, as in the previous section, $q=c_b^{(0)}/(\pi V c_\varepsilon^{(0)})$, $\Gamma=2\pi\rvert V \lvert^2$, and $\epsilon=(\varepsilon-\varepsilon_r)/(\Gamma/2)$. 
 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/dipole_sketch.pdf}
+	\caption{Illustration of the dipole moment after a $\delta(t)$ excitation pulse. Dipole is shown for a phase shift of $\varphi=-1.2\pi$ (purple curve) and $\varphi=0$ (dashed gray curve), and the central inset shows the line shape for these two phase shifts.}
+	\label{fig:dipole_sketch}
+\end{figure}
+
 With the time dependent wave function now in hand, the induced dipole $d(t)$ can now be calculated for $t>0$ by evaluating  $d(t)=\braket{\Psi(t)|z|\Psi(t)}$.  Using equations \ref{eqn:wvfnc_expansion} and \ref{eqn:coefficients}, this gives
 \begin{equation}
 \label{eqn:dip}
@@ -248,14 +257,22 @@ If we assume that $\braket{\psi_b|z|g}$ is real and the expansion coefficient is
 \label{eqn:dipole_time_domain}
 	d(t)\propto i\bigg[ 2\delta(t) + \frac{\Gamma}{2}(q-i)^2 e^{-i\Omega_r t}e^{\frac{\Gamma}{2}t} \bigg].
 \end{equation}
-This form of the dipole can be understood intuitively as arising naturally from the two interfering processes that are occusing: direct ionization and autoionization.  The first $\delta$-function in equation \ref{eqn:dipole_time_domain} represents direct ionization to the continuum, and the second term represents decay from the bound state to the continuum with a lifetime of $\hbar/\Gamma$.  A schematic of the dipole after an impulsive XUV pulse is shown in  figure \ref{fig:dipole_sketch}.
-\begin{figure}
-	\centering
-	\includegraphics[width=1.0\textwidth]{figures/ATS/dipole_sketch.pdf}
-	\caption{Illustration of the dipole moment after a $\delta(t)$ excitation pulse.}
-	\label{fig:dipole_sketch}
-\end{figure}
+This form of the dipole can be understood intuitively as arising naturally from the two interfering processes that are occurring: direct ionization to the continuum and decay from a discrete state to the continuum with a lifetime of $\hbar/\Gamma$.  The first $\delta$-function in equation \ref{eqn:dipole_time_domain} represents direct ionization, and the second term represents decay from the discrete state.  A schematic of the dipole after an impulsive XUV pulse is shown in  figure \ref{fig:dipole_sketch}.
 
+The complex coefficient in front of the second term arises from the configuration interaction, and its influence on the dipole can be elucidated by expressing it as an exponential,
+\begin{equation}
+	(q-i)^2 = (q^2+1)e^{i\varphi(q)}
+\end{equation} 
+where the phase is given by
+\begin{equation}
+	\varphi(q)=2\arg(q-i).
+\end{equation}
+Substituting this form into the dipole in equation \ref{eqn:dipole_time_domain} gives
+\begin{equation}
+\label{eqn:dipole_time_domain_phasse_shift}
+	d(t)\propto i\bigg[ 2\delta(t) + \frac{\Gamma}{2}(q^2+1)e^{i\varphi(q)}e^{-i\Omega_r t}e^{\frac{\Gamma}{2}t} \bigg].
+\end{equation}
+By expressing the dipole this way, it is clear that the autoionization from the discrete state is phase shifted relative to the instantaneous response (direct ionization).  Furthermore, in section \ref{sec:og_fano} it was established that the $q$ parameter determines the line shape of the photoabsorption cross section ($\sigma\propto\mathrm{Im}[\tilde{d}(\omega)]$). This fact, combined with the correspondence between $\varphi$ and $q$, means that the line shape of the Fano resonance is determined by the phase shift of the dipole response.  Thus, if one can experimentally introduce a phase shift of the dipole response then it is possible to control the absorption process.  
 \subsection{Dipole Control Model}
 \begin{figure}
 	\centering
