@@ -4,8 +4,6 @@
 \section{Introduction}
 \label{sec:intro_ats}
 
-\section{Theory}
-\label{sec:atas_theory}
 
 \section{Autoionization resonances}
 \label{sec:fano_ar}
@@ -13,7 +11,7 @@
 One of the most extensively studied phenomenons using ATS has been autoionization of noble gas atoms in the time-domain \cite{wangAttosecondTimeResolvedAutoionization2010, ottAttosecondMultidimensionalInterferometry2012, stoossRealTimeReconstructionStrongFieldDriven2018, kaldunExtractingPhaseAmplitude2014, kaldunObservingUltrafastBuildup2016}.  Autoionization was first observed in 1935 by Beutler \cite{beutlerUeberAbsorptionsserienArgon1935} by studying photoabsorption of noble gas atoms, and it manifested itself as sharp, asymmetric peaks in the absorption spectrum.  These features were theoretically described by Fano in a seminal paper in 1961 \cite{fanoSulloSpettroDi1935, fanoEffectsConfigurationInteraction1961} as the result of interference between two pathways: direct ionization to the continuum and autoionization from a discrete state that is embedded in and coupled to the continuum. The theoretical framework that he developed can be treated as a more general formalism that describes interference between discrete and continuous pathways.\footnote{A very similar theory was independently developed by Feshbach in the context of nuclear physics, and these two theories have been unified by further theoretical work \cite{feshbachUnifiedTheoryNuclear1958, feshbachUnifiedTheoryNuclear1962, bhatiaLineshapeParameters1P1984}
 	.} For this very reason, "Fano" resonances can be observed in a plethora of atomic, molecular, and condensed matter systems \cite{miroshnichenkoFanoResonancesNanoscale2010}.
 
-\subsection{Time-independent autoionization: Fano's original work}
+\subsection{Autoionization in the frequency domain: Fano's original work}
 \label{sec:og_fano}
 
 As noted above, Fano's theoretical explanation of the photoabsorption spectrum observed by Beutler in noble gas atoms is based on interference between two pathways.  The relevant level diagram to describe this scenario is shown in figure \ref{fig:fano_level_diagram}, and specifically we will be considering the autoionization resonances in Ar because they will be used in the ATS experiments described in this chapter and in the following chapter.  In this case, there is a bound state $\ket{\psi_b}$ (one of the $3s3p^6np$ states in Ar) that is embedded within a set of continuum states $\ket{\psi_\varepsilon}$.  This entails that the energy of the bound state $E_b$ is degenerate with the energetic spectrum of continuum states. The coupling between the bound state $\ket{\psi_b}$ and the continuum $\ket{\psi_\varepsilon}$ through the configuration interaction leads to decay of the electron from the bound state to the continuum.  The following derivation of the photoabsorption cross section and phase follows closely from Fano's original paper and sources that have reproduced his original derivation \cite{fanoEffectsConfigurationInteraction1961, changFundamentalsAttosecondOptics2011, ottAttosecondMultidimensionalInterferometry2012}.
@@ -151,7 +149,7 @@ This ratio is proportional to the photoabsorption cross section, and is plotted 
 and is plotted in figure \ref{fig:cross_sec_and_phase} (b).  For increasing $\epsilon$, the phase increases until $\epsilon=-q$ when there is a $\pi$ phase jump, and thereafter the phase continues to increase until is asymptotically approaches its original value.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{figures/ATS/cs_phase.pdf}
+	\includegraphics[width=0.8\textwidth]{figures/ATS/cs_phase.pdf}
 	\caption{(a) Calculation of the photoabsorption cross section near a resonance for the listed $q$ parameters.  The change from symmetric to asymmetric profiles can be seen as the $q$ parameter is varied. Maximum and minimum in cross section occus at $\epsilon=1/q$ and $\epsilon=-q\Gamma^2/4$, respectively. (b) Calculation of the phase across the resonance for different $q$ parameter. The $\pi$ phase jump clearly depends on $q$, and it occurs when $\epsilon=-q$ and not at the resonance energy $E_r$. Calculations based on U. Fano's original work \cite{fanoEffectsConfigurationInteraction1961}.}
 	\label{fig:cross_sec_and_phase}
 \end{figure}
@@ -165,30 +163,7 @@ where $\sigma_a$ scales the strength of the Fano profile and $\sigma_{NR}$ is  a
 
 
 
-\begin{table}[]
-	\centering
-	\begin{tabular}{lcccc}
-		\hline\hline
-		\multicolumn{1}{c}{} & $\Delta E$ [eV]   & $\Gamma$ [meV]   & $q$         & $\rho^2$     \\ \hline
-		$3s3p^64p$              & 26.605 & 80.2(7) & -0.286(4) & 0.840(3) \\
-		$3s3p^65p$              & 27.994 & 28.5(8) & -0.177(3) & 0.848(3) \\
-		$3s3p^66p$              & 28.509 & 12.2(3) & -0.135(9) & 0.852(9) \\
-		$3s3p^67p$              & 28.757 & 6.6(1)  & -0.125(4) & 0.846(9) \\
-		$3s3p^68p$              & 28.898 & 4.5(2)  & -0.132(4) & 0.77(2)  \\ \hline\hline
-	\end{tabular}
-	\caption{Paramters of the $3s3p^6np$ Fano resonances in argon. These values were extracted from experimental cross sections, see \cite{caretteMulticonfigurationalHartreeFockClosecoupling2013, wuElectronimpactStudyValence1995, berrahAngulardistributionParametersAndRmatrix1996}.}
-	\label{table:fano_params}
-\end{table}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{figures/ATS/fano_GS.pdf}
-	\caption{Photoabsorption cross section of the Argon $3s3p^6np$ Fano resonances (blue curve), with only resonances up to $n=8$ shown.  Grey shaded area indicates the energetic region above the $\mathrm{Ar}^+(3s3p^6)$ ionization threshold. Values used to calculate this cross section are shown in Table \ref{table:fano_params}.}
-	\label{fig:fano_gs_pcs}
-\end{figure}
-
-
-\subsection{Time-dependent autoionization}
+\subsection{Autoionization in the time domain}
 \label{sec:time_dependent_autoionization}
 %
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -257,9 +232,25 @@ If we assume that $\braket{\psi_b|z|g}$ is real and the expansion coefficient is
 \label{eqn:dipole_time_domain}
 	d(t)\propto i\bigg[ 2\delta(t) + \frac{\Gamma}{2}(q-i)^2 e^{-i\Omega_r t}e^{\frac{\Gamma}{2}t} \bigg].
 \end{equation}
-This form of the dipole can be understood intuitively as arising naturally from the two interfering processes that are occurring: direct ionization to the continuum and decay from a discrete state to the continuum with a lifetime of $\hbar/\Gamma$.  The first $\delta$-function in equation \ref{eqn:dipole_time_domain} represents direct ionization, and the second term represents decay from the discrete state.  A schematic of the dipole after an impulsive XUV pulse is shown in  figure \ref{fig:dipole_sketch}.
+This form of the dipole can be understood intuitively as arising naturally from the two interfering processes that are occurring: direct ionization to the continuum and decay from a discrete state to the continuum with a lifetime of $\hbar/\Gamma$.  The first $\delta$-function in equation \ref{eqn:dipole_time_domain} represents direct ionization, and the second term represents decay from the discrete state.  A schematic of the dipole after an impulsive XUV pulse is shown in  figure \ref{fig:dipole_sketch}.  To demonstrate that this formulation of the dipole in the time domain is compatible with Fano's original derivation, the photoabsorption cross section can be evaluated by
+\begin{equation}
+\begin{aligned}
+	\sigma&=\frac{2\omega}{\epsilon_0 c}\mathrm{Im}\bigg[\frac{\tilde{d}(\omega)}{\tilde{E}(\omega)}\bigg]\propto \mathrm{Im}\bigg[\int_{-\infty}^{\infty} d(t) e^{i\omega t} \diff t\bigg]\\
+	&\propto\mathrm{Re}\bigg[1+\frac{\Gamma}{2}(q-i)^2\int_0^\infty e^{-\frac{\Gamma}{2}t}e^{i(\omega-\Omega_r)t}\bigg]\\
+	&\propto\mathrm{Re}\bigg[1 + \frac{(q-i)^2}{1-i\epsilon}\bigg]\\
+	& \propto \frac{(q+\epsilon)^2}{\epsilon^2 +1}.
+\end{aligned}
+\end{equation}
+This is exactly the cross section in equation \ref{eqn:sigma_pcs} that was derived previously.
 
-The complex coefficient in front of the second term arises from the configuration interaction, and its influence on the dipole can be elucidated by expressing it as an exponential,
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ATS/Kaldun.png}
+	\caption{Illustration of the mapping between the Fano $q$ parameter and the phase shift $\varphi$ of the dipole. (a) Phase shift $\varphi$ is shown as a counter-clockwise rotation of a vector on the unit circle. Dashed tangent lines for a given $\varphi$ show the mapping to the value $q(\varphi)$ along the $q$-axis. (b) Shows the special cases of a Lorentzian line shape ($q\rightarrow\pm\infty$, $\varphi=0$) and a window resonance ($q=0$, $\varphi=\pi$).  Adapted from \cite{kaldunFanoResonancesTime2014}.}
+	\label{fig:q_to_phi}
+\end{figure}
+
+The complex coefficient in front of the second term of equation \ref{eqn:dipole_time_domain} arises from the configuration interaction, and its influence on the dipole can be elucidated by expressing it as an exponential,
 \begin{equation}
 	(q-i)^2 = (q^2+1)e^{i\varphi(q)}
 \end{equation} 
@@ -272,13 +263,64 @@ Substituting this form into the dipole in equation \ref{eqn:dipole_time_domain} 
 \label{eqn:dipole_time_domain_phasse_shift}
 	d(t)\propto i\bigg[ 2\delta(t) + \frac{\Gamma}{2}(q^2+1)e^{i\varphi(q)}e^{-i\Omega_r t}e^{\frac{\Gamma}{2}t} \bigg].
 \end{equation}
-By expressing the dipole this way, it is clear that the autoionization from the discrete state is phase shifted relative to the instantaneous response (direct ionization).  Furthermore, in section \ref{sec:og_fano} it was established that the $q$ parameter determines the line shape of the photoabsorption cross section ($\sigma\propto\mathrm{Im}[\tilde{d}(\omega)]$). This fact, combined with the correspondence between $\varphi$ and $q$, means that the line shape of the Fano resonance is determined by the phase shift of the dipole response.  Thus, if one can experimentally introduce a phase shift of the dipole response then it is possible to control the absorption process.  
-\subsection{Dipole Control Model}
+By expressing the dipole this way, it is clear that the autoionization from the discrete state is phase shifted relative to the instantaneous response (direct ionization).  Furthermore, in section \ref{sec:og_fano} it was established that the $q$ parameter determines the line shape of the photoabsorption cross section ($\sigma\propto\mathrm{Im}[\tilde{d}(\omega)]$). This fact, combined with the correspondence between $\varphi$ and $q$, means that the line shape of the Fano resonance is determined by the phase shift of the dipole response.  Thus, if one can experimentally introduce a phase shift of the dipole response then it is possible to control the absorption process.  In fact, if one has sufficient control over the dipole phase shift then it is possible to continuously change the line shape from symmetric to asymmetric and vice versa.  This mapping of $q$ parameter and the phase shift $\varphi$ and its affect on the line shape is shown in figure \ref{fig:q_to_phi}.
+
+
+\section{Dipole Control Model}
+
+Now that the relationship between the dipole and the absorption line shape has been established in the time domain, we would like to establish a method to control and modify the dipole.  This will be done by introducing an IR probe/dressing pulse at a variable time delay $\tau$.  This IR pulse will lead to a modification of the dipole that can be modeled analytically for certain assumptions. This model is referred to as the dipole control model (DCM), and it was originally formulated by A. Bl{\"a}tterman, et al \cite{blattermannImpulsiveControlAtomic2016, blattermannTwodimensionalSpectralInterpretation2014, kaldunFanoResonancesTime2014}. In a similar manner to the previous section, a key assumption that must be made in this model is that, in addition to the XUV pulse, the IR pulse must be a $\delta$-function in time.  This is generally only a reasonable approximation if the pulse duration is much shorter than the lifetime $\hbar/\Gamma$.  These assumptions will be questionable for the experiments discussed in this chapter, however this model will allow for an understanding of the features that will be seen in the data shown later.  
+
+
+A schematic of the physical situation considered for the DCM is shown in figure \ref{fig:dipole_sketch_dressing}.  A XUV pulse at $t=0$ induces a dipole $d(t)$, and an IR pulse perturbs the dipole after a time delay of $\tau$. The $\delta$-function nature of both pulses means that there are three distinct temporal regions to consider.  The first is $t<0$, and in this region, the dipole response is zero because the XUV pulse hasn't yet populated the excited state. For the region between the two pulses, the dipole is allowed to freely evolve in time, as was derived in \ref{eqn:dipole_time_domain_phasse_shift}. Thus, the dipole response here is just simply
+\begin{equation}
+	d(0<t<\tau)= f_0(t)\propto i\bigg[ c\delta(t) + \frac{\Gamma}{2}(q-i)^2 e^{-i\Omega_r t}e^{\frac{\Gamma}{2}t} \bigg].
+\end{equation}
+At $t=\tau$, the dressing field will interact with the system through resonant and non-resonant processes which will modify the dipole response.  However, since the dressing field is infinitesimally short in duration, the system will again freely evolve in time for times after $\tau$, but the dressing field is assumed to have modified the dipole amplitude and phase.  Therefore, in the third temporal region of $t>\tau$, the dipole response is given by
+\begin{equation}
+	d(t>\tau) = A f_0(t)
+\end{equation}
+where $A$ is the complex perturbation to the dipole response induced by the dressing pulse. By combing the dipole response for the three temporal regions into a single piece-wise function, we arrive at
+\begin{equation}
+	d_\tau(t)=
+	\begin{cases}
+		0 & t<0\\
+		f_0(t) & 0<t<\tau\\
+		A(\tau)f_0(t) & t>\tau.
+	\end{cases}
+\end{equation}
+
+In general, $A$ is a complex quantity that can be explicitly dependent upon $\tau$ or $\omega$, and it can  be used to describe both resonant and non-resonant processes.  For example, a decrease of the amplitude of $A$ can be used to represent ionization of the excited state by the dressing field, whereas the phase can be used to describe a ponderomotive shift of energy levels by the dressing field.  To describe these non-resonant processes, it can be assumed that $A$ takes the form of $A=a_1e^{i\phi_1}$.  To describe a resonant process such as coupling of excited states, $A$ takes the form $A=1+a_2e^{i(\Delta\omega\tau+\phi_2)}$ where $\hbar\omega$ is the separation of the states.  This form is motivated by the results of perturbation theory (see appendix \ref{chap:Perturbation_theory}).  These two primitive forms can be linearly combined into
+\begin{equation}
+	A=a_1e^{i\phi_1}(1+a_2e^{i(\Delta\omega\tau+\phi_2)}).
+\end{equation}
+In general, all of these quantities can be explicitly dependent upon $\tau$ and $\omega$, however they are independent of $t$.
+
+Armed now with the dipole in the time domain, it is possible now to calculate the cross section from the dipole in the frequency domain.  The spectral dipole is given by the Fouier transform, and it can be conveniently calculated
+\begin{equation}
+	\begin{aligned}
+	\tilde{d}_\tau(\omega,\tau)&=\int_{-\infty}^{\infty} d_\tau(t,\tau)e^{i\omega t}\diff t\\
+	&=\int_0^\tau f_0(t)e^{i\omega t}\diff t + \int_\tau^\infty A(\tau)f_0(t)e^{i\omega t}\diff t\\
+	&=\int_0^\tau i\bigg[ 2\delta(t) + \frac{\Gamma}{2}(q-i)^2 e^{-i\Omega_r t}e^{\frac{\Gamma}{2}t} \bigg]e^{i\omega t}\diff t \\ & + A(\tau)\int_\tau^\infty i\bigg[ 2\delta(t) + \frac{\Gamma}{2}(q-i)^2 e^{-i\Omega_r t}e^{\frac{\Gamma}{2}t} \bigg]e^{i\omega t}\diff t\\
+	&=i-\gamma(q-i)^2\frac{1-(1-A(\tau))e^{-\gamma\tau -i\delta\tau}}{\delta+i\gamma}
+	\end{aligned}
+\end{equation}
+where $\gamma = \Gamma/2$ and $\delta=\omega-\omega_r$.
+
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/ATS/dipole_sketch_dressing.pdf}
 	\caption{Incomplete}
 	\label{fig:dipole_sketch_dressing}
+\end{figure}
+
+
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/ATS/level_diagram_sketch.pdf}
+	\caption{Level diagram showing the influence of the IR dressing pulse on a series of Fano resonances. Generally, the IR field can either couple different resonances or directly ionize from the discrete state. Coupling is shown here as a two-photon transition between discrete states, and direct ionization from a discrete state is shown as a multiphoton process.  Green arrows represent the configuration interaction coupling the discrete states to the continuum.}
+	\label{fig:level_diagram_dressing}
 \end{figure}
 
 
@@ -315,6 +357,29 @@ By expressing the dipole this way, it is clear that the autoionization from the 
 
 \subsection{Experimental setup}
 \label{sec:ATS_ar_exp_setup}
+
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{lcccc}
+		\hline\hline
+		\multicolumn{1}{c}{} & $\Delta E$ [eV]   & $\Gamma$ [meV]   & $q$         & $\rho^2$     \\ \hline
+		$3s3p^64p$              & 26.605 & 80.2(7) & -0.286(4) & 0.840(3) \\
+		$3s3p^65p$              & 27.994 & 28.5(8) & -0.177(3) & 0.848(3) \\
+		$3s3p^66p$              & 28.509 & 12.2(3) & -0.135(9) & 0.852(9) \\
+		$3s3p^67p$              & 28.757 & 6.6(1)  & -0.125(4) & 0.846(9) \\
+		$3s3p^68p$              & 28.898 & 4.5(2)  & -0.132(4) & 0.77(2)  \\ \hline\hline
+	\end{tabular}
+	\caption{Paramters of the $3s3p^6np$ Fano resonances in argon. These values were extracted from experimental cross sections, see \cite{caretteMulticonfigurationalHartreeFockClosecoupling2013, wuElectronimpactStudyValence1995, berrahAngulardistributionParametersAndRmatrix1996}.}
+	\label{table:fano_params}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ATS/fano_GS.pdf}
+	\caption{Photoabsorption cross section of the Argon $3s3p^6np$ Fano resonances (blue curve), with only resonances up to $n=8$ shown.  Grey shaded area indicates the energetic region above the $\mathrm{Ar}^+(3s3p^6)$ ionization threshold. Values used to calculate this cross section are shown in Table \ref{table:fano_params}.}
+	\label{fig:fano_gs_pcs}
+\end{figure}
 
 \begin{figure}
 	\centering
