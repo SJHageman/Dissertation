@@ -281,6 +281,7 @@ At $t=\tau$, the dressing field will interact with the system through resonant a
 \end{equation}
 where $A$ is the complex perturbation to the dipole response induced by the dressing pulse. By combing the dipole response for the three temporal regions into a single piece-wise function, we arrive at
 \begin{equation}
+\label{eqn:piecewise_dipole_t}
 	d_\tau(t)=
 	\begin{cases}
 		0 & t<0\\
@@ -293,9 +294,16 @@ In general, $A$ is a complex quantity that can be explicitly dependent upon $\ta
 \begin{equation}
 	A=a_1e^{i\phi_1}(1+a_2e^{i(\Delta\omega\tau+\phi_2)}).
 \end{equation}
-In general, all of these quantities can be explicitly dependent upon $\tau$ and $\omega$, however they are independent of $t$.
+In general, all of these quantities can be explicitly dependent upon $\tau$ and $\omega$, however they are independent of $t$ given the $\delta$-function pulse durations that are assumed. An illustration of these processes is shown in the level diagram in figure \ref{fig:level_diagram_dressing}.
 
-Armed now with the dipole in the time domain, it is possible now to calculate the cross section from the dipole in the frequency domain.  The spectral dipole is given by the Fouier transform, and it can be conveniently calculated
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/dipole_sketch_dressing.pdf}
+	\caption{Illustration of the dipole response being modified by an impulsive IR pulse.  The IR pulse is shown to arrive after a time delay $\tau$.  The dipole is allowed to freely evolve between $t=0$ and $t=\tau$, but after the IR pulse it is modified in amplitude and phase.  The effect that this has on the absorption cross section is shown in the central inset for a time delay immediately after $\tau$.  Inset on the upper right shows both non-resonant and resonant processes that can be induced with the IR pulse.}
+	\label{fig:dipole_sketch_dressing}
+\end{figure}
+
+Armed with the dipole in the time domain, it is now possible to calculate the photoabsorption cross section that is the typical observable in a ATS experiment.  To do this, one must calculate the spectral dipole in the frequency domain, and this is done by simply Fourier transforming the dipole in equation \ref{eqn:piecewise_dipole_t},
 \begin{equation}
 	\begin{aligned}
 	\tilde{d}_\tau(\omega,\tau)&=\int_{-\infty}^{\infty} d_\tau(t,\tau)e^{i\omega t}\diff t\\
@@ -304,21 +312,20 @@ Armed now with the dipole in the time domain, it is possible now to calculate th
 	&=i-\gamma(q-i)^2\frac{1-(1-A(\tau))e^{-\gamma\tau -i\delta\tau}}{\delta+i\gamma}
 	\end{aligned}
 \end{equation}
-where $\gamma = \Gamma/2$ and $\delta=\omega-\omega_r$.
+where $\gamma = \Gamma/2$ and $\delta=\omega-\omega_r$.  The photoabsorption cross section is now given by
+\begin{equation}
+\label{eqn:sigma_pcs_dcm}
+	\begin{aligned}
+	\sigma(\omega,\tau)&=\frac{2\omega}{\epsilon_0 c}\mathrm{Im}\bigg[\frac{\tilde{d}(\omega)}{\tilde{E}(\omega)}\bigg]\propto \mathrm{Im}\bigg[\int_{-\infty}^{\infty} d(t) e^{i\omega t} \diff t\bigg]\\
+	&\propto \mathrm{Im}\bigg[i-\gamma(q-i)^2\frac{1-(1-A(\tau))e^{-\gamma\tau -i\delta\tau}}{\delta+i\gamma}\bigg]\\
+	&= \frac{(q+\delta/\gamma)^2}{(\delta/\gamma)+1} + \mathrm{Im}\bigg[\frac{\gamma(q-i)^2(1-A(\tau))e^{-\gamma\tau -i\delta\tau}}{\delta+i\gamma}\bigg].
+	\end{aligned}
+\end{equation} 
+From this, we can now begin to see the effect that of dressing pulse can have on the cross section.  For the case of $A(\tau)=1$, the second term in equation \ref{eqn:sigma_pcs_dcm} goes to zero, and only the unperturbed cross section represented by the first term remains.  This is expected because $A(\tau)=1$ implies that there is no interaction between the dressing field and the system.  For the more interesting case of $A(\tau)\neq1$, the dipole and the cross section will be modulated as a function of both photon energy $\omega$ and time delay $\tau$.  The specific functional form of $A(\tau)$ will ultimately determine the line shape, and a couple cases will be discussed herein.  It is important to note that as $\tau\rightarrow\infty$, the cross section returns to the unperturbed case. This due to the fact that the dipole is allowed to freely evolve over the natural lifetime of the state $\hbar/\Gamma$ before the dressing pulse arrives.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/ATS/dipole_sketch_dressing.pdf}
-	\caption{Incomplete}
-	\label{fig:dipole_sketch_dressing}
-\end{figure}
-
-
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\textwidth]{figures/ATS/level_diagram_sketch.pdf}
+	\includegraphics[width=0.8\textwidth]{figures/ATS/level_diagram_dressing_3.pdf}
 	\caption{Level diagram showing the influence of the IR dressing pulse on a series of Fano resonances. Generally, the IR field can either couple different resonances or directly ionize from the discrete state. Coupling is shown here as a two-photon transition between discrete states, and direct ionization from a discrete state is shown as a multiphoton process.  Green arrows represent the configuration interaction coupling the discrete states to the continuum.}
 	\label{fig:level_diagram_dressing}
 \end{figure}
