@@ -197,7 +197,7 @@ Assuming the initial values $c_b^{(0)}$ and $c_\varepsilon^{(0)}$ are known, the
 \label{eqn:coefficients}
 	\begin{aligned}
 		c_b(t) &= c_b^{(0)}\bigg(1-\frac{i}{q}\bigg)e^{-i\varepsilon_r}e^{-\frac{\Gamma}{2}t}\\
-		c_\varepsilon(t) &= \frac{c_\varepsilon^{(0)}}{\epsilon + i}e^{-i\varepsilon_r t}\bigg[ (q+\epsilon)e^{-i(E-E_r)t}-(q-i)e^{-\frac{\Gamma}{2}t}\bigg],
+		c_\varepsilon(t) &= \frac{c_\varepsilon^{(0)}}{\epsilon + i}e^{-i\varepsilon_r t}\bigg[ (q+\epsilon)e^{-i(\varepsilon-\varepsilon_r)t}-(q-i)e^{-\frac{\Gamma}{2}t}\bigg],
 	\end{aligned}
 \end{equation}
 where, as in the previous section, $q=c_b^{(0)}/(\pi V c_\varepsilon^{(0)})$, $\Gamma=2\pi\rvert V \lvert^2$, and $\epsilon=(\varepsilon-\varepsilon_r)/(\Gamma/2)$. 
@@ -294,7 +294,7 @@ In general, $A$ is a complex quantity that can be explicitly dependent upon $\ta
 \begin{equation}
 	A=a_1e^{i\phi_1}(1+a_2e^{i(\Delta\omega\tau+\phi_2)}).
 \end{equation}
-In general, all of these quantities can be explicitly dependent upon $\tau$ and $\omega$, however they are independent of $t$ given the $\delta$-function pulse durations that are assumed. An illustration of these processes is shown in the level diagram in figure \ref{fig:level_diagram_dressing}.
+All of these quantities can be explicitly dependent upon $\tau$ and $\omega$, however they are independent of $t$ given the $\delta$-function pulse durations that are assumed. An illustration of these processes is shown in the level diagram in figure \ref{fig:level_diagram_dressing}.
 
 \begin{figure}
 	\centering
@@ -309,7 +309,7 @@ Armed with the dipole in the time domain, it is now possible to calculate the ph
 	\tilde{d}_\tau(\omega,\tau)&=\int_{-\infty}^{\infty} d_\tau(t,\tau)e^{i\omega t}\diff t\\
 	&=\int_0^\tau f_0(t)e^{i\omega t}\diff t + \int_\tau^\infty A(\tau)f_0(t)e^{i\omega t}\diff t\\
 	&=\int_0^\tau i\bigg[ 2\delta(t) + \frac{\Gamma}{2}(q-i)^2 e^{-i\Omega_r t}e^{\frac{\Gamma}{2}t} \bigg]e^{i\omega t}\diff t \\ & + A(\tau)\int_\tau^\infty i\bigg[ 2\delta(t) + \frac{\Gamma}{2}(q-i)^2 e^{-i\Omega_r t}e^{\frac{\Gamma}{2}t} \bigg]e^{i\omega t}\diff t\\
-	&=i-\gamma(q-i)^2\frac{1-(1-A(\tau))e^{-\gamma\tau -i\delta\tau}}{\delta+i\gamma}
+	&=i-\gamma(q-i)^2\frac{1-(1-A(\tau))e^{-\gamma\tau +i\delta\tau}}{\delta+i\gamma}
 	\end{aligned}
 \end{equation}
 where $\gamma = \Gamma/2$ and $\delta=\omega-\omega_r$.  The photoabsorption cross section is now given by
@@ -317,11 +317,11 @@ where $\gamma = \Gamma/2$ and $\delta=\omega-\omega_r$.  The photoabsorption cro
 \label{eqn:sigma_pcs_dcm}
 	\begin{aligned}
 	\sigma(\omega,\tau)&=\frac{2\omega}{\epsilon_0 c}\mathrm{Im}\bigg[\frac{\tilde{d}(\omega)}{\tilde{E}(\omega)}\bigg]\propto \mathrm{Im}\bigg[\int_{-\infty}^{\infty} d(t) e^{i\omega t} \diff t\bigg]\\
-	&\propto \mathrm{Im}\bigg[i-\gamma(q-i)^2\frac{1-(1-A(\tau))e^{-\gamma\tau -i\delta\tau}}{\delta+i\gamma}\bigg]\\
-	&= \frac{(q+\delta/\gamma)^2}{(\delta/\gamma)+1} + \mathrm{Im}\bigg[\frac{\gamma(q-i)^2(1-A(\tau))e^{-\gamma\tau -i\delta\tau}}{\delta+i\gamma}\bigg].
+	&\propto \mathrm{Im}\bigg[i-\gamma(q-i)^2\frac{1-(1-A(\tau))e^{-\gamma\tau +i\delta\tau}}{\delta+i\gamma}\bigg]\\
+	&= \frac{(q+\delta/\gamma)^2}{(\delta/\gamma)+1} + \mathrm{Im}\bigg[\frac{\gamma(q-i)^2(1-A(\tau))e^{-\gamma\tau +i\delta\tau}}{\delta+i\gamma}\bigg].
 	\end{aligned}
 \end{equation} 
-From this, we can now begin to see the effect that of dressing pulse can have on the cross section.  For the case of $A(\tau)=1$, the second term in equation \ref{eqn:sigma_pcs_dcm} goes to zero, and only the unperturbed cross section represented by the first term remains.  This is expected because $A(\tau)=1$ implies that there is no interaction between the dressing field and the system.  For the more interesting case of $A(\tau)\neq1$, the dipole and the cross section will be modulated as a function of both photon energy $\omega$ and time delay $\tau$.  The specific functional form of $A(\tau)$ will ultimately determine the line shape, and a couple cases will be discussed herein.  It is important to note that as $\tau\rightarrow\infty$, the cross section returns to the unperturbed case. This due to the fact that the dipole is allowed to freely evolve over the natural lifetime of the state $\hbar/\Gamma$ before the dressing pulse arrives.
+From this, we can now begin to see the effect that of dressing pulse can have on the cross section.  For the case of $A(\tau)=1$, the second term in equation \ref{eqn:sigma_pcs_dcm} goes to zero, and only the unperturbed cross section represented by the first term remains.\footnote{This can be seen by noting that $\epsilon=\delta/\gamma$.}  This is expected because $A(\tau)=1$ implies that there is no interaction between the dressing field and the system.  For the more interesting case of $A(\tau)\neq1$, the dipole and the cross section will be modulated as a function of both photon energy $\omega$ and time delay $\tau$.  The specific functional form of $A(\tau)$ will ultimately determine the line shape, and a couple of cases will be discussed herein.  It is important to note that as $\tau\rightarrow\infty$, the cross section returns to the unperturbed case. This due to the fact that the dipole is allowed to freely evolve over the natural lifetime of the state $\hbar/\Gamma$ before the dressing pulse arrives.
 
 \begin{figure}
 	\centering
@@ -330,18 +330,23 @@ From this, we can now begin to see the effect that of dressing pulse can have on
 	\label{fig:level_diagram_dressing}
 \end{figure}
 
+In general, there are two primary cases to consider: resonant and non-resonant processes. For a non-resonant process, it can be assumed that the $A(\tau)=a_1e^{i\phi_1}$, and the cross section is plotted in figure \ref{fig:res_vs_non_res}(a) assuming the extreme case of $a_1=\phi_1=0$.  This assumption corresponds to complete ionization of the discrete state by the dressing pulse, and correspondingly, the dipole is quenched for $t>\tau$.  Even this extremely simple model is able to reproduce the common hyperbolic features that occur for $\delta\tau=\mathrm{const.}$ and have been observed in many transient absorption experiments \cite{wangAttosecondTimeResolvedAutoionization2010, ottReconstructionControlTimedependent2014, kaldunObservingUltrafastBuildup2016, wuTheoryStrongfieldAttosecond2016}.  These hyperbolic features arise as a physical manifestation of the ringing described by Gibb's phenomenon which occurs because the observable in the measurement (the cross section) is the Fourier transform of a truncated signal (the dipole) \cite{liInvestigationCouplingMechanisms2015, gibbsFourierSeries1898}. The other dominant feature that can be seen in figure  \ref{fig:res_vs_non_res}(a) is a broadening of the resonance width for $t<\hbar/\Gamma$ that is due to the abrupt quenching of the dipole before it is allowed to freely develop over the state's lifetime.  The spectral width for this region is proportional to $1/\tau$, and it asymptotically approaches the natural width for $\tau\rightarrow\infty$.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/ATS/resonant_vs_non_resonant.pdf}
-	\caption{Incomplete}
+	\caption{Imaginary part of the dipole plotted as a function of photon energy and delay. Resonance position is taken to be 26.605 eV, and the line shape is Lorentzian ($\varphi$=0).  (a) Non-resonant case showing complete ionization by dressing field: $a_1=1$ and $\phi_{1}=0$.  (b) Resonant case showing coupling between states: $a_2=0.1$, $\phi_{2}=\pi/4$, and  $\hbar\Delta\omega=1.39$ eV.}
 	\label{fig:res_vs_non_res}
 \end{figure}
+
+For a resonant process, it can be assumed that $A(\tau)=1+a_2e^{\Delta\omega\tau + i\phi_2}$, and the cross section for such a process is plotted in figure \ref{fig:res_vs_non_res}(b) assuming that $a_2=0.1$, $\phi_2=\pi$, and $\hbar\Delta\omega = 1.39$ eV.  This form of $A(\tau)$ is motivated by time-dependent perturbation theory, and it can be used to describe coupling of states in a wave packet \cite{blattermannImpulsiveControlAtomic2016, blattermannTwodimensionalSpectralInterpretation2014, ottReconstructionControlTimedependent2014, kaldunFanoResonancesTime2014}.  The idea is that the XUV pulse coherently excites a wave packet of multiple excited states, and then the dressing field couples states through multiphoton transitions. This coupling leads to an oscillation in the cross section's amplitude as a function of delay that is the result of a quantum path interference.  This interference can be clearly seen in \ref{fig:res_vs_non_res}(b) with a frequency of $\hbar\Delta\omega=1.39$ eV at the resonance energy.  An additional feature that is present in \ref{fig:res_vs_non_res}(b) is a tilting of the oscillation pattern.  This effect arises because the transition frequency is varying across the resonance as a function of photon energy due to the term $e^{i(\delta+\Delta\omega)\tau}$ in equation \ref{eqn:sigma_pcs_dcm} with the resonant form of $A(\tau)$.  It is important to emphasize that this description only applies to coupling of states that have been coherently excited because the quantum path interference that gives rise to this oscillation requires a common clock between the coupled states.  This is not the case for the dressing field coupling a bright state (one that is initially populated) to a dark state (one that is initially unpopulated).  This coupling to a dark state will only appear as a depletion of the population of the bright state and is similar to the non-resonant case described previously.
+
+The importance of this simple analytical model is that it allows for an intuitive description of features that will be seen in the ATS experiment that will be described later in this chapter.  Additionally, the full complex dipole can be calculated with this model, not just the typical observable that is the cross section ($\propto\mathrm{Im}[\tilde{d}(\omega)]$).  This will be used to describe the results in chapter \ref{chap:CATS} where the full complex dipole will be measured.  The complex parts, amplitude, and phase for the non-resonant and resonant cases described above are plotted in  figure \ref{fig:dip_components}.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/ATS/dipole_components.pdf}
-	\caption{$\varphi_1=0$}
+	\caption{Complex parts, phase, and amplitude of $\tilde{d}_\tau(\omega)$ calculated for non-resonant ((a) - (d)) and resonant ((e) - (h)) cases for a resonance at 26.605 eV with $q=-0.258$. Parameters for $A(\tau)$ are $a_1=1$ and $\varphi_1=0$ for non-resonate and $a_2=0.1$, $\phi_2=\pi/4$, and $\hbar\Delta\omega=1.39$ eV for resonant.}
 	\label{fig:dip_components}
 \end{figure}
 
@@ -359,6 +364,9 @@ From this, we can now begin to see the effect that of dressing pulse can have on
 	\label{fig:res_high_low}
 \end{figure}
 
+\section{Sub-cycle AC Stark Shift}
+\label{sec:ac_stark}
+
 \section{Strong-field Transient Absorption in Argon}
 \label{sec:ATS_ar}
 
@@ -370,7 +378,7 @@ From this, we can now begin to see the effect that of dressing pulse can have on
 	\centering
 	\begin{tabular}{lcccc}
 		\hline\hline
-		\multicolumn{1}{c}{} & $\Delta E$ [eV]   & $\Gamma$ [meV]   & $q$         & $\rho^2$     \\ \hline
+		\multicolumn{1}{c}{} & $\Delta E$ [eV]   & $\Gamma$ [eV]   & $q$         & $\rho^2$     \\ \hline
 		$3s3p^64p$              & 26.605 & 80.2(7) & -0.286(4) & 0.840(3) \\
 		$3s3p^65p$              & 27.994 & 28.5(8) & -0.177(3) & 0.848(3) \\
 		$3s3p^66p$              & 28.509 & 12.2(3) & -0.135(9) & 0.852(9) \\
