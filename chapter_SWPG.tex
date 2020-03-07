@@ -20,7 +20,7 @@ In many experimental designs, it is advantageous to be able to shape the spatial
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/Two_source/romero_beam_shaping_schematic.png}
-	\caption{Schematic demonstrating how to use a diffractive optical element to shape the beam profile at the focal plane. A collimated coherent beam is incident upon a diffractive optical element which shapes the phase of the incident beam, and then a lens is used as a transform element to Fourier transform the beam at the focal plane.  The intensity profile at the focal plane can be controlled by altering the spatial dependence of the phase imparted upon the incident beam by the phase element. Adapted from \cite{romeroMathematicalAspectsLaser2010}}
+	\caption[Schematic of beam shaping using a phase element]{Schematic demonstrating how to use a diffractive optical element to shape the beam profile at the focal plane. A collimated coherent beam is incident upon a diffractive optical element which shapes the phase of the incident beam, and then a lens is used as a transform element to Fourier transform the beam at the focal plane.  The intensity profile at the focal plane can be controlled by altering the spatial dependence of the phase imparted upon the incident beam by the phase element. Adapted from \cite{romeroMathematicalAspectsLaser2010}}
 	\label{fig:beam_shaping_scheme}
 \end{figure}
 
@@ -120,7 +120,7 @@ where $x_0$ is an offset of position of the SWPG in the plane transverse to the 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/Two_source/swpg.pdf}
-	\caption{Plot of the phase function $\phi(x-x_0)$ in units of $\pi$ for a $0-\pi$ SWPG with a period of $d$.  The dark blue (light blue) curve shows the phase function for $x_0 = 0$ ($x_0=d/10$). }
+	\caption[Plot of SWPG phase function]{Plot of the phase function $\phi(x-x_0)$ in units of $\pi$ for a $0-\pi$ SWPG with a period of $d$.  The dark blue (light blue) curve shows the phase function for $x_0 = 0$ ($x_0=d/10$). }
 	\label{fig:swpg}
 \end{figure}
 
@@ -165,7 +165,7 @@ which means that approximately $81\%$ of the input energy will be put into the t
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/a_n.pdf}
-	\caption{Square complex modulus of the Fourier coefficients $a_n$ of the $0-\pi$ SWPG. The square complex modulus is proportional to the energy put into each diffraction order.  As can be seen from figure, the $\pm1$ orders have the most energy put into them at $4/\pi^2\approx41.1\%$ each.  All even orders have zero energy.}
+	\caption[Square modulus of Fourier coefficients of the $0-\pi$ SWPG]{Square complex modulus of the Fourier coefficients $a_n$ of the $0-\pi$ SWPG. The square complex modulus is proportional to the energy put into each diffraction order.  As can be seen from figure, the $\pm1$ orders have the most energy put into them at $4/\pi^2\approx41.1\%$ each.  All even orders have zero energy.}
 	\label{fig:a_n}
 \end{figure}
 
@@ -197,13 +197,13 @@ Therefore, by controlling the offset of the SWPG we can control the relative pha
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/intensity_and_phase.pdf}
-	\caption{Intensity profile $S(\tilde{x})$ at the focal plane. Horizontal units are scaled by the spacing between orders, $\tilde{x_1}=\lambda f/d$.  Phase is also plotted for two different offset positions $x_0=d/3$ and $x_0=d/5$.  This demonstrates the ability of the SWPG to generate two sources and control the relative phase between them. Calculated by numerically propagating the beam profile and SWPG in figure \ref{fig:LP_inputs}.}
+	\caption[Intensity profile at the focal plane of a $0-\pi$ SWPG]{Intensity profile $S(\tilde{x})$ at the focal plane. Horizontal units are scaled by the spacing between orders, $\tilde{x_1}=\lambda f/d$.  Phase is also plotted for two different offset positions $x_0=d/3$ and $x_0=d/5$.  This demonstrates the ability of the SWPG to generate two sources and control the relative phase between them. Calculated by numerically propagating the beam profile and SWPG in figure \ref{fig:LP_inputs}.}
 	\label{fig:s^2}
 \end{figure}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/Two_source/LP_images.pdf}
-	\caption{(a) Intensity profile of the input beam measured by a thermal camera. (b) Phase imparted by $0-\pi$ SWPG with a grating period of $d=$2.5 mm.}
+	\caption[Measured beam profile and phase imparted by a SWPG]{(a) Intensity profile of the input beam measured by a thermal camera. (b) Phase imparted by $0-\pi$ SWPG with a grating period of $d=$2.5 mm.}
 	\label{fig:LP_inputs}
 \end{figure}
 
@@ -242,7 +242,7 @@ From this equation, we can see that the non-$\pi$ phase step has not populated t
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/a_n_zeta.pdf}
-	\caption{Square complex modulus of the Fourier coefficients $a_n$ of the $0-\zeta\pi$ SWPG for several values of $\zeta$. The square complex modulus is proportional to the energy put into each diffraction order.  As can be seen from figure, the $\pm1$ orders have the most energy put into them even for $\zeta\neq 1$.  All non-zero even orders have zero energy.}
+	\caption[Square modulus of Fourier coefficients of a $0-\zeta\pi$ SWPG for various $\zeta$]{Square complex modulus of the Fourier coefficients $a_n$ of the $0-\zeta\pi$ SWPG for several values of $\zeta$. The square complex modulus is proportional to the energy put into each diffraction order.  As can be seen from figure, the $\pm1$ orders have the most energy put into them even for $\zeta\neq 1$.  All non-zero even orders have zero energy.}
 	\label{fig:a_n_zeta}
 \end{figure}
 
@@ -253,7 +253,7 @@ With the theory behind the SWPG well established, the specific grating parameter
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/TOPAS/Topas_output.png}
-	\caption{Pulse energy output of the TOPAS used in the experiments described within this chapter.  The optimal output energy of the TOPAS can be seen to be around 1350 nm.  This is the wavelength that was selected as the design wavelength for the SWPG.}
+	\caption[Pulse energy output of HE-TOPAS at various wavelengths]{Pulse energy output of the TOPAS used in the experiments described within this chapter.  The optimal output energy of the TOPAS can be seen to be around 1350 nm.  This is the wavelength that was selected as the design wavelength for the SWPG.}
 	\label{fig:TOPAS_output}
 \end{figure}
 
@@ -266,14 +266,14 @@ where $\lambda_0$ is the design wavelength and $n_0$ is the refractive index at 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\textwidth]{figures/Two_source/n_zeta.pdf}
-	\caption{Refractive index (blue curve and axis) and the $\zeta$ parameter (red curve and axis).  For a 70 nm bandwidth pulse centered at 1350 nm, $\zeta - 1$ varies from -0.026 to 0.027 assuming normal incidence.}
+	\caption[Refractive index and $\zeta$ parameter characterizing $0-\zeta\pi$ SWPG]{Refractive index (blue curve and axis) and the $\zeta$ parameter (red curve and axis).  For a 70 nm bandwidth pulse centered at 1350 nm, $\zeta - 1$ varies from -0.026 to 0.027 assuming normal incidence.}
 	\label{fig:n_zeta}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/zeta_theta.pdf}
-	\caption{Non-$\pi$ phase step parameter $\zeta(\lambda,\theta)$ calculated for a range of relevant wavelengths and incident angles.  The ability to effectively tune the optical path length of the step enables the SWPG to be used for a much larger range of wavelengths that are longer than the initial design wavelength.}
+	\caption[Non-$\pi$ phase step parameter $zeta(\lambda,\theta)$ plotted for various wavelengths and angles of incidence]{Non-$\pi$ phase step parameter $\zeta(\lambda,\theta)$ calculated for a range of relevant wavelengths and incident angles.  The ability to effectively tune the optical path length of the step enables the SWPG to be used for a much larger range of wavelengths that are longer than the initial design wavelength.}
 	\label{fig:zeta_theta}
 \end{figure}
 
@@ -289,7 +289,7 @@ where $\sigma$ is the input beam radius and $D=\tilde{x}_1=\lambda f /d$ is that
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/focus_intensity_beta_sigma.pdf}
-	\caption{Calculation of intensity at the focal plane of the SWPG for various parameters of $\beta$.  Calculation is done my numerically propagating the measured beam profile shown in \ref{fig:LP_inputs}.  $\beta$ is varied by adjusting the radius of the input beam profile.  As $\beta\rightarrow0$, one can see that the performance of the SWPG deteriorates and not longer produces well separated sources.}
+	\caption[Intensity profiles at focal plane of a $0-\pi$ SWPG for various $\beta$ parameters]{Calculation of intensity at the focal plane of the SWPG for various parameters of $\beta$.  Calculation is done my numerically propagating the measured beam profile shown in \ref{fig:LP_inputs}.  $\beta$ is varied by adjusting the radius of the input beam profile.  As $\beta\rightarrow0$, one can see that the performance of the SWPG deteriorates and not longer produces well separated sources.}
 	\label{fig:intensity_vs_beta}
 \end{figure}
 In the limit as $\beta\rightarrow0$, the condition $d\gg\sigma$ must hold, and this condition implies that the source separation is approaching the waist radius of each diffraction order $\tilde{\sigma}$.  Once the separation between orders becomes comparable to the waist ($\tilde{\sigma}\approx\tilde{x}_1$), then each diffraction order will strongly interfere with it's neighboring orders.  The effect of this interference is that our sources can no longer be thought of as independent beams, and as the grating offset $x_0$ is varied there will be a strong modulation of both the amplitude and phase of each of diffraction order.  This can be seen by using equation \ref{eqn:swpg_field_at_focus} to write the intensity at the focal plane
@@ -307,7 +307,7 @@ While it has become clear that choosing a grating period such that $\sigma\gg d$
 \begin{figure}
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/Two_source/silios_sketch.png}
-	\caption{Schematic of the two SWPG which were purchased from Silios.  They are constructed by etching the phase step in Corning HPFS 7980 fused-silica.}
+	\caption[Drawing of SWPGs purchased from Silios]{Schematic of the two SWPG which were purchased from Silios.  They are constructed by etching the phase step in Corning HPFS 7980 fused-silica.}
 	\label{fig:silios_sketch}
 \end{figure}
 Using these gratings and a $f=400$ mm lens at 1450 nm, we are able to achieve a source separation of 331 $\mu m$ and 464 $\mu m$ for the grating periods $d=3.5$ mm and $d=2.5$ mm.  These parameters correspond to $\beta\approx7$ for the 3.5 mm grating and $\beta\approx10$ for the 2.5 mm grating for an input beam radius of $\sigma=4$ mm.
@@ -318,13 +318,13 @@ To demonstrate that the $0-\pi$ SWPG can be used as a femtosecond beam duplicato
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/schematic_table.png}
-	\caption{Schematic of the two-source HHG experiment performed in the TABLe. A $0-\pi$ SWPG is used to generate two intense lobes at the focus of a lens.  These lobes will generate XUV beams which will interfere in the far-field.  An ellipsoidal mirror is used to refocus the XUV beams before going onto the spectrometer.}
+	\caption[Schematic of two-source HHG]{Schematic of the two-source HHG experiment performed in the TABLe. A $0-\pi$ SWPG is used to generate two intense lobes at the focus of a lens.  These lobes will generate XUV beams which will interfere in the far-field.  An ellipsoidal mirror is used to refocus the XUV beams before going onto the spectrometer.}
 	\label{fig:schematic}
 \end{figure}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/Two_source/pulse_jet_ts.png}
-	\caption{False color image of the two sources from the SWPG driving ionization in a gas medium delivered by the piezo gas jet shown in the image.  Two sources follow the red arrows, and the XUV that is generated is shown by blue arrows.}
+	\caption[Image of plasma generated by two sources in a gas medium delivered by a piezoelectric pulsed gas jet]{False color image of the two sources from the SWPG driving ionization in a gas medium delivered by the piezo gas jet shown in the image.  Two sources follow the red arrows, and the XUV that is generated is shown by blue arrows.}
 	\label{fig:piezo_jet}
 \end{figure}
 
@@ -336,14 +336,14 @@ where $L$ is the distance from the two sources to the detector and $\Delta x$ is
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/Two_source/ref_img_pow_spec.pdf}
-	\caption{(a) Reference harmonic spectrum generated with a $0-\pi$ SWPG. The fringes along the sensor position dimension are due to interference between the two XUV sources that are generated.  The position of the fringe pattern is determined by the relative phase between the two sources.  This relative phase can be controlled by the SWPG. (b) Power spectrum of the Fourier transform of the above image along the sensor position dimension. Clear peaks can be seen corresponding to the spatial frequency for each harmonic order.  The linear dependence of the spatial frequency on photon energy is also seen.}
+	\caption[Harmonic spectrum generated by two sources and its corresponding Fourier transform along the spatial dimension]{(a) Reference harmonic spectrum generated with a $0-\pi$ SWPG. The fringes along the sensor position dimension are due to interference between the two XUV sources that are generated.  The position of the fringe pattern is determined by the relative phase between the two sources.  This relative phase can be controlled by the SWPG. (b) Power spectrum of the Fourier transform of the above image along the sensor position dimension. Clear peaks can be seen corresponding to the spatial frequency for each harmonic order.  The linear dependence of the spatial frequency on photon energy is also seen.}
 	\label{fig:ref_img_pow_spec}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/Two_source/harmonic_spatialgrams.pdf}
-	\caption{(a) Reference harmonic spectrum with dots showing the harmonic orders whose spatialgrams are plotted below. (b)-(e) Spatialgrams for harmonic orders 29, 33, 39, and 45.  Tilted fringe pattern shows fringe shift due to phase shift induced by translating the phase grating. Modulations with a period od $d/2$ arise because of interference between the two generating sources.}
+	\caption[Reference harmonic spectrum and spatialgrams for various harmonic orders]{(a) Reference harmonic spectrum with dots showing the harmonic orders whose spatialgrams are plotted below. (b)-(e) Spatialgrams for harmonic orders 29, 33, 39, and 45.  Tilted fringe pattern shows fringe shift due to phase shift induced by translating the phase grating. Modulations with a period od $d/2$ arise because of interference between the two generating sources.}
 	\label{fig:harmonic_spatialgrams}
 \end{figure}
 
@@ -357,13 +357,13 @@ Another interesting result from these measurements is that the symmetry of the a
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/Two_source/full_spatialgram.png}
-	\caption{(a) Spatialgram of all harmonic orders combined. Diagonal stripes show the attosecond pulses that make up the APT. (b) Lineout from the full spatialgram.  }
+	\caption[Spatialgram of all harmonic orders combined, demonstrating autocorrelation of an APT using a SWPG]{(a) Spatialgram of all harmonic orders combined. Diagonal stripes show the attosecond pulses that make up the APT. (b) Lineout from the full spatialgram.  }
 	\label{fig:full_spatialgram}
 \end{figure}
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/Two_source/full_spatialgram_w2w.pdf}
-	\caption{(a) Spatialgram of all harmonic orders combined. Diagonal stripes show the attosecond pulses that make up the APT. A second harmonic field was added to break the symmetry and generate even harmonics. (b) Lineout from the full spatialgram.  Only two attosecond bursts are seen, which is expected from the asymmetric two-color generation field.  The increased modulation with a period $d/2$ is due to the stronger interference between the two sources.}
+	\caption[Spatialgram of all harmonic orders combined when generated using two-color HHG]{(a) Spatialgram of all harmonic orders combined. Diagonal stripes show the attosecond pulses that make up the APT. A second harmonic field was added to break the symmetry and generate even harmonics. (b) Lineout from the full spatialgram.  Only two attosecond bursts are seen, which is expected from the asymmetric two-color generation field.  The increased modulation with a period $d/2$ is due to the stronger interference between the two sources.}
 	\label{fig:full_spatialgram_w2w}
 \end{figure}
 
