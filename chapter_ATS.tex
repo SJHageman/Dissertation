@@ -19,7 +19,7 @@ As noted above, Fano's theoretical explanation of the photoabsorption spectrum o
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/ATS/fano_level_diagram.pdf}
-	\caption[Level diagram of Fano resonances in Argon]{Level diagram of argon showing the effect of autionization states on XUV photoabsorption. There are two possible pathways for ionization with a photon of energy $\Omega$: (1) direct ionization to a continuum state (left side of figure) and (2) excitation to a bound state in the continuum (right side of figure).  In case (2), there is coupling between the bound state and the continuum through the configuration interaction.  This allows for the bound state to decay to the same continuum state as in case (1).  These effect leads to interference between these two pathways.}
+	\caption[Level diagram of Fano resonances in Argon]{Level diagram of argon showing the effect of autoionization states on XUV photoabsorption. There are two possible pathways for ionization with a photon of energy $\Omega$: (1) direct ionization to a continuum state (left side of figure) and (2) excitation to a bound state in the continuum (right side of figure).  In case (2), there is coupling between the bound state and the continuum through the configuration interaction.  This allows for the bound state to decay to the same continuum state as in case (1).  These effect leads to interference between these two pathways.}
 	\label{fig:fano_level_diagram}
 \end{figure}
 
@@ -256,6 +256,7 @@ The complex coefficient in front of the second term of equation \ref{eqn:dipole_
 \end{equation} 
 where the phase is given by
 \begin{equation}
+\label{eqn:q-to-phase}
 	\varphi(q)=2\arg(q-i).
 \end{equation}
 Substituting this form into the dipole in equation \ref{eqn:dipole_time_domain} gives
@@ -350,7 +351,7 @@ The importance of this simple analytical model is that it allows for an intuitiv
 	\label{fig:dip_components}
 \end{figure}
 
-Further insight into these resonant and non-resonant mechanisms can be gained by Fourier transforming along the time delay axis and examining the characteristic frequencies associated with each process.  Specifically, the typical observable that is the cross section is Fourier transform and this expression is given by
+Further insight into these resonant and non-resonant mechanisms can be gained by Fourier transforming along the time delay axis and examining the characteristic frequencies associated with each process.  Specifically, the typical observable (the cross section) is Fourier transformed and this expression is given by
 \begin{equation}
 \label{eqn:2DAS_fourier_transform}
 	\tilde{d}_\nu(\omega, \nu)=\int_{-\infty}^{\infty}\mathrm{Im}[\tilde{d}_\tau(\omega, \tau)]e^{-i\nu\tau}\diff\tau\propto\int_{-\infty}^{\infty}\sigma(\omega, \tau)e^{-i\nu\tau}\diff\tau.
@@ -383,8 +384,78 @@ The other case to consider is resonant interactions introduced by the dressing f
 
 
 
-\section{Sub-cycle AC Stark Shift}
-\label{sec:ac_stark}
+\subsection{Light-Induced Phase}
+\label{sec:LIP}
+In the previous section, the parameters that characterized the modification to the dipole in the DCM were kept as general as possible and just treated as a parameter that could be delay dependent.  In this section and the next, specific forms for the non-resonant parameters $\phi_1$ and $a_1$ will be introduced, and this treatment will allow for an extension of the DCM to dressing fields with a finite pulse duration.  This section will discuss the light-induced phase (LIP) whose effect is captured by $\phi_1$. 
+
+In section \ref{sec:time_dependent_autoionization}, the connection between the dipole phase and the absorption lineshape was established through the relationship given in equation \ref{eqn:q-to-phase}.  In the DCM, the natural phase of the resonance is modified by the phase introduced through the parameter $\phi_1$.  Thus, the LIP given by $\phi_1$ controls the absorption lineshape of the bright resonance.  In very general terms, this LIP originates from the energetic Stark shift $\Delta\varepsilon(t,\tau)$ of a bright state that is the result of coupling to nearby states.  This LIP can be generally calculated using the relationship
+\begin{equation}
+	\label{eqn:LIP}
+	\phi_{1}(t,\tau) = \frac{1}{\hbar}\int_{0}^{t}\Delta\varepsilon(t',\tau)\diff t'
+\end{equation}
+where the assumption is made that the XUV pulse is still delta function in time and populates the bright state at a time $t=0$.\footnote{Otherwise, the integration limits would extend from $-\infty$ to $t$.}  This description of the total accumulated phase allows for dressing pulses that have finite pulse duration.  Thus, the challenge now is to calculate the Stark shift $\Delta\varepsilon(t,\tau)$ for a given system.
+
+There are several models to calculate this energy shift, and three of these will be discussed herein.  The first method is to consider the electron in the bright state as a quasi-free electron that couples very weakly to nearby states and is weakly bound. This assumption means that the energy shift will be related to the ponderomotive energy that the electron picks up from the field.  The energy shift can be calculated classically as
+\begin{equation}
+	\label{eqn:up_energy_shift}
+	\Delta\varepsilon(t,\tau)=\frac{1}{2}m v(t,\tau)^2=\frac{e^2}{2m}\bigg[\int_{-\infty}^{t}E(t',\tau)\diff t'\bigg]^2
+\end{equation}
+where $E(t,\tau)$ is the electric field of the dressing pulse.  This method was used to describe several experiments that were performed in He \cite{ottLorentzMeetsFano2013, blattermannSituCharacterizationFewcycle2015}.
+
+The second method to calculate the energy shift is to use second order time dependent perturbation theory \cite{chiniSubcycleAcStark2012,chiniCharacterizationApplicationIsolated2012,bransdenPhysicsAtomsMolecules2003, griffithsIntroductionQuantumMechanics2005}.  This method is a sub-cycle extension of the optical ac Stark shift, where the energy shift $\Delta\varepsilon_a$ of state a is given by
+\begin{equation}
+	\label{eqn:optical_stark}
+	\Delta\varepsilon_a=-\frac{1}{2}\sum_{k\neq a}\frac{\omega_{ka}\rvert d_{ka} \lvert^2}{\omega_{ka}^2 - \omega_L^2}\langle E(t)^2 \rangle =-\frac{1}{2}\alpha_a \langle E(t)^2 \rangle
+\end{equation}
+where $\alpha_a$ is the polarizability of state a, $d_{ka}$ is the dipole matrix element between states a and k, $\omega_L$ is the dressing frequency, and $E(t)=E_0(t)\cos(\omega_L t)$ is the electric field.  This is an inherently cycle averaged effect, but it can be extended to a sub-cycle ac Stark shift using second order perturbation theory. The energy shift for this case is given by
+\begin{equation}
+	\label{eqn:SOPT}
+	\Delta\varepsilon_a(t,\tau)=-i\sum_{k\neq a}d_{ak}E(t-\tau)e^{i\omega_{ak}t}\int_{-\infty}^{t} d_{ka}E(t'-\tau)e^{i\omega_{ka}t}\diff t'.
+\end{equation}
+For a pulse shape that is given by $E_0(t)=E_pe^{-\rvert t \lvert/t_p}$, the integrals can be solved analytically to give
+\begin{equation}
+	\label{eqn:SOPT_integrated}
+	\begin{aligned}
+	\Delta\varepsilon_a(t,\tau) &=\frac{1}{2}E_0(t-\tau)^2\sum_{k\neq a}\bigg[ \frac{\omega_{ka}\rvert d_{ka} \lvert^2}{\omega_{ka}^2 - \omega_L^2}\cos(\omega_L (t-\tau))^2 -i\frac{\omega_{L}\rvert d_{ka} \lvert^2}{\omega_{ka}^2 - \omega_L^2}\sin(2\omega_{L} (t-\tau))\bigg]\\
+	&=\frac{1}{2}E_0(t-\tau)^2[\alpha_a\cos(\omega_{L} (t-\tau))^2 - i\gamma_{a}\sin(2\omega_{L} (t-\tau))].
+	\end{aligned}
+\end{equation}
+where $\gamma_{a}$ is related to the population change in state a as it is being coupled to state k.  This form for the energy level shift is generally only accurate when the frequency of the dressing field is far from resonance and the peak Rabi frequency $\Omega_{ka} = d_{ka}E_p$ is much less than the energy level separation.
+
+The third method to calculate the energy level shift from the dressing field involve the use of Floquet theory and the rotating-wave approximation (RWA)\cite{wuTheoryStrongfieldAttosecond2016}.  Floquet theory will be discussed in more detail in section \ref{sec:LIS_Floquet} to describe light-induced states, but it will be briefly discussed here as a means to derive the energy shift of a bright state in a simple two-level system consisting of a bright state $\ket{1}$ and a dark state $\ket{2}$.  In the Floquet basis, the wave function can be expanded in such a way that the time evolution of the dressed states is simply a phase gain,
+\begin{equation}
+	\ket{\psi(t)} = \sum_{\alpha,n}C_{\alpha}e^{-i(\varepsilon_\alpha+n\omega_L)t}\ket{\phi_\alpha,n}.
+\end{equation}
+where $\ket{\phi_\alpha,n}$ and $C_{\alpha}=\braket{\phi_{\alpha,n}|1}$ are the Floquet states and initial amplitude, respectively.  The amplitude  in the bright state is then given by 
+\begin{equation}
+	\begin{aligned}
+		C_1(t)&=\braket{1|\psi(t)}=\sum_{\alpha,n}\braket{1|\phi_{\alpha,n}}\braket{\phi_{\alpha,n}|1}e^{-i(\varepsilon_\alpha+n\omega_L)t}\\
+		&\approx \braket{1|\phi_{+,0}}\braket{\phi_{+,0}|1}e^{-i\varepsilon_{+} t},
+	\end{aligned}
+\end{equation}
+where in the last step the approximation was made that $\braket{\phi_{\alpha,n}|1}\approx0$ except for $\braket{\phi_{+,0}|1}$.  It can be seen from this relation that the Floquet theory naturally agrees with the LIP picture where the bright state is modified only in an accumulation of phase.  Therefore, the energy shift that can be used to calculate the LIP is given by
+\begin{equation}
+	\Delta\varepsilon=\varepsilon_{+}-\omega_1
+\end{equation}
+where $\omega_1$ is the energy of the bright state.  Thus, the problem has been reduced to calculating the Floquet energy $\varepsilon_+$.  This calculation can be done using the RWA to calculate the first-order Floquet energy, and this is shown in the review by Wu, et al \cite{wuTheoryStrongfieldAttosecond2016}.  The resulting expression for the Floquet energy is given by
+\begin{equation}
+	\label{eqn:Floquet_energy_shift}
+	\Delta\varepsilon_+ = \omega_1+\frac{-\Delta+\sqrt{\Delta^2+\Omega(t,\tau)^2}}{2},
+\end{equation}
+where $\Delta=\omega_L-(\omega_2-\omega_1)$ is the detuning of the dressing frequency from resonance and $\Omega(t,\tau)=d_{21}E(t,\tau)$ is the Rabi frequency.  Thus, the time-dependent energy level shift is given by
+\begin{equation}
+	\Delta\varepsilon(t,\tau)=\frac{-\Delta+\sqrt{\Delta^2+\Omega(t,\tau)^2}}{2}.
+\end{equation}
+The advantage of this method to calculate the energy level shift is that it does not require the dressing frequency to be far from resonant, and this method works best when the detuning is small.
+\subsection{Light-Induced Attenuation}
+\label{sec:LIA}
+
+\section{Floquet Theory: Light-Induced States and Phase}
+\label{sec:LIS_Floquet}
+
+
+\section{Time-Dependent \Schrodinger Equation}
+\label{sec:Full_TDSE}
 
 \section{Strong-field Transient Absorption in Argon}
 \label{sec:ATS_ar}
@@ -404,7 +475,7 @@ The other case to consider is resonant interactions introduced by the dressing f
 		$3s3p^67p$              & 28.757 & 6.6(1)  & -0.125(4) & 0.846(9) \\
 		$3s3p^68p$              & 28.898 & 4.5(2)  & -0.132(4) & 0.77(2)  \\ \hline\hline
 	\end{tabular}
-	\caption{Parameters of the $3s3p^6np$ Fano resonances in argon. These values were extracted from experimental cross sections, see \cite{caretteMulticonfigurationalHartreeFockClosecoupling2013, wuElectronimpactStudyValence1995, berrahAngulardistributionParametersAndRmatrix1996}.}
+	\caption[Parameters of the $3s3p^6np$ Fano resonances in argon]{Parameters of the $3s3p^6np$ Fano resonances in argon. These values were extracted from experimental cross sections, see \cite{caretteMulticonfigurationalHartreeFockClosecoupling2013, wuElectronimpactStudyValence1995, berrahAngulardistributionParametersAndRmatrix1996}.}
 	\label{table:fano_params}
 \end{table}
 
@@ -425,6 +496,6 @@ The other case to consider is resonant interactions introduced by the dressing f
 \subsection{Results}
 \label{sec:ATS_ar_results}
 
-\section{Conculsion}
+\section{Conclusion}
 \label{sec:ATS_conclusion}
 
