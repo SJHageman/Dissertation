@@ -407,7 +407,7 @@ The second method to calculate the energy shift is to use second order time depe
 	\label{eqn:optical_stark}
 	\Delta\varepsilon_a=-\frac{1}{2}\sum_{k\neq a}\frac{\omega_{ka}\rvert d_{ka} \lvert^2}{\omega_{ka}^2 - \omega_L^2}\langle E(t)^2 \rangle =-\frac{1}{2}\alpha_a \langle E(t)^2 \rangle
 \end{equation}
-where $\alpha_a$ is the polarizability of state a, $d_{ka}$ is the dipole matrix element between states a and k, $\omega_L$ is the dressing frequency, and $E(t)=E_0(t)\cos(\omega_L t)$ is the electric field.  This is an inherently cycle averaged effect, but it can be extended to a sub-cycle ac Stark shift using second order perturbation theory. The energy shift for this case is given by
+where $\alpha_a$ is the polarizability of state a, $d_{ka}$ is the dipole matrix element between states $a$ and $k$, $\omega_L$ is the dressing frequency, and $E(t)=E_0(t)\cos(\omega_L t)$ is the electric field.  This is an inherently cycle averaged effect, but it can be extended to a sub-cycle ac Stark shift using second order perturbation theory. The energy shift for this case is given by
 \begin{equation}
 	\label{eqn:SOPT}
 	\Delta\varepsilon_a(t,\tau)=-i\sum_{k\neq a}d_{ak}E(t-\tau)e^{i\omega_{ak}t}\int_{-\infty}^{t} d_{ka}E(t'-\tau)e^{i\omega_{ka}t}\diff t'.
@@ -420,9 +420,9 @@ For a pulse shape that is given by $E_0(t)=E_pe^{-\rvert t \lvert/t_p}$, the int
 	&=\frac{1}{2}E_0(t-\tau)^2[\alpha_a\cos(\omega_{L} (t-\tau))^2 - i\gamma_{a}\sin(2\omega_{L} (t-\tau))].
 	\end{aligned}
 \end{equation}
-where $\gamma_{a}$ is related to the population change in state a as it is being coupled to state k.  This form for the energy level shift is generally only accurate when the frequency of the dressing field is far from resonance and the peak Rabi frequency $\Omega_{ka} = d_{ka}E_p$ is much less than the energy level separation.
+where $\alpha_a$ is the polarizability of state $a$ and $\gamma_{a}$ is related to the population change in state a as it is being coupled to state k.  This form for the energy level shift is generally only accurate when the frequency of the dressing field is far from resonance and the peak Rabi frequency $\Omega_{ka} = d_{ka}E_p$ is much less than the energy level separation.
 
-The third method to calculate the energy level shift from the dressing field involve the use of Floquet theory and the rotating-wave approximation (RWA)\cite{wuTheoryStrongfieldAttosecond2016}.  Floquet theory will be discussed in more detail in section \ref{sec:LIS_Floquet} to describe light-induced states, but it will be briefly discussed here as a means to derive the energy shift of a bright state in a simple two-level system consisting of a bright state $\ket{1}$ and a dark state $\ket{2}$.  In the Floquet basis, the wave function can be expanded in such a way that the time evolution of the dressed states is simply a phase gain,
+The third method to calculate the energy level shift from the dressing field involves the use of Floquet theory and the rotating-wave approximation (RWA)\cite{wuTheoryStrongfieldAttosecond2016}.  Floquet theory will be discussed in more detail in section \ref{sec:LIS_Floquet} to describe light-induced states, but it will be briefly discussed here as a means to derive the energy shift of a bright state in a simple two-level system consisting of a bright state $\ket{1}$ and a dark state $\ket{2}$ with energies of $\omega_1$ and $\omega_2$ in atomic units.  In the Floquet basis, the wave function can be expanded in such a way that the time evolution of the dressed states is simply a phase gain,
 \begin{equation}
 	\ket{\psi(t)} = \sum_{\alpha,n}C_{\alpha}e^{-i(\varepsilon_\alpha+n\omega_L)t}\ket{\phi_\alpha,n}.
 \end{equation}
@@ -446,10 +446,11 @@ where $\Delta=\omega_L-(\omega_2-\omega_1)$ is the detuning of the dressing freq
 \begin{equation}
 	\Delta\varepsilon(t,\tau)=\frac{-\Delta+\sqrt{\Delta^2+\Omega(t,\tau)^2}}{2}.
 \end{equation}
-The advantage of this method to calculate the energy level shift is that it does not require the dressing frequency to be far from resonant, and this method works best when the detuning is small.
+The advantage of this method to calculate the energy level shift is that it does not require the dressing frequency to be far from resonant, and this method works best when the detuning is small.  This is due to the use of the RWA approximation in this derivation, and it can be generally shown that the RWA is most appropriate when the detuning is small and the dynamics are dominated by Rabi cycling \cite{wuTheoryStrongfieldAttosecond2016,wuTimedomainPerspectiveAutlerTownes2013}.
+
 \subsection{Light-Induced Attenuation}
 \label{sec:LIA}
-
+An additional term in the DCM that can be explicitly calculated for a dressing pulse of finite pulse duration is the non-resonant amplitude $a_1$.  As stated previously, this term is related to the population of the state, and its time and delay dependence is related to the direct ionization of the discrete state.  
 \section{Floquet Theory: Light-Induced States and Phase}
 \label{sec:LIS_Floquet}
 
