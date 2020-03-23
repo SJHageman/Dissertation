@@ -450,7 +450,19 @@ The advantage of this method to calculate the energy level shift is that it does
 
 \subsection{Light-Induced Attenuation}
 \label{sec:LIA}
-An additional term in the DCM that can be explicitly calculated for a dressing pulse of finite pulse duration is the non-resonant amplitude $a_1$.  As stated previously, this term is related to the population of the state, and its time and delay dependence is related to the direct ionization of the discrete state.  
+An additional term in the DCM that can be explicitly calculated for a dressing pulse of finite pulse duration is the non-resonant amplitude $a_1$, which,  as stated previously, is related to the population of the discrete state.  For typical experimental conditions that will be considered herein, the dressing pulse has a large enough field strength that is can drive ionization of the discrete state to the continuum even when the photon energy of the dressing pulse is insufficient to directly ionize.  This means that the amplitude $a_1$ will be proportional to the ionization probability of the discrete state.  In this section, the two main regimes of ionization by a strong field will be discussed, and the amplitude $a_1$ will be calculated. The two regimes to consider are multiphoton and tunneling ionization, and they can be thought of as opposite extrema of photoionization by a strong field.  
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/ATS/MPI_Tunnel.jpg}
+	\caption[Multiphoton and tunnel ionization schematics]{Incomplete}
+	\label{fig:mpi_tunnel}
+\end{figure}
+
+In the multiphoton regime, the ionization process can be treated perturbatively, and the physical picture is that the electron is able to absorb multiple photons to gain enough energy to reach the continuum, as shown in figure \ref{fig:mpi_tunnel} (a).  The perturbative treatment means that the ionization probability will be proportional to $I^N$ where $I$ is the intensity of the dressing field and $N$ is the minimum number of photon required to reach the continuum.  Absorption of additional photons beyond the minimum number required to ionize is also possible and is know as above threshold ionization (ATI), and was first observed experimentally in 1979 \cite{agostiniFreeFreeTransitionsFollowing1979a}.
+
+In the limit of longer wavelengths, the nonlinear order $N$ increases, and eventually, another process begins to dominate.
+
 \section{Floquet Theory: Light-Induced States and Phase}
 \label{sec:LIS_Floquet}
 
@@ -469,7 +481,7 @@ An additional term in the DCM that can be explicitly calculated for a dressing p
 	\centering
 	\begin{tabular}{lcccc}
 		\hline\hline
-		\multicolumn{1}{c}{} & $\Delta E$ [eV]   & $\Gamma$ [eV]   & $q$         & $\rho^2$     \\ \hline
+		\multicolumn{1}{c}{} & $E_r$ [eV]   & $\Gamma$ [eV]   & $q$         & $\rho^2$     \\ \hline
 		$3s3p^64p$              & 26.605 & 80.2(7) & -0.286(4) & 0.840(3) \\
 		$3s3p^65p$              & 27.994 & 28.5(8) & -0.177(3) & 0.848(3) \\
 		$3s3p^66p$              & 28.509 & 12.2(3) & -0.135(9) & 0.852(9) \\
