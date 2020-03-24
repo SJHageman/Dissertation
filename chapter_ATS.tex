@@ -454,14 +454,29 @@ An additional term in the DCM that can be explicitly calculated for a dressing p
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.75\textwidth]{figures/ATS/MPI_Tunnel.jpg}
-	\caption[Multiphoton and tunnel ionization schematics]{Incomplete}
+	\includegraphics[width=0.9\textwidth]{figures/ATS/MPI_Tunneling.pdf}
+	\caption[Schematic of multiphoton and tunnel ionization]{Schematic of multiphoton and tunnel ionization of an atomic in a strong laser field. (a) Multiphoton ionization regime where the electron can absorb multiple photons to reach the continuum and be ionized.  (b) Tunnel ionization regime where the electric field of the dressing laser distorts the atomic binding potential to allow for  bound electron to tunnel through the finite barrier created by the combined atom-field potential.}
 	\label{fig:mpi_tunnel}
 \end{figure}
 
-In the multiphoton regime, the ionization process can be treated perturbatively, and the physical picture is that the electron is able to absorb multiple photons to gain enough energy to reach the continuum, as shown in figure \ref{fig:mpi_tunnel} (a).  The perturbative treatment means that the ionization probability will be proportional to $I^N$ where $I$ is the intensity of the dressing field and $N$ is the minimum number of photon required to reach the continuum.  Absorption of additional photons beyond the minimum number required to ionize is also possible and is know as above threshold ionization (ATI), and was first observed experimentally in 1979 \cite{agostiniFreeFreeTransitionsFollowing1979a}.
+In the multiphoton regime, the ionization process can be treated perturbatively, and the physical picture is that the electron is able to absorb multiple photons to gain enough energy to reach the continuum, as shown in figure \ref{fig:mpi_tunnel} (a).  The perturbative treatment means that the ionization probability will be proportional to $I^N$ where $I$ is the intensity of the dressing field and $N$ is the minimum number of photon required to reach the continuum \cite{boydNonlinearOptics2008}.  Absorption of additional photons beyond the minimum number required to ionize is also possible and is know as above threshold ionization (ATI), and was first observed experimentally in 1979 \cite{agostiniFreeFreeTransitionsFollowing1979}.
 
-In the limit of longer wavelengths, the nonlinear order $N$ increases, and eventually, another process begins to dominate.
+In the limit of longer wavelengths, the nonlinear order $N$ increases, and eventually, another process begins to dominate.  Namely, the ionization process in this limit begins to resemble ionization by a static electric field.  This is schematically shown in figure \ref{fig:mpi_tunnel} (b), and this physically corresponds to suppression of the Coulomb binding potential to the point that an electron has a reasonable probability of tunneling through the finite barrier that is created by the combined atomic and electric fields. The low frequency (long wavelength) allows this to happen by giving the electron enough time to tunnel through the barrier each half-cycle of the dressing laser period.  In this regime, the ionization probability no longer follows the perturbative scaling of $I^N$, and it instead follows an exponential scaling in intensity given by $\exp(-2F_0/3\mathcal{E})$ where $F_0$ is related the binding electric field and $\mathcal{E}$ is the dressing electric field \cite{keldyshIonizationFieldStrong1965,changFundamentalsAttosecondOptics2011}. 
+
+To delineate between these two extrema regimes of ionization, a useful parameter is the Keldysh parameter
+\begin{equation}
+	\label{eqn:keldysh_param}
+	\gamma=\sqrt{\frac{I_p}{2 U_p}}\propto\sqrt{\frac{I_p}{I_0 \lambda^2}}
+\end{equation}
+where $I_p$ is the ionization potential, $U_p$ is the ponderomotive energy, $I_0$ and $\lambda$ are the dressing intensity and wavelength \cite{keldyshIonizationFieldStrong1965}.  The Keldysh parameter represents the adiabiticity of the process, and it determines which regime should be considered.  For strong fields at long wavelengths ($\gamma \ll 1$), the electron is able to tunnel ionize each half-cycle of the field because the rate of change of the field is low and the tunneling rate is high.  For weaker fields at shorter wavelengths ($\gamma \gg 1$), the electron has to absorb multiple photons to gain the necessary energy to ionize.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ATS/ADK_PPT.pdf}
+	\caption[ADK and PPT ionization of noble gases]{Incomplete}
+	\label{fig:adk_ppt}
+\end{figure}
 
 \section{Floquet Theory: Light-Induced States and Phase}
 \label{sec:LIS_Floquet}
