@@ -398,9 +398,9 @@ where the assumption is made that the XUV pulse is still delta function in time 
 There are several models to calculate this energy shift, and three of these will be discussed herein.  The first method is to consider the electron in the bright state as a quasi-free electron that couples very weakly to nearby states and is weakly bound. This assumption means that the energy shift will be related to the ponderomotive energy that the electron picks up from the field.  The energy shift can be calculated classically as
 \begin{equation}
 	\label{eqn:up_energy_shift}
-	\Delta\varepsilon(t,\tau)=\frac{1}{2}m v(t,\tau)^2=\frac{e^2}{2m}\bigg[\int_{-\infty}^{t}E(t',\tau)\diff t'\bigg]^2
+	\Delta\varepsilon(t,\tau)=\frac{1}{2}m v(t,\tau)^2=\frac{e^2}{2m}\bigg[\int_{-\infty}^{t}\mathcal{E}(t',\tau)\diff t'\bigg]^2
 \end{equation}
-where $E(t,\tau)$ is the electric field of the dressing pulse.  This method was used to describe several experiments that were performed in He \cite{ottLorentzMeetsFano2013, blattermannSituCharacterizationFewcycle2015}.
+where $\mathcal{E}(t,\tau)$ is the electric field of the dressing pulse.  This method was used to describe several experiments that were performed in He \cite{ottLorentzMeetsFano2013, blattermannSituCharacterizationFewcycle2015}.
 
 The second method to calculate the energy shift is to use second order time dependent perturbation theory \cite{chiniSubcycleAcStark2012,chiniCharacterizationApplicationIsolated2012,bransdenPhysicsAtomsMolecules2003, griffithsIntroductionQuantumMechanics2005}.  This method is a sub-cycle extension of the optical ac Stark shift, where the energy shift $\Delta\varepsilon_a$ of state a is given by
 \begin{equation}
@@ -410,14 +410,14 @@ The second method to calculate the energy shift is to use second order time depe
 where $\alpha_a$ is the polarizability of state a, $d_{ka}$ is the dipole matrix element between states $a$ and $k$, $\omega_L$ is the dressing frequency, and $E(t)=E_0(t)\cos(\omega_L t)$ is the electric field.  This is an inherently cycle averaged effect, but it can be extended to a sub-cycle ac Stark shift using second order perturbation theory. The energy shift for this case is given by
 \begin{equation}
 	\label{eqn:SOPT}
-	\Delta\varepsilon_a(t,\tau)=-i\sum_{k\neq a}d_{ak}E(t-\tau)e^{i\omega_{ak}t}\int_{-\infty}^{t} d_{ka}E(t'-\tau)e^{i\omega_{ka}t}\diff t'.
+	\Delta \varepsilon_a(t,\tau)=-i\sum_{k\neq a}d_{ak}\mathcal{E}(t-\tau)e^{i\omega_{ak}t}\int_{-\infty}^{t} d_{ka}\mathcal{E}(t'-\tau)e^{i\omega_{ka}t}\diff t'.
 \end{equation}
-For a pulse shape that is given by $E_0(t)=E_pe^{-\rvert t \lvert/t_p}$, the integrals can be solved analytically to give
+For a pulse shape that is given by $\mathcal{E}_0(t)=\mathcal{E}_pe^{-\rvert t \lvert/t_p}$, the integrals can be solved analytically to give
 \begin{equation}
 	\label{eqn:SOPT_integrated}
 	\begin{aligned}
-	\Delta\varepsilon_a(t,\tau) &=\frac{1}{2}E_0(t-\tau)^2\sum_{k\neq a}\bigg[ \frac{\omega_{ka}\rvert d_{ka} \lvert^2}{\omega_{ka}^2 - \omega_L^2}\cos(\omega_L (t-\tau))^2 -i\frac{\omega_{L}\rvert d_{ka} \lvert^2}{\omega_{ka}^2 - \omega_L^2}\sin(2\omega_{L} (t-\tau))\bigg]\\
-	&=\frac{1}{2}E_0(t-\tau)^2[\alpha_a\cos(\omega_{L} (t-\tau))^2 - i\gamma_{a}\sin(2\omega_{L} (t-\tau))].
+	\Delta\varepsilon_a(t,\tau) &=\frac{1}{2}\mathcal{E}_0(t-\tau)^2\sum_{k\neq a}\bigg[ \frac{\omega_{ka}\rvert d_{ka} \lvert^2}{\omega_{ka}^2 - \omega_L^2}\cos(\omega_L (t-\tau))^2 -i\frac{\omega_{L}\rvert d_{ka} \lvert^2}{\omega_{ka}^2 - \omega_L^2}\sin(2\omega_{L} (t-\tau))\bigg]\\
+	&=\frac{1}{2}\mathcal{E}_0(t-\tau)^2[\alpha_a\cos(\omega_{L} (t-\tau))^2 - i\gamma_{a}\sin(2\omega_{L} (t-\tau))].
 	\end{aligned}
 \end{equation}
 where $\alpha_a$ is the polarizability of state $a$ and $\gamma_{a}$ is related to the population change in state a as it is being coupled to state k.  This form for the energy level shift is generally only accurate when the frequency of the dressing field is far from resonance and the peak Rabi frequency $\Omega_{ka} = d_{ka}E_p$ is much less than the energy level separation.
@@ -442,7 +442,7 @@ where $\omega_1$ is the energy of the bright state.  Thus, the problem has been 
 	\label{eqn:Floquet_energy_shift}
 	\Delta\varepsilon_+ = \omega_1+\frac{-\Delta+\sqrt{\Delta^2+\Omega(t,\tau)^2}}{2},
 \end{equation}
-where $\Delta=\omega_L-(\omega_2-\omega_1)$ is the detuning of the dressing frequency from resonance and $\Omega(t,\tau)=d_{21}E(t,\tau)$ is the Rabi frequency.  Thus, the time-dependent energy level shift is given by
+where $\Delta=\omega_L-(\omega_2-\omega_1)$ is the detuning of the dressing frequency from resonance and $\Omega(t,\tau)=d_{21}\mathcal{E}(t,\tau)$ is the Rabi frequency.  Thus, the time-dependent energy level shift is given by
 \begin{equation}
 	\Delta\varepsilon(t,\tau)=\frac{-\Delta+\sqrt{\Delta^2+\Omega(t,\tau)^2}}{2}.
 \end{equation}
@@ -459,7 +459,7 @@ An additional term in the DCM that can be explicitly calculated for a dressing p
 	\label{fig:mpi_tunnel}
 \end{figure}
 
-In the multiphoton regime, the ionization process can be treated perturbatively, and the physical picture is that the electron is able to absorb multiple photons to gain enough energy to reach the continuum, as shown in figure \ref{fig:mpi_tunnel} (a).  The perturbative treatment means that the ionization probability will be proportional to $I^N$ where $I$ is the intensity of the dressing field and $N$ is the minimum number of photon required to reach the continuum \cite{boydNonlinearOptics2008}.  Absorption of additional photons beyond the minimum number required to ionize is also possible and is know as above threshold ionization (ATI), and was first observed experimentally in 1979 \cite{agostiniFreeFreeTransitionsFollowing1979}.
+In the multiphoton regime, the ionization process can be treated perturbatively, and the physical picture is that the electron is able to absorb multiple photons to gain enough energy to reach the continuum, as shown in figure \ref{fig:mpi_tunnel} (a).  The perturbative treatment means that the ionization probability will be proportional to $I^N$ where $I$ is the intensity of the dressing field and $N$ is the minimum number of photon required to reach the continuum \cite{boydNonlinearOptics2008}.  Absorption of additional photons beyond the minimum number required to ionize is also possible and is know as above threshold ionization (ATI), and was first observed experimentally in 1979 \cite{agostiniFreeFreeTransitionsFollowing1979a}.
 
 In the limit of longer wavelengths, the nonlinear order $N$ increases, and eventually, another process begins to dominate.  Namely, the ionization process in this limit begins to resemble ionization by a static electric field.  This is schematically shown in figure \ref{fig:mpi_tunnel} (b), and this physically corresponds to suppression of the Coulomb binding potential to the point that an electron has a reasonable probability of tunneling through the finite barrier that is created by the combined atomic and electric fields. The low frequency (long wavelength) allows this to happen by giving the electron enough time to tunnel through the barrier each half-cycle of the dressing laser period.  In this regime, the ionization probability no longer follows the perturbative scaling of $I^N$, and it instead follows an exponential scaling in intensity given by $\exp(-2F_0/3\mathcal{E})$ where $F_0$ is related the binding electric field and $\mathcal{E}$ is the dressing electric field \cite{keldyshIonizationFieldStrong1965,changFundamentalsAttosecondOptics2011}. 
 
@@ -468,9 +468,28 @@ To delineate between these two extrema regimes of ionization, a useful parameter
 	\label{eqn:keldysh_param}
 	\gamma=\sqrt{\frac{I_p}{2 U_p}}\propto\sqrt{\frac{I_p}{I_0 \lambda^2}}
 \end{equation}
-where $I_p$ is the ionization potential, $U_p$ is the ponderomotive energy, $I_0$ and $\lambda$ are the dressing intensity and wavelength \cite{keldyshIonizationFieldStrong1965}.  The Keldysh parameter represents the adiabiticity of the process, and it determines which regime should be considered.  For strong fields at long wavelengths ($\gamma \ll 1$), the electron is able to tunnel ionize each half-cycle of the field because the rate of change of the field is low and the tunneling rate is high.  For weaker fields at shorter wavelengths ($\gamma \gg 1$), the electron has to absorb multiple photons to gain the necessary energy to ionize.
+where $I_p$ is the ionization potential, $U_p$ is the ponderomotive energy, $I_0$ and $\lambda$ are the laser intensity and wavelength \cite{keldyshIonizationFieldStrong1965}.  The Keldysh parameter represents the adiabiticity of the process, and it determines which regime should be considered.  For strong fields at long wavelengths ($\gamma \ll 1$), the electron is able to tunnel ionize each half-cycle of the field because the rate of change of the field is low and the tunneling rate is high.  For weaker fields at shorter wavelengths ($\gamma \gg 1$), the electron has to absorb multiple photons to gain the necessary energy to ionize.
 
+There are generally two methods to calculate the ionization rate in a strong field, PPT \cite{perelomovIonizationAtomsAlternating1986} and ADK \cite{ammosovTunnelIonizationComplex1966}.\footnote{The acronyms stem from the last names of the authors.}  The full details of their derivation will not be reproduced here, but the main results that are pertinent will be discussed.  The PPT model is the more general of the two, and it is generally applicable to calculating the ionization rate and probability for both regimes of strong field ionization. It assumes is derived for a hydrogenic atom and uses effective quantum numbers to generalize to other atoms.  Following the formalism found in \cite{changFundamentalsAttosecondOptics2011}, the rate of ionization $w$ in the PPT model is  
+\begin{equation}
+	w_{PPT}(\mathcal{E},\omega)=\sum_{q\geq q_{th}}^{\infty}w_q(\mathcal{E},\omega)
+\end{equation}
+where $w_q$ is the rate for absorbing $q$ photons and $q_{th}=\lceil (I_p + U_p)/\omega \rceil$ is the minimum number of photons required to ionize an electron after including the AC Stark effect.  Assuming the electron is in a state with quantum numbers $n$, $l$, and $m$, The total rate can be written as
+\begin{equation}
+\label{eqn:PPT_arte}
+\begin{aligned}
+	w_{PPT}(\mathcal{E},\omega)&=\abs{C_{n^*l^*}}^2 G_{lm} I_p \bigg( \frac{2F_0}{\mathcal{E}} \bigg) ^{2n^*-\lvert m \rvert -1}\bigg(\frac{1}{\sqrt{1+\gamma^2}}\bigg)^{-\lvert m \rvert -1}\\
+	&\times \frac{4}{\abs{m} \sqrt{3\pi}}\bigg(\frac{\gamma^2}{1+\gamma^2}\bigg)e^{-\frac{2F_0}{3\mathcal{E}}g(\gamma)}\sum_{q\geq q_{th}}^{\infty}A_q(\omega,\gamma)
+\end{aligned}
+\end{equation}
+where $\mathcal{E}$ is the electric field of the laser,$F_0$ is the binding field strength related to $I_p$, $\gamma$ is the Keldysh parameter, $\abs{C_{n^*l^*}}^2 G_{lm}$ is a constant related to the atom, and the functions $g(\gamma)$ and $A_q(\omega,\gamma)$ are given in \cite{changFundamentalsAttosecondOptics2011}.  Generally speaking, $g(\gamma)$ is a function that approaches unity as $\gamma\rightarrow0$, and $A_q(\omega,\gamma)$  falls off exponentially with $q$ and increases exponentially with $\mathcal{E}$ up to a saturation point related to $I_p$.  In principle this method has a significant advantage in the fact that it is applicable for both regimes of ionization, however evaluation of the infinite sum makes this method computationally expensive. The ionization rate for several atomic species is shown in figure \ref{fig:adk_ppt} (a).
 
+The other main method that is commonly used to calculate the ionization rate is the ADK method \cite{ammosovTunnelIonizationComplex1966}.  This method can be thought of as an extension of the PPT model in the limit of a static field ($\omega\rightarrow0$), where tunneling ionization is the dominant mechanism.  In this limit, all $\gamma$-dependent terms become unity and the resulting rate is given by
+\begin{equation}
+\label{eqn:ADK_rate}
+	w_{ADK} = \abs{C_{n^*l^*}}^2 G_{lm} I_p \bigg( \frac{2F_0}{\mathcal{E}} \bigg) ^{2n^*-\abs{m} -1} e^{-\frac{2F_0}{\mathcal{E}}}.
+\end{equation}
+This much simpler expression is generally only valid for values $\gamma$ smaller than roughly 0.5, however the ADK model is used in the literature well  beyond this range even though it is known to underestimate the ionization rate \cite{laiExperimentalInvestigationStrongfieldionization2017}.  This mostly likely due to the ease of computation when compared to PPT.  The ADK ionization rate is given for several atomic species in figure \ref{fig:adk_ppt} (a).
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/ATS/ADK_PPT.pdf}
@@ -478,7 +497,21 @@ where $I_p$ is the ionization potential, $U_p$ is the ponderomotive energy, $I_0
 	\label{fig:adk_ppt}
 \end{figure}
 
-\section{Floquet Theory: Light-Induced States and Phase}
+Generally speaking, both methods have very similar dependence on field strength, and their exponential behaviour means that the ionization rate is limited to a small time window around the peak of the electric field every half-cycle of the laser pulse.  The total ionization probability at a given time $t$ is given by the relation
+\begin{equation}
+\label{eqn:ion_prob}
+	P(t)=1-\exp\bigg(-\int_{-\infty}^{t}w(t')\diff t'\bigg),
+\end{equation}
+and examples of the ionization probability integrated over an entire pulse is shown in figure \ref{fig:adk_ppt} (b) for several atomic species.
+
+Returning to the DCM parameter $a_1$, it is related to the ionization probability $P(t)$ because the strong field is assumed to deplete the population of the excited discrete state.  The choice of model is dependent upon the dressing laser parameters and the states being considered, but for either model, $a_1$ is given by 
+\begin{equation}
+\label{eqn:a1_ion_prob}
+	a_1(t,\tau) = 1 - \exp\bigg(-\int_{0}^{t}w(t' - \tau)\diff t'\bigg).
+\end{equation}
+This is assuming that the XUV pulse is a $\delta$-function centered at $t=0$.  Effectively, this amplitude attenuates the dipole as a function of time based upon the ionization probability by the dressing pulse, hence this effect is referred to as light-induced attenuation (LIA) of the dipole \cite{chiniSubcycleAcStark2012,chiniCharacterizationApplicationIsolated2012,liaoProbingAutoionizingStates2017}.
+
+\section{Floquet Theory: Light-Induced States}
 \label{sec:LIS_Floquet}
 
 
