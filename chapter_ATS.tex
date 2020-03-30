@@ -268,6 +268,7 @@ By expressing the dipole this way, it is clear that the autoionization from the 
 
 
 \section{Dipole Control Model}
+\label{sec:DCM}
 
 Now that the relationship between the dipole and the absorption line shape has been established in the time domain, we would like to establish a method to control and modify the dipole.  This will be done by introducing an IR probe/dressing pulse at a variable time delay $\tau$.  This IR pulse will lead to a modification of the dipole that can be modeled analytically for certain assumptions. This model is referred to as the dipole control model (DCM), and it was originally formulated by A. Bl{\"a}tterman, et al \cite{blattermannImpulsiveControlAtomic2016, blattermannTwodimensionalSpectralInterpretation2014, kaldunFanoResonancesTime2014}. In a similar manner to the previous section, a key assumption that must be made in this model is that, in addition to the XUV pulse, the IR pulse must be a $\delta$-function in time.  This is generally only a reasonable approximation if the pulse duration is much shorter than the lifetime $\hbar/\Gamma$.  These assumptions will be questionable for the experiments discussed in this chapter, however this model will allow for an understanding of the features that will be seen in the data shown later.  
 
@@ -493,7 +494,7 @@ This much simpler expression is generally only valid for values $\gamma$ smaller
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/ATS/ADK_PPT.pdf}
-	\caption[ADK and PPT ionization of noble gases]{Incomplete}
+	\caption[ADK and PPT ionization of noble gases]{(a) Ionization rate calculated for various noble gases using both PPT and ADK models as a function of peak intensity for an 800 nm pulse.  (b) Ionization probability integrated through the 800 nm pulse shown in the inset figure as a function of its peak intensity.}
 	\label{fig:adk_ppt}
 \end{figure}
 
@@ -513,6 +514,105 @@ This is assuming that the XUV pulse is a $\delta$-function centered at $t=0$.  E
 
 \section{Floquet Theory: Light-Induced States}
 \label{sec:LIS_Floquet}
+
+A feature that is seen in ATS experiments that is not included in the DCM introduced in the previous section \ref{sec:DCM} are light-induced states (LIS) that arise during temporal overlap between the dressing and XUV pulses.  These were first seen in early ATS experiments in Helium \cite{chenLightinducedStatesAttosecond2012, chiniSubcycleOscillationsVirtual2013}.  In \cite{chenLightinducedStatesAttosecond2012}, the LIS were explained in terms of a Raman-like two-photon process involving the absorption of an XUV photon and either the emission or absorption of a dressing photon to reach a dark state that is dipole-forbidden from the ground state by a single XUV photon. In this case, the LIS would appear in the absorption spectrogram at an energy corresponding to $\pm1$ dressing photon energy from the dark state.
+
+The description of LISs in terms of a Raman-like process starts to break down when the dressing photon energy is close to resonant to a transition between a bright and dark state \cite{wuTheoryStrongfieldAttosecond2016}.  In this regime, it is more appropriate to think of the LIS as arising from the dressed states of the atom in a strong IR dressing field.  To describe this effect, Floquet theory will be introduced in this section to describe a strongly driven two-level system consisting of near resonantly coupled bright and dark states \cite{shirleySolutionSchrOdinger1965,reduzziPolarizationControlAbsorption2015, wuTheoryStrongfieldAttosecond2016}. 
+
+To begin, a two-level system consisting of a bright state $\ket{1}$ and dark state $\ket{2}$ energetically separated by $\omega_0$ is driven by a periodic electric field at fixed delay.  The Hamiltonian of this system is given by 
+\begin{equation}
+	\hat{H}(t)\rightarrow
+	\begin{bmatrix}
+	-\frac{\omega_0}{2} & \Omega(t) \\
+	\Omega(t) & \frac{\omega_0}{2}
+	\end{bmatrix}
+\end{equation}
+where $\Omega(t)=\mu\mathcal{E}_0\cos(\omega t)=\Omega_0\cos(\omega t)$ in the time-dependent Rabi frequency.  Since this Hamiltonian is periodic, $H(t+2\pi/\omega)=H(t)$, then Floquet theory states that the wave function can be expanded in a periodic basis to take the form
+\begin{equation}
+	\ket{\psi(t)}=\sum_{f}c_f e^{-i \epsilon_f t}\ket{\phi_f(t)}
+\end{equation}
+where $c_f$ is a time-independent expansion coefficient and $\ket{\phi_f(t)}$ and $\epsilon_f$ are the Floquet states and energies \cite{shirleySolutionSchrOdinger1965}.  The Floquet states are themselves periodic and satisfy $\ket{\phi_f(t+2\pi/\omega)}=\ket{\phi_f(t)}$.  The importance of representing the wave function in this basis is the fact that the dynamics have been reduced to a trivia phase evolution across each Floquet state that comprises the total wave function.  Thus, solving the time-dependent \Schrodinger equation in this basis simply consists of finding the Floquest states and their energies. This is done by solving the Floquet equations, which are
+\begin{equation}
+\label{eqn:floquet_eqn}
+	\bigg(\hat{H}(t)-i\frac{\partial}{\partial t}\bigg)\ket{\phi_f(t)}=\hat{H}_F\ket{\phi_f(t)}=e^{-t\epsilon_f t}\ket{\phi_f(t)}
+\end{equation}
+where $\hat{H}_F$ is the Floquet matrix.
+
+To diagonalize the Floquet matrix, a product basis $\ket{\alpha,n}=\ket{\alpha}\otimes\ket{n}$ is used that consists of the product of the bare state basis $\ket{\alpha}=\{\ket{1},\ket{2}\}$ and the Fourier basis $\ket{n}$.  The Fourier basis states are given by
+\begin{equation}
+	\begin{aligned}
+	\ket{n}&=e^{-in\omega t }\\
+	\braket{n|f(t)} &= \frac{1}{T}\int_{0}^{T}e^{in\omega t}f(t)\diff t,
+	\end{aligned}
+\end{equation}
+and they represent the Fourier transform of a function $f(t)$ over one period $T=2\pi/\omega$.  Furthermore, since $\omega$ is the driving frequency of the dressing field, the values of $n$ take on integer values and represent photon number.  In this basis, the Floquet equation \ref{eqn:floquet_eqn} can be represented by
+\begin{equation}
+	\sum_{\beta,m}\braket{\alpha,n|\hat{H}_F|\beta,m}\braket{\beta,m|\phi_{\gamma,l}} = q_{\gamma,l}\braket{\alpha,n|\phi_{\gamma,l}}.
+\end{equation}
+The matrix elements $\braket{\alpha,n|\hat{H}_F|\beta,m}$ are related to the Fourier transform of the Hamiltonian, $\hat{H}^{[n]}=\braket{n|\hat{H}(t)}$, and they are given by
+\begin{equation}
+	\braket{\alpha,n|\hat{H}_F|\beta,m} = \hat{H}_{\alpha,\beta}^{[n-m]} + n\omega\delta_{\alpha,\beta}\delta_{n,m}.
+\end{equation}
+
+For the two-level system under consideration, the matrix representation of the Floquet Hamiltonian $\hat{H}_F$ in this basis is block tri-diagonal, and it is given by
+\begin{equation}
+	\hat{H}_F \rightarrow
+	\left[
+	\begin{smallmatrix}%{cc|cc|cc|cc|cc}
+	-2 \omega-\frac{\omega_0}{2} & 0 & 0 & \frac{\Omega_0}{2} & 0 & 0 & 0 & 0 & 0 & 0 \\
+	0 & -2 \omega +\frac{\omega_0}{2} & \frac{\Omega_0}{2} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\%\hline
+	0 & \frac{\Omega_0}{2} & -\omega-\frac{\omega_0}{2} & 0 & 0 & \frac{\Omega_0}{2} & 0 & 0 & 0
+	& 0 \\
+	\frac{\Omega_0}{2} & 0 & 0 & -\omega + \frac{\omega_0}{2} & \frac{\Omega_0}{2} & 0 & 0 & 0 & 0 &
+	0 \\ %\hline
+	0 & 0 & 0 & \frac{\Omega_0}{2} & -\frac{\omega_0}{2} & 0 & 0 & \frac{\Omega_0}{2} & 0 &
+	0 \\
+	0 & 0 & \frac{\Omega_0}{2} & 0 & 0 & \frac{\omega_0}{2} & \frac{\Omega_0}{2} & 0 & 0 & 0
+	\\ %\hline
+	0 & 0 & 0 & 0 & 0 & \frac{\Omega_0}{2} & \omega-\frac{\omega_0}{2} & 0 & 0 &
+	\frac{\Omega_0}{2} \\
+	0 & 0 & 0 & 0 & \frac{\Omega_0}{2} & 0 & 0 & \omega+\frac{\omega_0}{2} & \frac{\Omega_0}{2} &
+	0 \\ %\hline
+	0 & 0 & 0 & 0 & 0 & 0 & 0 & \frac{\Omega_0}{2} & 2 \omega-\frac{\omega_0}{2} & 0 \\
+	0 & 0 & 0 & 0 & 0 & 0 & \frac{\Omega_0}{2} & 0 & 0 & 2 \omega+\frac{\omega_0}{2} \\
+	\end{smallmatrix}
+	\right].
+\end{equation}
+Diagonalizing this matrix enables one to calculate the Floquet energies and states, and this enables the wave function to calculated for any time.  This diagonalization has been done for a system with an energy separation of $\hbar\omega_0=0.875$ eV and photon energy $\hbar\omega=0.867 eV$, and the Floquet energies as a function of Rabi frequency $\Omega_0$ is shown in \ref{fig:floquet_energies}. As can be seen, the Floquet energies are given by two 'ladders' of states separated by $\hbar\omega$ that are centered on each state.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ATS/floquet_energies.pdf}
+	\caption[Floquet energies as a function of Rabi frequency.]{Floquet energies as a function of Rabi frequency.  System consists of a bright state $\ket{1}$ at a energy of 26.605 eV and a dark state $\ket{2}$ at 27.48 eV, and the dressing field of wavelength 1430 nm (shown as a red arrow).  The states which are dipole forbidden from the ground state are shown with dashed lines.  Floquet energies are given by two 'ladders' of states separated by $\hbar\omega$ that are centered on each state.}
+	\label{fig:floquet_energies}
+\end{figure}
+
+To connect this to ATS experiments, delay-dependence  of the Floquet states must to introduced to calculate the delay-dependent dipole moment.  For the constant field envelope that we have been considering thus far, the delay-dependent Floquet states are given by
+\begin{equation}
+	\ket{\psi_\alpha(t,\tau)}=e^{-i\epsilon_\alpha t}\sum_{n}e^{-i n\omega(t+\tau)}\ket{\phi_{\alpha,n}}
+\end{equation}
+where the Floquet states $\ket{\phi_{\alpha,n}}$ and energies $\epsilon_\alpha$ are calculated by diagonalizing $\hat{H}_F$ at a fixed phase $\omega\tau=0$.  Thus, the time- and delay-dependent Floquet states $\ket{\psi_\alpha(t,\tau)}$ can be thought of as a superposition of dressed states that were excited at $t=0$ with a fixed phase of $\omega\tau$.  For an XUV pulse that can be approximated as a $\delta$-function in time, the initial wave function at $t=0$ is given by the superposition
+\begin{equation}
+	\ket{\Psi(0,\tau)}=\sum_{\alpha}C_{\alpha}(\tau)\ket{\psi_{\alpha}(0,\tau)},
+\end{equation}
+where $C_\alpha(\tau)=\braket{\psi_\alpha(0,\tau)|\hat{\mu}_X|g} = \sum_n e^{in\omega\tau}\braket{\phi_{\alpha,n}|\hat{\mu}_X|g}$ is the dipole transition matrix element from the ground state $\ket{g}$.  The wave function for $t>0$ is now given by
+\begin{equation}
+	\ket{\Psi(t,\tau)}=\sum_\alpha C_{\alpha}(\tau)\ket{\psi_{\alpha}(t,\tau)},
+\end{equation}
+and the time-dependent dipole is
+\begin{equation}
+\begin{aligned}
+	d(t,\tau)&=\braket{\Psi(t,\tau)|\hat{\mu}_X|\Psi(t,\tau)}\\
+	&=\sum_{\alpha,m,n}e^{-i(\epsilon_\alpha+m\omega)t}e^{i(n-m)\omega\tau} \braket{\phi_{\alpha,n}|\hat{\mu}_X|g} \braket{g|\hat{\mu}_X|\phi_\alpha,m} + c.c.
+\end{aligned}
+\end{equation}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ATS/floquet_energies_time_dep.pdf}
+	\caption[Floquet energies as a function of Rabi frequency and time.]{Incomplete}
+	\label{fig:floquet_energies_time_dep}
+\end{figure}
 
 
 \section{Time-Dependent \Schrodinger Equation}
