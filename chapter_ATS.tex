@@ -601,22 +601,24 @@ where $C_\alpha(\tau)=\braket{\psi_\alpha(0,\tau)|\hat{\mu}_X|g} = \sum_n e^{in\
 \end{equation}
 and the time-dependent dipole is
 \begin{equation}
-\begin{aligned}
-	d(t,\tau)&=\braket{\Psi(t,\tau)|\hat{\mu}_X|\Psi(t,\tau)}\\
-	&=\sum_{\alpha,m,n}e^{-i(\epsilon_\alpha+m\omega)t}e^{i(n-m)\omega\tau} \braket{\phi_{\alpha,n}|\hat{\mu}_X|g} \braket{g|\hat{\mu}_X|\phi_\alpha,m} + c.c.
-\end{aligned}
+\label{eqn:Floquet_dipole}
+%\begin{aligned}
+%	&=\braket{\Psi(t,\tau)|\hat{\mu}_X|\Psi(t,\tau)}\\
+	d(t,\tau) =\sum_{\alpha,m,n}e^{-i(\epsilon_\alpha+m\omega)t}e^{i(n-m)\omega\tau} \braket{\phi_{\alpha,n}|\hat{\mu}_X|g} \braket{g|\hat{\mu}_X|\phi_\alpha,m} + c.c.
+%\end{aligned}
 \end{equation}
+From this dipole moment many features that are seen in common ATS spectrograms can be easily understood.  First of all, the exponential term $e^{i(\epsilon_\alpha+n\omega)t}$ means that the dipole will oscillate at frequencies that corresponds to the dressed states of the atom, and therefore, absorption will be observed at photon energies that correspond to the dressed states which are dipole allowed from the ground state. Thus, the LISs that are seen in ATS experiments can be naturally interpreted as probing of the dressed atom.   A second common feature which can be understood from the dipole in equation \ref{eqn:Floquet_dipole} are delay dependent oscillations which arise from the exponential term $e^{i(n-m)\omega\tau}$.  Since only dipole allowed dressed states are probed, this means that only every other state in each  Floquet ladder will contribute to the dipole.  Thus, $n-m$ is even, and the delay-dependent oscillations will be at frequencies of $2\omega$, $4\omega$, etc.  The $2\omega$ oscillations can be interpreted as quantum path interferences between coherently excited dressed states that are separated by $2\omega$ and end up in the same final state \cite{chenQuantumInterferenceAttosecond2013}.  A schematic of the apperance of LIS in the spectrogram is shown in figure \ref{fig:floquet_energies_time_dep} where the Floquet matrix for the two-level system considered previously is diagonalized at each time point and the dressed states are shown.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/ATS/floquet_energies_time_dep.pdf}
-	\caption[Floquet energies as a function of Rabi frequency and time.]{Incomplete}
+	\caption[Floquet energies as a function of Rabi frequency and time.]{(a) Rabi frequency as a function of time that represents the strength of the dressing pulse used in this calculation.  (b) Floquet energies as a function of time for the pulse shown in (a). The dressed states which are dipole allowed from the ground state are shown with solid lines, and the dipole forbidden states are shown with dashed lines.  The color corresponds to the two initial states: $\ket{1}$ (bright) and $\ket{2}$ (dark).}
 	\label{fig:floquet_energies_time_dep}
 \end{figure}
 
 
-\section{Time-Dependent \Schrodinger Equation}
-\label{sec:Full_TDSE}
+%\section{Time-Dependent \Schrodinger Equation}
+%\label{sec:Full_TDSE}
 
 \section{Strong-field Transient Absorption in Argon}
 \label{sec:ATS_ar}
