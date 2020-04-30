@@ -623,10 +623,17 @@ From this dipole moment many features that are seen in common ATS spectrograms c
 \section{Strong-field Transient Absorption in Argon}
 \label{sec:ATS_ar}
 
+Now that the theoretical background has been established for studying the dynamics of autoionizing states in a strong dressing field, we can turn our attention to the experimental study that was conducted using ATS.  The intent of this work was to establish a strong understanding of the dynamics that we should expect to see in chapter \ref{chap:CATS}, where a novel experimental scheme is used to extract a complete picture of the laser-induced dynamics by experimentally measuring the full complex refractive index.
+
 \subsection{Experimental setup}
 \label{sec:ATS_ar_exp_setup}
 
-
+The autoionizing states that will  be studied in this work are the $3s3p^6 np$ states in argon.  The relevant level diagram is shown in figure \ref{fig:fano_level_diagram}, and a table of the resonance parameters is shown in table \ref{table:fano_params}.   This series of states were chosen because they are located energetically in a regime that is easily accessible by HHG sources. The ground state photoabsorption cross section for these states can be calculated using Fano's original theory, equation \ref{eqn:sigma_pcs}, and this is plotted for the resonance parameters of interest in figure \ref{fig:fano_gs_pcs}.  The non-resonant background absorption used in the calculation for figure \ref{fig:fano_gs_pcs} is interpolated from scattering factors available from CXRO \cite{henkeXRayInteractionsPhotoabsorption1993}.  The imaginary part of the scattering factor is related to the photoabsorption cross section by the relationship
+\begin{equation}
+	\label{eqn:imaginary_scattering_factor}
+	\sigma_{\mathrm{NR}}=2 r_0 \lambda f_2,
+\end{equation}
+where $r_0$ is the classical electron radius and $f_2$ is the imaginary part of the scattering factor.  Since the atomic scattering factor from CXRO does not include fine resonance structure, it can only be used as an approximation of the non-resonant contribution to the total cross section.
 \begin{table}[]
 	\centering
 	\begin{tabular}{|ccccc|}
@@ -642,6 +649,7 @@ From this dipole moment many features that are seen in common ATS spectrograms c
 	\label{table:fano_params}
 \end{table}
 
+
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/ATS/fano_GS.pdf}
@@ -649,9 +657,24 @@ From this dipole moment many features that are seen in common ATS spectrograms c
 	\label{fig:fano_gs_pcs}
 \end{figure}
 
+
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/ATS/fano_fit.pdf}
+	\includegraphics[width=1.0\textwidth]{figures/ATS/generation_setup.pdf}
+	\caption{Incomplete}
+	\label{fig:generation_setup}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/harmonic_spectrum_2.pdf}
+	\caption[Typical harmonic spectrum used in ATS experiments]{(a) Schematic of $\omega + 2\omega$ scheme to generate even and odd harmonics.  BBO is used to generate $2\omega$. Calcite is used to temporally overlap the two colors at the gas source.  The half wave plate is used to rotate the polarization of the $\omega$ field to match the $2\omega$ field, thereby creating an asymmetric linearly polarized two-color field at the focus. (b)Typical harmonic spectrum used in the experiments described in the chapter.  The harmonics are generated in an $\omega + 2\omega$ scheme where the fundamental wavelength is 1430 nm.  The two-color field used to generate the harmonics has roughly equal intensity in the $\omega$ and $2\omega$ components.}
+	\label{fig:harmonic_spectrum}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/fano_fit.pdf}
 	\caption{Incomplete}
 	\label{fig:fano_fit}
 \end{figure}
