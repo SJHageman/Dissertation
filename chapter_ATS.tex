@@ -657,14 +657,21 @@ where $r_0$ is the classical electron radius and $f_2$ is the imaginary part of 
 	\label{fig:fano_gs_pcs}
 \end{figure}
 
+The TABLe is the experimental apparatus that will be used in all of the experiments described herein, and the relevant optical layout is shown in figure \ref{fig:generation_setup}.  In particular, for these experiments the harmonics are generated using a asymmetric two-color field that allows for the generation of even and odd harmonics. A schematic for how this is implemented, and the resulting XUV harmonic comb, is shown in figure \ref{fig:harmonic_spectrum}.  The harmonic comb that is generated in this way is more energetically dense, and it can be used to more finely sample the ground and excited states of the system.  In particular, there can be light between the harmonics that enable the generation of pseudo-continuum of XUV light.  This feature is important because it enables the observation of several LISs, as will be shown later.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/ATS/generation_setup.pdf}
-	\caption{Incomplete}
+	\includegraphics[width=1.0\textwidth]{figures/ATS/ATS_optical_layout.pdf}
+	\caption[TABLe experimental setup for ATS experiments]{Schematic of the optical setup for the experiments described in this chapter.  \textbf{BS}: Beamsplitter (Thorlabs BSF20-C), \textbf{I$_{1,2}$}: Irises used for alignment. \textbf{DW}: Delay wedges for fine delay control. \textbf{CF}: Color filter (Thorlabs FELH1000). \textbf{HWP}: Half-wave plate. \textbf{WGP}: Wire grid polarizer. \textbf{RR}: Retro reflector for coarse delay adjustment.  \textbf{FM}: Flip mirror. \textbf{TC}: Thermal camera used for alignment.  \textbf{L$_1$}: $f=-300$ mm lens (Thorlabs LF1015-C). \textbf{L$_2$}: $f=500$ mm lens (Thorlabs LA1380-C). \textbf{VW}: Vacuum window, 3 mm CaF$_2$, \textbf{HM}: Hole mirror with 10 mm hole.  \textbf{L$_3$}: $f=-400$ mm lens.  \textbf{L$_4$}: $f=500$ mm lens. \textbf{L$_5$}: $f=400$ mm lens.  \textbf{BBO}: Second-harmonic generation crystal.  \textbf{Cal}: Calcite. \textbf{GS}: Gas source for HHG. \textbf{MF}: Aluminum filter. \textbf{EM}: Ellipsoidal mirror. \textbf{GC}: Gas cell. \textbf{RM}: Removable mirror for \textit{in-situ} diagnotics.    \textbf{ICC}: camera for \textit{in-situ} diagnotics. \textbf{DG}: VLS diffraction grating. \textbf{BB}: Baffles to block zero order diffraction.  \textbf{MCP/P}: Microchannel plate and phosphor.  \textbf{AC}: Andor Neo 5.5 CMOS camera.}
 	\label{fig:generation_setup}
 \end{figure}
 
+Using the typical XUV harmonic source shown in figure \ref{fig:harmonic_spectrum}, the ground state photoabsorption spectrum of the $3s3p^6np$ states can be measured.  This is done by measuring the harmonic spectrum with and without argon gas in the gas cell that is shown in figure \ref{fig:generation_setup}.  From these two measurements, the optical density can be calculated as a function of photon energy $\omega$ using Beer-Lambert's Law as
+\begin{equation}
+\label{eqn:OD}
+	\mathrm{OD}(\omega)=-\log\bigg(\frac{I_{\mathrm{on}}}{I_{\mathrm{off}}}\bigg) = \frac{\rho l}{\ln 10}\sigma(\omega),
+\end{equation}
+where $I_{\mathrm{on (off)}}$ is the spectrum with the gas on (off), $\rho$ is the gas density in the interaction region, $l$ is the length of the interaction region, and $\sigma(\omega)$ is the absorption cross section.  For the gas cell used in these experiments, the length $l$ is fixed by the cell design at 2 mm, and the density $\rho$ is set by the backing pressure of the gas cell to achieve the desirable amount of absorption. The ground state OD of argon is shown in figure \ref{fig:fano_fit}.
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/ATS/harmonic_spectrum_2.pdf}
