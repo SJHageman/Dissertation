@@ -673,14 +673,29 @@ Using the typical XUV harmonic source shown in figure \ref{fig:harmonic_spectrum
 \end{equation}
 where $T(\omega)$ is the transmission, $I_{\mathrm{on (off)}}$ is the spectrum with the gas on (off), $\rho$ is the gas density in the interaction region, $l$ is the length of the interaction region, and $\sigma(\omega)$ is the absorption cross section.  For the gas cell used in these experiments, the length $l$ is fixed by the cell design at 2 mm, and the density $\rho$ is set by the backing pressure of the gas cell to achieve the desirable amount of absorption. 
 
-The ground state OD of argon measured using the harmonic spectrum in figure \ref{fig:harmonic_spectrum} (b) is shown in figure \ref{fig:fano_fit}.  From this measurement there are three clear features that stand out in the data.  One is an overall decreasing absorption at higher photon energies that is consistent with the non-resonant background absorption that is expected.  This is due to the fact that the absorption cross section decreases monotonically above the ionization potential when neglecting the effect of additional resonances.  The second clear feature are oscillations in the measured OD.  These are artifacts of the measurement that arise because of a background signal that is neither constant nor uniform across photon energy.  To see how this occurs, consider the following.  If 
-
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/ATS/harmonic_spectrum_2.pdf}
 	\caption[Typical harmonic spectrum used in ATS experiments]{(a) Schematic of $\omega + 2\omega$ scheme to generate even and odd harmonics.  BBO is used to generate $2\omega$. Calcite is used to temporally overlap the two colors at the gas source.  The half wave plate is used to rotate the polarization of the $\omega$ field to match the $2\omega$ field, thereby creating an asymmetric linearly polarized two-color field at the focus. (b) Typical harmonic spectrum used in the experiments described in the chapter.  The harmonics are generated in an $\omega + 2\omega$ scheme where the fundamental wavelength is 1430 nm.  The two-color field used to generate the harmonics has roughly equal intensity in the $\omega$ and $2\omega$ components.}
 	\label{fig:harmonic_spectrum}
 \end{figure}
+
+The ground state OD of argon measured using the harmonic spectrum in figure \ref{fig:harmonic_spectrum} (b) is shown in figure \ref{fig:fano_fit}.  From this measurement there are three clear features that stand out in the data.  One is an overall decreasing absorption at higher photon energies that is consistent with the non-resonant background absorption that is expected.  This is due to the fact that the absorption cross section decreases monotonically above the ionization potential when neglecting the effect of additional resonances \cite{henkeXRayInteractionsPhotoabsorption1993, sorensenArgon3sAutoionization1994, ogurtsovAutoIonizationStatesArgon1970}.  The second clear feature is an oscillation in the measured OD that is most evident at photon energies above 33 eV.  These oscillations are artifacts of the measurement that arise from one of several sources.  The first possibility is a difference in background counts between the two cases that are being considered (gas on versus gas off).  This can be seen by assuming that the measured spectral amplitudes $\tilde{I}_{\mathrm{on,off}}(\omega)$ differ from the true spectral amplitude by a constant amount that can be energy dependent,
+\begin{equation}
+\label{eqn:measured_approx}
+	\begin{aligned}
+	\tilde{I}_{\mathrm{on}}(\omega) &= I_{\mathrm{on}}(\omega) + a(\omega) \\
+	\tilde{I}_{\mathrm{off}}(\omega) &= I_{\mathrm{off}}(\omega) + b(\omega)
+	\end{aligned}
+\end{equation}
+This means that the calculated transmission function $\tilde{T}(\omega)$ will differ from the true transmission function $T(\omega)$ by the relationship
+\begin{equation}
+	\tilde{T}(\omega) = \frac{\tilde{I}_{\mathrm{on}}}{\tilde{I}_{\mathrm{off}}} = \frac{I_{\mathrm{on}} + a}{I_{\mathrm{off}} + b} \approx T(\omega)\bigg(1 - \frac{a(\omega)}{I_{\mathrm{off}}(\omega)}\bigg) + \frac{b(\omega)}{I_{\mathrm{off}}(\omega)},
+\end{equation}
+where $a/I_{\mathrm{off}}$ and $b/I_{\mathrm{off}}$ are assumed to be small and only terms up to $\bigO((1/I_{\mathrm{off}})^2)$ are retained.  Since this linear relationship between the measured and true transmission depends upon the spectral amplitude, one would expect to see modulations in the calculated OD that follow the spacing of the harmonic spectrum.  Thus, for the harmonic spectrum that was used for these measurements that consists of even and odd harmonics, one would expect to see a modulation in the OD at the photon energy corresponding to the fundamental wavelength used to generate the harmonic spectrum. This expected modulation at 0.87 eV for a fundamental wavelength of 1430 nm is exactly what is seen in the measured OD in figure \ref{fig:harmonic_spectrum}.  That being said, it is possible to make further assumptions about the stability of the harmonic spectrum in the time between $I_{\mathrm{on}}$ and $I_{\mathrm{off}}$ are measured that can also predict modulations in the measured OD that have a period of the fundamental wavelength.  Regardless of the particular origin of these modulations, they are typically filtered out using some type of band pass frequency filter when analyzing the measured data \cite{ottAttosecondMultidimensionalInterferometry2012, husekElucidatingSurfaceCharge2019}.
+
+The third and final feature that is apparent in the measured OD shown in figure \ref{fig:fano_fit} are the $3s3p^6np$ Fano resonances of interest.  In the measured OD, there is a clear dip in absorption at 26.6 eV with a series of dips that occur at higher energies, and these can be identified as the $4p$, $5p$, and $6p$ resonances. This ground state OD can be fit to the calculated photoabsorption cross section. 
+
 
 \begin{figure}
 	\centering
