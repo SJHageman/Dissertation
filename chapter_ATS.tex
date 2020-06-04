@@ -697,9 +697,9 @@ where $a/I_{\mathrm{off}}$ and $b/I_{\mathrm{off}}$ are assumed to be small and 
 The third and final feature that is apparent in the measured OD shown in figure \ref{fig:fano_fit} are the $3s3p^6np$ Fano resonances of interest.  In the measured OD, there is a clear dip in absorption at 26.6 eV with a series of dips that occur at higher energies, and these can be identified as the $4p$, $5p$, and $6p$ resonances.\footnote{Unless stated otherwise, the $3s3p^6np$ will be referred to as the $np$ resonance.} This measured OD can be fit to the photoabsorption cross section calculated using
 \begin{equation}
 \label{eqn:OD_PSF_fit_func}
-	\mathrm{OD}(\omega) = \frac{\rho l}{\ln 10}\bigg[\sigma_{\mathrm{NR}}(\omega) + \sigma_f\sum_{n}\frac{(q_n + \epsilon_n)^2}{\epsilon_{n}^2 + 1}\bigg] \circledast \bigg[\frac{1}{\nu \sqrt{2\pi}}e^{-\frac{(\hbar\omega)^2}{2\nu^2}}\bigg]
+	\mathrm{OD}(\omega) = \frac{\rho l}{\ln 10}\bigg[\sigma_{\mathrm{NR}}(\omega) + \sum_{n}\sigma_{n}W_{n}(\omega)\frac{(q_n + \epsilon_n)^2}{\epsilon_{n}^2 + 1}\bigg] \circledast \bigg[\frac{1}{\nu \sqrt{2\pi}}e^{-\frac{(\hbar\omega)^2}{2\nu^2}}\bigg]
 \end{equation}
-where the sum is over the $np$ states with resonance parameters given by $q_n$ and $\epsilon_{n}=(\hbar\omega-E_{r,n})/(\Gamma_n/2)$, $\circledast$ represents convolution with the Gaussian of standard deviation $\nu$ that is chosen to represent the PSF of the spectrometer, and $\sigma_f$, $\nu$, and $\rho l$ are fit parameters.  In principal, the non-resonant background absorption could be approximated by the cross section from CXRO, however this does not agree well with the experimentally measured OD, as can be seen by the green curve in figure \ref{fig:fano_fit}.  Instead, the non-resonant absorption $\sigma_{\mathrm{NR}}$ is extracted from the measure OD by fitting to an expansion given by
+where the sum is over the $np$ states with resonance parameters given by $q_n$ and $\epsilon_{n}=(\hbar\omega-E_{r,n})/(\Gamma_n/2)$, $\circledast$ represents convolution with the Gaussian of standard deviation $\nu$ that is chosen to represent the PSF of the spectrometer, and $\sigma_{n}$, $\nu$, and $\rho l$ are fit parameters.  The function $W_{n}(\omega)$ is a window function that is a convolution of a Gaussian and a boxcar, and this window function is used to limit the range of each resonance \cite{chuTheoryUltrafastAutoionization2010, caretteMulticonfigurationalHartreeFockClosecoupling2013}. In principal, the non-resonant background absorption could be approximated by the cross section from CXRO, however this does not agree well with the experimentally measured OD, as can be seen by the green curve in figure \ref{fig:fano_fit}.  Instead, the non-resonant absorption $\sigma_{\mathrm{NR}}$ is extracted from the measure OD by fitting to an expansion given by
 \begin{equation}
 \label{eqn:sigma_NR_fit}
 	\sigma_{\mathrm{NR}}(\omega) \approx a_0 + a_1(\hbar\omega - E_1) + a_2\mathrm{erfc}(w_2(\hbar\omega - E_2)),
@@ -746,7 +746,7 @@ where $a_i$, $E_i$, and $w_2$ are fit parameters and erfc is the complimentary e
 		6d &  1.011 &  0.420 &  2.146 \\
 		\bottomrule
 	\end{tabular}
-	\caption{tbale}
+	\caption{table}
 	\label{tab:matrix_elements}
 \end{table}
 
