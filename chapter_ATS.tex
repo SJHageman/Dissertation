@@ -657,7 +657,7 @@ where $r_0$ is the classical electron radius and $f_2$ is the imaginary part of 
 	\label{fig:fano_gs_pcs}
 \end{figure}
 
-The TABLe is the experimental apparatus that will be used in all of the experiments described herein, and the relevant optical layout is shown in figure \ref{fig:generation_setup}.  In particular, for these experiments the harmonics are generated using a asymmetric two-color field that allows for the generation of even and odd harmonics. A schematic for how this is implemented, and the resulting XUV harmonic comb, is shown in figure \ref{fig:harmonic_spectrum}.  The harmonic comb that is generated in this way is more energetically dense, and it can be used to more finely sample the ground and excited states of the system.  In particular, there can be light between the harmonics that enable the generation of pseudo-continuum of XUV light.  This feature is important because it enables the observation of several LISs, as will be shown later.
+The TABLe is the experimental apparatus that will be used in all of the experiments described herein, and the relevant optical layout is shown in figure \ref{fig:generation_setup}.  In particular, for these experiments the harmonics are generated using an asymmetric two-color field that allows for the generation of even and odd harmonics. A schematic for how this is implemented, and the resulting XUV harmonic comb, is shown in figure \ref{fig:harmonic_spectrum}.  The harmonic comb that is generated in this way is more energetically dense, and it can be used to more finely sample the ground and excited states of the system.  In particular, there can be light between the harmonics that enable the generation of pseudo-continuum of XUV light.  This feature is important because it enables the observation of several LISs, as will be shown later.
 
 \begin{figure}
 	\centering
@@ -680,15 +680,15 @@ where $T(\omega)$ is the transmission, $I_{\mathrm{on (off)}}$ is the spectrum w
 	\label{fig:harmonic_spectrum}
 \end{figure}
 
-The ground state OD of argon measured using the harmonic spectrum in figure \ref{fig:harmonic_spectrum} (b) is shown in figure \ref{fig:fano_fit}.  From this measurement there are three clear features that stand out in the data.  One is an overall decreasing absorption at higher photon energies that is consistent with the non-resonant background absorption that is expected.  This is due to the fact that the absorption cross section decreases monotonically above the ionization potential when neglecting the effect of additional resonances \cite{henkeXRayInteractionsPhotoabsorption1993, sorensenArgon3sAutoionization1994, ogurtsovAutoIonizationStatesArgon1970}.  The second clear feature is an oscillation in the measured OD that is most evident at photon energies above 33 eV.  These oscillations are artifacts of the measurement that arise from one of several sources.  The first possibility is a difference in background counts between the two cases that are being considered (gas on versus gas off).  This can be seen by assuming that the measured spectral amplitudes $\tilde{I}_{\mathrm{on,off}}(\omega)$ differ from the true spectral amplitude by a constant amount that can be energy dependent,
+The ground state OD of argon measured using the harmonic spectrum in figure \ref{fig:harmonic_spectrum} (b) is shown in figure \ref{fig:fano_fit}.  From this measurement there are three clear features that stand out in the data.  One is an overall decreasing absorption at higher photon energies that is consistent with the non-resonant background absorption that is expected.  This is due to the fact that the absorption cross section decreases monotonically above the ionization potential when neglecting the effect of additional resonances \cite{henkeXRayInteractionsPhotoabsorption1993, sorensenArgon3sAutoionization1994, ogurtsovAutoIonizationStatesArgon1970}.  The second clear feature is an oscillation in the measured OD that is most evident at photon energies above 33 eV.  These oscillations are artifacts of the measurement that arise from one of several sources.  The first possibility is a difference in background counts between the two cases that are being considered (gas on versus gas off).  This can be seen by assuming that the measured spectral amplitudes $\tilde{I}_{\mathrm{on,off}}(\omega)$ differ from the true spectral amplitude  $I_{\mathrm{on,off}}(\omega)$ by a constant amount that can be energy dependent,
 \begin{equation}
 \label{eqn:measured_approx}
 	\begin{aligned}
 	\tilde{I}_{\mathrm{on}}(\omega) &= I_{\mathrm{on}}(\omega) + a(\omega) \\
-	\tilde{I}_{\mathrm{off}}(\omega) &= I_{\mathrm{off}}(\omega) + b(\omega)
+	\tilde{I}_{\mathrm{off}}(\omega) &= I_{\mathrm{off}}(\omega) + b(\omega).
 	\end{aligned}
 \end{equation}
-This means that the calculated transmission function $\tilde{T}(\omega)$ will differ from the true transmission function $T(\omega)$ by the relationship
+This means that the measured transmission function $\tilde{T}(\omega)$ will differ from the true transmission function $T(\omega)$ by the relationship
 \begin{equation}
 	\tilde{T}(\omega) = \frac{\tilde{I}_{\mathrm{on}}}{\tilde{I}_{\mathrm{off}}} = \frac{I_{\mathrm{on}} + a}{I_{\mathrm{off}} + b} \approx T(\omega)\bigg(1 - \frac{a(\omega)}{I_{\mathrm{off}}(\omega)}\bigg) + \frac{b(\omega)}{I_{\mathrm{off}}(\omega)},
 \end{equation}
@@ -704,7 +704,8 @@ where the sum is over the $np$ states with resonance parameters given by $q_n$ a
 \label{eqn:sigma_NR_fit}
 	\sigma_{\mathrm{NR}}(\omega) \approx a_0 + a_1(\hbar\omega - E_1) + a_2\mathrm{erfc}(w_2(\hbar\omega - E_2)),
 \end{equation}
-where $a_i$, $E_i$, and $w_2$ are fit parameters and erfc is the complimentary error function.  This choice of expansion was made for ease of fitting using a least-squares method, and it could easily be replaced by an expansion in a different basis.  The result of fitting equations \ref{eqn:OD_PSF_fit_func} and \ref{eqn:sigma_NR_fit} is shown as the red line in figure \ref{fig:fano_fit}, and the inset in figure \ref{fig:fano_fit} shows the resonance energy positions of the $4p$ to $8p$ resonances.
+where $a_i$, $E_i$, and $w_2$ are fit parameters and erfc is the complimentary error function.  This choice of expansion was made for ease of fitting using a least-squares method, and it could easily be replaced by an expansion in a different basis.  
+
 
 \begin{figure}
 	\centering
@@ -712,6 +713,9 @@ where $a_i$, $E_i$, and $w_2$ are fit parameters and erfc is the complimentary e
 	\caption{Measured ground state photoabsorption of $3s3p^6np$ Fano resonances.  Blue curve is experimentally measured OD.  Red curve is a fit to the experimental data using equation \ref{eqn:OD_PSF_fit_func}.}
 	\label{fig:fano_fit}
 \end{figure}
+
+The result of fitting equations \ref{eqn:OD_PSF_fit_func} and \ref{eqn:sigma_NR_fit} to the experimental data is shown as the red line in figure \ref{fig:fano_fit}, and the inset in figure \ref{fig:fano_fit} shows the resonance energy positions of the $4p$ to $8p$ resonances. As can be seen, the $4p$ and $5p$ resonances show reasonably good agreement between the measured OD and the fit, however above the $5p$ resonance it is not possible to clearly identify any resonances. This is likely due to modulations in the measured OD due to either fluctuations in the spectral amplitude of the harmonics or non-zero background counts, as described previously.  That being said, the reasonable agreement between measurement and theory demonstrates the ability to resolve the $np$ resonances, and by applying an appropriate dressing field, the dynamics described previously should be observed.
+
 
 
 \begin{table}[]
