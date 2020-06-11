@@ -604,7 +604,7 @@ and the time-dependent dipole is
 \label{eqn:Floquet_dipole}
 %\begin{aligned}
 %	&=\braket{\Psi(t,\tau)|\hat{\mu}_X|\Psi(t,\tau)}\\
-	d(t,\tau) =\sum_{\alpha,m,n}e^{-i(\epsilon_\alpha+m\omega)t}e^{i(n-m)\omega\tau} \braket{\phi_{\alpha,n}|\hat{\mu}_X|g} \braket{g|\hat{\mu}_X|\phi_\alpha,m} + c.c.
+	d(t,\tau) =\sum_{\alpha,m,n}e^{-i(\epsilon_\alpha+m\omega)t}e^{i(n-m)\omega\tau} \braket{\phi_{\alpha,n}|\hat{\mu}_X|g} \braket{g|\hat{\mu}_X|\phi_{\alpha,m}} + c.c.
 %\end{aligned}
 \end{equation}
 From this dipole moment many features that are seen in common ATS spectrograms can be easily understood.  First of all, the exponential term $e^{i(\epsilon_\alpha+n\omega)t}$ means that the dipole will oscillate at frequencies that corresponds to the dressed states of the atom, and therefore, absorption will be observed at photon energies that correspond to the dressed states which are dipole allowed from the ground state. Thus, the LISs that are seen in ATS experiments can be naturally interpreted as probing of the dressed atom.   A second common feature which can be understood from the dipole in equation \ref{eqn:Floquet_dipole} are delay dependent oscillations which arise from the exponential term $e^{i(n-m)\omega\tau}$.  Since only dipole allowed dressed states are probed, this means that only every other state in each  Floquet ladder will contribute to the dipole.  Thus, $n-m$ is even, and the delay-dependent oscillations will be at frequencies of $2\omega$, $4\omega$, etc.  The $2\omega$ oscillations can be interpreted as quantum path interferences between coherently excited dressed states that are separated by $2\omega$ and end up in the same final state \cite{chenQuantumInterferenceAttosecond2013}.  A schematic of the apperance of LIS in the spectrogram is shown in figure \ref{fig:floquet_energies_time_dep} where the Floquet matrix for the two-level system considered previously is diagonalized at each time point and the dressed states are shown.
@@ -710,13 +710,32 @@ where $a_i$, $E_i$, and $w_2$ are fit parameters and erfc is the complimentary e
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/ATS/fano_fit.pdf}
-	\caption{Measured ground state photoabsorption of $3s3p^6np$ Fano resonances.  Blue curve is experimentally measured OD.  Red curve is a fit to the experimental data using equation \ref{eqn:OD_PSF_fit_func}.}
+	\caption{Measured ground state photoabsorption of $3s3p^6np$ Fano resonances.  Blue curve is experimentally measured OD.  Red curve is a fit to the experimental data using equation \ref{eqn:OD_PSF_fit_func}. Inset shows the resonance positions of the $np$ resonances used in the calculation.}
 	\label{fig:fano_fit}
 \end{figure}
 
 The result of fitting equations \ref{eqn:OD_PSF_fit_func} and \ref{eqn:sigma_NR_fit} to the experimental data is shown as the red line in figure \ref{fig:fano_fit}, and the inset in figure \ref{fig:fano_fit} shows the resonance energy positions of the $4p$ to $8p$ resonances. As can be seen, the $4p$ and $5p$ resonances show reasonably good agreement between the measured OD and the fit, however above the $5p$ resonance it is not possible to clearly identify any resonances. This is likely due to modulations in the measured OD due to either fluctuations in the spectral amplitude of the harmonics or non-zero background counts, as described previously.  That being said, the reasonable agreement between measurement and theory demonstrates the ability to resolve the $np$ resonances, and by applying an appropriate dressing field, the dynamics described previously should be observed.
 
+To that end, the dressing field parameters using the setup detailed in figure \ref{fig:generation_setup} were selected to enable a high dressing intensity given the available laser systems.  This is achieved through the use of a telescope to expand the beam profile to minimize losses on the hole mirror that is used to recombine the XUV and the dressing field. For the experiments described below, the wavelength used is 1430 nm, and the pulse duration is nominally 60 fs.  The range of peak intensities available for this experiment is 0.33 - 42 TW/cm$^{2}$, and this can be finely controlled through the use of a waveplate and wiregrid polarizer.  Further details of the dressing setup are in section \ref{sec:dressing_intensity}.
 
+
+\subsection{Light-Induced States: Intensity Dependence}
+\label{sec:ATS_ar_LIS}
+
+Now that the theoretical background and experimental setup has been thoroughly established, attention can now be turned to the experimental results.  To begin, it is useful to first establish the intensity dependence of the features which are observed in the ATS spectrogram, and this will be done at a fixed delay which corresponds to temporal overlap between the XUV and dressing pulses.  Doing so will develop insight into the nature of resonant effects that are critical for this wavelength dressing field. Following that, the delay-dependent results will be show in section \ref{sec:ATS_ar_delay}. 
+
+The measured intensity dependence of the dressed autoionizing states is shown in figure \ref{fig:dOD_HWP}.  The change in optical density $\Delta\mathrm{OD}$ that is shown in this figure is given by
+\begin{equation}
+\label{eqn:OD_def}
+	\Delta\mathrm{OD} = -\log\bigg(\frac{I_{\mathrm{on}}}{I_{\mathrm{off}}}\bigg) \propto \sigma_{\mathrm{on}} - \sigma_{\mathrm{off}}
+\end{equation}
+where $I_{\mathrm{on} (\mathrm{off})}$ is the harmonic spectrum with (without) the presence of the dressing field, and it is related to the difference in photoabsorption cross section that the dressing field induces.
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/dOD_HWP.pdf}
+	\caption[Typical harmonic spectrum used in ATS experiments]{dod HWP}
+	\label{fig:dOD_HWP}
+\end{figure}
 
 \begin{table}[]
 	\centering
@@ -727,7 +746,7 @@ The result of fitting equations \ref{eqn:OD_PSF_fit_func} and \ref{eqn:sigma_NR_
 		&                &              &                & $3d({}^1\mathrm{D})$ & 27.48          \\
 		$4s( {}^1\mathrm{S})$ & 25.2           & $4p({}^1\mathrm{P})$ & 26.605         & $4d({}^1\mathrm{D})$   & 28.24          \\
 		$5s( {}^1\mathrm{S})$ & 27.58          & $5p({}^1\mathrm{P})$ & 27.994         & $5d({}^1\mathrm{D})$ & 28.59          \\
-		$6s( {}^1\mathrm{S})$ & 28.35          & $6p({}^1\mathrm{P})$ & 28.509         & $6d{}^1\mathrm{D})$ & 28.80          \\
+		$6s( {}^1\mathrm{S})$ & 28.35          & $6p({}^1\mathrm{P})$ & 28.509         & $6d( {}^1\mathrm{D})$ & 28.80          \\
 		$7s( {}^1\mathrm{S})$ & 28.64          & $7p({}^1\mathrm{P})$ & 28.757         & $7d({}^1\mathrm{D})$   & 28.91          \\
 		&                & $8p({}^1\mathrm{P})$ & 28.898         & $8d({}^1\mathrm{D})$ & 28.98          \\ \hline \hline
 	\end{tabular}
@@ -755,8 +774,8 @@ The result of fitting equations \ref{eqn:OD_PSF_fit_func} and \ref{eqn:sigma_NR_
 \end{table}
 
 
-\subsection{Results}
-\label{sec:ATS_ar_results}
+\subsection{Delay Dependence}
+\label{sec:ATS_ar_delay}
 
 \section{Conclusion}
 \label{sec:ATS_conclusion}
