@@ -722,18 +722,18 @@ To that end, the dressing field parameters using the setup detailed in figure \r
 \subsection{Light-Induced States: Intensity Dependence}
 \label{sec:ATS_ar_LIS}
 
-Now that the theoretical background and experimental setup has been thoroughly established, attention can now be turned to the experimental results.  To begin, it is useful to first establish the intensity dependence of the features which are observed in the ATS spectrogram, and this will be done at a fixed delay which corresponds to temporal overlap between the XUV and dressing pulses.  Doing so will develop insight into the nature of resonant effects that are critical for this wavelength dressing field. Following that, the delay-dependent results will be show in section \ref{sec:ATS_ar_delay}. 
+Now that the theoretical background and experimental setup has been thoroughly established, attention can be turned to the experimental results.  To begin, it is useful to first establish the intensity dependence of the features which are observed in the ATS spectrogram, and this will be measured at a fixed delay which corresponds to temporal overlap between the XUV and dressing pulses.  Doing so will develop insight into the nature of resonant effects that are critical for this wavelength dressing field. Following that, the delay-dependent results will be show in section \ref{sec:ATS_ar_delay}. 
 
 The measured intensity dependence of the dressed autoionizing states is shown in figure \ref{fig:dOD_HWP}.  The change in optical density $\Delta\mathrm{OD}$ that is shown in this figure is given by
 \begin{equation}
 \label{eqn:OD_def}
 	\Delta\mathrm{OD} = -\log\bigg(\frac{I_{\mathrm{on}}}{I_{\mathrm{off}}}\bigg) \propto \sigma_{\mathrm{on}} - \sigma_{\mathrm{off}}
 \end{equation}
-where $I_{\mathrm{on} (\mathrm{off})}$ is the harmonic spectrum with (without) the presence of the dressing field, and it is related to the difference in photoabsorption cross section that the dressing field induces.
+where $I_{\mathrm{on} (\mathrm{off})}$ is the harmonic spectrum with (without) the presence of the dressing field, and it is related to the difference in photoabsorption cross section that the dressing field induces.  As can be seen in figure \ref{fig:dOD_HWP}, there are several distinct features that exhibit strong intensity dependence.  It is expected to observe a change in the photoabsorption in the vicinity of the $np$ resonances, however there are additional features that are observed between $np$ states that are dipole allowed from the ground state.  To elucidate this point, a level diagram consisting of both the bright $np$ states and the dark $3s3p^6ns$ and $3s3p^3nd$ states is shown next to the measured $\Delta\mathrm{OD}$ in figure \ref{fig:dOD_HWP}, and the energies of these states are given in table \ref{tab:all_states} \cite{caretteMulticonfigurationalHartreeFockClosecoupling2013, brionThresholdElectronImpact1970, fryarAnalysisEjectedelectronSpectra1976, juretaEnergyAngularAnalysis2016, ogurtsovAutoIonizationStatesArgon1970, sorensenArgon3sAutoionization1994}. Comparing the level diagram to the measured \dod, at the photon energy corresponding to the $4p$, $5p$, and $6p$ resonances there is a similar feature that can be observed.  There is an increase in absorption (red on the color map of figure \ref{fig:dOD_HWP}) that exhibits little shift in photon energy and an amplitude that quickly saturates with increasing peak intensity.  These features will be attributed to suppression of the dipole amplitude from direct ionization of the $np$ states.  The other set of features that can be seen in figure \ref{fig:dOD_HWP} occur at an energies that do not correspond to any of the $np$ bright states, and they generally consist of an increase in absorption (blue on the color map used).  These will be shown to be light-induced states that naturally arise from the dressed atom picture using Floquet theory.  The structure of these light-induced states are critically dependent upon the wavelength of the dressing field, and the wavelength in this case is near-resonant to transitions between bright and dark states.  
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/ATS/dOD_HWP.pdf}
-	\caption[Typical harmonic spectrum used in ATS experiments]{dod HWP}
+	\caption[Intensity dependence of dressed autoionizing states in Ar]{Intensity dependence of measured $\dod$ near $3s3p^nl$ resonances.  Left portion of shows level diagram with bright (dark) states given by solid (dashed) lines. Red arrows show dressing photon energy, and blue arrows show XUV transitions from ground state.  Right portion of figure shows the measured \dod.}
 	\label{fig:dOD_HWP}
 \end{figure}
 
@@ -750,9 +750,21 @@ where $I_{\mathrm{on} (\mathrm{off})}$ is the harmonic spectrum with (without) t
 		$7s( {}^1\mathrm{S})$ & 28.64          & $7p({}^1\mathrm{P})$ & 28.757         & $7d({}^1\mathrm{D})$   & 28.91          \\
 		&                & $8p({}^1\mathrm{P})$ & 28.898         & $8d({}^1\mathrm{D})$ & 28.98          \\ \hline \hline
 	\end{tabular}
-	\caption{Excited states near $3s3p^6nl$ resonances}
+	\caption[Energy of $3s3p^6nl$ states in Ar]{Energy of $3s3p^6nl$ states in Ar \cite{caretteMulticonfigurationalHartreeFockClosecoupling2013, brionThresholdElectronImpact1970, fryarAnalysisEjectedelectronSpectra1976, juretaEnergyAngularAnalysis2016, ogurtsovAutoIonizationStatesArgon1970, sorensenArgon3sAutoionization1994}.}
 	\label{tab:all_states}
 \end{table}
+
+To further expound upon this, we will first consider the features that arise at the photon energies corresponding to the $np$ resonances.  These increases in absorption can best be understood by utilizing the DCM and LIA theory that was established in sections \ref{sec:DCM} and \ref{sec:LIA}.  Generally speaking, the LIA model describes the suppression of the dipole induced by the XUV pulse through direct ionization of the excited state by the dressing pulse.  
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/ATS/np_intensity_dep.pdf}
+	\caption[Typical harmonic spectrum used in ATS experiments]{dod HWP}
+	\label{fig:np_intensity_dep}
+\end{figure}
+
+
 
 \begin{table}[]
 	\centering
