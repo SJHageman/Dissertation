@@ -28,7 +28,7 @@ is the classical electron radius. By introducing the parameters $\beta$ and $\de
 \begin{equation}
 \label{eqn:delta_beta_def}
 	\begin{aligned}
-	\delta &= \frac{n_a r_e \lambda^2}{2\pi}f_1(\omega)
+	\delta &= \frac{n_a r_e \lambda^2}{2\pi}f_1(\omega)\\
 	\beta & = \frac{n_a r_e \lambda^2}{2\pi}f_2(\omega),
 	\end{aligned}
 \end{equation}
@@ -37,15 +37,15 @@ then the refractive index $n$ can be written as
 \label{eqn:refractive_index_db}
 	n(\omega)=1-\delta+i\beta.
 \end{equation}
-The values of both $\delta$ and $\beta$ have been tabulated for elements from hydrogen up to uranium in the range of 10 eV to 30 keV\cite{henkeLowenergyXrayInteraction1982}, and their values are generally smaller than unity when far from resonance.
+The values of both $\delta$ and $\beta$ have been tabulated for elements up to uranium in the range of 10 eV to 30 keV\cite{henkeLowenergyXrayInteraction1982}, and their values are generally smaller than unity when far from resonance.
 
-Now that we've established the form of the refractive index, we will consider the case of propagation through a dispersive medium \cite{attwoodSoftXraysExtreme2000}. The idea is to consider a plane wave of the form
+Now that we've established the form of the refractive index, we will consider the case of propagation through a dispersive medium and its effect on amplitude and phase of a wave \cite{attwoodSoftXraysExtreme2000}. The idea is to consider a plane wave of the form
 \begin{equation}
 	\mathbf{E}(\mathbf{r},t)=\mathbf{E}_0e^{-i(\omega t - \mathbf{k}\cdot\mathbf{r})},
 \end{equation}
 and assume that the dispersion of the medium takes the form
 \begin{equation}
-	\frac{\omega}{k}=\frac{c}{n}=\frac{c}{1-\delta+i\beta}.
+	\frac{\omega}{k}=\frac{c}{1-\delta+i\beta}.
 \end{equation}
 With these relationships, one can write the field in the propagation direction defined by $\mathbf{k}\cdot\mathbf{r}=kr$ as
 \begin{equation}
@@ -59,7 +59,7 @@ The first term in parentheses is the wave propagation, the second term is a phas
 \end{equation}
 where $I_0$ is the initial intensity and $\sigma_a=2r_\lambda f_2(\omega)$ is the photoabsorption cross section.  This relationship shows that by measuring the absorption of a material (a thin, free-standing film for these photon energies), one can easily extract the imaginary part of the refractive index.
 
-The effect of the real part of the refractive index is to induce a phase shift in propagating field, as can be seen from equation \ref{eqn:wave_prop}.  After propagating through a material of thickness $L$, the induced phase shift is given by
+The effect of the real part of the refractive index is to induce a phase shift in the propagating field, as can be seen from equation \ref{eqn:wave_prop}.  After propagating through a material of thickness $L$, the induced phase shift is given by
 \begin{equation}
 \label{eqn:phase_shift}
 	\Delta\phi=\frac{2\pi\delta L}{\lambda}.
@@ -132,6 +132,14 @@ where $V_0$ is the contrast with the sample and $V$ is the contrast with the sam
 	\label{fig:measured_delta_beta}
 \end{figure}
 By combining both the fringe shift and the change in fringe contrast, we can now calculate both the real and imaginary part of the refractive index of Si over the range 25 - 60 eV.  The results are shown in figure \ref{fig:measured_delta_beta}.  As can be seen in the figure, there is excellent agreement between the measured real and imaginary part when compared to the values that can be obtained from CXRO \cite{henkeXRayInteractionsPhotoabsorption1993}.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/refractive_index/ge_refractive.pdf}
+	\caption[Measured real and imaginary part of the refractive index of Ge]{(a) Real part of the refractive index measured using a SWPG.  Shows excellent agreement with the values published by Kaplan et al.\cite{kaplanRetrievalComplexvaluedRefractive2019} (b) Imaginary part of the refractive index measured using a SWPG. Shows disagreement in amplitude with both CXRO and published results by Kaplan et al, however the overall shape generally agrees.}
+	\label{fig:measured_delta_beta_ge}
+\end{figure}
 
 \section{Conclusion}
 In this chapter, the complex refractive index was introduced and a method to measure both the real and imaginary parts was proposed. The method relies on the use of a $0-\pi$ SWPG to generate two relative phase locked XUV sources whose interference acts as an inline Mach-Zehnder interferometer.  By introducing a sample into one of the sources, the corresponding fringe shift and change in fringe contrast gives access to the real and imaginary parts of the refractive index.  A sample of Si was fabricated to test this method, and measuring it's refractive index shows excellent agreement between our measured results and the literature. By demonstrating that it is possible to accurately extract both the real and imaginary parts, we have accurately characterized the ground state of a condensed matter system.  The next step is to extract the dynamic real and imaginary parts that are induced by dressing the sample with another IR field.  This will be discussed in a later chapter.

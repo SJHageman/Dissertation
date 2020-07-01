@@ -508,9 +508,30 @@ and examples of the ionization probability integrated over an entire pulse is sh
 Returning to the DCM parameter $a_1$, it is related to the ionization probability $P(t)$ because the strong field is assumed to deplete the population of the excited discrete state.  The choice of model is dependent upon the dressing laser parameters and the states being considered, but for either model, $a_1$ is given by 
 \begin{equation}
 \label{eqn:a1_ion_prob}
-	a_1(t,\tau) = 1 - \exp\bigg(-\int_{0}^{t}w(t' - \tau)\diff t'\bigg).
+	a_1(t,\tau) = \exp\bigg(-\int_{0}^{t}w(t' - \tau)\diff t'\bigg).
 \end{equation}
 This is assuming that the XUV pulse is a $\delta$-function centered at $t=0$.  Effectively, this amplitude attenuates the dipole as a function of time based upon the ionization probability by the dressing pulse, hence this effect is referred to as light-induced attenuation (LIA) of the dipole \cite{chiniSubcycleAcStark2012,chiniCharacterizationApplicationIsolated2012,liaoProbingAutoionizingStates2017}.
+
+Since the dressing pulse is no longer treated as a $\delta$-function, the DCM must be modified to include the form of $a_1$ given in equation \ref{eqn:a1_ion_prob}.  To do this, the initial assumption for the dipole in equation \ref{eqn:piecewise_dipole_t} is extended to include the decrease in amplitude throughout the duration of the dressing pulse, and this is given by
+\begin{equation}
+\label{eqn:piecewise_dipole_finite_tp}
+	d(t, \tau)\propto
+	\begin{cases}
+		0 & t<0\\
+		a_1(t,\tau)i\bigg[\delta(t) + \frac{\Gamma}{2}(q-i)^2 e^{-i\Omega_r t}e^{-\frac{\Gamma}{2}t} \bigg] & t>0.
+	\end{cases}
+\end{equation}
+The cross section can then be calculated by Fourier transforming the dipole and taking the imaginary part.  The dipole in the frequency domain is given by
+\begin{equation}
+\label{eqn:sigma_a1_finite}
+	\tilde{d}(\omega,\tau) = \int_{-\infty}^{\infty}d(t,\tau)e^{i\omega t}\diff t \propto i a_1(0,\tau) + \frac{\Gamma}{2}(q-i)^2 \int_{0}^{\infty}a_1(t,\tau)e^{-i(\omega - \Omega_r) t}e^{-\frac{\Gamma}{2}t}\diff t,
+\end{equation}
+and the cross section is then
+\begin{equation}
+\label{eqn:cross_section_a1_finite}
+	\sigma(\omega,\tau) \propto \mathrm{Im}[\tilde{d}(\omega,\tau)] \propto a_1(0,\tau)+\mathrm{Im}\bigg[\frac{\Gamma}{2}(q-i)^2 \int_{0}^{\infty}a_1(t,\tau)e^{-i(\omega - \Omega_r) t}e^{-\frac{\Gamma}{2}t}\diff t\bigg].
+\end{equation}
+The LIA cross section derived here will be used to explain several features in the ATS spectrogram in section \ref{sec:ATS_ar_LIS}. 
 
 \section{Floquet Theory: Light-Induced States}
 \label{sec:LIS_Floquet}
@@ -729,7 +750,7 @@ The measured intensity dependence of the dressed autoionizing states is shown in
 \label{eqn:OD_def}
 	\Delta\mathrm{OD} = -\log\bigg(\frac{I_{\mathrm{on}}}{I_{\mathrm{off}}}\bigg) \propto \sigma_{\mathrm{on}} - \sigma_{\mathrm{off}}
 \end{equation}
-where $I_{\mathrm{on} (\mathrm{off})}$ is the harmonic spectrum with (without) the presence of the dressing field, and it is related to the difference in photoabsorption cross section that the dressing field induces.  As can be seen in figure \ref{fig:dOD_HWP}, there are several distinct features that exhibit strong intensity dependence.  It is expected to observe a change in the photoabsorption in the vicinity of the bright $np$ resonances, however there are additional features that are observed between $np$ states that are dipole allowed from the ground state.  To elucidate this point, a level diagram consisting of both the bright $np$ states and the dark $3s3p^6ns$ and $3s3p^3nd$ states is shown next to the measured $\Delta\mathrm{OD}$ in figure \ref{fig:dOD_HWP}, and the energies of these states are given in table \ref{tab:all_states} \cite{caretteMulticonfigurationalHartreeFockClosecoupling2013, brionThresholdElectronImpact1970, fryarAnalysisEjectedelectronSpectra1976, juretaEnergyAngularAnalysis2016, ogurtsovAutoIonizationStatesArgon1970, sorensenArgon3sAutoionization1994}. Comparing the level diagram to the measured \dod, at the photon energy corresponding to the $4p$, $5p$, and $6p$ resonances there is a similar feature that can be observed.  There is an increase in absorption (red on the color map of figure \ref{fig:dOD_HWP}) that exhibits little shift in photon energy and an amplitude that quickly saturates with increasing peak intensity.  These features will be attributed to suppression of the dipole amplitude from direct ionization of the $np$ states.  The other set of features that can be seen in figure \ref{fig:dOD_HWP} occur at an energies that do not correspond to any of the $np$ bright states, and they generally consist of an increase in absorption (blue on the color map used).  These will be shown to be light-induced states that naturally arise from the dressed atom picture using Floquet theory.  The structure of these light-induced states are critically dependent upon the wavelength of the dressing field, and the wavelength in this case is near-resonant to transitions between bright and dark states.  
+where $I_{\mathrm{on} (\mathrm{off})}$ is the harmonic spectrum with (without) the presence of the dressing field, and it is related to the difference in photoabsorption cross section that the dressing field induces.  As can be seen in figure \ref{fig:dOD_HWP}, there are several distinct features that exhibit strong intensity dependence.  It is expected to observe a change in the photoabsorption in the vicinity of the bright $np$ resonances, however there are additional features that are observed between $np$ states that are dipole allowed from the ground state.  To elucidate this point, a level diagram consisting of both the bright $np$ states and the dark $3s3p^6ns$ and $3s3p^3nd$ states is shown next to the measured $\Delta\mathrm{OD}$ in figure \ref{fig:dOD_HWP}, and the energies of these states are given in table \ref{tab:all_states} \cite{caretteMulticonfigurationalHartreeFockClosecoupling2013, brionThresholdElectronImpact1970, fryarAnalysisEjectedelectronSpectra1976, juretaEnergyAngularAnalysis2016, ogurtsovAutoIonizationStatesArgon1970, sorensenArgon3sAutoionization1994}. Comparing the level diagram to the measured \dod, at the photon energy corresponding to the $4p$, $5p$, and $6p$ resonances there is a similar feature that can be observed.  There is an increase in absorption (red on the color map of figure \ref{fig:dOD_HWP}) that exhibits little shift in photon energy and an amplitude that quickly saturates with increasing peak intensity.  These features will be attributed to suppression of the dipole amplitude from direct ionization of the $np$ states.  The other set of features that can be seen in figure \ref{fig:dOD_HWP} occur at an energies that do not correspond to any of the bright $np$ states, and they generally consist of an increase in absorption (blue on the color map used).  These will be shown to be light-induced states that naturally arise from the dressed atom picture using Floquet theory.  The structure of these light-induced states are critically dependent upon the wavelength of the dressing field, and the wavelength in this case is near-resonant to transitions between bright and dark states.  
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/ATS/dOD_HWP.pdf}
@@ -754,8 +775,38 @@ where $I_{\mathrm{on} (\mathrm{off})}$ is the harmonic spectrum with (without) t
 	\label{tab:all_states}
 \end{table}
 
-To further expound upon this, we will first consider the features that arise at the photon energies corresponding to the $np$ resonances.  These increases in absorption can best be understood by utilizing the DCM and LIA theory that was established in sections \ref{sec:DCM} and \ref{sec:LIA}.  Generally speaking, the LIA model describes the suppression of the dipole induced by the XUV pulse through direct ionization of the excited state by the dressing pulse, and the DCM allows for this effect to be analytically calculated for a finite dressing pulse while assuming the XUV pulse is a $\delta$-function in time.  In section \ref{sec:LIA}, it was established that the amplitude $a_1$ is related to the population of the excited state which can be directly ionized by the dressing field, and its relationship to the ionization probability and rate is given be equation \ref{eqn:a1_ion_prob}.
+To further expound upon this, we will first consider the features that arise at the photon energies corresponding to the $np$ resonances.  These increases in absorption can best be understood by utilizing the DCM and LIA theory that was established in sections \ref{sec:DCM} and \ref{sec:LIA}.  Generally speaking, the LIA model describes the suppression of the dipole induced by the XUV pulse through direct ionization of the excited state by the dressing pulse, and the DCM allows for this effect to be analytically calculated for a finite dressing pulse while assuming the XUV pulse is a $\delta$-function in time.  In section \ref{sec:LIA}, it was established that the amplitude $a_1$ is related to the population of the excited state which can be directly ionized by the dressing field, and its relationship to the ionization probability and rate is given be equation \ref{eqn:a1_ion_prob}.  Using equation \ref{eqn:cross_section_a1_finite}, the $\dod$ will be related to the amplitude $a_1$ by
+\begin{equation}
+\label{eqn:dod_a1}
+	\begin{aligned}
+		\dod(\omega,\tau) & \propto \sigma_{\mathrm{on}}(\omega,\tau) - \sigma_{\mathrm{off}}(\omega,\tau)\\
+		& \propto i\big(a_1(0,\tau)-1\big) + \mathrm{Im}\bigg[\gamma(q-i)^2 \int_{0}^{\infty}\big(a_1(t,\tau) - 1\big)e^{-i\delta t}e^{-\gamma t}\diff t\bigg].
+	\end{aligned}
+\end{equation}
+The effect of $a_1$ on the absorption spectrum can be intuitively understood by looking at limiting cases of this equation.  For the case of $a_1\approx1$ when the field is not intense enough to significantly ionize, $\dod\approx0$ and there is no change in the absorption spectrum as expected.  For the other limiting case of $a_1\approx0$, then $\sigma_{\mathrm{on}}\approx0$ and $\dod\propto - \sigma_{\mathrm{off}}$.  This implies that the effect of $a_1$ is to reduce the contribution that a particular resonance makes to the total cross section, and this provides an intuitive explanation for the features that arise in the at photon energies corresponding to the $np$ resonances in the intensity spectrogram in figure \ref{fig:dOD_HWP}. Specifically, they represent depletion of the $np$ resonances by the dressing pulse until a saturation intensity is reached.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/ATS/fields.pdf}
+	\caption[XUV and IR fields used in calculations]{(a) APT used for calculations. Each attosecond burst in the train has a duration 150 as, and the enveloped is Gaussian with a FWHM width of 60 fs.  Since the harmonics consist of both even and odd harmonics, there is a burst only once per cycle.  (b) IR dressing pulse used for calculations, and is the result of a FROG measurement of the output of the TOPAS at the wavelength used for these experiments (1430 nm).}
+	\label{fig:fields}
+\end{figure}
+
+This qualitative understanding can be made more quantitative by calculating \ref{eqn:dod_a1} for representative XUV and IR dressing pulses.  The pulses that will be used in this calculation are shown in figure \ref{fig:fields}.  Strictly speaking, equation \ref{eqn:dod_a1} only applies for a $\delta$-function XUV pulse, however this restriction can be approximately lifted by averaging the dipole in the time domain with a weighting proportional to the amplitude of the XUV APT $A(t)$,
+\begin{equation}
+	\label{eqn:dipole_average}
+		d_{\mathrm{avg}}(t,\tau)\propto\int_{-\infty}^{\infty}\diff t' A(t')a_1(t-t', \tau)\big[i\delta(t-t') 
+		 + i\gamma(q-i)^2 e^{-i\Omega_r (t-t')} e^{-\gamma(t-t')}\Theta(t-t')\big].
+\end{equation}
+where $\Theta(t)$ is the Heaviside function.  This approximation applies only when each attosecond pulse in the APT can be treated as a $\delta$-function and the dressing pulse has enough intensity to sufficiently reduce the dipole amplitude between each pulse in the APT. The first condition is met because the pulse duration of each pulse in the APT is typically a few hundred as for the laser used to generate the harmonics used in this experiment \cite{orfanosAttosecondPulseMetrology2019, chirlaAttosecondPulseGeneration2011}.  To see that the second condition is met, consider the ionization potential of each of the $np$ states.  For these states, they sit below the $3s3p^6$ threshold by 2.7 eV, 1.31 eV, and 0.8 eV for the $4p$, $5p$, and $6p$ states.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/ATS/a1_t.pdf}
+	\caption[Typical harmonic spectrum used in ATS experiments]{dod HWP}
+	\label{fig:a1_t_intensity}
+\end{figure}
 
 \begin{figure}
 	\centering
