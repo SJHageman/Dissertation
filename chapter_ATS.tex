@@ -797,25 +797,25 @@ This qualitative understanding can be made more quantitative by calculating \ref
 This calculation can be extended to the $5p$ and $6p$ resonances to calculate the total $\dod$.  This is done by treating each state independently and assuming that the total $\dod$ is a sum of the individual contributions from each resonance,
 \begin{equation}
 	\label{eqn:dod_sum}
-	\dod_{tot}(\omega) = \sum_{n} A_n W_n(\omega)\big(\sigma_{\mathrm{on},n}(\omega) -\sigma_{\mathrm{off},n}(\omega)\big)
+	\dod_{tot}(\omega) = \bigg[\sum_{n} A_n W_n(\omega)\big(\sigma_{\mathrm{on},n}(\omega) -\sigma_{\mathrm{off},n}(\omega)\big)\bigg] \circledast \bigg[\frac{1}{\nu \sqrt{2\pi}}e^{-\frac{(\hbar\omega)^2}{2\nu^2}}\bigg]
 \end{equation} 
-where $A_n$ is an amplitude that is used to fit to the measured $\dod$ and $W_n(\omega)$ is a window function that limits the range of the calculated $\sigma_n$ to $\pm3\Gamma_n$.  The window function is applied because the form of the dipole used in the DCM inherently assumes a flat continuum, and this approximation is only valid near the resonance \cite{chuTheoryUltrafastAutoionization2010}.  The resulting calculation is shown in figure \ref{fig:a1_t_intensity} (b).
+where $A_n$ is an amplitude that is used to fit to the measured $\dod$, $W_n(\omega)$ is a window function that limits the range of the calculated $\sigma_n$ to $\pm3\Gamma_n$, and $\circledast$ represents convolution with the Gaussian of standard deviation $\nu=0.08$ eV that is chosen to represent the PSF of the spectrometer.  The window function is applied because the form of the dipole used in the DCM inherently assumes a flat continuum, and this approximation is only valid near the resonance energy \cite{chuTheoryUltrafastAutoionization2010}.  The resulting calculation is shown in figure \ref{fig:a1_t_intensity} (b), and this includes averaging over the range of IR intensities within the interaction focal volume for a given peak intensity of the dressing field.  Generally speaking, the agreement with the measured $\dod$ is quite good near the energies corresponding to the $np$ resonances, however the features between each $np$ resonance are not reproduced, as is expected.  To examine the agreement further, the maximum $\dod$ near each resonances is shown as function of peak intensity in figures \ref{fig:np_intensity_dep} (c) - (e) for both the measured and calculated $\dod$.  The amplitude $A_n$ in equation \ref{eqn:dod_sum} is a fit parameter that is used to scale the calculated $\dod$ by a constant for each resonance, and after fitting for these parameters, we can see that the intensity scaling of the maximum $\dod$ is well reproduced by the DCM/LIA calculation using the PPT ($4p$) and ADK ($5p$ and $6p$) models.  Essentially, this suggests that the features in the intensity spectrogram that are at each resonance energy position correspond to ionization of the discrete state.  Further improvements can be made to the agreement between the calculation and the measured $\dod$ by more accurately calculating the ionization of these weakly bound excited states and by including the full APT in the calculation.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{figures/ATS/a1_t.pdf}
+	\includegraphics[width=1.0\textwidth]{figures/ATS/a1_t.pdf}
 	\caption[Dipole amplitude in time domain and absorption cross section calculated using DCM using LIA.]{(a) Dipole amplitude $a_1$ in the time domain as a fucntion of the peak intensity of the IR dressing pulse (intensities given by color bar and dressing pulse shown in red). (b) Corresponding cross section in the presence of the dressing pulse, and colors correspond to the same dressing peak intensity in (a).}
 	\label{fig:a1_t_intensity}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{figures/ATS/np_intensity_dep.pdf}
+	\includegraphics[width=1.0\textwidth]{figures/ATS/np_intensity_dep.pdf}
 	\caption[Comparison of measured $\dod$ to calculated $\dod$ using DCM with LIA.]{(a) Measured $\dod$ as function of peak dressing intensity with labels for the $np$ resonances that will be used in the DCM calculation for comparison. (b) Calculated $\dod$ as a function of intensity. (c)-(e) Comparison of maximum $\dod$ at each $np$ resonance position.  Ionization rate is calculated using PPT for the $4p$ state (e) and using ADK for the $5p$ (d) and $6p$ (c) state.}
 	\label{fig:np_intensity_dep}
 \end{figure}
 
-
+Now that the intensity dependence of the 
 
 \begin{table}[]
 	\centering
