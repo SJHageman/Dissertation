@@ -8,6 +8,8 @@
 \section{Beamline}
 \label{sec:full_beamline}
 
+\subsection{XUV Focusing}
+\label{sec:XUV_focusing}
 
 \begin{sidewaysfigure}
 	\centering
@@ -87,6 +89,59 @@ u(x,y,z)=\frac{i k}{2\pi z}e^{i k z}e^{i k (x^2+y^2)/2z}\int_{-\infty}^{\infty}\
 which gives the field $u(x,y,z)$ after propagation of a distance $z$, given an initial field profile of $u(x,y,0)$.  Using this formalism, a thin lens of focal length can be treated as adding a quadratic phase $\phi=-\pi(x^2+y^2)/\lambda f$ to the field, and the effect of apertures can also be included to account for the effect of diffraction on the beam profile and intensity \cite{goodmanIntroductionFourierOptics2005}.
 
 The results of the simulation are shown in figure \ref{fig:dressing_intensity}.  This simulation was performed for an input pulse energy of 1 $\mu$J at a wavelength of 1430 nm. The simulation begins just before L$_1$ in \ref{fig:dressing_arm} and the beam is propagated through to the interaction region GC/SS.  The beam profile at L$_2$ and immediately after the hole mirror is shown in figure \ref{fig:dressing_intensity} (b) and (c), and the intensity profile at the focus is shown in figure \ref{fig:dressing_intensity} (d).  From these simulations, the peak intensity for a pulse energy of 1 $\mu$J is 0.33 TW/cm$^2$. For the range of pulse energies available in the dressing arm, this corresponds to an intensity range of 0.33 - 413 TW/cm$^2$ that is achievable.
+
+\subsection{XUV Beam Size}
+\label{sec:xuv_beam_size_knife_edge}
+
+An important consideration in any pump/probe experiment is the beam size of the probe relative to the pump in the interaction region.  The reason for this is because the probe beam inherently samples the excited state of the system induced by the pump at intensities within the intersection of the pump and probe focal volumes contained within the system being studied.  Thus, a smaller probe waist relative to the pump waist means that a narrower distribution of pump intensities will be sampled by the probe.  The width of this distribution limits the ability to study intensity dependent effects, and it is a critical parameter to control. As stated in section \ref{sec:XUV_focusing}, the demagnification of the XUV spot size provided by the ellipsoidal mirror helps tremendously to achieve as small ratio of probe to pump beam sizes even at small pump beam sizes that are used.
+
+Additionally, it is also of great importance to place the sample at the focus of both the XUV and the IR beams in the target chamber.  This can be done easily with the IR either through direct imaging of the beam or by using an intensity dependent effect (such as second harmonic generation from a BBO) to find the peak intensity along the k-direction of the IR beam.  The focus of the XUV is more difficult to find because it must be found in vacuum.  One method to find the focus is to measure the beam diameter at various points along the k-direction of the XUV to find the minimum beam diameter.  A method to do this is to employ a knife-edge measurement \cite{arnaudTechniqueFastMeasurement1971, skinnerMeasurementRadiusHighpower1972,marshallTwoMethodsMeasuring2010,almeidaHarmonicsBeamsCharacterization2016}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/Beamline/knife_edge_xuv.pdf}
+	\caption[Schematic of knife-edge technique to measure beam size]{Schematic of knife-edge technique to measure beam size. By translating a sharp beam block through the focus and measuring the total transmitted power the beam profile can be reconstructed.}
+	\label{fig:knife_edge_beam_size_measurement}
+\end{figure}
+
+The principle behind the knife-edge measurement is simple, and it is shown schematically in figure \ref{fig:knife_edge_beam_size_measurement}.  In the measurement, a "knife" is translated through the beam to be measured perpendicular to the k-direction of the beam.  The knife is simply an opaque material that has a sharp edge to minimize scattered light.  As this knife is translated through the focus, the total power is measured further downstream as a function of the knife's position within the beam, and this dependence is given by
+\begin{equation}
+	\label{eqn:knife_edge_power}
+	P(x,z) = \int_{-\infty}^{\infty}\int_{-\infty}^{x}I(x', y',z)\diff y\diff x'
+\end{equation} 
+where $I(x,y,z)$ is the intensity of the beam.  For a Gaussian beam, this relationship becomes
+\begin{equation}
+	\label{eqn:knife_edge_power_guassian}
+	P(x,z) = \frac{P_0}{2}\mathrm{erfc}\bigg(\frac{x\sqrt{2}}{w(z)}\bigg)
+\end{equation}
+where $w(z)$ is waist radius as a function of $z$ and is given by
+\begin{equation}
+	\label{eqn:gaussian_waist_radius}
+	w(z)=w_0\sqrt{1+\bigg(\frac{z - z_0}{z_R}\bigg)^2}
+\end{equation}
+where $z_R=\pi w_0^2 n/\lambda$ is the Rayleigh range and $z_0$ is the position of the focus along the k-direction. 
+
+An example of this measurement being used to measure the beam size of the XUV is shown in figure \ref{fig:xuv_beam_size}.  In this case, the knife being used is the beveled edge of a silicon frame that is 300 $\mu$m thick. The thickness of the frame is such that the transmission is negligible through the frame itself.  The integrated harmonic signal is fit to
+\begin{equation}
+	P(x) = \frac{a}{2}\mathrm{erfc}\bigg(\frac{\sqrt{2}(x-x_0)}{w}\bigg) + b,
+\end{equation}
+and the beam size can be extracted from the fit.  In this case the beam size was 9 $\mu$m at this position of the XUV focus.  Comparing this beam size to the predicted beam size of the IR, we can see that the XUV spot size relative to the IR spot size is roughly three times smaller.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Beamline/integrated_knife_edge_xuv.pdf}
+	\caption[Schematic of knife-edge technique to measure beam size]{Schematic of knife-edge technique to measure beam size. By translating a sharp beam block through the focus and measuring the total transmitted power the beam profile can be reconstructed.}
+	\label{fig:xuv_beam_size}
+\end{figure}
+
+
+This measurement can repeated along the k-direction of the XUV beam, and the focus can be mapped out.  An example of this type of measurement is shown in figure \ref{fig:xuv_focus}.  As can be seen, the fit to a Gaussian agrees quite well with the measure dependence of the beam profile.  The extracted Rayleigh range is 1.1 mm with a waist of 6.1 $\mu$m at a motor position of 12.7 mm along the k-direction.  This type of measurement is performed whenever the optical setup is changed in the generation arm of the interferometer, as it insures that the sample is always at the focus of the XUV.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Beamline/xuv_focus.pdf}
+	\caption[Finding focus of XUV using knife-edge measurements]{Focus of the XUV measured using knife-edge method at various points along the k-direction of the XUV beam.}
+	\label{fig:xuv_focus}
+\end{figure}
 
 \subsection{Spatial and Temporal Overlap}
 \label{sec:temporal_overlap}
