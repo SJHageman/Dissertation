@@ -743,7 +743,7 @@ To that end, the dressing field parameters using the setup detailed in figure \r
 \subsection{Light-Induced States: Intensity Dependence}
 \label{sec:ATS_ar_LIS}
 
-Now that the theoretical background and experimental setup has been thoroughly established, attention can be turned to the experimental results.  To begin, it is useful to first establish the intensity dependence of the features which are observed in the ATS spectrogram, and this will be measured at a fixed delay which corresponds to temporal overlap between the XUV and dressing pulses.  Doing so will develop insight into the nature of resonant effects that are critical for this wavelength dressing field. Following that, the delay-dependent results will be show in section \ref{sec:ATS_ar_delay}. 
+Now that the theoretical background and experimental setup has been thoroughly established, attention can be turned to the experimental results.  To begin, it is useful to first establish the intensity dependence of the features which are observed in the ATS spectrogram, and this will be measured at a fixed delay which corresponds to temporal overlap between the XUV and dressing pulses.  Doing so will develop insight into the nature of resonant effects that are critical for this wavelength dressing field.
 
 The measured intensity dependence of the dressed autoionizing states is shown in figure \ref{fig:dOD_HWP}.  The change in optical density $\Delta\mathrm{OD}$ that is shown in this figure is given by
 \begin{equation}
@@ -815,27 +815,81 @@ where $A_n$ is an amplitude that is used to fit to the measured $\dod$, $W_n(\om
 	\label{fig:np_intensity_dep}
 \end{figure}
 
-Now that the intensity dependence of the 
+To explain the light-induced features that occur away from the $np$ resonance positions in the measured intensity spectrogram in figure \ref{fig:dOD_HWP}, we must go beyond the DCM/LIA model and include the presence of nearby states to account for light-induced states (LIS), see section \ref{sec:ATS_ar_LIS} and \ref{sec:LIS_Floquet}.  As can be seen in the level diagram in figure \ref{fig:dOD_HWP}, there are many states within the vicinity of the $np$ resonances that don't appear in the ground state photoabsorption spectrum because they are not dipole allowed from the ground state.  That being said, they play a critical role in the observed features because many of these states are dipole allowed from the $np$ states and some of these transitions are actually near-resonant.  In fact, for the dressing photon energy of 0.867 eV that was used, each $np$ resonance has a nearly resonant transition to one of the dark states. The detunings for three of these transitions are $\Delta_{4p\rightarrow3d}=-0.008$ eV, $\Delta_{5p\rightarrow7d}=-0.049$ eV, and $\Delta_{6p\rightarrow5s}=-0.062$ eV.  The $4p\rightarrow3d$ transition in particular is within the roughly $0.06$ eV bandwidth of the dressing pulse.  This near-resonant condition implies that the Raman-like interpretation of light-induced states as a two-photon process involving  absorption of one XUV photon and the absorption or emission of an IR photon to reach a dark state doe not apply \cite{chenLightinducedStatesAttosecond2012, wuTheoryStrongfieldAttosecond2016}.  In this case, it is most appropriate interpret the light-induced states as arising naturally from dressed states of the atom in a strong dressing field, and this can be understood in terms of Floquet theory that was introduced in section \ref{sec:LIS_Floquet}. 
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/ATS/2_state_LIS.pdf}
+	\caption[Two state Floquet theory compared to measured $\dod$]{(a) Measured $\dod$ as function of peak dressing intensity with labels for the $np$ resonances that will be used in the DCM calculation for comparison. (b) Calculated $\dod$ as a function of intensity. (c)-(e) Comparison of maximum $\dod$ at each $np$ resonance position.  Ionization rate is calculated using PPT for the $4p$ state (e) and using ADK for the $5p$ (d) and $6p$ (c) state.}
+	\label{fig:2_state_floquet}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/LIS_energy.pdf}
+	\caption[Light-induced state energies]{(a) Measured $\dod$ as function of peak dressing intensity with labels for the $np$ resonances that will be used in the DCM calculation for comparison. (b) Calculated $\dod$ as a function of intensity. (c)-(e) Comparison of maximum $\dod$ at each $np$ resonance position.  Ionization rate is calculated using PPT for the $4p$ state (e) and using ADK for the $5p$ (d) and $6p$ (c) state.}
+	\label{fig:LIS_energies}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/full_Floquet.pdf}
+	\caption[Floquet calculation of quasienergies]{(a) Measured $\dod$ as function of peak dressing intensity with labels for the $np$ resonances that will be used in the DCM calculation for comparison. (b) Calculated $\dod$ as a function of intensity. (c)-(e) Comparison of maximum $\dod$ at each $np$ resonance position.  Ionization rate is calculated using PPT for the $4p$ state (e) and using ADK for the $5p$ (d) and $6p$ (c) state.}
+	\label{fig:full_floquet}
+\end{figure}
+
 
 \begin{table}[]
 	\centering
-	\begin{tabular}{cccc}
+	\begin{tabular}{c|ccccccc}
 		\toprule
-		$\braket{nl|z|n\mathrm{p}}$ &     4p &     5p &     6p \\
-		\midrule
-		3d & -1.079 &  1.408 & -0.164 \\
-		4d &  1.540 & -0.102 &  1.158 \\
-		4s &  3.451 &  2.689 &  0.404 \\
-		5s &  2.072 &  1.446 &  2.312 \\
-		5d &  0.004 &  0.014 &  0.033 \\
-		6s &  1.552 &  0.842 &  4.032 \\
-		6d &  1.011 &  0.420 &  2.146 \\
+		$\braket{np|z|nl}$ & 3d     & 4d    & 4s     & 5s    & 5d    & 6s    & 6d    \\ \hline
+		4p                 & 1.505  & 1.54  & 3.276  & 1.62  & 0.112 & 0.592 & 1.148 \\
+		5p                 & 1.579  & 0.474 & -0.113 & 1.366 & 0.057 & 1.006 & 1.039 \\
+		6p                 & -0.961 & 0.105 & -0.676 & 1.713 & 0.04  & 1.119 & 1.097 \\
 		\bottomrule
 	\end{tabular}
-	\caption{table}
+	\caption[Dipole matrix elements used in Floquet calculation]{Dipole matrix elements in atomic units that were the result of a fit between Floquet theory calculation and LIS energies. The matrix element $\braket{4p|z|4d}$=1.54 a.u. is known from literature \cite{wangFewCycleFemtosecondPulse2005}.}
 	\label{tab:matrix_elements}
 \end{table}
 
+\begin{equation}
+\hat{H}_{F}=
+\left[
+\begin{matrix}%{cc|cc|cc|cc|cc}
+\hat{H_0}-2\omega\hat{I} & \hat{H}_1 & \hat{0} & \hat{0} & \hat{0} \\
+\hat{H}_{-1} & \hat{H_0}-\omega\hat{I} & \hat{H}_1 & \hat{0} & \hat{0} \\
+\hat{0} & \hat{H}_{-1} & \hat{H_0} & \hat{H}_1 & \hat{0} \\
+\hat{0} & \hat{0} & \hat{H}_{-1} & \hat{H_0}+\omega\hat{I} & \hat{H}_1 \\
+\hat{0} & \hat{0} & \hat{0} & \hat{H}_{-1} & \hat{H_0}+2\omega\hat{I} 
+\end{matrix}
+\right].
+\end{equation}
+
+
+\begin{equation}
+\hat{H}_{\pm 1} \rightarrow
+\left[
+\begin{matrix}%{cc|cc|cc|cc|cc}
+0 & \Omega_0/2 & \Omega_1/2 & \Omega_2/2 & \Omega_3/2 & \Omega_4/2 & \Omega_5/2 & 0 & 0 & \Omega_{18}/2  \\
+\Omega_0/2 & 0 & 0 & 0 & 0 & 0 & 0 & \Omega_6/2 & \Omega_{12}/2 & 0  \\
+\Omega_1/2 & 0 & 0 & 0 & 0 & 0 & 0 & \Omega_7/2 & \Omega_{13}/2 & 0  \\
+\Omega_2/2 & 0 & 0 & 0 & 0 & 0 & 0 & \Omega_8/2 & \Omega_{14}/2 & 0  \\
+\Omega_3/2 & 0 & 0 & 0 & 0 & 0 & 0 & \Omega_9/2 & \Omega_{15}/2 & 0  \\
+\Omega_4/2 & 0 & 0 & 0 & 0 & 0 & 0 & \Omega_{10}/2 & \Omega_{16}/2 & 0  \\
+\Omega_5/2 & 0 & 0 & 0 & 0 & 0 & 0 & \Omega_{11}/2 & \Omega_{17}/2 & 0  \\
+0 & \Omega_6/2 & \Omega_7/2 & \Omega_8/2 & \Omega_9/2 & \Omega_{10}/2 & \Omega_{11}/2 & 0 & 0 & \Omega_{19}/2  \\
+0 & \Omega_{12}/2 & \Omega_{13}/2 & \Omega_{14}/2 & \Omega_{15}/2 & \Omega_{16}/2 & \Omega_{17}/2 & 0 & 0 & \Omega_{20}/2  \\
+\Omega_{18}/2 & 0 & 0 & 0 & 0 & 0 & 0 & \Omega_{19}/2 & \Omega_{20}/2 & 0
+\end{matrix}
+\right].
+\end{equation}
+
+\begin{equation}
+	\hat{H}_{0} \rightarrow I_{10} [\omega_{4p},\omega_{3d},\omega_{4d},\omega_{4s},\omega_{5s},\omega_{5d},\omega_{6s},\omega_{5p},\omega_{6p},\omega_{6d}]^T
+\end{equation}
 
 \subsection{Delay Dependence}
 \label{sec:ATS_ar_delay}
