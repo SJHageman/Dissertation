@@ -381,7 +381,7 @@ To see this more clearly, the two general cases of resonant and non-resonant int
 	\label{fig:multiple_resonances}
 \end{figure}
 
-The other case to consider is resonant interactions introduced by the dressing field.  This usually comes in the form of coupling bright states populated by the XUV pulse, and, by coupling states within a wave packet in this manner, a fast modulation of the cross section will arise.  Within this model, it can be assumed that the form for this type of interaction is given by $A(\tau)=1+a_2e^{i\Delta\omega\tau+i\phi_2}$ where $\Delta\omega$ is the energy separation of the states being coupled and $\phi_2$ is the phase that is imparted. This is shown in figure \ref{fig:res_high_low} for two different coupling strengths and imparted phase shifts.  From the Fourier transform of the delay dependent dipole in figures \ref{fig:res_high_low} (b) and \ref{fig:res_high_low} (f), it can be seen that these modulations occur at a Fourier frequency corresponding to the energy separation of the states being coupled ($\nu=\Delta\omega$).  Also of note are the diagonal structures whose amplitude is center at $(\delta,\nu)=(0,\Delta\omega)$.  The diagonal line is given by $\delta+\Delta\omega\pm\nu=0$, and it effectively "points" to the resonance that is being coupled.  This can be seen most clearly in figure \ref{fig:multiple_resonances} where the two resonances that are being coupled are shown.  Additionally, by looking at the amplitude of the peak at $(\delta,\nu)=(0,\Delta\omega)$ the amplitude of the coupling strength $a_2$ can be determined because this peak is proportional to $a_2$.  The effect of the imparted phase $\phi_2$ can be seen clearly by looking at the phase of the Fourier transform ($\arg[\tilde{d}_{nu}(\omega)]$) in figures \ref{fig:res_high_low} (c) and \ref{fig:res_high_low} (g).  The overall structure between the two cases is the same, but the actual phase shifts across these structures is modified by the phase that is imparted by the dressing field.  From the amplitude $\rvert\tilde{d}_\nu(\omega)\lvert$ and phase $\mathrm{arg}[\tilde{d}_\nu(\omega)]$ of these features it is possible to extract both $a_2$, $\Delta\omega$, and $\phi_2$ which characterizes the resonant interaction.
+The other case to consider is resonant interactions introduced by the dressing field.  This usually comes in the form of coupling bright states populated by the XUV pulse, and, by coupling states within a wave packet in this manner, a fast modulation of the cross section will arise.  Within this model, it can be assumed that the form for this type of interaction is given by $A(\tau)=1+a_2e^{i\Delta\omega\tau+i\phi_2}$ where $\Delta\omega$ is the energy separation of the states being coupled and $\phi_2$ is the phase that is imparted. This is shown in figure \ref{fig:res_high_low} for two different coupling strengths and imparted phase shifts.  From the Fourier transform of the delay dependent dipole in figures \ref{fig:res_high_low} (b) and \ref{fig:res_high_low} (f), it can be seen that these modulations occur at a Fourier frequency corresponding to the energy separation of the states being coupled ($\nu=\Delta\omega$).  Also of note are the diagonal structures whose amplitude is center at $(\delta,\nu)=(0,\Delta\omega)$.  The diagonal line is given by $\delta+\Delta\omega\pm\nu=0$, and it effectively "points" to the resonance that is being coupled.  This can be seen most clearly in figure \ref{fig:multiple_resonances} where the two resonances that are being coupled are shown.  Additionally, by looking at the amplitude of the peak at $(\delta,\nu)=(0,\Delta\omega)$ the amplitude of the coupling strength $a_2$ can be determined because this peak is proportional to $a_2$.  The effect of the imparted phase $\phi_2$ can be seen clearly by looking at the phase of the Fourier transform ($\arg[\tilde{d}_{\nu}(\omega)]$) in figures \ref{fig:res_high_low} (c) and \ref{fig:res_high_low} (g).  The overall structure between the two cases is the same, but the actual phase shifts across these structures is modified by the phase that is imparted by the dressing field.  From the amplitude $\rvert\tilde{d}_\nu(\omega)\lvert$ and phase $\mathrm{arg}[\tilde{d}_\nu(\omega)]$ of these features it is possible to extract both $a_2$, $\Delta\omega$, and $\phi_2$ which characterizes the resonant interaction.
 
 
 
@@ -572,11 +572,13 @@ and they represent the Fourier transform of a function $f(t)$ over one period $T
 \end{equation}
 The matrix elements $\braket{\alpha,n|\hat{H}_F|\beta,m}$ are related to the Fourier transform of the Hamiltonian, $\hat{H}^{[n]}=\braket{n|\hat{H}(t)}$, and they are given by
 \begin{equation}
+	\label{eqn:Floquet_hamiltonian_matric_elem}
 	\braket{\alpha,n|\hat{H}_F|\beta,m} = \hat{H}_{\alpha,\beta}^{[n-m]} + n\omega\delta_{\alpha,\beta}\delta_{n,m}.
 \end{equation}
 
 For the two-level system under consideration, the matrix representation of the Floquet Hamiltonian $\hat{H}_F$ in this basis is block tri-diagonal, and it is given by
 \begin{equation}
+\label{eqn:Floquet_2_level}
 	\hat{H}_F \rightarrow
 	\left[
 	\begin{smallmatrix}%{cc|cc|cc|cc|cc}
@@ -740,8 +742,8 @@ The result of fitting equations \ref{eqn:OD_PSF_fit_func} and \ref{eqn:sigma_NR_
 To that end, the dressing field parameters using the setup detailed in figure \ref{fig:generation_setup} were selected to enable a high dressing intensity given the available laser systems.  This is achieved through the use of a telescope to expand the beam profile to minimize losses on the hole mirror that is used to recombine the XUV and the dressing field. For the experiments described below, the wavelength used is 1430 nm, and the pulse duration is nominally 60 fs.  The range of peak intensities available for this experiment is 0.33 - 42 TW/cm$^{2}$, and this can be finely controlled through the use of a waveplate and wiregrid polarizer.  Further details of the dressing setup are in section \ref{sec:dressing_intensity}.
 
 
-\subsection{Light-Induced States: Intensity Dependence}
-\label{sec:ATS_ar_LIS}
+\subsection{Intensity Dependence: Light-Induced Attenuation}
+\label{sec:ATS_ar_LIA}
 
 Now that the theoretical background and experimental setup has been thoroughly established, attention can be turned to the experimental results.  To begin, it is useful to first establish the intensity dependence of the features which are observed in the ATS spectrogram, and this will be measured at a fixed delay which corresponds to temporal overlap between the XUV and dressing pulses.  Doing so will develop insight into the nature of resonant effects that are critical for this wavelength dressing field.
 
@@ -794,6 +796,13 @@ The effect of $a_1$ on the absorption spectrum can be intuitively understood by 
 
 This qualitative understanding can be made more quantitative by calculating \ref{eqn:dod_a1} for representative XUV and IR dressing pulses.  The IR dressing pulse that will be used in this calculation is shown in figure \ref{fig:fields}, and the XUV pulse is taken to be a pulse of 150 as in duration.  This pulse duration is much smaller that the expected XUV APT duration of ~60 fs, however, it is a reasonable representation of each pulse in the APT \cite{paulObservationTrainAttosecond2001, agostiniPhysicsAttosecondLight2004, orfanosAttosecondPulseMetrology2019, chirlaAttosecondPulseGeneration2011}.  The result of calculating the amplitude $a_1$ for the $4p$ resonance is shown in figure \ref{fig:a1_t_intensity}. In figure \ref{fig:a1_t_intensity} (a), the dipole in the time domain is calculated on resonance ($\delta=0$) for the range of intensities used in the experiment, and the ionization rate is calculated using the PPT model.  As can be seen, as the intensity increases the duration of dipole decreases precipitously until it is limited by the duration of the XUV pulse. The effect that this has on the cross section in the presence of the dressing field is shown in figure \ref{fig:a1_t_intensity} (b), and it is eminently evident that as the intensity increases the Fano profile of the ground state is suppressed until the cross section is a constant proportional to the background cross section.  This aligns with the intuitive description presented previously.  
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/a1_t.pdf}
+	\caption[Dipole amplitude in time domain and absorption cross section calculated using DCM using LIA.]{(a) Dipole amplitude $a_1$ in the time domain as a fucntion of the peak intensity of the IR dressing pulse (intensities given by color bar and dressing pulse shown in red). (b) Corresponding cross section in the presence of the dressing pulse, and colors correspond to the same dressing peak intensity in (a).}
+	\label{fig:a1_t_intensity}
+\end{figure}
+
 This calculation can be extended to the $5p$ and $6p$ resonances to calculate the total $\dod$.  This is done by treating each state independently and assuming that the total $\dod$ is a sum of the individual contributions from each resonance,
 \begin{equation}
 	\label{eqn:dod_sum}
@@ -803,28 +812,15 @@ where $A_n$ is an amplitude that is used to fit to the measured $\dod$, $W_n(\om
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/ATS/a1_t.pdf}
-	\caption[Dipole amplitude in time domain and absorption cross section calculated using DCM using LIA.]{(a) Dipole amplitude $a_1$ in the time domain as a fucntion of the peak intensity of the IR dressing pulse (intensities given by color bar and dressing pulse shown in red). (b) Corresponding cross section in the presence of the dressing pulse, and colors correspond to the same dressing peak intensity in (a).}
-	\label{fig:a1_t_intensity}
-\end{figure}
-
-\begin{figure}
-	\centering
 	\includegraphics[width=1.0\textwidth]{figures/ATS/np_intensity_dep.pdf}
 	\caption[Comparison of measured $\dod$ to calculated $\dod$ using DCM with LIA.]{(a) Measured $\dod$ as function of peak dressing intensity with labels for the $np$ resonances that will be used in the DCM calculation for comparison. (b) Calculated $\dod$ as a function of intensity. (c)-(e) Comparison of maximum $\dod$ at each $np$ resonance position.  Ionization rate is calculated using PPT for the $4p$ state (e) and using ADK for the $5p$ (d) and $6p$ (c) state.}
 	\label{fig:np_intensity_dep}
 \end{figure}
 
-To explain the light-induced features that occur away from the $np$ resonance positions in the measured intensity spectrogram in figure \ref{fig:dOD_HWP}, we must go beyond the DCM/LIA model and include the presence of nearby states to account for light-induced states (LIS), see section \ref{sec:ATS_ar_LIS} and \ref{sec:LIS_Floquet}.  As can be seen in the level diagram in figure \ref{fig:dOD_HWP}, there are many states within the vicinity of the $np$ resonances that don't appear in the ground state photoabsorption spectrum because they are not dipole allowed from the ground state.  That being said, they play a critical role in the observed features because many of these states are dipole allowed from the $np$ states and some of these transitions are actually near-resonant.  In fact, for the dressing photon energy of 0.867 eV that was used, each $np$ resonance has a nearly resonant transition to one of the dark states. The detunings for three of these transitions are $\Delta_{4p\rightarrow3d}=-0.008$ eV, $\Delta_{5p\rightarrow7d}=-0.049$ eV, and $\Delta_{6p\rightarrow5s}=-0.062$ eV.  The $4p\rightarrow3d$ transition in particular is within the roughly $0.06$ eV bandwidth of the dressing pulse.  This near-resonant condition implies that the Raman-like interpretation of light-induced states as a two-photon process involving  absorption of one XUV photon and the absorption or emission of an IR photon to reach a dark state doe not apply \cite{chenLightinducedStatesAttosecond2012, wuTheoryStrongfieldAttosecond2016}.  In this case, it is most appropriate interpret the light-induced states as arising naturally from dressed states of the atom in a strong dressing field, and this can be understood in terms of Floquet theory that was introduced in section \ref{sec:LIS_Floquet}. 
+\subsection{Intensity Dependence: Light-Induced States}
+\label{sec:ATS_ar_LIS}
 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/ATS/2_state_LIS.pdf}
-	\caption[Two state Floquet theory compared to measured $\dod$]{(a) Measured $\dod$ as function of peak dressing intensity with labels for the $np$ resonances that will be used in the DCM calculation for comparison. (b) Calculated $\dod$ as a function of intensity. (c)-(e) Comparison of maximum $\dod$ at each $np$ resonance position.  Ionization rate is calculated using PPT for the $4p$ state (e) and using ADK for the $5p$ (d) and $6p$ (c) state.}
-	\label{fig:2_state_floquet}
-\end{figure}
-
+In the previous section, the origin of several of the intensity dependent features found in the $\dod$ intensity spectrogram was explained in the context of the DCM/LIA model, however this description was only able to account for the features observed at the $np$ resonance energy positions.  This section will identify the other features as light-induced states (LIS) that arise from the dressed atom picture, but first it is important to identify each of the LIS in the intensity spectrogram.  This identification is shown in figure \ref{fig:LIS_energies} and consists of choosing an energetic window as a function of intensity to find the position of each LIS in energy as a function of intensity by fitting the $\dod$ to a lineshape.  In principle, each of these states can couple to the nearby continua, and this will result in an asymmetric Fano lineshape that depends upon the coupling strength between each state and the continuum. This can be seen in the LIS 4 (turquoise), however the other LIS have a symmetric shape. Regardless of their shape, each LIS energy position is extracted as a function of intensity, and this will allow for further analysis.
 
 \begin{figure}
 	\centering
@@ -833,29 +829,20 @@ To explain the light-induced features that occur away from the $np$ resonance po
 	\label{fig:LIS_energies}
 \end{figure}
 
+To explain the light-induced features that occur away from the $np$ resonance positions in the measured intensity spectrogram in figure \ref{fig:dOD_HWP}, we must go beyond the DCM/LIA model and include the presence of nearby states to account for the LIS, see section \ref{sec:ATS_ar_LIS} and \ref{sec:LIS_Floquet}.  As can be seen in the level diagram in figure \ref{fig:dOD_HWP}, there are many states within the vicinity of the $np$ resonances that don't appear in the ground state photoabsorption spectrum because they are not dipole allowed from the ground state.  That being said, they play a critical role in the observed features because many of these states are dipole allowed from the $np$ states and some of these transitions are actually near-resonant.  In fact, for the dressing photon energy of 0.867 eV that was used, each $np$ resonance has a nearly resonant transition to one of the dark states. The detunings for three of these transitions are $\Delta_{4p\rightarrow3d}=-0.008$ eV, $\Delta_{5p\rightarrow7d}=-0.049$ eV, and $\Delta_{6p\rightarrow5s}=-0.062$ eV.  The $4p\rightarrow3d$ transition in particular is within the roughly $0.06$ eV bandwidth of the dressing pulse.  This near-resonant condition implies that the Raman-like interpretation of light-induced states as a two-photon process involving  absorption of one XUV photon and the absorption or emission of an IR photon to reach a dark state doe not apply \cite{chenLightinducedStatesAttosecond2012, wuTheoryStrongfieldAttosecond2016}.  In this case, it is most appropriate interpret the light-induced states as arising naturally from dressed states of the atom in a strong dressing field, and this can be understood in terms of Floquet theory that was introduced in section \ref{sec:LIS_Floquet}. 
+
+In section \ref{sec:LIS_Floquet}, the adiabatic Floquet theory was introduced and calculated for a simple two level system consisting of a bright and dark state dressed by a field with photon energy nearly resonant to the transition between the two states.  This simple example can be used in the case of the $4p$ state to get an understanding of the basic effects that are occurring.  In the adiabatic Floquet theory, the time evolution of the Floquet states is a trivial phase evolution, however the challenge lies in calculating the Floquet states and their energies.  This is done by diagonalizing the Floquet Hamiltonian $\hat{H}_F$ given by equation \ref{eqn:Floquet_hamiltonian_matric_elem}, and this takes the matrix form given by equation \ref{eqn:Floquet_2_level} when considering a two-level system and up to $n=2$.  The result of this calculation for the $4p$ bright state and the $3d$ dark state is shown in figure \ref{fig:2_state_floquet} for an assumed dipole matrix element of $\mu$=1.987 a.u.  In this figure, the Floquet ladder of quasienergies is plotted on top of the measured $\dod$ intensity spectrogram for comparison.  Due to the resonant nature of this case, there is a splitting that occurs, and this is the well-known Autler-Townes effect which gives rise to a symmetrically split doublet. \cite{wuTheoryStrongfieldAttosecond2016, beckAttosecondTransientAbsorption2014, wuTimedomainPerspectiveAutlerTownes2013}.  This splitting about the bright $4p$ state can be seen to overlap with two of the LIS just above and below the $4p$ state.  This gives a qualitative understanding of the origin of two of the LIS as arising from the Autler-Townes doublet that is formed by resonantly coupling the $4p$ to the $3d$ state.
+
 \begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/ATS/full_Floquet.pdf}
-	\caption[Floquet calculation of quasienergies]{(a) Measured $\dod$ as function of peak dressing intensity with labels for the $np$ resonances that will be used in the DCM calculation for comparison. (b) Calculated $\dod$ as a function of intensity. (c)-(e) Comparison of maximum $\dod$ at each $np$ resonance position.  Ionization rate is calculated using PPT for the $4p$ state (e) and using ADK for the $5p$ (d) and $6p$ (c) state.}
-	\label{fig:full_floquet}
+	\includegraphics[width=0.9\textwidth]{figures/ATS/2_state_LIS.pdf}
+	\caption[Two state Floquet theory compared to measured $\dod$]{Floquet dressed states as a function intensity calculated by a two state adiabatic Floquet theory.  States with solid lines are dipole allowed from the ground state, and states with dashed lines are not dipole allowed.  The pronounced Autler-Townes splitting of the $4p$ state corresponds with two of the LIS in the intensity spectrogram (1 and 2 in figure \ref{fig:LIS_energies}).}
+	\label{fig:2_state_floquet}
 \end{figure}
 
-
-\begin{table}[]
-	\centering
-	\begin{tabular}{c|ccccccc}
-		\toprule
-		$\braket{np|z|nl}$ & 3d     & 4d    & 4s     & 5s    & 5d    & 6s    & 6d    \\ \hline
-		4p                 & 1.505  & 1.54  & 3.276  & 1.62  & 0.112 & 0.592 & 1.148 \\
-		5p                 & 1.579  & 0.474 & -0.113 & 1.366 & 0.057 & 1.006 & 1.039 \\
-		6p                 & -0.961 & 0.105 & -0.676 & 1.713 & 0.04  & 1.119 & 1.097 \\
-		\bottomrule
-	\end{tabular}
-	\caption[Dipole matrix elements used in Floquet calculation]{Dipole matrix elements in atomic units that were the result of a fit between Floquet theory calculation and LIS energies. The matrix element $\braket{4p|z|4d}$=1.54 a.u. is known from literature \cite{wangFewCycleFemtosecondPulse2005}.}
-	\label{tab:matrix_elements}
-\end{table}
-
+The simple two-level system is excellent for gaining an intuitive understanding of the effects that are observed, however it is insufficient for quantitative agreement with all of the LIS that can be seen in the intensity spectrogram.  To this end, we need to include more states in the Floquet calculation.  Specifically, all states $np$, $nd$, and $ns$ states up to $n=6$ will be included, a total of 10 states.  This is done because the Floquet ladders from each state strongly interact through avoided crossings, and this has a profound effect on the intensity dependence of the quasienergy spectrum.  Including these additional states means that the matrix representing the Floquet Hamiltonian in equation \ref{eqn:Floquet_2_level} needs to be generalized to include all of these states.  The basic form of the Hamiltonian is still the same block tri-diagonal as it was in equation \ref{eqn:Floquet_2_level}, however it can now be written as 
 \begin{equation}
+\label{eqn:general_Floquet_matrix}
 \hat{H}_{F}=
 \left[
 \begin{matrix}%{cc|cc|cc|cc|cc}
@@ -865,10 +852,13 @@ To explain the light-induced features that occur away from the $np$ resonance po
 \hat{0} & \hat{0} & \hat{H}_{-1} & \hat{H_0}+\omega\hat{I} & \hat{H}_1 \\
 \hat{0} & \hat{0} & \hat{0} & \hat{H}_{-1} & \hat{H_0}+2\omega\hat{I} 
 \end{matrix}
-\right].
+\right],
 \end{equation}
-
-
+where the choice is made to include only up to two photon transitions ($n=2$) and each element is a 10x10 matrix.  When represented in the $4p,3d,4d,4s,5s,5d,6s,5p,6p,6d$ basis, the matrix $H_0$ takes the form
+\begin{equation}
+\hat{H}_{0} \rightarrow I_{10} [\omega_{4p},\omega_{3d},\omega_{4d},\omega_{4s},\omega_{5s},\omega_{5d},\omega_{6s},\omega_{5p},\omega_{6p},\omega_{6d}]^T
+\end{equation}
+where $I_10$ is the 10x10 identity matrix and $\omega_{nl}$ are energies of each $nl$ resonance.  Additionally, in the same basis the matrix $H_{\pm1}$ takes the form
 \begin{equation}
 \hat{H}_{\pm 1} \rightarrow
 \left[
@@ -886,14 +876,87 @@ To explain the light-induced features that occur away from the $np$ resonance po
 \end{matrix}
 \right].
 \end{equation}
+where $\Omega_{i}=\mu_i\mathcal{E}_{\mathrm{IR}}$ are the Rabi frequencies of each transition and $\mu_i$ is the corresponding dipole matrix element.  In principle, the dipole matrix elements are known and can be calculated \cite{tomaCalculationMatrixElements}.  However, the only matrix element directly found in the literature is $\mu_1 = \braket{4p|z|4d}=1.54$ a.u. \cite{wangFewCycleFemtosecondPulse2005, wangAttosecondTimeResolvedAutoionization2010}.  In lieu of directly calculating the matrix elements, their values can be obtained by fitting each of the Rabi frequencies $\Omega_{i}$ to the measured energy positions of the LIS seen in the experiment.  This is done by using the known matrix element to generate a set of matrix elements that can be used as a reasonable ansatz, and then the dressed state spectrum is fit the LIS energy position using a non-linear least-squares optimization routine where the matrix elements are the optimized parameters.  The optimized matrix elements from this method are given in table \ref{tab:matrix_elements}, and the corresponding Floquet dressed state spectrum as a function of intensity is shown in figure \ref{fig:full_floquet}.  As can be seen by the comparison between the Floquet dressed states energy and the LIS energy in figure \ref{fig:full_floquet} (b), there is reasonably good agreement between the theory and the experimentally measured energies, especially LIS 1 and LIS 2 on either side of the $4p$ resonance.  The state labels that are given in the legend of figure \ref{fig:full_floquet} (b) correspond to the basis states at zero field and are used only as a reference because in this case the Floquet states consist of strongly mixed basis states.
 
-\begin{equation}
-	\hat{H}_{0} \rightarrow I_{10} [\omega_{4p},\omega_{3d},\omega_{4d},\omega_{4s},\omega_{5s},\omega_{5d},\omega_{6s},\omega_{5p},\omega_{6p},\omega_{6d}]^T
-\end{equation}
+\begin{table}[]
+	\centering
+	\begin{tabular}{c|ccccccc}
+		\toprule
+		$\braket{np|z|nl}$ & 3d     & 4d    & 4s     & 5s    & 5d    & 6s    & 6d    \\ \hline
+		4p                 & 1.505  & 1.54  & 3.276  & 1.62  & 0.112 & 0.592 & 1.148 \\
+		5p                 & 1.579  & 0.474 & -0.113 & 1.366 & 0.057 & 1.006 & 1.039 \\
+		6p                 & -0.961 & 0.105 & -0.676 & 1.713 & 0.04  & 1.119 & 1.097 \\
+		\bottomrule
+	\end{tabular}
+	\caption[Dipole matrix elements used in Floquet calculation]{Dipole matrix elements in atomic units that were the result of a fit between Floquet theory calculation and LIS energies. The matrix element $\braket{4p|z|4d}$=1.54 a.u. is known from literature \cite{wangFewCycleFemtosecondPulse2005}.}
+	\label{tab:matrix_elements}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/full_Floquet.pdf}
+	\caption[Floquet dressed states for all 10 states]{(a) Floquet dressed state spectrum calculated as a function of peak intensity. States that are not dipole allowed from the ground state are shown as grey dashed lines.  States involved in the calculation are shown below zero intensity. (b) Comparison between the energy position of the LIS and the dressed states that best fit them. The residual deviation between the LIS energy position and the dressed states is used to determine the dipole matrix elements that are used in the Floquet theory calculation.}
+	\label{fig:full_floquet}
+\end{figure}
+
+
+
+
+The reasonable agreement between the Floquet theory and the measured LIS energies demonstrates that the LIS can be interpreted as arising from a probing of the dressed atom.  In principle, this calculation can be taken even further, and the $\dod$ can be calculated from the Floquet dipole given by equation \ref{eqn:Floquet_dipole}. However, this calculation should be performed with the actual dipole matrix elements to better examine the differences between the experiment and theory in amplitude and position if the light-induced features.  That being said, the extracted matrix elements and corresponding Floquet theory can serve as a guide for analyzing the delay-dependent $\dod$ in section \ref{sec:ATS_ar_delay}.
 
 \subsection{Delay Dependence}
 \label{sec:ATS_ar_delay}
 
+Now that the intensity dependent features have been fully explored, we now turn our attention to the delay dependent $\dod$. This measurement is performed at a series of fixed intensities and the delay between the dressing pulse and the XUV pulse is scanned through temporal overlap between the two pulses. This delay range covers roughly 200 fs because the duration of both the IR and XUV pulses is roughly 60 fs.  At each delay a pair of spectra are taken consecutively with and without the dressing pulse.  Each spectra requires at least 2 seconds to acquire, so the total experimental acquisition time is on the order of 3 hours per delay scan when the time delay steps need to be small enough to be able to resolve sub-cycle changes in the $\dod$.  For all of the datasets shown in this section the time delay step size is 200 as.  This step size was chosen to sufficiently resolve a signal at $2\omega$ of the dressing field which has a period of 4.77 fs.  It is important to be able to resolve sub-cycle signals because many processes such as strong-field ionization exhibit strong sub-cycle behavior because of their inherent intensity dependence, and in many ATS experiments a sub-cycle modulation of the photoabsorption is observed at $2\omega$ due to one of several effects \cite{wuTheoryStrongfieldAttosecond2016, chiniSubcycleAcStark2012, chiniSubcycleOscillationsVirtual2013, reduzziPolarizationControlAbsorption2015, ottReconstructionControlTimedependent2014, argentiDressingEffectsAttosecond2015, kaldunExtractingPhaseAmplitude2014}.
+
+These delay measurements are shown in figure \ref{fig:dod_fft_spectrograms} (a) - (d) for peak intensities of 1.9, 10.9, 21.3, and 33 TW/cm$^{2}$, and it is obvious that the intensity dependent features that were discussed in sections \ref{sec:ATS_ar_LIA} and \ref{sec:ATS_ar_LIS} exhibit a strong delay dependence, as expected.  In particular, at the $np$ energies there is strong increase in absorption (red on the color map) that was previously described in terms of the DCM/LIA model as an attenuation of the dipole by direct ionization of the excited state. Qualitatively, we would expect this effect to strongest at temporal overlap between the two pulses and to quickly saturate in $\dod$ amplitude, as shown in figure \ref{fig:np_intensity_dep}.  To demonstrate this, line-outs are taken from the full spectrogram at the maximum $\dod$ near each $np$ resonance, and after taking a low-pass filter to remove higher frequency modulations, the result is shown in figure \ref{fig:dOD_max_lineouts}.  These line-outs show the qualitative behavior that is expected with a quick saturation of the maximum $\dod$ at temporal overlap between the two pulses (delay $\tau=0$).  Further calculations can be performed to provide more quantitative agreement between these line-outs and the DCM/LIA theory calculated for an XUV APT, however the qualitative agreement between the measured behavior and the previously calculated intensity dependence suggests that these features can be simply explained by applying PPT and ADK ionization models to account for the attenuation of the dipole.
+
+
+
+\begin{sidewaysfigure}%[ht]
+	\includegraphics[width=\textwidth]{figures/ATS/dOD_FFT_spectrograms.pdf}
+	\caption[Delay dependent $\dod$ and corresponding Fourier transform]{(a)-(d) Measured $\dod(\tau)$ for different peak intensities as indicated in each plot. (e)-(h) Amplitude of the Fourier transform along the delay axis, the 2DAS.  Shows clear $2\omega$ oscillations and additional non-resonant structure at low Fourier energies.  Negative frequencies are only shown to make features near zero Fourier energy more apparent.}
+	\label{fig:dod_fft_spectrograms}
+\end{sidewaysfigure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/ATS/dOD_max_lineouts.pdf}
+	\caption[Line-outs along maximum $\dod(\tau)$ for $np$ states]{Line-outs of maximum $\dod$ as function of delay for the $4p$ (a), $5p$ (a), and $6p$ (a).  A low-pass Fourier filter was applied along the delay axis to remove $2\omega$ oscillations for clarity.}
+	\label{fig:dOD_max_lineouts}
+\end{figure}
+
+
+To further examine the features that are present in the measured spectrograms, it is useful to examine the frequency components that contribute the $\dod$ signal as a function of delay.  This is done by simply Fourier transforming the $\dod$ along the delay axis for every measured photon energy. The resulting two-dimensional absorption spectrum (2DAS) is shown in figures \ref{fig:dod_fft_spectrograms} (e) - (h).  From these 2DAS, it is apparent that there is a separation of two sets of features in Fourier energy, and this is similar to the features seen in the calculations performed in section \ref{sec:DCM}.  The first set of features to focus on are those centered at $1.7e$ eV and correspond to a modulation of the $\dod$ at a frequency of $2\omega$.  At every intensity that was measured, the strongest Fourier amplitude occurs at the $4p$ and $6p$ energies, however there is still small $2\omega$ Fourier amplitude at the $5p$ resonance.  There is also a pronounced splitting around the $2\omega$ peak with a separation of 0.15 eV that is most apparent at the lowest intensity that was measured.  There are several possible origins for these types of features and the two that will be examined herein are modulation due to ionization and wave-packet coupling by the dressing field \cite{ottReconstructionControlTimedependent2014}.   
+
+To distinguish between these sources of sub-cycle modulations, a band-pass Fourier filter can be applied along the delay axis to isolate these frequency contributions.  The Fourier band that was used is shown in figures \ref{fig:dOD_bp_lineouts} (e) - (h), and line-outs of the filtered $\dod$ along the $4p$ and $6p$ energies is shown figures \ref{fig:dOD_bp_lineouts} (a) - (d) for each intensity measured.  The $6p$ line-out has been arbitrarily shifted by a constant amount for clarity, and the inset in each plot shows the two line-outs over a small delay range without any shift applied. One possible source for these sub-cycle modulations is simply attenuation of the dipole due to ionization of the excited state, as is the case in the LIA model. This will lead to oscillations in the $\dod$ at $2\omega$ because the ionization probability is highest in a narrow temporal window at the peak of the field. So, when the delay between the APT and the dressing pulse is such that each pulse in the train is at a peak (valley) in the intensity profile, then the $\dod$ signal is be weaker (stronger).  This leads to an oscillation at with period determined by the periodicity of the ionization probability, namely $2\omega$.  In this case where the oscillations are driven by ionization, it would be expected that the $\dod$ oscillation would be in phase across all of the $np$ states.  This is due to the fact that the oscillation period and phase is determined by the dressing pulse.  This can be seen in the inset line-outs for the lowest intensity case shown in figure \ref{fig:dod_fft_spectrograms} (a) where the $\dod$ for both the $4p$ and $6p$ are oscillating in phase. This is suggestive that the mechanism at play here is simply ionization by the dressing field. However, this is clearly not the case for higher intensities where the $\dod$ is completely out-of-phase between the two states as a function of delay.
+
+\begin{sidewaysfigure}%[ht]
+	\includegraphics[width=\textwidth]{figures/ATS/dOD_lp_lineouts.pdf}
+	\caption[Line-outs of $\dod(\tau)$ after applying a $2\omega$ Fourier band-pass filter]{(a)-(d) Maximum of measured $\dod(\tau)$ after applying a band-pass Fourier filter for $4p$ (purple) and $6p$ (blue). The $6p$ line-out is shifted for clarity.  Insets shows the both line-outs for both states over a small delay window. (e)-(h) Fourier energy region used for the band-pass filter, and it is centered on $2\omega$.  Red line show the $2\omega$ energy, and the dashed lines represent coupling between $4p$ and $6p$ states.}
+	\label{fig:dOD_bp_lineouts}
+\end{sidewaysfigure}
+
+To explain the phase shift in the $\dod$ between the $4p$ and the $6p$ states, we must consider the Fourier amplitude as a function of photon energy.  In discussing the resonant cases handled by the DCM, see section \ref{sec:DCM}, it was shown that for the case of a resonant coupling between two bright states separated by $\delta\omega$, there is a corresponding oscillation in the cross section an a frequency of $\delta\omega$.  Furthermore, in the 2DAS, there is conveniently a line that effective points between the two resonances being coupled, see figure \ref{fig:res_high_low} and \ref{fig:multiple_resonances}, because it is given by the relationship $\delta = \pm\nu + \Delta\omega$.  These lines are plotted on top of the 2DAS shown in figures \ref{fig:dod_fft_spectrograms} (f) - (h) for the $4p$ and $6p$ resonances assuming that they are the states being coupled.  The signal is noisy, however there is reasonable agreement between the plotted lines and the amplitude, particularly for the intensity 10.9 TW/$^2$ shown in figure \ref{fig:dod_fft_spectrograms} (f).  Coupling between these two states can be understood in terms of coupling states within a wave-packet.  Initially, the each pulse in the APT coherently excites a wave packet consisting of the $np$ resonances, and the dressing pulse acts to couple the $4p$ and $6p$ states through a two-photon transition.  This effect has been observed previously in helium, and it was shown that this effect appears even in the the case of an APT instead of an IAP \cite{ottReconstructionControlTimedependent2014, ottAttosecondMultidimensionalInterferometry2012}.  This is essentially due to the fact that the spacing of the pulses in the APT is close to the period of the wave packet.  For the $4p$ and $6p$ states their energy separation is  1.875 eV, and this is close to the $2\omega$ energy of 1.734 eV. This notion of wave packet coupling between the $4p$ and $6p$ states also helps to explain why the Fourier amplitude is larger for both the $4p$ and the $6p$ than the $5p$.  
+
+The interplay between ionization and wave packet coupling can be used to explain the sub-cycle modulations of the $\dod$ at each resonance energy, however further interpretation is needed to explain the non-resonant features that appear in the 2DAS at Fourier frequencies near zero.  To show their effect on the $\dod$, a low pass Fourier filter is applied to the measured $\dod$, and this is shown in figures \ref{fig:dod_fft_lp_spectrograms} (a) - (d) along with the 2DAS near zero Fourier frequency in figures \ref{fig:dod_fft_lp_spectrograms} (e) - (h).  As can be seen in these figures, the LISs that were described in section \ref{sec:ATS_ar_LIS} appear as a delay dependent feature, as is expected.  To provide qualitative understanding of the delay dependence of these LISs, the Floquet dressed state spectrum can be calculated as a function of delay where the intensity of each delay point is taken to be given by the autocorrelation of the dressing field shown in figure \ref{fig:fields}.  The resulting Flouqet dressed state spectrum is shown for the four peak intensity used in the experiment in figures \ref{fig:dod_floquet_spectrograms} (a) - (d), and the dressed states that corresponded to the LISs observed in the intensity spectrogram are plotted on top of the $\dod$ spectrograms in figures \ref{fig:dod_floquet_spectrograms} (e) - (h).  The agreement between the observed features and the calculated Floquet dressed state spectrum demonstrates that these non-resonant features in the 2DAS can be interpreted as a probing of the dressed atom.  Better quantitative agreement can be made between the theory and the experiment with improved dipole matrix elements, and a more through calculation of the Floquet dipole given by equation \ref{eqn:Floquet_dipole}. 
+
+
+\begin{sidewaysfigure}%[ht]
+	\includegraphics[width=\textwidth]{figures/ATS/dod_fft_lp_spectrograms.pdf}
+	\caption[Delay dependent $\dod$ after applying a low-pass Fourier filter]{(a)-(d) Measured $\dod(\tau)$ after applying a low-pass Fourier filter. (e)-(h) 2DAS highlighting the structures that are apparent at low Fourier energies.}
+	\label{fig:dod_fft_lp_spectrograms}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}%[ht]
+	\includegraphics[width=\textwidth]{figures/ATS/dOD_floquet_spectrograms.pdf}
+	\caption[Comparing Floquet dressed states to measured $\dod(\tau)$]{(a)-(d) Floquet dressed state spectrum calculated at each delay based upon the IR field in figure \ref{fig:fields} and at the peak intensities shown below.  (e)-(h) Measured $\dod(\tau)$ after applying a low-pass Fourier filter with Floquet dressed state spectrum show for reference.}
+	\label{fig:dod_floquet_spectrograms}
+\end{sidewaysfigure}
+
 \section{Conclusion}
 \label{sec:ATS_conclusion}
+
+In this chapter, the theoretical background of Fano resonances as formulated by Fano was established, and it was further extended into a time-domain interpretation where the initial excitation was assumed to infinitesimally short in time.  This analytical form of the dipole in the time domain allows for an intuitive understanding of the lineshape as the phase of the dipole in the time-domain.  Furthermore, it was established how a IR dressing field can modulate this dipole as a function of delay between the initial excitation and the dressing pulse.  This dipole control model was then extended to finite dressing pulses to account for the typical pulses used in the experiments presented herein.  This model allows for an understanding of the features that are seen in the experimental data that appear close to each of the Fano resonance energies.  An additional theory was established to account for light-induced states that cannot be explained by the dipole control model, and this model consists of an adiabatic Floquet theory that was initial developed for a simple two-state system to explain the Autler-Townes splitting that is seen in the experimental data.  This model was extended to include more bright and dark states to account for further structures that are seen in the experimental data.  The culmination of all of these theoretical and experimental efforts is am intuitive understanding of all of the features that are seen in the intensity- and delay-dependent measurements.  This foundational knowledge of the inherent dynamics will be used in chapter \ref{chap:CATS} where the ultimate goal of measuring the real and imaginary part of the refractive index in a dynamic system is realized.
+
 
