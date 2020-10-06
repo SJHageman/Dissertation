@@ -4,13 +4,16 @@
 \section{Introduction}
 \label{sec:intro_cats}
 
-As seen in Chapter \ref{chap:ATS}, a lot of information can be extracted from ATS experiments.  Specifically, dynamics such as light-induced states and strong-field ionization excited states induced by a dressing field can be deduced from the change in photoabsorption.  However, these experiments are limited by the fact that they only have access to the imaginary part of the complex refractive index of the medium of interest. There should also be a corresponding changing in the real part of the complex refractive index that remains unobserved.  In this Chapter, the techniques introduced in Chapters \ref{chap:two_source} and \ref{chap:refractive_index} are extended to measure both parts of the complex refractive index in the experiments performed in Chapter \ref{chap:ATS}.  This new method to measure the change in the complex refractive index induced by a dressing field will be referred to as Complex Attosecond Transient-absorption Spectroscopy (CATS).
+As seen in Chapter \ref{chap:ATS}, a rich amount of information can be extracted from ATS experiments.  Specifically, dynamics such as light-induced states and strong-field ionization excited states induced by a dressing field can be deduced from the change in photoabsorption.  However, these experiments are limited by the fact that they only have access to the imaginary part of the complex refractive index of the medium of interest. There should also be a corresponding changing in the real part of the complex refractive index that remains unobserved.  In this Chapter, the techniques introduced in Chapters \ref{chap:two_source} and \ref{chap:refractive_index} are extended to measure both parts of the complex refractive index in the experiments performed in Chapter \ref{chap:ATS}.  This new method to measure the change in the complex refractive index induced by a dressing field will be referred to as Complex Attosecond Transient-absorption Spectroscopy (CATS).
 
 
 \section{Theory}
 \label{sec:ats_theory}
-
-
+In ATS experiments, such as those described in Chapter \ref{chap:ATS}, the dynamics induced by a dressing field is imprinted upon the photoabsorption cross section and, macroscopically, the OD of the sample \cite{wuTheoryStrongfieldAttosecond2016,geneauxromainTransientAbsorptionSpectroscopy2019}.  Measuring this change in OD yields a rich amount of information, however it does not represent a direct measurement of all the changes induced in the sample.  Specifically, the $\dod$ only captures the change in the imaginary part of the dipole, as can be seen by
+\begin{equation}
+	\dod = \frac{\rho l}{\ln 10}\big(\sigma_{\mathrm{on}}(\omega) - \sigma_{\mathrm{off}}(\omega)\big) = \frac{2\rho l \omega}{\varepsilon_{0} c \ln 10}\Bigg( \mathrm{Im}\Bigg[\frac{\tilde{d}_{\mathrm{on}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] - \mathrm{Im}\Bigg[\frac{\tilde{d}_{\mathrm{off}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] \Bigg).
+\end{equation}
+Therefore measuring the $\dod$ only leads to a direct measurement of half of the total information possible because the real part of the dipole is unknown.  
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/CATS/CATS_mach_zehnder.pdf}
