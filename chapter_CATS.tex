@@ -9,11 +9,18 @@ As seen in Chapter \ref{chap:ATS}, a rich amount of information can be extracted
 
 \section{Theory}
 \label{sec:ats_theory}
-In ATS experiments, such as those described in Chapter \ref{chap:ATS}, the dynamics induced by a dressing field is imprinted upon the photoabsorption cross section and, macroscopically, the OD of the sample \cite{wuTheoryStrongfieldAttosecond2016,geneauxromainTransientAbsorptionSpectroscopy2019}.  Measuring this change in OD yields a rich amount of information, however it does not represent a direct measurement of all the changes induced in the sample.  Specifically, the $\dod$ only captures the change in the imaginary part of the dipole, as can be seen by
+In ATS experiments, such as those described in Chapter \ref{chap:ATS}, the dynamics induced by a dressing field is imprinted upon the photoabsorption cross section and, macroscopically, the OD of the sample \cite{wuTheoryStrongfieldAttosecond2016,geneauxromainTransientAbsorptionSpectroscopy2019}.  Measuring a change in the OD of the sample yields a rich amount of information, however it does not represent a direct measurement of all the of the changes induced in the sample.  Specifically, the $\dod$ only captures the change in the imaginary part of the dipole, as can be seen by
 \begin{equation}
-	\dod = \frac{\rho l}{\ln 10}\big(\sigma_{\mathrm{on}}(\omega) - \sigma_{\mathrm{off}}(\omega)\big) = \frac{2\rho l \omega}{\varepsilon_{0} c \ln 10}\Bigg( \mathrm{Im}\Bigg[\frac{\tilde{d}_{\mathrm{on}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] - \mathrm{Im}\Bigg[\frac{\tilde{d}_{\mathrm{off}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] \Bigg).
+	\label{eqn:dod_im_dipole}
+	\dod = \frac{\rho l}{\ln 10}\big(\sigma_{\mathrm{on}}(\omega) - \sigma_{\mathrm{off}}(\omega)\big) = \frac{2\rho l \omega}{\varepsilon_{0} c \ln 10}\Bigg( \mathrm{Im}\Bigg[\frac{\tilde{d}_{\mathrm{on}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] - \mathrm{Im}\Bigg[\frac{\tilde{d}_{\mathrm{off}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] \Bigg),
 \end{equation}
-Therefore measuring the $\dod$ only leads to a direct measurement of half of the total information possible because the real part of the dipole is unknown.  
+where $\rho$ is the density of the gas sample, $l$ is the medium length, $\tilde{d}(\omega)$ is the dipole moment in the frequency domain, and $\mathcal{E}(\omega)$ is the combined electric field of the XUV APT and the IR dressing pulse. Therefore measuring the $\dod$ only leads to a direct measurement of half of the total information possible because the real part of the dipole is unknown.  The change in the real part of the dipole is macroscopically related to a change in the real part of the complex refractive index, and this relationship is given by 
+\begin{equation}
+	\label{eqn:dn_re_dipole}
+	\Delta n  = \frac{\rho}{\epsilon_{0}} \Bigg( \mathrm{Re}\Bigg[\frac{\tilde{d}_{\mathrm{on}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] - \mathrm{Re}\Bigg[\frac{\tilde{d}_{\mathrm{off}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] \Bigg).
+\end{equation}
+Furthermore,
+
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/CATS/CATS_mach_zehnder.pdf}
