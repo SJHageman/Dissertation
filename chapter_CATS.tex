@@ -12,42 +12,62 @@ As seen in Chapter \ref{chap:ATS}, a rich amount of information can be extracted
 
 In ATS experiments, such as those described in Chapter \ref{chap:ATS}, the dynamics induced by a dressing field is imprinted upon the photoabsorption cross section and, macroscopically, the optical density (OD) of the sample \cite{wuTheoryStrongfieldAttosecond2016,geneauxromainTransientAbsorptionSpectroscopy2019}.  Measuring a change in the OD of the sample yields a rich amount of information, however it does not represent a direct measurement of all the of the changes induced in the sample. 
 
-
+To see why this is the case, consider the following scenario: a gas of atoms with density $\rho$ that is interacting with a two-color field $\mathcal{E}(t)$ consisting of an XUV APT and an IR dressing pulse that is of moderate intensity and time delayed from the XUV APT. Moderate intensity in this particular case means that the dressing field is not strong enough to excite or ionize the ground state of the atom, but it is strong enough to further excite or ionize once the atom has been excited by the XUV APT pulse.  The goal is to characterize the the evolution of the electric field as it propagates through this gas medium along a direction $z$. Macroscopically, this can be described by Maxwell's wave equation (MWE), and in a frame that moves at the speed of light the frequency-domain MWE in cylindrical coordinates under the slowly evolving wave approximation is given by
 \begin{equation}
 	\label{eqn:MWE}
 	\nabla_{\perp}^{2}\tilde{\mathcal{E}}(\omega) + \frac{2i\omega}{c}\frac{\partial \tilde{\mathcal{E}}(\omega)}{\partial z} = -\frac{\omega^2}{\epsilon_0 c^2}\tilde{P}(\omega)
 \end{equation}
-
-
+where $\tilde{\mathcal{E}}(\omega)$ is the two-color electric field in the frequency-domain $\omega$ and $\tilde{P}(\omega)$ is the polarization\footnote{This is neglecting the polazarization contribution from free electrons that have been ionized.  This is reasonable because we are assuming a moderate intensity of the dressing pulse, so this term is small and can be neglected unless higher intensities are used \cite{gaardeTransientAbsorptionReshaping2011}.} in the frequency domain \cite{jacksonClassicalElectrodynamics1999, brabecIntenseFewcycleLaser2000, wuTheoryStrongfieldAttosecond2016, gaardeTransientAbsorptionReshaping2011}. In order to solve for $\tilde{\mathcal{E}}(\omega)$, the polarization source term $\tilde{P}(\omega)$ needs to be calculated, and this is achieved by solving the TDSE for the single atom dipole moment $d(\omega)$.  This can be done in the single-active electron (SAE) approximation \cite{eberlyNumericalExperimentsStrong1992, schaferHighHarmonicGeneration1997}, and the dipole is calculated from the time-dependent acceleration $a(t)$ given by 
 \begin{equation}
-	\label{eqn:MWE_polarization_def}
-	\tilde{P}(\omega) = 2\rho\tilde{d}(\omega) = 2\rho\tilde{\mathcal{E}}(\omega)\Bigg(\mathrm{Re}\bigg[\frac{\tilde{d}(\omega)}{\tilde{\mathcal{E}}(\omega)}\bigg] + i \mathrm{Im}\bigg[\frac{\tilde{d}(\omega)}{\tilde{\mathcal{E}}(\omega)}\bigg]\Bigg)
+	a(t)=\frac{\diff^2 \braket{z}}{\diff t^2} = -\braket{\psi(t)|[\hat{H},[\hat{H},\hat{z}]]|\psi(t)}.
 \end{equation}
-
+The dipole $\tilde{d}(\omega)$ in the frequency-domain is related to the Fourier transform $\tilde{a}(\omega)$ of $a(t)$ by the relationship $\tilde{d}(\omega)=\tilde{a}(\omega)/\omega^2$.  Typically, in order to account for a finite dephasing time that naturally occurs a window function $W(t)$ is applied when Fourier transforming $a(t)$, and this results in
+\begin{equation}
+	\tilde{a}(\omega)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}a(t)W(t)e^{i\omega t}\diff t.
+\end{equation}
+From this, it is now possible to calculate the macroscopic polarization $\tilde{P}(\omega)$ as 
+\begin{equation}
+	\tilde{P}(\omega)=g\rho\tilde{d}(\omega)=\frac{g\rho e}{\omega^2\sqrt{2\pi}} \int_{-\infty}^{\infty}a(t)W(t)e^{i\omega t}\diff t.
+\end{equation}
+where $\rho$ is the gas density and $g$ is the number of active electrons, which is typically 2 for rare gas atoms since there are two active electrons with the same $m=0$ quantum number.  Substituting this form of the polarization into equation \ref{eqn:MWE} and assuming the limiting case of a linear-response the MWE becomes
 \begin{equation}
 	\label{eqn:MWE_linear_resp}
-	\frac{2i\omega}{c}\frac{\partial \tilde{\mathcal{E}}(\omega)}{\partial z} = -\frac{\omega^2}{\epsilon_0 c^2}\tilde{P}(\omega)
+	\begin{aligned}
+		\frac{2i\omega}{c}\frac{\partial \tilde{\mathcal{E}}(\omega)}{\partial z} &= -\frac{\omega^2}{\epsilon_0 c^2} g\rho \tilde{d}(\omega)\\
+		& = -\frac{\omega^2}{\epsilon_0 c^2} \frac{g\rho \tilde{d}(\omega)}{\tilde{\mathcal{E}}(\omega)}\tilde{\mathcal{E}}(\omega).
+	\end{aligned}
 \end{equation}
-
-
-Specifically, the $\dod$ only captures the change in the imaginary part of the dipole, as can be seen by the relationship
+Furthermore, in this linear-response limit, it can be assumed that $\tilde{d}/\tilde{\mathcal{E}}$ is approximately constant during propagation through the medium.  This allows for a simple solution given by
+\begin{equation}
+	\label{eqn:E_solution_MWE}
+	\begin{aligned}
+		\tilde{\mathcal{E}}(\omega,z) &= \tilde{\mathcal{E}}_0 \exp\Bigg({\frac{i\omega\rho}{2\epsilon_0 c} \frac{g\tilde{d}(\omega)}{\tilde{\mathcal{E}}(\omega)} z}\Bigg)\\
+		&=\tilde{\mathcal{E}}_0 \exp\Bigg({\frac{i\omega\rho g}{2\epsilon_0 c} \mathrm{Re}\bigg[\frac{\tilde{d}(\omega)}{\tilde{\mathcal{E}}(\omega)}\bigg]z}\Bigg) \exp\Bigg(- {\frac{\omega\rho g}{2\epsilon_0 c} \mathrm{Im}\bigg[\frac{\tilde{d}(\omega)}{\tilde{\mathcal{E}}(\omega)}\bigg]z}\Bigg)\\
+		&=\tilde{\mathcal{E}}_0 \exp\bigg(-\tilde{\beta}(\omega)\frac{\omega}{c}z\bigg) \exp\bigg( i\tilde{n}(\omega) \frac{\omega}{c} z\bigg)
+	\end{aligned}
+\end{equation}
+where the real $\tilde{n}(\omega)$ and imaginary $\tilde{\beta}(\omega)$ parts of the complex refractive index are given by
+\begin{equation}
+	\begin{aligned}
+		\tilde{n}(\omega) &= \frac{g \rho}{2 \epsilon_0} \mathrm{Re}\Bigg[ \frac{\tilde{d}(\omega)}{\tilde{\mathcal{E}}(\omega)} \Bigg]\\
+		\tilde{\beta}(\omega) &= \frac{g \rho}{2\epsilon_0} \mathrm{Im}\Bigg[ \frac{\tilde{d}(\omega)}{\tilde{\mathcal{E}}(\omega)} \Bigg] = \frac{\rho c}{2\omega}\sigma(\omega) = \frac{c \ln 10}{2\omega L} \mathrm{OD}(\omega),
+	\end{aligned}
+\end{equation}
+and the relationship between the imaginary part $\tilde{\beta}$, the cross section $\sigma(\omega)$, and the optical density $\mathrm{OD}(\omega)$ is also shown for a medium length $L$.  This complex refractive index $\tilde{n} + i\tilde{\beta}$ describes the dispersion and absorption of the excited state of the gas medium in the presence of the IR dressing field.  In a typical ATS experiment, only the change in absorption due to the dressing field is measured through the $\dod$, and this can be written in terms of the dipole as 
 \begin{equation}
 	\label{eqn:dod_im_dipole}
-	\dod(\omega) = \frac{\rho L}{\ln 10}\big(\sigma_{\mathrm{on}}(\omega) - \sigma_{\mathrm{off}}(\omega)\big) = \frac{8\pi\rho l \omega}{\ln 10}\Bigg( \mathrm{Im}\Bigg[\frac{\tilde{d}_{\mathrm{on}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] - \mathrm{Im}\Bigg[\frac{\tilde{d}_{\mathrm{off}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] \Bigg),
+	\dod(\omega) = \frac{g \omega \rho l}{\epsilon_0 c \ln 10}\Bigg( \mathrm{Im}\Bigg[\frac{\tilde{d}_{\mathrm{on}}(\omega)}{\tilde{\mathcal{E}}_{\mathrm{on}}(\omega)}\Bigg] - \mathrm{Im}\Bigg[\frac{\tilde{d}_{\mathrm{off}}(\omega)}{\tilde{\mathcal{E}}_{\mathrm{off}}(\omega)}\Bigg] \Bigg),
 \end{equation}
-where $\rho$ is the density of the sample, $L$ is the medium length, $\tilde{d}(\omega)$ is the dipole moment in the frequency domain, and $\tilde{\mathcal{E}}(\omega)$ is the combined electric field of the XUV APT and the IR dressing pulse. Therefore measuring the $\dod$ only leads to a direct measurement of half of the total information possible because the real part of the dipole is unknown.  The change in the real part of the dipole is macroscopically related to a change in the real part of the complex refractive index, and this relationship is given by 
+where the subscripts on (off) refer to when the IR dressing field is present (absent).
+
+As can be clearly seen, only the imaginary part of the dipole is measured in a typical ATS experiment by measuring the $\dod$, such as was described in Chapter \ref{chap:ATS}.  These experiments are only able to directly measure half of the total changes induced by the dressing pulse because they are blind to the change in dispersion that arises from the change in the real part of the refractive index due to the real part of the dipole.  For completeness, this change in real part of the refractive index is given by 
 \begin{equation}
 	\label{eqn:dn_re_dipole}
-	\Delta n(\omega) = 4\pi \rho \Bigg( \mathrm{Re}\Bigg[\frac{\tilde{d}_{\mathrm{on}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] - \mathrm{Re}\Bigg[\frac{\tilde{d}_{\mathrm{off}}(\omega)}{\tilde{\mathcal{E}}(\omega)}\Bigg] \Bigg).
+	\Delta n(\omega) = \frac{g\rho}{\epsilon_0 c} \Bigg( \mathrm{Re}\Bigg[\frac{\tilde{d}_{\mathrm{on}}(\omega)}{\tilde{\mathcal{E}}_{\mathrm{on}}(\omega)}\Bigg] - \mathrm{Re}\Bigg[\frac{\tilde{d}_{\mathrm{off}}(\omega)}{\tilde{\mathcal{E}}_{\mathrm{off}}(\omega)}\Bigg] 
+	\Bigg).
 \end{equation}
+In order to directly measure the full complex refractive, and consequently both parts of the dipole, then a more advanced technique is required. 
 
-
-!!!!!!! Add section here with the derivation of the change in real and imaginary parts from Gaarde/Wu!!!!!!!!!!
-
-\begin{equation}
-	\label{eqn:complex_refractive_index)}
-	\tilde{n} = \big(n+\Delta n\big) + i \big(\beta + \Delta\beta\big)
-\end{equation}
 
 \subsection{Direct Measurement}
 
@@ -70,12 +90,12 @@ for a medium of length $L$.  This phase shift between the two beams is directly 
 Additionally, the change in the imaginary part of the refractive index induced by the dressing pulse will lead to a change in absorption between the two beams, and this will lead to a change in fringe contrast in the far-field interference pattern.  The relationship between the change in contrast and the change in the imaginary refractive index, $\Delta \beta$,  is given by
 \begin{equation}
 	\label{eqn:beta_fringe_contrast_chap_cats}
-	\Delta\beta = -\frac{\lambda}{2\pi L} \ln\Bigg[\frac{V_0}{V}\Bigg(1-\sqrt{1-\bigg(\frac{V}{V_0}\bigg)^2}\Bigg)\Bigg]
+	\Delta\beta = -\frac{c}{\omega L} \ln\Bigg[\frac{V_0}{V}\Bigg(1-\sqrt{1-\bigg(\frac{V}{V_0}\bigg)^2}\Bigg)\Bigg]
 \end{equation}
 where $V_0$ is the fringe contrast without the dressing pulse present and $V$ is the contrast with the dressing pulse present.  This change in imaginary part of the refractive index is related to the change in absorption, $\dod$, by the relationship
 \begin{equation}
 	\label{eqn:dod_to_beta}
-	\dod(\lambda) = \frac{4\pi L}{\lambda \ln 10}\Delta \beta(\lambda),
+	\dod(\omega) = \frac{2 \omega L}{c \ln 10}\Delta \beta(\omega),
 \end{equation}
 when the Beer-Lambert Law is assumed to hold true. 
 
@@ -83,6 +103,47 @@ Therefore, just as in the experiment performed in Chapter \ref{chap:refractive_i
 
 
 \subsection{Indirect calculation: Kramers-Kronig Relations}
+
+Beyond a direct measurement of both parts of the complex refractive index, there is another method that can be applied when only one of the two parts of the refractive index is measured, as is the case for a normal ATS experiment.  Namely, the Kramers-Kronig (KK) relations can be used to calculate one part from the other \cite{kronigTheoryDispersionXRays1926, kramersDiffusionLumierePar1927}.  These KK relations are Hilbert transforms that link the real and imaginary part of a complex function when some assumptions are met \cite{lucariniKramersKronigRelationsOptical2005}.  However, as will be examined later, their usefulness is limited in certain cases because they are not always directly applicable.
+
+
+One of the powerful features of the KK relations is that they are fundamentally rooted in the assumption that causality holds true.  This can be seen in one of the two main methods of derivation \cite{hutchingsKramersKronigRelationsNonlinear1992, jacksonClassicalElectrodynamics1999, arfkenMathematicalMethodsPhysicists2013}, and will be briefly shown herein.   To begin, consider a dielectric medium under the influence of an electric field $\mathcal{E}(t)$.  The polarization $P(t)$ is then given by
+\begin{equation}
+	P(t)=\int_{-\infty}^{\infty}G(t')\mathcal{E}(t-t') \diff t'
+\end{equation} 
+where $G(t')$ is the Green's function that characterizes the response of the system to a $\delta$-function input.  In the frequency domain this equation is given by
+\begin{equation}
+	\tilde{P}(\omega)=\chi(\omega)\tilde{\mathcal{E}}(\omega),
+\end{equation}
+where the susceptibility is defined in terms of the response function as
+\begin{equation}
+	\chi(\omega)=\int_{-\infty}^{\infty}G(t')e^{i\omega t'}\diff t'.
+\end{equation}
+Now, invoking causality entails that the system cannot respond before the impulse.  If the impulse occurs at $t=0$, then the response must be zero for $t<0$.  Therefore, the Green's function is written as
+\begin{equation}
+	G(t)=G(t)\Theta(t)
+\end{equation}
+where $\Theta(t)$ is the Heaviside step function.  Fourier transforming this relationship yields
+\begin{equation}
+	\begin{aligned}
+		\chi(\omega) &= \chi(\omega) \circledast \bigg(\frac{\delta(\omega)}{2} + \frac{i}{2\pi\omega}\bigg)\\
+		& = \frac{\chi(\omega)}{2} + \frac{i}{2\pi} \mathrm{PV} \int_{-\infty}^{\infty}\frac{\chi(\omega')}{\omega - \omega'}\diff\omega'\\
+		& = \frac{1}{i\pi} \mathrm{PV} \int_{-\infty}^{\infty}\frac{\chi(\omega')}{\omega' - \omega} \diff \omega'
+	\end{aligned}
+\end{equation}
+where $\circledast$ represents convolution and  $\mathrm{PV}$ represents the Cauchy principal value.  Taking the real and imaginary parts of this equation yield the KK relations for the optical susceptibility, however they can be cast in terms of the refractive index by considering difference in output electric field betwen the two cases where the medium is present and the medium is absent.  The result of this is the KK relation linking the real and imaginary part of the refractive index, and this is given by
+\begin{equation}
+	\label{eqn:KK_n_beta}
+	\tilde{n}(\omega) - 1 = \frac{2\omega}{\pi}\mathrm{PV}\int_{0}^{\infty} \frac{\tilde{\beta}(\omega')}{\omega'^2 - \omega^2} \diff \omega'.
+\end{equation}
+Using this relationship means that only one part of the refractive index needs to be measured to fully characterize both the real and imaginary parts of the refractive index.  This is a powerful tool because generally the imaginary part of the refractive index in much easier to experimentally measure.
+
+However, there were some assumptions that were made in the derivation of the KK relation in equation \ref{eqn:KK_n_beta} that are important to scrutinize because they are not generally true.  The first assumption that was made was using the linear susceptibility $\chi(\omega)$.  By doing so we derived the linear KK relations, and these do not hold true when considering higher order nonlinear optical processes \cite{lucariniKramersKronigRelationsOptical2005, hutchingsKramersKronigRelationsNonlinear1992}.  For a higher order process, it is possible to derive KK relations that link the real and imaginary part, and these relations generally take the form given by
+\begin{equation}
+	\label{eqn:dn_db_KK}
+	\Delta\tilde{n}(\omega, \zeta) = \frac{2\omega}{\pi} \mathrm{PV}\int_{0}^{\infty} \frac{\Delta\tilde{\beta}(\omega',\zeta)}{\omega'^2 - \omega^2} 
+\end{equation}  
+where $\Delta\tilde{n}(\omega, \zeta)$ and $\Delta\tilde{\beta}(\omega,\zeta)$ are the change in the real and imaginary refractive index due to a perturbation $\zeta$ \cite{hutchingsKramersKronigRelationsNonlinear1992, lucariniKramersKronigRelationsOptical2005}.
 
 \section{Complex Attosecond Transient-absorption Spectroscopy of Fano resonances}
 \label{sec:CATS_ar}
