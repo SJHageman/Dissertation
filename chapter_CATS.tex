@@ -37,7 +37,7 @@ where $\rho$ is the gas density and $g$ is the number of active electrons, which
 		& = -\frac{\omega^2}{\epsilon_0 c^2} \frac{g\rho \tilde{d}(\omega)}{\tilde{\mathcal{E}}(\omega)}\tilde{\mathcal{E}}(\omega).
 	\end{aligned}
 \end{equation}
-Furthermore, in this linear-response limit, it can be assumed that $\tilde{d}/\tilde{\mathcal{E}}$ is approximately constant during propagation through the medium.  This allows for a simple solution given by
+Furthermore, in this linear-response limit, it can be assumed that $\tilde{d}/\tilde{\mathcal{E}}$ is approximately constant during propagation through the medium \cite{wuTheoryStrongfieldAttosecond2016}.  This allows for a simple solution given by
 \begin{equation}
 	\label{eqn:E_solution_MWE}
 	\begin{aligned}
@@ -143,8 +143,13 @@ However, there were some assumptions that were made in the derivation of the KK 
 	\label{eqn:dn_db_KK}
 	\Delta\tilde{n}(\omega, \zeta) = \frac{2\omega}{\pi} \mathrm{PV}\int_{0}^{\infty} \frac{\Delta\tilde{\beta}(\omega',\zeta)}{\omega'^2 - \omega^2} 
 \end{equation}  
-where $\Delta\tilde{n}(\omega, \zeta)$ and $\Delta\tilde{\beta}(\omega,\zeta)$ are the change in the real and imaginary refractive index due to a perturbation $\zeta$ \cite{hutchingsKramersKronigRelationsNonlinear1992, lucariniKramersKronigRelationsOptical2005}.
+where $\Delta\tilde{n}(\omega, \zeta)$ and $\Delta\tilde{\beta}(\omega,\zeta)$ are the change in the real and imaginary refractive index due to a perturbation $\zeta$ \cite{hutchingsKramersKronigRelationsNonlinear1992, lucariniKramersKronigRelationsOptical2005}.  For an $n$-th order nonlinear process, these changes in the refractive index will generally be proportional to the real and imaginary parts of the $n$-th order nonlinear susceptibility $\chi^{(n)}$ \cite{boydNonlinearOptics2008, lucariniKramersKronigRelationsOptical2005, hutchingsKramersKronigRelationsNonlinear1992}.
 
+Beyond the assumption of the linear susceptibility, another scenario in which the validity of the KK relations must be examined is the case of a pump-probe experiment \cite{tokunagaFemtosecondTimeresolvedDispersion1993, tokunagaFemtosecondContinuumInterferometer1996, lucariniKramersKronigRelationsOptical2005}.  Consider the change in polarization due to the pump pulse given by
+\begin{equation}
+	\Delta P(t) = \chi(t)\circledast \big( \mathcal{E}(t) \Delta N(t)\big) = \int_{0}^{\infty}\chi(t')\mathcal(t-t')\Delta N(t-t')
+\end{equation}
+where $\Delta N (t)$ represents the change in the medium due to the pump pulse.
 \section{Complex Attosecond Transient-absorption Spectroscopy of Fano resonances}
 \label{sec:CATS_ar}
 
