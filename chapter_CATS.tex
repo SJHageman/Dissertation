@@ -136,20 +136,27 @@ where $\circledast$ represents convolution and  $\mathrm{PV}$ represents the Cau
 	\label{eqn:KK_n_beta}
 	\tilde{n}(\omega) - 1 = \frac{2\omega}{\pi}\mathrm{PV}\int_{0}^{\infty} \frac{\tilde{\beta}(\omega')}{\omega'^2 - \omega^2} \diff \omega'.
 \end{equation}
-Using this relationship means that only one part of the refractive index needs to be measured to fully characterize both the real and imaginary parts of the refractive index.  This is a powerful tool because generally the imaginary part of the refractive index in much easier to experimentally measure.
+Using this relationship means that only one part of the refractive index needs to be measured to fully characterize both the real and imaginary parts of the refractive index.  This is a powerful tool because generally the imaginary part of the refractive index in much easier to experimentally measure.  An example is shown in figure \ref{fig:KK_example} where the real part of the refractive index is calculated from the imaginary part representing a Lorentzian absorption lineshape centered at a resonance energy $\omega_0$.  Of note in this example is the difference in symmetry about the resonance energy between the two shapes, and this is a general feature of KK relations \cite{lucariniKramersKronigRelationsOptical2005}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/CATS/KK_example.pdf}
+	\caption[Example real and imaginary refractive index calculated using KK relations]{Example real $n(\omega)$ (purple) and imaginary $\beta(\omega)$ (blue) refractive index for a Lorentzian absorption lineshape.  The real part was calculated from the imaginary using the KK relation from equation \ref{eqn:KK_n_beta}.}
+	\label{fig:KK_example}
+\end{figure}
 
 However, there were some assumptions that were made in the derivation of the KK relation in equation \ref{eqn:KK_n_beta} that are important to scrutinize because they are not generally true.  The first assumption that was made was using the linear susceptibility $\chi(\omega)$.  By doing so we derived the linear KK relations, and these do not hold true when considering higher order nonlinear optical processes \cite{lucariniKramersKronigRelationsOptical2005, hutchingsKramersKronigRelationsNonlinear1992}.  For a higher order process, it is possible to derive KK relations that link the real and imaginary part, and these relations generally take the form given by
 \begin{equation}
 	\label{eqn:dn_db_KK}
-	\Delta\tilde{n}(\omega, \zeta) = \frac{2\omega}{\pi} \mathrm{PV}\int_{0}^{\infty} \frac{\Delta\tilde{\beta}(\omega',\zeta)}{\omega'^2 - \omega^2} 
+	\Delta\tilde{n}(\omega, \zeta) = \frac{2\omega}{\pi} \mathrm{PV}\int_{0}^{\infty} \frac{\Delta\tilde{\beta}(\omega',\zeta)}{\omega'^2 - \omega^2} \diff \omega'
 \end{equation}  
 where $\Delta\tilde{n}(\omega, \zeta)$ and $\Delta\tilde{\beta}(\omega,\zeta)$ are the change in the real and imaginary refractive index due to a perturbation $\zeta$ \cite{hutchingsKramersKronigRelationsNonlinear1992, lucariniKramersKronigRelationsOptical2005}.  For an $n$-th order nonlinear process, these changes in the refractive index will generally be proportional to the real and imaginary parts of the $n$-th order nonlinear susceptibility $\chi^{(n)}$ \cite{boydNonlinearOptics2008, lucariniKramersKronigRelationsOptical2005, hutchingsKramersKronigRelationsNonlinear1992}.
 
 Beyond the assumption of the linear susceptibility, another scenario in which the validity of the KK relations must be examined is the case of a pump-probe experiment \cite{tokunagaFemtosecondTimeresolvedDispersion1993, tokunagaFemtosecondContinuumInterferometer1996, lucariniKramersKronigRelationsOptical2005}.  Consider the change in polarization due to the pump pulse given by
 \begin{equation}
-	\Delta P(t) = \chi(t)\circledast \big( \mathcal{E}(t) \Delta N(t)\big) = \int_{0}^{\infty}\chi(t')\mathcal(t-t')\Delta N(t-t')
+	\Delta P(t) = \chi(t)\circledast \big( \mathcal{E}(t) \Delta N(t-\tau)\big) = \int_{0}^{\infty}\chi(t')\mathcal{E}(t-t')\Delta N(t - t' - \tau) \diff t'
 \end{equation}
-where $\Delta N (t)$ represents the change in the medium due to the pump pulse.
+where $\Delta N (t-\tau)$ represents the change in the medium due to the pump pulse for a time delay of $\tau$.
 \section{Complex Attosecond Transient-absorption Spectroscopy of Fano resonances}
 \label{sec:CATS_ar}
 
