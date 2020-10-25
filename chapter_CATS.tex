@@ -125,6 +125,7 @@ Now, invoking causality entails that the system cannot respond before the impuls
 \end{equation}
 where $\Theta(t)$ is the Heaviside step function.  Fourier transforming this relationship yields
 \begin{equation}
+	\label{eqn:KK_chi}
 	\begin{aligned}
 		\chi(\omega) &= \chi(\omega) \circledast \bigg(\frac{\delta(\omega)}{2} + \frac{i}{2\pi\omega}\bigg)\\
 		& = \frac{\chi(\omega)}{2} + \frac{i}{2\pi} \mathrm{PV} \int_{-\infty}^{\infty}\frac{\chi(\omega')}{\omega - \omega'}\diff\omega'\\
@@ -136,44 +137,141 @@ where $\circledast$ represents convolution and  $\mathrm{PV}$ represents the Cau
 	\label{eqn:KK_n_beta}
 	\tilde{n}(\omega) - 1 = \frac{2\omega}{\pi}\mathrm{PV}\int_{0}^{\infty} \frac{\tilde{\beta}(\omega')}{\omega'^2 - \omega^2} \diff \omega'.
 \end{equation}
-Using this relationship means that only one part of the refractive index needs to be measured to fully characterize both the real and imaginary parts of the refractive index.  This is a powerful tool because generally the imaginary part of the refractive index in much easier to experimentally measure.  An example is shown in figure \ref{fig:KK_example} where the real part of the refractive index is calculated from the imaginary part representing a Lorentzian absorption lineshape centered at a resonance energy $\omega_0$.  Of note in this example is the difference in symmetry about the resonance energy between the two shapes, and this is a general feature of KK relations \cite{lucariniKramersKronigRelationsOptical2005}.
+Using this relationship means that only one part of the refractive index needs to be measured to fully characterize both the real and imaginary parts of the refractive index.  This is a powerful tool because generally the imaginary part of the refractive index in much easier to experimentally measure.  An example is shown in figure \ref{fig:KK_example} where the real part of the refractive index is calculated from the imaginary part representing a Lorentzian absorption line shape centered at a resonance energy $\omega_0$.  Of note in this example is the difference in symmetry about the resonance energy between the two shapes, and this is a general feature of KK relations \cite{lucariniKramersKronigRelationsOptical2005}.  Also of note, the resolution of the KK relation depends upon the range of energies that is measured.  In a similar manner to a Fourier transform, calculating one part of the refractive index with high resolution requires the other part to be measured over a large energy range.  Often this means that experimental data is padded with the known refractive index outside of the measured energy range to increase resolution \cite{kaplanRetrievalComplexvaluedRefractive2019}.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/CATS/KK_example.pdf}
-	\caption[Example real and imaginary refractive index calculated using KK relations]{Example real $n(\omega)$ (purple) and imaginary $\beta(\omega)$ (blue) refractive index for a Lorentzian absorption lineshape.  The real part was calculated from the imaginary using the KK relation from equation \ref{eqn:KK_n_beta}.}
+	\caption[Example real and imaginary refractive index calculated using KK relations]{Example real $n(\omega)$ (purple) and imaginary $\beta(\omega)$ (blue) refractive index for a Lorentzian absorption line shape with a resonance at energy $\omega_0$.  The real part was calculated from the imaginary using the KK relation from equation \ref{eqn:KK_n_beta}.}
 	\label{fig:KK_example}
 \end{figure}
 
-However, there were some assumptions that were made in the derivation of the KK relation in equation \ref{eqn:KK_n_beta} that are important to scrutinize because they are not generally true.  The first assumption that was made was using the linear susceptibility $\chi(\omega)$.  By doing so we derived the linear KK relations, and these do not hold true when considering higher order nonlinear optical processes \cite{lucariniKramersKronigRelationsOptical2005, hutchingsKramersKronigRelationsNonlinear1992}.  For a higher order process, it is possible to derive KK relations that link the real and imaginary part, and these relations generally take the form given by
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/CATS/KK_no_pump.pdf}
+	\caption[Contour used to derive KK relations]{Contour $\Gamma$ (green) in the complex plane of $\omega$ used to derive the KK relations.  Poles are shown in red for the case of a simple harmonic oscillator.}
+	\label{fig:KK_contour}
+\end{figure}
+
+There is another method to calculate the KK relations that is more direct, but it is less physically intuitive \cite{jacksonClassicalElectrodynamics1999, hutchingsKramersKronigRelationsNonlinear1992, lucariniKramersKronigRelationsOptical2005}. This method involves evaluating a contour integral of the susceptibility in the complex plane of $\omega$ for the contour shown in figure \ref{fig:KK_contour}, and this integral is given by 
+\begin{equation}
+	\label{eqn:contour_int}
+	\oint_{\Gamma}\frac{\chi(\omega')}{\omega' - \omega} \diff \omega' = 2\pi i \sum_{k}\mathrm{Res}\big[ \chi(\omega', \omega'_{k}) \big]=0
+\end{equation} 
+where the residue theorem has been applied and $\mathrm{Res}\big[ \chi(\omega', \omega'_{k}) \big]$ is the residue of $\chi$ at the pole $\omega'_k$.  Since the contour encircles no poles, the sum of residues is zero.  This integral can be broken up into parts consisting of the two arcs and the line across $\mathrm{Re}[\omega']$, and limiting cases can be applied to arrive at equation \ref{eqn:KK_chi},
+\begin{equation}
+	\chi(\omega)=\frac{1}{i\pi}\mathrm{PV}\int_{-\infty}^{\infty}\frac{\chi(\omega')}{\omega' - \omega}\diff \omega'.
+\end{equation}
+Though the details of this derivation are not reproduced herein, the key assumption that must be met is that the susceptibility has no poles in one half plane of the complex $\omega$ plane.  Mathematically, this is equivalent to the function $\chi$ being holomorphic \cite{lucariniKramersKronigRelationsOptical2005}.  If $\chi$ has poles in both half planes, then the sum of residues is non-zero and the KK relations do not apply.  As will be shown later, this can happen in certain physical scenarios.
+
+There were some assumptions that were made in the derivation of the KK relation in equation \ref{eqn:KK_n_beta} that are important to scrutinize because they are not generally true.  The first assumption that was made was using the linear susceptibility $\chi(\omega)$.  By doing so we derived the linear KK relations, and these do not hold true when considering higher order nonlinear optical processes \cite{lucariniKramersKronigRelationsOptical2005, hutchingsKramersKronigRelationsNonlinear1992}.  For a higher order process, it is possible to derive KK relations that link the real and imaginary part, and these relations generally take the form given by
 \begin{equation}
 	\label{eqn:dn_db_KK}
 	\Delta\tilde{n}(\omega, \zeta) = \frac{2\omega}{\pi} \mathrm{PV}\int_{0}^{\infty} \frac{\Delta\tilde{\beta}(\omega',\zeta)}{\omega'^2 - \omega^2} \diff \omega'
 \end{equation}  
 where $\Delta\tilde{n}(\omega, \zeta)$ and $\Delta\tilde{\beta}(\omega,\zeta)$ are the change in the real and imaginary refractive index due to a perturbation $\zeta$ \cite{hutchingsKramersKronigRelationsNonlinear1992, lucariniKramersKronigRelationsOptical2005}.  For an $n$-th order nonlinear process, these changes in the refractive index will generally be proportional to the real and imaginary parts of the $n$-th order nonlinear susceptibility $\chi^{(n)}$ \cite{boydNonlinearOptics2008, lucariniKramersKronigRelationsOptical2005, hutchingsKramersKronigRelationsNonlinear1992}.
 
-Beyond the assumption of the linear susceptibility, another scenario in which the validity of the KK relations must be examined is the case of a pump-probe experiment \cite{tokunagaFemtosecondTimeresolvedDispersion1993, tokunagaFemtosecondContinuumInterferometer1996, lucariniKramersKronigRelationsOptical2005}.  Consider the change in polarization due to the pump pulse given by
+Beyond the assumption of the linear susceptibility, another scenario in which the validity of the KK relations must be examined is the case of a pump-probe experiment \cite{tokunagaFemtosecondTimeresolvedDispersion1993, tokunagaFemtosecondContinuumInterferometer1996, lucariniKramersKronigRelationsOptical2005}.  This was examined both theoretically and experimentally by Tokunaga, et. al. \cite{tokunagaFemtosecondTimeresolvedDispersion1993, tokunagaFemtosecondContinuumInterferometer1996}, and this discussion follows from their example.  Consider the change in polarization due to the pump pulse given by
 \begin{equation}
 	\Delta P(t) = \chi(t)\circledast \big( \mathcal{E}(t) \Delta N(t-\tau)\big) = \int_{0}^{\infty}\chi(t')\mathcal{E}(t-t')\Delta N(t - t' - \tau) \diff t'
 \end{equation}
-where $\Delta N (t-\tau)$ represents the change in the medium due to the pump pulse for a time delay of $\tau$.
+where $\Delta N (t-\tau)$ represents the change in the medium due to the pump pulse for a time delay of $\tau$.  The change in susceptibility now becomes
+\begin{equation}
+	\label{eqn:d_chi}
+	\begin{aligned}
+		\Delta\chi(\omega) &= \tilde{\mathcal{E}}(\omega) \mathcal{F}\big[\Delta P(t)\big] = \tilde{\mathcal{E}}(\omega) \mathcal{F}\big[ \chi(t)\circledast \big( \mathcal{E}(t) \Delta N(t-\tau)\big) \big]\\
+		& = \frac{\chi(\omega)}{\tilde{\mathcal{E}}(\omega)}\int_{-\infty}^{\infty}\mathcal{E}(t)\Delta N (t-\tau) e^{-i\omega t }\diff t.
+	\end{aligned}
+\end{equation}
+The issue with this change in susceptibility is that within the complex plane of $\omega$ it has poles in both half planes because the integration is over all $t$ \cite{tokunagaFemtosecondTimeresolvedDispersion1993, tokunagaFemtosecondContinuumInterferometer1996, lucariniKramersKronigRelationsOptical2005}.  This presents a problem because when we try to derive the KK relations by evaluating the contour integral over the contour shown in figure \ref{fig:KK_contour_pump}, the sum of residuals is no longer zero.  The residue term is problematic because it requires known of the complex function to evaluate the residue, and this means that you no longer have a simple relationship between the real and imaginary parts.  Therefore, the KK relations do not hold for this case.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/CATS/KK_pump.pdf}
+	\caption[Contour used to derive KK relations in the presence of a pump field]{Contour (green) in the complex plane of $\omega$ used to derive the KK relations.  Poles are shown in red.}
+	\label{fig:KK_contour_pump}
+\end{figure}
+
+If some assumptions are made about $\Delta N(t-\tau)$, then the KK relations can be recovered. There are four special cases where this is possible \cite{tokunagaFemtosecondTimeresolvedDispersion1993, tokunagaFemtosecondContinuumInterferometer1996}:
+\begin{itemize}
+	\item $\Delta N(t-\tau)$ is a constant value $\Delta N_0$.  This leads to the change in susceptibility being $\Delta\chi(\omega) = \Delta N_0 \chi(\omega)$. 
+	\item $\mathcal{E}(t)$ is a $\delta$-function $\mathcal{E}_0\delta(t)$.  The change of susceptibility is then $\Delta\chi(\omega) = \Delta N (\tau)\chi(\omega)$.
+	\item $\Delta N(t)=0$ for $t<0$.  The change of susceptibility is then $\Delta\chi(\omega) = \frac{\chi(\omega)}{\tilde{\mathcal{E}}(\omega)}\int_{0}^{\infty}\mathcal{E}(t)\Delta N (t-\tau) e^{-i\omega t }\diff t$, and there are only poles in the lower half plane.
+	\item $\Delta N(t)=0$ for $t>0$.  The change of susceptibility is then $\Delta\chi(\omega) = \frac{\chi(\omega)}{\tilde{\mathcal{E}}(\omega)}\int_{-\infty}^{0}\mathcal{E}(t)\Delta N (t-\tau) e^{-i\omega t }\diff t$, and there are only poles in the upper half plane.
+\end{itemize}
+Each of these special cases allows for the KK relations to be satisfied, however the last case actually means that the KK relations have the opposite sign.  As a demonstration, Tokunaga et. al. experimentally tested these cases by performing a pump/probe experiment using a femtosecond frequency-domain interferometer to simultaneously measure both the real and imaginary parts of the refractive index \cite{tokunagaFemtosecondTimeresolvedDispersion1993}.  What they found was that the KK relations were valid at most delays, however the KK relations were not valid at temporal overlap between their pump and probe pulse.  This can be seen evidently in the data because the real and imaginary parts have the same symmetry, and this clearly violates the KK relations.
+
+The breakdown of the KK relations in certain cases means that they have to be cautiously applied to pump/probe experiments, such as in ATS.  There have been recent experiments that used the Fourier transform implementation of the KK relations \cite{petersonCausalityCalculationsTime1973} to indirectly calculate the real part from the experimentally measured change in absorption \cite{stoossRealTimeReconstructionStrongFieldDriven2018}.  In that case, the KK relations are expected to be valid because their XUV pulse was an IAP (approximately a $\delta$-function), and they limited their investigations to only a single time delay point that corresponded to the IR dressing field arriving after the XUV pulse.  These limitations highlight the challenges that are presented by relying on an indirect calculation to reconstruct the real and imaginary parts.  This is one of the reasons that a direct measurement is generally preferable because there are less assumptions that have to be made about the underlying dynamics that are of interest.  To this end, the CATS technique represents a new method to directly measure both part of the refractive index change, and this will be demonstrated experimentally in the following section.
+
+
+
+
 \section{Complex Attosecond Transient-absorption Spectroscopy of Fano resonances}
 \label{sec:CATS_ar}
+
+Now that the principle behind the CATS technique using a SWPG was established, in this section an experimental demonstration will be discussed.  The system of interest is the same as in Chapter \ref{chap:ATS}, the $np$ Argon Fano resonances in the presence of an IR dressing field. This was done in an effort to examine the same physical scenario using both the traditional ATS method and the new CATS method.
 
 \subsection{Experimental setup}
 \label{sec:CATS_ar_exp_setup}
 
+The experimental setup to demonstrate the CATS method is similar to the setup in Chapter \ref{chap:ATS}, and it is shown schematically in figure \ref{fig:CATS_setup}.  The primary differences between the two setups are the obvious presence of the SWPG to generate two XUV sources and the removal of the second harmonic generation optics that were used for generation of even high harmonics.  The dressing arm of the TABLe interferometer remains unchanged between the two cases, and this allows for dressing of the gas sample with an intensity up 35 TW/cm$^2$ at a wavelength of 1435 nm and a nominal pulse duration of 60 fs. The spot size of the dressing beam is 34 $\mu$m in diameter, and this allows for the dressing of only one of the two XUV sources in that propagate through the gas cell in the target chamber.
+
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/CATS/beamline_schematic_CATS.pdf}
-	\caption[TABLe experimental setup for ATS experiments]{Schematic of the optical setup for the experiments described in this chapter.  \textbf{BS}: Beamsplitter (Thorlabs BSF20-C), \textbf{I$_{1,2}$}: Irises used for alignment. \textbf{DW}: Delay wedges for fine delay control. \textbf{CF}: Color filter (Thorlabs FELH1000). \textbf{HWP}: Half-wave plate. \textbf{WGP}: Wire grid polarizer. \textbf{RR}: Retro reflector for coarse delay adjustment.  \textbf{FM}: Flip mirror. \textbf{TC}: Thermal camera used for alignment.  \textbf{L$_1$}: $f=-300$ mm lens (Thorlabs LF1015-C). \textbf{L$_2$}: $f=500$ mm lens (Thorlabs LA1380-C). \textbf{VW}: Vacuum window, 3 mm CaF$_2$, \textbf{HM}: Hole mirror with 10 mm hole.  \textbf{L$_3$}: $f=-400$ mm lens.  \textbf{L$_4$}: $f=500$ mm lens. \textbf{L$_5$}: $f=400$ mm lens.  \textbf{BBO}: Second-harmonic generation crystal.  \textbf{Cal}: Calcite. \textbf{GS}: Gas source for HHG. \textbf{MF}: Aluminum filter. \textbf{EM}: Ellipsoidal mirror. \textbf{GC}: Gas cell. \textbf{RM}: Removable mirror for \textit{in-situ} diagnotics.    \textbf{ICC}: camera for \textit{in-situ} diagnotics. \textbf{DG}: VLS diffraction grating. \textbf{BB}: Baffles to block zero order diffraction.  \textbf{MCP/P}: Microchannel plate and phosphor.  \textbf{AC}: Andor Neo 5.5 CMOS camera.}
+	\caption[TABLe experimental setup for CATS experiments]{Schematic of the optical setup for the experiments described in this chapter.  Insets show the two-source harmonic generation using the SWPG and the dressing of only one of the two XUV sources by an IR dressing field.  \textbf{BS}: Beamsplitter, \textbf{I$_{1,2}$}: Irises used for alignment. \textbf{DW}: Delay wedges for fine delay control. \textbf{CF}: Color filter. \textbf{HWP}: Half-wave plate. \textbf{WGP}: Wire grid polarizer. \textbf{RR}: Retro reflector for coarse delay adjustment.  \textbf{FM}: Flip mirror. \textbf{TC}: Thermal camera used for alignment.  \textbf{L$_1$}: $f=-300$ mm lens. \textbf{L$_2$}: $f=500$ mm lens. \textbf{VW}: Vacuum window, \textbf{HM}: Hole mirror with 10 mm hole.  \textbf{L$_3$}: $f=-400$ mm lens.  \textbf{L$_4$}: $f=500$ mm lens. \textbf{L$_5$}: $f=400$ mm lens. \textbf{SWPG} $0-\pi$ square-wave phase grating. \textbf{GS}: Gas source for HHG. \textbf{MF}: Aluminum filter. \textbf{EM}: Ellipsoidal mirror. \textbf{GC}: Gas cell. \textbf{RM}: Removable mirror for \textit{in-situ} diagnotics.    \textbf{ICC}: camera for \textit{in-situ} diagnotics. \textbf{DG}: VLS diffraction grating. \textbf{MCP/P}: Microchannel plate and phosphor.  \textbf{AC}: Andor Neo 5.5 CMOS camera.}
 	\label{fig:CATS_setup}
+\end{figure}
+
+In order to dress only one of the two XUV sources in the target chamber, as is shown in the inset of figure \ref{fig:CATS_setup}, the hole mirror is titled to achieve spatial overlap with only one source.  This overlap between the dressing and one XUV sources was verified by placing a camera at the focal plane within the target chamber.  The disadvantage of this method for spatial alignment between the dressing and the XUV source is that there is now an angle introduced between the two wave fronts at the focal plane of the XUV.  This angle is given by
+\begin{equation}
+	\theta = \tan^{-1}\bigg(\frac{\Delta x}{6 D}\bigg) = \tan^{-1}\bigg(\frac{\lambda f}{3 d D}\bigg)
+\end{equation}
+where $\Delta x = 2\lambda f /d$ is the source separation set by the SWPG of period $d$ for a focal length $f$ and $D$ is the distance between the hole mirror at the focal plane of the XUV. For a SWPG period $d=2.5$ mm, a focal length of $f=400$ mm, and a wavelength of 1435 nm, this corresponds to an angle of 0.139 mrad.  This angular deviation between the two wave fronts accounts for a temporal averaging of 213 as between the XUV and the IR pulses.  This averaging could be avoided in future experiments by adjusting the dressing arm focal geometry to translate the beam instead of just pointing it using a single mirror.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/CATS/ref_harmonic_spectrum.pdf}
+	\caption[Reference harmonic spectrum used in CATS experiment]{Reference harmonic spectrum used in CATS experiment with (blue) and without (purple) Ar gas present.}
+	\label{fig:ref_harmonic_spectrum}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/CATS/ref_image_FFT.pdf}
+	\caption[Reference camera image and spatial Fourier transform used in CATS]{(a) Reference image of spectrometer output.  Fringes along the spatial dimensions are due to interference between the two XUV sources generated by the SWPG. (b) Amplitude of Fourier transform along the spatial dimension. Peaks correspond to the spatial frequency of each harmonic order.  Linear dependence of spatial frequency on photon energy is observed.}
+	\label{fig:ref_image_FFT}
 \end{figure}
 
 
 
 \subsection{Results}
 \label{sec:CATS_ar_results}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/CATS/delay_high_low.pdf}
+	\caption[...]{...}
+	\label{fig:delay_high_low}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/CATS/dphi_dod_lineout.pdf}
+	\caption[...]{...}
+	\label{fig:dphi_dod_lineout}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/CATS/dn_kk_lineout.pdf}
+	\caption[...]{...}
+	\label{fig:dn_kk_lineout}
+\end{figure}
 
 
 \section{Conclusion}
