@@ -1,12 +1,48 @@
-\chapter{Design and construction of experimental apparatus}
+\chapter{Transient Absorption Beamline}
 \label{beamline}
 
 \section{Introduction}
 \label{intro_beamline}
+In order to perform the experiments described in this dissertation, it was necessary to construct a purpose-built experimental apparatus, and this is what will be referred to as the Transient Absorption Beamline (TABLe).  The TABLe was designed, constructed, and commissioned with the express intent to perform attosecond transient absorption experiments in the XUV energy range using a HHG source.  The design and capabilities of this beamline is discussed within this Chapter, and further details can be found in Greg Smith's dissertation \cite{smithApplicationAttosecondTechniques2020}.
 
+\section{Laser System}
+\label{sec:laser_system}
+To begin, it is important to describe the laser system that was used for all of the experiments described in this dissertation.  This laser system in question is a commercial system from Spectra-Physics called the Spitfire Ace PA.  It is a titanium-doped sapphire (Ti:Sapph) laser that is based on chirped-pulse amplification (CPA).  A schematic of this CPA system is shown in figure \ref{fig:CPA}.  The first main component is the oscillator, and this is a laser cavity that is designed to produce pulses via mode-locking.  In the Spitfire, this oscillator is acousto-optic mode-locked, and it produces pulses of 10 nJ at repetition rate of 80 MHz with a bandwidth of 25 nm centered at 800 nm.  The next component is a stretcher, which is used to reduce the peak intensity of each pulse before amplification to avoid damaging optics.  Following the stretcher, the next component is the regenerative amplifier (regen).  The regen is a cavity-based amplifier that uses a Pockels cell as a pulse picker to allow a single oscillator pulse into the cavity to be amplified.  The pulse is kept in the cavity for a set number of round trips before it is released, and at this point the pulse is now at the mJ level of pulse energy.  Following this stage of amplification, another stage is required to further amplify the pulse energy, and this is accomplished using single-pass amplifier.  For the Spitfire system, the energy after these amplification stages in 15 mJ at a repetition rate of 1 kHz, however the pulse is still stretched in time.  So, the last component is the compressor, and this uses a diffraction grating to compress the pulse down to the final pulse duration.  After all of these stage, the Spitfire is capable of outputting pulses with a pulse duration of 60 fs and a pulse energy of 12 mJ with a repetition rate of 1 kHz.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/Beamline/CPA.pdf}
+	\caption[Schematic of CPA laser system]{Schematic of CPA laser system}
+	\label{fig:CPA}
+\end{figure}
+
+Many experiments can be done using these 800 nm pulses, however for the experiments described herein, wavelengths longer than 800 nm are required.  To  accomplish this, an optical-parametric amplifier (OPA) is used to convert the 800 nm pulses into longer wavelengths, and this allows for wavelength tunability.  The basic idea of the OPA is to use nonlinear media to convert one larger photon (800 nm pump) into two smaller photons (1200-1600 nm signal and 1600-2400 nm idler) \cite{boydNonlinearOptics2008}.  The OPA used with the Spitfire is a commercial HE-TOPAS Prime from Light-Conversion.  The basic optical layout is shown in figure \ref{fig:OPA}, and consists of an initial white-light continuum generation followed by a series of nonlinear Beta Barium Borate (BBO) crystals.  These BBO crystals are optimized for difference frequency generation to amplify the 1200-1600 nm signal.  After these stages of amplification, the TOPAS can output a combine energy of 6 mJ for the combined signal and idler beams.  The pulse duration of these pulse can vary depending upon alignment and the wavelength selected, however it is generally around 60 fs.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Beamline/OPA.pdf}
+	\caption[Schematic of TOPAS]{Schematic of TOPAS OPA.  The pump beam enters with a pulse energy of 12 mJ before being split three times.  The lowest pulse energy beam is used to generate white light that is used to seed difference frequency generation in the successive BBO crystals.}
+	\label{fig:OPA}
+\end{figure}
 
 \section{Beamline}
 \label{sec:full_beamline}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Beamline/CAD_beamline.pdf}
+	\caption[CAD render of the TABLe]{Render of the Transient Absorption Beamline (TABLe).}
+	\label{fig:CAD_render_TABLe}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Beamline/CAD_beamline_layout.pdf}
+	\caption[CAD render of the TABLe]{CAD render of the TABLe}
+	\label{fig:CAD_render_TABLe_layout}
+\end{figure}
 
 \subsection{XUV Focusing}
 \label{sec:XUV_focusing}
@@ -167,6 +203,13 @@ This measurement can repeated along the k-direction of the XUV beam, and the foc
 
 \begin{figure}
 	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Beamline/CAD_spectrometer.pdf}
+	\caption[CAD render of the TABLe spectrometer]{Render of the spectrometer}
+	\label{fig:CAD_spectrometer}
+\end{figure}
+
+\begin{figure}
+	\centering
 	\includegraphics[width=0.9\textwidth]{figures/Beamline/Hitachi.pdf}
 	\caption{INCOMPLETE: VLS gratings}
 	\label{fig:Hitachi_gratings}
@@ -196,12 +239,12 @@ This measurement can repeated along the k-direction of the XUV beam, and the foc
 	\label{fig:first_second_order}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Beamline/line_matching_first_and_second.png}
-	\caption{INCOMPLETE: line matching}
-	\label{fig:line_matching}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.9\textwidth]{figures/Beamline/line_matching_first_and_second.png}
+%	\caption{INCOMPLETE: line matching}
+%	\label{fig:line_matching}
+%\end{figure}
 
 \begin{figure}
 	\centering
