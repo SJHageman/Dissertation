@@ -12,11 +12,11 @@ To begin, it is important to describe the laser system that was used for all of 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Beamline/CPA.pdf}
-	\caption[Schematic of CPA laser system]{Schematic of CPA laser system}
+	\caption[Schematic of CPA laser system]{Schematic of CPA laser system. Adapted from \cite{kiesewetterDynamicsNearThresholdAttosecond2019}. }
 	\label{fig:CPA}
 \end{figure}
 
-Many experiments can be done using these 800 nm pulses, however for the experiments described herein, wavelengths longer than 800 nm are required.  To  accomplish this, an optical-parametric amplifier (OPA) is used to convert the 800 nm pulses into longer wavelengths, and this allows for wavelength tunability.  The basic idea of the OPA is to use nonlinear media to convert one larger photon (800 nm pump) into two smaller photons (1200-1600 nm signal and 1600-2400 nm idler) \cite{boydNonlinearOptics2008}.  The OPA used with the Spitfire is a commercial HE-TOPAS Prime from Light-Conversion.  The basic optical layout is shown in figure \ref{fig:OPA}, and consists of an initial white-light continuum generation followed by a series of nonlinear Beta Barium Borate (BBO) crystals.  These BBO crystals are optimized for difference frequency generation to amplify the 1200-1600 nm signal.  After these stages of amplification, the TOPAS can output a combine energy of 6 mJ for the combined signal and idler beams.  The pulse duration of these pulse can vary depending upon alignment and the wavelength selected, however it is generally around 60 fs.
+Many experiments can be done using these 800 nm pulses, however for the experiments described herein, wavelengths longer than 800 nm are required.  To  accomplish this, an optical-parametric amplifier (OPA) is used to convert the 800 nm pulses into longer wavelengths, and this allows for wavelength tunability.  The basic idea of the OPA is to use nonlinear media to convert one larger photon (800 nm pump) into two smaller photons (1200-1600 nm signal and 1600-2400 nm idler) \cite{boydNonlinearOptics2008}.  The OPA used with the Spitfire is a commercial HE-TOPAS Prime from Light-Conversion.  The basic optical layout is shown in figure \ref{fig:OPA}, and consists of an initial white-light continuum generation followed by a series of nonlinear Beta Barium Borate (BBO) crystals.  These BBO crystals are optimized for difference frequency generation to amplify the 1200-1600 nm signal.  After these stages of amplification, the TOPAS can output a combine energy of 6 mJ for the combined signal and idler beams.  The pulse duration of these pulse can vary depending upon alignment and the wavelength selected, however it is generally around 60 fs. An example of a typical pulse in both intensity and spectrum is shown in figure \ref{fig:TOPAS_FROG}.  This was measured using a standard second-harmonic generation FROG setup \cite{trebinoFrequencyresolvedOpticalGating2000}.
 
 \begin{figure}
 	\centering
@@ -24,28 +24,126 @@ Many experiments can be done using these 800 nm pulses, however for the experime
 	\caption[Schematic of TOPAS]{Schematic of TOPAS OPA.  The pump beam enters with a pulse energy of 12 mJ before being split three times.  The lowest pulse energy beam is used to generate white light that is used to seed difference frequency generation in the successive BBO crystals.}
 	\label{fig:OPA}
 \end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Beamline/TOPAS_FROG.pdf}
+	\caption[Intensity and spectrum of TOPAS output for 1430 nm]{(a) Intensity profile of TOPAS output for a signal wavelength of 1430 nm. (b) Spectrum of TOPAS output for the same wavelength.}
+	\label{fig:TOPAS_FROG}
+\end{figure}
 
-\section{Beamline}
+\section{Beamline Design}
 \label{sec:full_beamline}
-
-
+To begin discussion of the design of the TABLe, it is important to lay out the requirements that needed to be met when designing the apparatus. The primary common feature all of the experiments that use TABLe is that they will involve XUV pulses that have bandwidth between 26 and 300 eV.  One of the challenges of working with wavelengths in this XUV region is that they require the use of high vacuum systems to perform most experiments.  The fundamental reason for this is due the fact that these wavelengths are ionizing radiation, and they will be quickly absorbed in air.  For example, at 50 eV the attenuation length\footnote{Attenuation length is given by the length that the intensity fall to $1/e$ as the beam propagates through a medium.} is approximately only 50 $\mu$m for N$_2$ at 760 Torr \cite{henkeLowenergyXrayInteraction1982}.  Therefore, experiments must be performed in vacuum chambers generally in the high vacuum regime below $10^-6$ Torr.  An additional requirement is that these experiments are generally pump/probe experiments where the XUV pulse serves as either the pump or the probe and the other role is fulfilled by an IR pulse.  Thus, an interferometer is required where an input IR beam is split into two arms, one of which will have XUV generated in it.  A final requirement is that the beamline needs to be able to accommodate different end stations.  This is a critical feature because it greatly expands the capabilities of the apparatus beyond the initial experiments that the TABLe was commissioned for, namely transient absorption experiments.
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/Beamline/CAD_beamline.pdf}
-	\caption[CAD render of the TABLe]{Render of the Transient Absorption Beamline (TABLe).}
+	\caption[Render of the TABLe]{Render of the Transient Absorption Beamline (TABLe).  The main vacuum chambers are highlighted.}
 	\label{fig:CAD_render_TABLe}
 \end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Beamline/CAD_beamline_top_view.pdf}
+	\caption[Top-view render of the TABLe]{Top-view render of the Transient Absorption Beamline (TABLe).  The main vacuum chambers are highlighted, as well as the generation layout of the interferometer with the dressing and XUV arms.  Further details of the exact optical layout can be found in figure \ref{fig:beampath_sketch}.}
+	\label{fig:CAD_beamline_top_view}
+\end{figure}
 
+The final design of the TABLe is shown in figure \ref{fig:CAD_render_TABLe}, and a top-view of the beamline with a rough schematic of the interferometer is shown in figure \ref{fig:CAD_beamline_top_view}. There are many details about the design and construction that will be left out of this dissertation, however they can be found in great abundance in Greg Smith's dissertation \cite{smithApplicationAttosecondTechniques2020}.  With that being said, the general structure of the vacuum system will be described first, and this consists of several main sections.  The first being the generation chamber which contains the gas source used for HHG.  This chamber is capable of accommodating a variety of gas sources consisting of continuous gas jets, pulsed gas jets, low pressure gas cells, and high pressure gas cells.  Each experiment has different requirements and focal geometries that make any one of these options more advantageous than the others, however the two options that will be used in this dissertation are the high pressure cell and the pulsed gas jet.  The details of the high pressure cell can be found in \cite{smithApplicationAttosecondTechniques2020}.  A picture of the high pressure cell with a laser filament going through it is shown in figure \ref{fig:HPGC_filament}.  The distinguishing feature of the high pressure cell is its ability to achieve interaction pressures up to several bar of interaction pressure through the use of a pair concentric tubes that the allow for differential pumping.  The primary disadvantages are the difficulty in initial alignment and the restrictive set of four holes that the laser must propagate through.  This make the high pressure cell untenable fo some experiments, such as those described in Chapters \ref{chap:two_source}, \ref{chap:refractive_index}, and \ref{chap:CATS}.  An alternative to the gas cell is the pulsed gas jet.  This work by using a piezoelectric actuator to block gas from exiting a gas nozzle and only let out a pulse of gas at a fixed frequency and duty cycle.  This operation mode means that the average background pressure of within the vacuum is lower than just a simple continuous gas jet operation, but the interaction pressure can be the same.  A picture of the pulsed jet in operation is shown in figure \ref{fig:piezo_jet}.
+\label{sec:gas_source}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/Beamline/HPGC.pdf}
+	\caption[Image of laser passing through HPGC]{Camera image of IR laser filament pass through the high-pressure gas cell (HPGC) during alignment at atmospheric conditions.}
+	\label{fig:HPGC_filament}
+\end{figure}
+
+
+Following a differential pumping section section, there is a metallic filter assembly.  This is used to place a metallic filter that is generally on the order of a few hundred nanometers into the beam path of the XUV.  The primary reason for this is to block the co-propagating IR field that is used to generate the XUV pulse.  However, it can also be used to shape the spectrum and phase of the XUV pulse to suit the experimental requirements \cite{chiniGenerationCharacterizationApplications2014}.  The transmission function of three of the most common filter materials is shown in figure \ref{fig:filters}.  As can be clearly seen, different materials have significantly different bandpass windows, and this is due to each elements atomic stucture and what energy the core level transitions occur at.  For example, Al is the filter that is most commonly used for these experiments, and it transmits reasonably well below the $L$-edge which occurs at 72.3 eV, however it strongly absorbs above this energy.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Beamline/filters.pdf}
+	\caption[Transmission of several metallic filters]{Transmission as a function of photon energy for several metallic filters.  All filters are 200 nm thick.}
+	\label{fig:filters}
+\end{figure}
+
+The next main section of the TABLe that must be described is the mirror chamber.  This section houses the primary XUV focusing optic, the ellipsoidal mirror.  Again, much greater detail can be found in \cite{smithApplicationAttosecondTechniques2020}, however the key features of this special optic will be discussed here.  A significant challenge with working in this energy range is the lack of efficient and broadband optics.  This is due to the strong absorption by most materials when they are used near normal incidence.  There are two main methods that have been employed to overcome this: grazing incidence optics or multilayer optics \cite{attwoodSoftXraysExtreme2000}.  Each have their advantages and disadvantages, but generally grazing incidence optics operate over a much larger bandwidth.  This was a key design criteria for the TABLe, so a grazing incidence optic was selected to refocus the XUV beam.  There are several designs that can be used to refocus a beam using a grazing incidence optics, and the one that was selected was the ellipsoidal mirror.  The significant advantage of this type of optic is that is can reimage a point source abberation free with demagnification.  The geometric optics principle behind this is highlighted in figure \ref{fig:ellipsoid}.  The ellipsoid that was chosen for the TABLe has an entrance arm of 2250 mm and an exit arm of 750 mm, thus giving a demagnification of 3.  This allows for smaller XUV spot sizes to be used.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/Beamline/ellipsoid.pdf}
+	\caption[Schematic of ellipsoidal mirror]{Schematic of ellipsoidal mirror.  From geometric optics, the ellipsoidal mirror will focus all rays from a point source at one foci of the ellipse to the other foci.  The ratio of the exit arm to the entrance arm is the magnification provided by the mirror.}
+	\label{fig:ellipsoid}
+\end{figure}
+
+The next major section of the TABLe is the target chamber.  As the name implies, this is where the sample of interest for an experiment is placed.  This chamber is capable of housing both condensed matter samples in the form of free standing membranes and a gas cell to perform gas phase measurements.  The two configurations that the target chamber can operate in is shown in figure \ref{fig:gas_solid_sample_holder}. 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Beamline/gas_solid_sample_holder.pdf}
+	\caption[Camera image of target gas cell and condensed matter sample holder]{(a) Camera image of the gas cell used for gas phase experiments. Two sources IR sources are generating a filament. Image was taken while chamber was vented and at ambient pressure. (b) Camera image of the condensed matter sample holder.  This was taken \textit{in-situ} while under vacuum.  The sample holder is generally configured to carry six condensed matter samples (CMS), one BBO to find temporal overlap, and one empty frame to perform knife-edge measurements.  The IR/XUV beams propagate into the page for this image.}
+	\label{fig:gas_solid_sample_holder}
+\end{figure}
+
+Finally, the last major component of the TABLe that needs to be discussed is the photon spectrometer.  This home-built spectrometer was commissioned to perform the experiments described in this dissertation as well as those described in \cite{smithApplicationAttosecondTechniques2020}.  The design criteria that this spectrometer had to meet was that it had to be a high resolution spectrometer that can cover a spectral range from 20 eV all the way through the Carbon $K$-edge at 284 eV.  This was chosen because of eventual plans to perform transient absorption experiments in the water-window at the Carbon $K$-edge, while still maintaining the ability to do more reasonable experiments at lower photon energies in the 20 - 100 eV range.
+
+This is a massive bandwidth to cover with high resolution, so the decision was made to use two different grating to cover this full spectral range.  The gratings that were selected are concave spherical variable line spaced (VLS) gratings produced by Hitachi.  A schematic of the grating is shown in figure \ref{fig:Hitachi_gratings}, and the relevant design parameters for the gratings are given in table \ref{tab:vls_gratings}.  The advantage of a VLS grating design is that they combine the focusing and dispersive optics that are generally needed into a single optic that performs both functions.  Furthermore, these gratings are designed to focus a specific spectral bandwidth onto a plane (as opposed to the typical Rowland circle \cite{pedrottiIntroductionOptics2007}), and this means that a large bandwidth can be in focus on a detector at a single position.  This can be seen in figure \ref{fig:VLS_flat_field} where the focal plane for a range of wavelengths is shown for both grating. 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/Beamline/CAD_beamline_layout.pdf}
-	\caption[CAD render of the TABLe]{CAD render of the TABLe}
-	\label{fig:CAD_render_TABLe_layout}
+	\includegraphics[width=0.8\textwidth]{figures/Beamline/Hitachi.pdf}
+	\caption[Schematic of VLS grating]{Schematic of VLS grating with the design parameters $r$ (distance from slit to center of grating), $r'$ (distance from center of grating to image plane), and $L$ (the length of the spectral range that is in focus between $\lambda_1$ and $\lambda_2$).}
+	\label{fig:Hitachi_gratings}
 \end{figure}
 
-\subsection{XUV Focusing}
-\label{sec:XUV_focusing}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline\hline
+		lines/mm & \begin{tabular}[c]{@{}c@{}}Blaze \\ $\lambda$ {[}nm{]}\end{tabular} & $\alpha$ & r {[}mm{]} & r' {[}mm{]} & $\beta_1$ & $\beta_2$ & $\lambda_1$-$\lambda_2$ \\ \hline
+		1200     & 10                                                                  & 87       & 237        & 235.3       & -83.04    & -77.07    & 5-20                    \\ \hline
+		2400     & 1.5                                                                 & 88.7     & 237        & 235.3       & -85.81    & -81.01    & 1-5                     \\ \hline\hline
+	\end{tabular}
+	\caption[Parameters of Hitachi VLS gratings]{Parameters of Hitachi VLS gratings.}
+	\label{tab:vls_gratings}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Beamline/CAD_spectrometer.pdf}
+	\caption[CAD render of the TABLe spectrometer]{Render of the spectrometer}
+	\label{fig:CAD_spectrometer}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Beamline/VLS_flat_field.pdf}
+	\caption[Renders of the photon spectrometer]{Renders of the photon spectrometer. (a) Shows side of spectrometer and highlights the 6-axis control over the position and orientation of the VLS gratings.  (b) Shows top-view of the spectrometer.  Major components of the spectrometer are labeled.}
+	\label{fig:VLS_flat_field}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Beamline/variable_flat_field.pdf}
+	\caption{INCOMPLETE: VLS gratings}
+	\label{fig:variable_flat_field}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Beamline/grating_efficiency.pdf}
+	\caption{INCOMPLETE: VLS gratings}
+	\label{fig:grating_efficiency}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/Two_source/MCP_ts_harmonics.png}
+	\caption[Image of phosphor output of high harmonics generated from two sources]{Camera image of the output of the phosphor screen.  Harmonics are visible by eye.}
+	\label{fig:MCP_ts_harmonics}
+\end{figure}
+
+
+
+\section{Optical layout}
+\label{sec:optical_layout}
 
 \begin{sidewaysfigure}
 	\centering
@@ -179,65 +277,32 @@ This measurement can repeated along the k-direction of the XUV beam, and the foc
 	\label{fig:xuv_focus}
 \end{figure}
 
-\subsection{Spatial and Temporal Overlap}
-\label{sec:temporal_overlap}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Beamline/Overlap_camera.png}
-	\caption{INCOMPLETE: Autocorrelation to find temporal overlap.}
-	\label{fig:fine_scan_temporal_overlap}
-\end{figure}
 
-\subsection{Gas Sources for HHG}
-\label{sec:gas_source}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Beamline/high_pressure_cell_filament.jpg}
-	\caption{INCOMPLETE: HPGC filament}
-	\label{fig:HPGC_filament}
-\end{figure}
 
-\section{Photon Spectrometer}
-\label{sec:photon_spec}
+%\section{Spectrometer Calibration}
+%\label{subsec:spec_calibration}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=1.0\textwidth]{figures/Beamline/CAD_spectrometer.pdf}
-	\caption[CAD render of the TABLe spectrometer]{Render of the spectrometer}
-	\label{fig:CAD_spectrometer}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.9\textwidth]{figures/Beamline/first_to_third_order_diffraction.png}
+%	\caption{INCOMPLETE: multiple diffraction orders}
+%	\label{fig:first_to_thirds_order}
+%\end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Beamline/Hitachi.pdf}
-	\caption{INCOMPLETE: VLS gratings}
-	\label{fig:Hitachi_gratings}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.9\textwidth]{figures/Beamline/Count_Fit_Scale.pdf}
+%	\caption{INCOMPLETE: count fit scale scheme}
+%	\label{fig:count_fit_scale_scheme}
+%\end{figure}
 
-\subsection{Spectrometer Calibration}
-\label{subsec:spec_calibration}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Beamline/first_to_third_order_diffraction.png}
-	\caption{INCOMPLETE: multiple diffraction orders}
-	\label{fig:first_to_thirds_order}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Beamline/Count_Fit_Scale.pdf}
-	\caption{INCOMPLETE: count fit scale scheme}
-	\label{fig:count_fit_scale_scheme}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Beamline/first_second_order_spectrum.png}
-	\caption{INCOMPLETE: multiple diffraction orders}
-	\label{fig:first_second_order}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.9\textwidth]{figures/Beamline/first_second_order_spectrum.png}
+%	\caption{INCOMPLETE: multiple diffraction orders}
+%	\label{fig:first_second_order}
+%\end{figure}
 
 %\begin{figure}
 %	\centering
@@ -246,38 +311,26 @@ This measurement can repeated along the k-direction of the XUV beam, and the foc
 %	\label{fig:line_matching}
 %\end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Beamline/harmonic order vs pixel.png}
-	\caption{INCOMPLETE: harmonic order vs pixel}
-	\label{fig:harm_order_vs_pixel}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.9\textwidth]{figures/Beamline/harmonic order vs pixel.png}
+%	\caption{INCOMPLETE: harmonic order vs pixel}
+%	\label{fig:harm_order_vs_pixel}
+%\end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Beamline/He_plasma_line_spectrum.png}
-	\caption{INCOMPLETE: he plasma lines}
-	\label{fig:He_plasma_lines}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.9\textwidth]{figures/Beamline/He_plasma_line_spectrum.png}
+%	\caption{INCOMPLETE: he plasma lines}
+%	\label{fig:He_plasma_lines}
+%\end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Beamline/He_plamsa_line_comparison.png}
-	\caption{INCOMPLETE: he plasma lines comparison}
-	\label{fig:plamsa_line_comparison}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.9\textwidth]{figures/Beamline/He_plamsa_line_comparison.png}
+%	\caption{INCOMPLETE: he plasma lines comparison}
+%	\label{fig:plamsa_line_comparison}
+%\end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/Two_source/MCP_ts_harmonics.png}
-	\caption[Image of phosphor output of high harmonics generated from two sources]{Camera image of the output of the phosphor screen.  Harmonics are visible by eye.}
-	\label{MCP_ts_harmonics}
-\end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Two_source/ts_filament_gas_cell.png}
-	\caption[Camera image of filaments generated by two sources passing through a gas cell]{Camera image of two sources generating a filament in a gas cell. Image was taken while chamber was vented and at ambient pressure.}
-	\label{ts_filament}
-\end{figure}
 
