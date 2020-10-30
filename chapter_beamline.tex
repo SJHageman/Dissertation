@@ -51,7 +51,7 @@ The final design of the TABLe is shown in figure \ref{fig:CAD_render_TABLe}, and
 \label{sec:gas_source}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/Beamline/HPGC.pdf}
+	\includegraphics[width=0.6\textwidth]{figures/Beamline/HPGC.pdf}
 	\caption[Image of laser passing through HPGC]{Camera image of IR laser filament pass through the high-pressure gas cell (HPGC) during alignment at atmospheric conditions.}
 	\label{fig:HPGC_filament}
 \end{figure}
@@ -83,16 +83,25 @@ The next major section of the TABLe is the target chamber.  As the name implies,
 
 Finally, the last major component of the TABLe that needs to be discussed is the photon spectrometer.  This home-built spectrometer was commissioned to perform the experiments described in this dissertation as well as those described in \cite{smithApplicationAttosecondTechniques2020}.  The design criteria that this spectrometer had to meet was that it had to be a high resolution spectrometer that can cover a spectral range from 20 eV all the way through the Carbon $K$-edge at 284 eV.  This was chosen because of eventual plans to perform transient absorption experiments in the water-window at the Carbon $K$-edge, while still maintaining the ability to do more reasonable experiments at lower photon energies in the 20 - 100 eV range.
 
-This is a massive bandwidth to cover with high resolution, so the decision was made to use two different grating to cover this full spectral range.  The gratings that were selected are concave spherical variable line spaced (VLS) gratings produced by Hitachi.  A schematic of the grating is shown in figure \ref{fig:Hitachi_gratings}, and the relevant design parameters for the gratings are given in table \ref{tab:vls_gratings}.  The advantage of a VLS grating design is that they combine the focusing and dispersive optics that are generally needed into a single optic that performs both functions.  Furthermore, these gratings are designed to focus a specific spectral bandwidth onto a plane (as opposed to the typical Rowland circle \cite{pedrottiIntroductionOptics2007}), and this means that a large bandwidth can be in focus on a detector at a single position.  This can be seen in figure \ref{fig:VLS_flat_field} where the focal plane for a range of wavelengths is shown for both grating. 
-
+This is a massive bandwidth to cover with high resolution, so the decision was made to use two different grating to cover this full spectral range.  The gratings that were selected are concave spherical variable line spaced (VLS) gratings produced by Hitachi.  A schematic of the grating is shown in figure \ref{fig:Hitachi_gratings}, and the relevant design parameters for the gratings are given in table \ref{tab:vls_gratings}.  The advantage of a VLS grating design is that they combine the focusing and dispersive optics that are generally needed into a single optic that performs both functions.  Furthermore, these gratings are designed to focus a specific spectral bandwidth onto a plane (as opposed to the typical Rowland circle \cite{rowlandConcaveGratingsOptical1883, pedrottiIntroductionOptics2007}), and this means that a large bandwidth can be in focus on a detector at a single position.  This can be seen in figure \ref{fig:VLS_flat_field} where the focal plane for a range of wavelengths is shown for both grating. This is calculated using the relationship between the entrance $r$ and exit arm $r'$ at an incidence angle $\theta_i$ is given by
+\begin{equation}
+	r' = \frac{r R (\cos\theta_r)^2}{m\lambda\sigma_0 b_2 + r(\cos\theta_i + \cos\theta_r) - R(\cos\theta_i)^2}
+\end{equation}
+where $R$ is the radius of curvature, $m$ is the diffraction order, $\theta_r$ is given by
+\begin{equation}
+	\sin\theta_i + \sin\theta_r = m\sigma\lambda,
+\end{equation}
+and $b_2$, $\sigma$, $\sigma_0$ are given by 
+\begin{equation}
+	\sigma(w) = \frac{\sigma_0}{1 + \frac{2b_2}{R}w + \frac{3b_3}{R^2}w^2 + \frac{4b_4}{R^3}w^3 + ...}
+\end{equation}
+which is the groove density along the face of the grating $w$ \cite{polettoGrazingincidenceFlatfieldSpectrometer2001, haradaMechanicallyRuledAberrationcorrected1980, haradaOptimumDesignGrazingincidence1999}.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Beamline/Hitachi.pdf}
 	\caption[Schematic of VLS grating]{Schematic of VLS grating with the design parameters $r$ (distance from slit to center of grating), $r'$ (distance from center of grating to image plane), and $L$ (the length of the spectral range that is in focus between $\lambda_1$ and $\lambda_2$).}
 	\label{fig:Hitachi_gratings}
 \end{figure}
-
-
 \begin{table}[]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -107,38 +116,43 @@ This is a massive bandwidth to cover with high resolution, so the decision was m
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/Beamline/CAD_spectrometer.pdf}
-	\caption[CAD render of the TABLe spectrometer]{Render of the spectrometer}
-	\label{fig:CAD_spectrometer}
-\end{figure}
-
-\begin{figure}
-	\centering
 	\includegraphics[width=0.9\textwidth]{figures/Beamline/VLS_flat_field.pdf}
-	\caption[Renders of the photon spectrometer]{Renders of the photon spectrometer. (a) Shows side of spectrometer and highlights the 6-axis control over the position and orientation of the VLS gratings.  (b) Shows top-view of the spectrometer.  Major components of the spectrometer are labeled.}
+	\caption[Flat field of VLS gratings]{Flat fields of the two VLS grating that comprise the photon spectrometer.  The $x$ axis is parallel to the face of the grating, and the $y$ axis is perpendicular to the grating face.  The center of the grating is located at (0,0).  Incidence angle and entrance arm are those provided in table \ref{tab:vls_gratings}.}
 	\label{fig:VLS_flat_field}
 \end{figure}
 
+Another design criteria for this spectrometer was that it had to be able to be used on a variety of different systems.  The modular design of the TABLe meant that this spectrometer could be removed from the TABLe and brought to a different light source.  This entails that the entrance arm could be different from the one specified by the manufacturer depending upon the system that is installed in.  To account for this change in entrance arm, the angle of the grating can be changed from the specified one to recover the flat field condition.  This can be seen for both gratings in figure \ref{fig:variable_flat_field}.  Of course, one issue with this approach is that even though the flat field can be recovered, the grating efficiency changes as a function of angle.  This can be done numerically, and there are many packages available to perform these calculations. The grating efficiency for the 1200 lines/mm grating was calculated in \cite{hageDevelopmentXUVSpectrometer}, and the results are shown in figure \ref{fig:grating_efficiency}.  As can be clearly seen, the efficiency changes non-trivially as a function of grazing angle for a given wavelength.  Thus, depending upon the position of the detector and the photon energy of interest, there is a different incident angle that can be selected to optimize the grating efficiency.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/Beamline/variable_flat_field.pdf}
-	\caption{INCOMPLETE: VLS gratings}
+	\caption[Flat field of both VLS gratings as a function of input angle]{Flat field calculated as a function of incident angle for an entrance arm of 1.5 m.  The flat field for the manufacturers specified entrance arm of 0.237 m is shown in black. (a) is for the 1200 lines/mm VLS grating and (b) is for the 2400 lines/mm VLS grating. }
 	\label{fig:variable_flat_field}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/Beamline/grating_efficiency.pdf}
-	\caption{INCOMPLETE: VLS gratings}
+	\caption[VLS grating efficiency as a function of incident angle and photon energy]{VLS grating efficiency as a function of grazing angle and photon energy.  Shown as a series of line outs in (a) and as an interpolated heat map in (b).  Data is obtained from \cite{hageDevelopmentXUVSpectrometer}.}
 	\label{fig:grating_efficiency}
+\end{figure}
+
+Now it is time to move on to the actual design of the spectrometer, and a render of the spectrometer is shown in figure \ref{fig:CAD_spectrometer}. This design has the capability to switch between the two diffraction gratings while under vacuum through the use of 6-axis motorized control.  The detector consists of a 75 mm imaging quality micro-channel plate (MCP) and phosphor.  The output of the phosphor is reimaged onto a CMOS Andor Neo 5.5 camera.  The MCP was selected over a direct detection XUV CCD camera because of the much larger detector area that can be achieved using a MCP. To position this detector along the focal plane for each grating, a custom manipulator was developed, and this manipulator is referred to as the cage and crank.  It consists of three screws that allow for the tilt and translation of the detector while the chamber is under vacuum.  This allows for optimization of the resolution in different parts of the harmonic spectrum based upon the experimental needs.  An example of the phosphor output is shown in figure \ref{fig:MCP_ts_harmonics} for a case where the phosphor emission was bright enough that it could be easily seen by eye.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/Beamline/CAD_spectrometer.pdf}
+	\caption[CAD render of the TABLe spectrometer]{Render of the spectrometer}
+	\label{fig:CAD_spectrometer}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/Two_source/MCP_ts_harmonics.png}
+	\includegraphics[width=0.5\textwidth]{figures/Two_source/MCP_ts_harmonics.png}
 	\caption[Image of phosphor output of high harmonics generated from two sources]{Camera image of the output of the phosphor screen.  Harmonics are visible by eye.}
 	\label{fig:MCP_ts_harmonics}
 \end{figure}
+
+
+
 
 
 
