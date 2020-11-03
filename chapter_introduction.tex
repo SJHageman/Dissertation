@@ -2,23 +2,38 @@
 \label{chap:Intro}
 
 
-\section{Motivation}
+\section{Ultrafast Science}
 
-Since the discovery of the laser \cite{schawlowInfraredOpticalMasers1958, maimanStimulatedOpticalRadiation1960}, and the subsequent demonstration of nonlinear optics \cite{frankenGenerationOpticalHarmonics1961}
+Since the discovery of the laser \cite{schawlowInfraredOpticalMasers1958, maimanStimulatedOpticalRadiation1960} and the subsequent demonstration of nonlinear optics \cite{frankenGenerationOpticalHarmonics1961, armstrongInteractionsLightWaves1962}, one of the areas that has seen a great amount of interest is the use of lasers to study the dynamics of various systems.  This is generally done by taking advantage of the ability to create a pulsed laser.  This occurs when the spectral phase and amplitude of a laser coherently combines to create an intense burst of light as a function of time.  As an example, a typical approximation is to assume that the electric field $\mathcal{E}(t)$ can be written as a Gaussian, such as
+\begin{equation}
+	\label{eqn:gaussian_pulse}
+	\mathcal{E}(t) = \mathcal{E}_0 e^{-2\ln 2(\frac{t}{\Delta t})^2}\cos(\omega_0 t + \theta(t))
+\end{equation}
+where $\Delta t$ is the pulse duration, $\omega_0$ is the carrier frequency, and $\theta(t)$ determines the temporal relationship between the frequency components that are within the pulse bandwidth.  An example of just such a pulse shape is shown in figure \ref{fig:gaussian_pulse} in both time and frequency, and it can be shown that the pulse duration $\Delta t$ is inversely proportional to the spectral bandwidth $\Delta\omega$.  This entails that larger bandwidths are required to achieve shorter transform limited pulse durations.
+
+The need for shorter duration pulses is shown in figure \ref{fig:Pulse_duration}.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Introduction/gaussian_pulse.pdf}
+	\caption[Example of a typical Gaussian pulse in time and frequency]{Example of a typical Gaussian pulse in time (a) and frequency (b).  The pulse duration $\Delta t$ and the spectral bandwidth $\Delta\omega$ are shown, as well as the relationship between them.}
+	\label{fig:gaussian_pulse}
+\end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/Introduction/Pulse_duration.pdf}
-	\caption[Recollision model of high harmonic generation]{Recollision model of high harmonic generation.  The three steps are (1) tunnel ionization, (2) propagation/accelaration in the laser field, and (3) recombination and photoemission.}
-	\label{fig:pulse_duartion}
+	\caption[Recollision model of high harmonic generation]{Recollision model of high harmonic generation.  The three steps are (1) tunnel ionization, (2) propagation/acceleration in the laser field, and (3) recombination and photoemission.}
+	\label{fig:Pulse_duration}
 \end{figure}
 
-\section{HHG and APT}
+\section{High-Harmonic Generation}
 \label{intro_HHG}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Introduction/3-step.pdf}
+	\includegraphics[width=1.0\textwidth]{figures/Introduction/3-step.pdf}
 	\caption[Recollision model of high harmonic generation]{Recollision model of high harmonic generation.  The three steps are (1) tunnel ionization, (2) propagation/accelaration in the laser field, and (3) recombination and photoemission.}
 	\label{fig:3-step}
 \end{figure}
@@ -31,7 +46,7 @@ Since the discovery of the laser \cite{schawlowInfraredOpticalMasers1958, maiman
 \end{figure}
 
 
-\section{CATS: real and imaginary}
+\section{Transient Absorption Spectroscopy}
 \label{into_theory_cats}
 
 \begin{figure}
