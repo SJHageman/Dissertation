@@ -14,7 +14,7 @@ A common difficulty in working with extreme ultraviolet (XUV) light is the lack 
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!COME BACK TO THIS SECTION LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-In many experimental designs, it is advantageous to be able to shape the spatial intensity distribution of light to be something other than a typical Gaussian beam.  A common example of this is generating a beam with an approximately constant intensity across it's spatial profile (a flat-top beam).  For the experiments described herein, we will be interested in duplicating an input beam with relative phase control between the two duplicate beams.  Both of these examples are part of the general concept of laser beam shaping.  The challenge is to design an optical system such that given an input beam profile $I_{in}(x,y)$ we can generate the desired output beam profile $I_{out}(x,y)$. Ideally, this optical system is designed in such a way that it can be nearly lossless.  The relevant optical system which will be discussed in this chapter is shown in figure \ref{fig:beam_shaping_scheme}.  The system consists of a phase element which modifies the phase of the input field by $\phi(x,y)$ and a Fourier transform lens which adds a quadratic phase to the beam to focus it at the focal plane.  By appropriate choice of the phase profile of the phase element, one can produce the desired beam profile at the focal plane.
+In many experimental designs, it is advantageous to be able to shape the spatial intensity distribution of light to be something other than a typical Gaussian beam.  A common example of this is generating a beam with an approximately constant intensity across its spatial profile (a flat-top beam).  For the experiments described herein, we will be interested in duplicating an input beam with relative phase control between the two duplicate beams.  Both of these examples are part of the general concept of laser beam shaping.  The challenge is to design an optical system such that given an input beam profile $I_{in}(x,y)$ we can generate the desired output beam profile $I_{out}(x,y)$. Ideally, this optical system is designed in such a way that it can be nearly lossless.  The relevant optical system which will be discussed in this chapter is shown in figure \ref{fig:beam_shaping_scheme}.  The system consists of a phase element which modifies the phase of the input field by $\phi(x,y)$ and a Fourier transform lens which adds a quadratic phase to the beam to focus it at the focal plane.  By appropriate choice of the phase profile of the phase element, one can produce the desired beam profile at the focal plane.
 
 
 \begin{figure}
@@ -32,24 +32,24 @@ This problem can be theoretically described in terms of Fourier optics \cite{dic
 \end{equation}
 where $u(\xi,\eta,0)$ is the incoming field and $k=2\pi/\lambda$ is the wavenumber.  Now, if one assumes that the phase element is placed at $z=0$, then immediately after passing through the thin phase element in Fig. \ref{fig:beam_shaping_scheme} the field is given by
 \begin{equation}
-	u(\xi,\eta,0)=f(\xi,\eta)e^{i\phi(\xi,\eta)}.
+	u(\xi,\eta,0)=F(\xi,\eta)e^{i\phi(\xi,\eta)}.
 \end{equation} 
 After propagating through the thin Fourier transform lens of focal length $f$, a phase of $k(\xi^2\eta^2)/2f$ is added to the beam, and the field at the focal plane is now given by
 \begin{equation}
 \label{eqn:field_at_focus}
-	u(x,y,f)=\frac{ik}{2\pi f}e^{ikf}e^{ik(x^2+y^2)/2f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(\xi,\eta)e^{i\phi(\xi,\eta)}
+	u(x,y,f)=\frac{ik}{2\pi f}e^{ikf}e^{ik(x^2+y^2)/2f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}F(\xi,\eta)e^{i\phi(\xi,\eta)}
 	e^{-ik(x\xi + y\eta)/f}\diff\xi\diff\eta
 \end{equation}
 where the quadratic phase in integral of equation \ref{fresnel_integral} is exactly canceled by the quadratic phase introduced by the lens.
 
 Now, the idea is to rewrite this field profile at the focal plane into a more intuitive form by introducing the equation
 \begin{equation}
-	g(\xi,\eta)=\frac{ik}{2\pi f}f(\xi,\eta)e^{i\psi(\xi,\eta)}.
+	g(\xi,\eta)=\frac{ik}{2\pi f}F(\xi,\eta)e^{i\psi(\xi,\eta)}.
 \end{equation}
 The Fourier transform of this function $g(\xi,\eta)$ is given by
 \begin{equation}
 \label{eqn:big_G}
-	G(a,b)=\frac{ik}{2\pi f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(\xi,\eta)e^{i\psi(\xi,\eta)}
+	G(a,b)=\frac{ik}{2\pi f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}F(\xi,\eta)e^{i\psi(\xi,\eta)}
 	e^{-i(a\xi + b\eta)}\diff\xi\diff\eta.
 \end{equation}
 By setting $a=kx/f$ and $b=ky/f$ and taking the square complex modulus, one obtains the equation
