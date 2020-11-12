@@ -34,7 +34,7 @@ where $u(\xi,\eta,0)$ is the incoming field and $k=2\pi/\lambda$ is the wavenumb
 \begin{equation}
 	u(\xi,\eta,0)=F(\xi,\eta)e^{i\phi(\xi,\eta)}.
 \end{equation} 
-After propagating through the thin Fourier transform lens of focal length $f$, a phase of $k(\xi^2\eta^2)/2f$ is added to the beam, and the field at the focal plane is now given by
+After propagating through the thin Fourier transform lens of focal length $f$, a phase of $k(\xi^2+\eta^2)/2f$ is added to the beam, and the field at the focal plane is now given by
 \begin{equation}
 \label{eqn:field_at_focus}
 	u(x,y,f)=\frac{ik}{2\pi f}e^{ikf}e^{ik(x^2+y^2)/2f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}F(\xi,\eta)e^{i\phi(\xi,\eta)}
@@ -44,18 +44,18 @@ where the quadratic phase in integral of equation \ref{fresnel_integral} is exac
 
 Now, the idea is to rewrite this field profile at the focal plane into a more intuitive form by introducing the equation
 \begin{equation}
-	g(\xi,\eta)=\frac{ik}{2\pi f}F(\xi,\eta)e^{i\psi(\xi,\eta)}.
+	g(\xi,\eta)=\frac{ik}{2\pi f}F(\xi,\eta)e^{i\phi(\xi,\eta)}.
 \end{equation}
 The Fourier transform of this function $g(\xi,\eta)$ is given by
 \begin{equation}
 \label{eqn:big_G}
-	G(a,b)=\frac{ik}{2\pi f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}F(\xi,\eta)e^{i\psi(\xi,\eta)}
+	G(a,b)=\frac{ik}{2\pi f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}F(\xi,\eta)e^{i\phi(\xi,\eta)}
 	e^{-i(a\xi + b\eta)}\diff\xi\diff\eta.
 \end{equation}
 By setting $a=kx/f$ and $b=ky/f$ and taking the square complex modulus, one obtains the equation
 \begin{equation}
 	\rvert G(kx/f,ky/f)\rvert^{2} = \frac{k^2}{(2\pi f)^2} \bigg\rvert\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}
-	f(\xi,\eta)e^{i\psi(\xi,\eta)}e^{-ik(x\xi+y\eta)/f}\diff\xi\diff\eta\bigg\rvert^{2}.
+	F(\xi,\eta)e^{i\phi(\xi,\eta)}e^{-ik(x\xi+y\eta)/f}\diff\xi\diff\eta\bigg\rvert^{2}.
 \end{equation}
 By comparing this equation with the square complex modulus of the field at the focal plane (equation \ref{eqn:field_at_focus}), one finds the relationship
 \begin{equation}
@@ -78,7 +78,7 @@ It is possible to gain more insight into how difficult a beam shaping problem wi
 where $\sigma$ is the characteristic length scale of the input field (typically the beam radius) and $d$ is the characteristic length scale of the desired field.  By expressing the fields in this way, we can now introduce the dimensionless parameter
 \begin{equation}
 \label{eqn:beta_parameter}
-	\beta=\frac{2\pi\sigma D}{\lambda f}.
+	\beta=\frac{2\pi\sigma d}{\lambda f}.
 \end{equation}
 Using this dimensionless parameter, one can rewrite equations \ref{eqn:big_G} and \ref{eqn:beam_shaping_equality} as
 \begin{align}
@@ -128,7 +128,7 @@ From equation \ref{eqn:Fourier_coeff_def}, we can calculate the Fourier coeffici
 \begin{equation}
 \label{eqn:a0_no_zeta}
 \begin{aligned}
-a_0(x_0) &= \frac{1}{d}\int_{-d/2}^{d/2} \mathrm{sign}\Bigg( \cos\bigg( \frac{2\pi(\tilde{x}-x_0)}{d}\bigg)\Bigg) \diff\tilde{x}\\
+a_0(x_0) &= \frac{1}{d}\int_{-d/2}^{d/2} \mathrm{sgn}\Bigg( \cos\bigg( \frac{2\pi(\tilde{x}-x_0)}{d}\bigg)\Bigg) \diff\tilde{x}\\
 a_0(x_0) &=\frac{1}{d}\Bigg[ -\int_{-\frac{d}{2}}^{-\frac{d}{4}+x_0}\diff\tilde{x} 
 +\int_{-\frac{d}{4}+x_0}^{\frac{d}{4}+x_0}\diff\tilde{x}
 -\int_{\frac{d}{4}+x_0}^{\frac{d}{2}}\diff\tilde{x}
@@ -142,7 +142,7 @@ This demonstrates that zero energy is put into the zeroth-order diffraction for 
 \begin{equation}
 \label{eqn:swpg_fourier_coeff_a_n}
 	\begin{aligned}
-		a_n(x_0) &= \frac{1}{d}\int_{-d/2}^{d/2} \mathrm{sign}\Bigg( \cos\bigg( \frac{2\pi(\tilde{x}-x_0)}{d}\bigg)\Bigg) e^{\frac{-i2\pi n\tilde{x}}{d}}\diff\tilde{x}\\
+		a_n(x_0) &= \frac{1}{d}\int_{-d/2}^{d/2} \mathrm{sgn}\Bigg( \cos\bigg( \frac{2\pi(\tilde{x}-x_0)}{d}\bigg)\Bigg) e^{\frac{-i2\pi n\tilde{x}}{d}}\diff\tilde{x}\\
 		&=\frac{1}{d}\Bigg[ -\int_{-\frac{d}{2}}^{-\frac{d}{4}+x_0} e^{-\frac{i2\pi n x}{d}}\diff\tilde{x} 
 		+\int_{-\frac{d}{4}+x_0}^{\frac{d}{4}+x_0} e^{-\frac{i2\pi n x}{d}}\diff\tilde{x}
 		-\int_{\frac{d}{4}+x_0}^{\frac{d}{2}} e^{-\frac{i2\pi n x}{d}}\diff\tilde{x}
@@ -161,7 +161,7 @@ Since $\mathrm{sinc}(n\pi/2)=0$ for even integers $n$, we see that only the odd 
 \begin{equation}
 	\eta=\rvert a_1\rvert^2 + \rvert a_{-1}\rvert^2 =\frac{8}{\pi^2}\approx 0.8106,
 \end{equation} 
-which means that approximately $81\%$ of the input energy will be put into the two orders that we want.  It should be noted that $\sum_{n}\rvert a_n\rvert^2=1$, which means that while we can't get perfect conversion of energy into only two orders this is still a lossless design.
+which means that approximately $81\%$ of the input energy will be put into the two orders that we want.  It should be noted that $\sum_{n}\rvert a_n\rvert^2=1$, which means that while we can't get perfect conversion of energy into only two orders, this is still a lossless design.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/a_n.pdf}
@@ -193,7 +193,7 @@ which is the field at the focal plane. From this equation, the role of the trans
 \label{eqn:phase_diff}
 	\Delta\phi_{\pm 1}=2\bigg(\frac{2\pi x_0}{d}\bigg).
 \end{equation}
-Therefore, by controlling the offset of the SWPG we can control the relative phase between the two orders of interest over a range of $[0,4\pi]$, two full periods of the fundamental wavelength.  Additionally, one can begin to see from equation \ref{eqn:field_at_focus} that the intensity profile at the focal plane consists of copies of the focused input field at $x_n = n\lambda f/d$.  An example intensity profile at the focal plane is shown in figure \ref{fig:s^2}. In this figure the $\pm1$ orders are shown to be the most intense, and the phase is extracted for two different grating offset positions $x_0$.  This calculated by numerically propagating the beam profile and SWPG in figure \ref{fig:LP_inputs}.
+Therefore, by controlling the offset of the SWPG we can control the relative phase between the two orders of interest over a range of $[0,4\pi]$, two full periods of the fundamental wavelength.  Additionally, one can begin to see from equation \ref{eqn:field_at_focus} that the intensity profile at the focal plane consists of copies of the focused input field at $x_n = n\lambda f/d$.  An example intensity profile at the focal plane is shown in figure \ref{fig:s^2}. In this figure the $\pm1$ orders are shown to be the most intense, and the phase is extracted for two different grating offset positions $x_0$.  This is calculated by numerically propagating the beam profile and SWPG shown in figure \ref{fig:LP_inputs}.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/intensity_and_phase.pdf}
@@ -216,7 +216,7 @@ Going back to \ref{eqn:a0_no_zeta}, we can calculate the zero-order term for $\z
 \begin{equation}
 \label{eqn:a_0_zeta}
 	\begin{aligned}
-	a_0(x_0,\zeta) &= \frac{1}{d}\int_{-\frac{d}{2}}^{\frac{d}{2}} e^{\zeta\phi(\tilde{x},x_0)}\diff\tilde{x}\\
+	a_0(x_0,\zeta) &= \frac{1}{d}\int_{-\frac{d}{2}}^{\frac{d}{2}} e^{i\zeta\phi(\tilde{x},x_0)}\diff\tilde{x}\\
 	&= \frac{1}{d}\Bigg[\int_{-\frac{d}{2}}^{-\frac{d}{4}+x_0}e^{i\zeta\pi}\diff\tilde{x}
 	+ \int_{-\frac{d}{4}+x_0}^{\frac{d}{4}+x_0} \diff\tilde{x}
 	+ \int_{\frac{d}{4}+x_0}^{\frac{d}{2}} e^{i\zeta\pi}\diff\tilde{x} \Bigg]\\
@@ -229,7 +229,7 @@ Previously, for $\zeta=1$ we found that the zeroth-order term was not populated 
 \begin{equation}
 \label{eqn:a_n_zeta}
 	\begin{aligned}
-	a_n(x_0,\zeta) &= \frac{1}{d}\int_{-\frac{d}{2}}^{\frac{d}{2}} e^{\zeta\phi(\tilde{x},x_0)}e^{-i n \frac{2\pi\tilde{x}}{d}}\diff\tilde{x}\\
+	a_n(x_0,\zeta) &= \frac{1}{d}\int_{-\frac{d}{2}}^{\frac{d}{2}} e^{i\zeta\phi(\tilde{x},x_0)}e^{-i n \frac{2\pi\tilde{x}}{d}}\diff\tilde{x}\\
 	&= \frac{1}{d}\Bigg[\int_{-\frac{d}{2}}^{-\frac{d}{4}+x_0}e^{i\zeta\pi-i n \frac{2\pi\tilde{x}}{d}} \diff\tilde{x}
 	+ \int_{-\frac{d}{4}+x_0}^{\frac{d}{4}+x_0}e^{-i n \frac{2\pi\tilde{x}}{d}} \diff\tilde{x}
 	+ \int_{\frac{d}{4}+x_0}^{\frac{d}{2}} e^{i\zeta\pi-i n \frac{2\pi\tilde{x}}{d}}\diff\tilde{x} \Bigg]\\
@@ -249,7 +249,7 @@ From this equation, we can see that the non-$\pi$ phase step has not populated t
 From equations \ref{eqn:a_0_zeta} and \ref{eqn:a_n_zeta}, we now have a notion of how the SWPG is behaving across the bandwidth of our femtosecond pulses.  In particular, so long as $\zeta$ is close to 1, then the $\pm1$ orders are still the most intense, and as the grating offset $x_0$ is varied the phase difference between the $\pm1$ orders remains $\Delta\phi_{\pm1}=2\bigg(\frac{2\pi x_0}{d}\bigg)$ even though the overall spectral phase is modified by a factor of $e^{i\zeta\pi/2}$.  To set a scale for what $\zeta$ close to 1 means, consider the case when the zeroth-order is equal in amplitude to the the $\pm3$ orders, $\rvert a_0(x_0,\zeta)\rvert = \rvert a_{\pm3}(x_0,\zeta)\rvert$.  In this case, $\rvert \xi - 1\rvert=\rvert\frac{2}{\pi}\tan^{-1}(3\pi/2)-1\rvert\approx0.13$.  Therefore, it is reasonable to state the $0-\pi$ SWPG maintains its phase control duplication properties for $\rvert\zeta - 1\rvert<0.13$.
 
 \subsection{Square-wave phase grating design for high-harmonic generation}
-With the theory behind the SWPG well established, the specific grating parameters that were chosen with HHG in mind will be discussed in this section.  The laser source that will be considered is the output of a HE-TOPAS optical parametric amplifier produced by Light Conversion.  The TOPAS is pumped by a Spitfire ACE Ti:Sapphire system from Spectra-Physics.  The Spitfire ACE system is capable of producing  12 mJ, 60 fs (20 nm FWHM bandwidth) pulses at 1 kHz.  Using this system, the TOPAS is able to generate up to a combined 6 mJ of signal and idler. The signal wavelength range is from 1200 nm to 1600 nm, and within this range the TOPAS can output a nominally 70 fs pulse of up to 3 mJ with a tuneable central wavelength.  A design wavelength of 1350 nm was chosen for the SWPG because the TOPAS performance is optimal around this wavelength (see figure \ref{fig:TOPAS_output}).
+With the theory behind the SWPG well established, the specific grating parameters that were chosen with HHG in mind will be discussed in this section.  The laser source that will be considered is the output of a HE-TOPAS optical parametric amplifier manufactured by Light Conversion.  The TOPAS is pumped by a Spitfire ACE Ti:Sapphire system from Spectra-Physics.  The Spitfire ACE system is capable of producing  12 mJ, 60 fs (20 nm FWHM bandwidth) pulses at 1 kHz.  Using this system, the TOPAS is able to generate up to a combined 6 mJ of signal and idler. The signal wavelength range is from 1200 nm to 1600 nm, and within this range the TOPAS can output a nominally 70 fs pulse of up to 3 mJ with a tuneable central wavelength.  A design wavelength of 1350 nm was chosen for the SWPG because the TOPAS performance is optimal around this wavelength (see figure \ref{fig:TOPAS_output}).
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/TOPAS/Topas_output.png}
@@ -289,7 +289,7 @@ where $\sigma$ is the input beam radius and $D=\tilde{x}_1=\lambda f /d$ is that
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/focus_intensity_beta_sigma.pdf}
-	\caption[Intensity profiles at focal plane of a $0-\pi$ SWPG for various $\beta$ parameters]{Calculation of intensity at the focal plane of the SWPG for various parameters of $\beta$.  Calculation is done my numerically propagating the measured beam profile shown in \ref{fig:LP_inputs}.  $\beta$ is varied by adjusting the radius of the input beam profile.  As $\beta\rightarrow0$, one can see that the performance of the SWPG deteriorates and not longer produces well separated sources.}
+	\caption[Intensity profiles at focal plane of a $0-\pi$ SWPG for various $\beta$ parameters]{Calculation of intensity at the focal plane of the SWPG for various parameters of $\beta$.  Calculation is done by numerically propagating the measured beam profile shown in figure \ref{fig:LP_inputs}.  $\beta$ is varied by adjusting the radius of the input beam profile.  As $\beta\rightarrow0$, one can see that the performance of the SWPG deteriorates and no longer produces well separated sources.}
 	\label{fig:intensity_vs_beta}
 \end{figure}
 In the limit as $\beta\rightarrow0$, the condition $d\gg\sigma$ must hold, and this condition implies that the source separation is approaching the waist radius of each diffraction order $\tilde{\sigma}$.  Once the separation between orders becomes comparable to the waist ($\tilde{\sigma}\approx\tilde{x}_1$), then each diffraction order will strongly interfere with it's neighboring orders.  The effect of this interference is that our sources can no longer be thought of as independent beams, and as the grating offset $x_0$ is varied there will be a strong modulation of both the amplitude and phase of each of diffraction order.  This can be seen by using equation \ref{eqn:swpg_field_at_focus} to write the intensity at the focal plane
@@ -310,11 +310,11 @@ While it has become clear that choosing a grating period such that $\sigma\gg d$
 	\caption[Drawing of SWPGs purchased from Silios]{Schematic of the two SWPG which were purchased from Silios.  They are constructed by etching the phase step in Corning HPFS 7980 fused-silica.}
 	\label{fig:silios_sketch}
 \end{figure}
-Using these gratings and a $f=400$ mm lens at 1450 nm, we are able to achieve a source separation of 331 $\mu m$ and 464 $\mu m$ for the grating periods $d=3.5$ mm and $d=2.5$ mm.  These parameters correspond to $\beta\approx7$ for the 3.5 mm grating and $\beta\approx10$ for the 2.5 mm grating for an input beam radius of $\sigma=4$ mm.
+Using these gratings and a $f=400$ mm lens at 1450 nm, we are able to achieve a source separation of 331 $\mu$m and 464 $\mu$m for the grating periods $d=3.5$ mm and $d=2.5$ mm.  These parameters correspond to $\beta\approx7$ for the 3.5 mm grating and $\beta\approx10$ for the 2.5 mm grating for an input beam radius of $\sigma=4$ mm.
 
 \section{Two-source high-harmonic generation}
 
-To demonstrate that the $0-\pi$ SWPG can be used as a femtosecond beam duplicator with relative phase control, we will generate harmonics from the $\pm1$ diffraction orders.  This experiment will be performed in the transient-absorption beamline (TABLe), and a schematic is show in figure \ref{fig:schematic}.  A $0-\pi$ SWPG will be used to generate two intense lobes at the focal plane of a $\mathrm{CaF}_2$ plano-convex lens with a focal length of 400 mm.  A piezoelectric pulsed valve gas jet with a nozzle diameter of 500 $\mu m$ is placed near the focus to deliver a gas medium in which high-harmonics are generated.  The gas that will be used for generation will be argon.  An image of the two sources is shown in \ref{fig:piezo_jet}.  The laser which was used for this experiment is the output of an HE-TOPAS pumped by the Spitfire laser system.  We will be working with a central wavelength of 1435 nm and a pulse energy of 2 mJ.  The harmonics that are generated will pass through a 200 nm Al filter to filter out the fundamental. In the energy ranges that we will be generating harmonics, Al will transmit harmonics in the energy range of 20 - 72 eV.  After the metallic filter, the XUV will be pass through a mirror with a hole in it and it will be refocused by an ellipsoidal mirror with a demagnification of 3.  The XUV will then enter the spectrometer which consists of a Hitachi 1200 lines/mm variable line spaced (VLS) grating with a microchannel plate (MCP)/phosphor detector.  The output of the phosphor is imaged by an Andor Neo 5.5 camera.  The VLS grating focuses spectrally onto a flat-field, but in the transverse dimension it maintains the spatial profile. With this spectrometer we are able to simultaneously get spatial and spectral information about the incoming light.
+To demonstrate that the $0-\pi$ SWPG can be used as a femtosecond beam duplicator with relative phase control, we will generate harmonics from the $\pm1$ diffraction orders.  This experiment will be performed in the transient-absorption beamline (TABLe), and a schematic is show in figure \ref{fig:schematic}.  A $0-\pi$ SWPG will be used to generate two intense lobes at the focal plane of a $\mathrm{CaF}_2$ plano-convex lens with a focal length of 400 mm.  A piezoelectric pulsed valve gas jet with a nozzle diameter of 500 $\mu m$ is placed near the focus to deliver a gas medium in which high-harmonics are generated.  The gas that will be used for generation will be argon.  An image of the two sources is shown in \ref{fig:piezo_jet}.  The laser which was used for this experiment is the output of an HE-TOPAS pumped by the Spitfire laser system.  We will be working with a central wavelength of 1435 nm and a pulse energy of 2 mJ.  The harmonics that are generated will pass through a 200 nm Al filter to filter out the fundamental. In the energy ranges that we will be generating harmonics, Al will transmit harmonics in the energy range of 20 - 72 eV.  After the metallic filter, the XUV will pass through a mirror with a hole in it and it will be refocused by an ellipsoidal mirror with a demagnification of 3.  The XUV will then enter the spectrometer which consists of a Hitachi 1200 lines/mm variable line spaced (VLS) grating with a microchannel plate (MCP)/phosphor detector.  The output of the phosphor is imaged by an Andor Neo 5.5 camera.  The VLS grating focuses spectrally onto a flat-field, but in the transverse dimension it maintains the spatial profile. With this spectrometer we are able to simultaneously get spatial and spectral information about the incoming light.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/schematic_table.png}
@@ -343,13 +343,13 @@ where $L$ is the distance from the two sources to the detector and $\Delta x$ is
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/Two_source/harmonic_spatialgrams.pdf}
-	\caption[Reference harmonic spectrum and spatialgrams for various harmonic orders]{(a) Reference harmonic spectrum with dots showing the harmonic orders whose spatialgrams are plotted below. (b)-(e) Spatialgrams for harmonic orders 29, 33, 39, and 45.  Tilted fringe pattern shows fringe shift due to phase shift induced by translating the phase grating. Modulations with a period od $d/2$ arise because of interference between the two generating sources.}
+	\caption[Reference harmonic spectrum and spatialgrams for various harmonic orders]{(a) Reference harmonic spectrum with dots showing the harmonic orders whose spatialgrams are plotted below. (b)-(e) Spatialgrams for harmonic orders 29, 33, 39, and 45.  Tilted fringe pattern shows fringe shift due to phase shift induced by translating the phase grating. Modulations with a period of $d/2$ arise because of interference between the two generating sources.}
 	\label{fig:harmonic_spatialgrams}
 \end{figure}
 
 The position of the fringe pattern in the spatial profile of the harmonics is determined by the relative phase between the two HHG sources.  Therefore, any phase shift between the two sources will be imprinted upon the spatial profile of the harmonics as a fringe shift.  We will utilize this sensitivity to demonstrate the capabilities of the SWPG.  If we generate harmonics from the $\pm1$ orders of the SWPG, then as the grating offset $x_0$ is varied we would expect the fringe pattern for harmonic order $q$ to shift by a factor of $q$ multiplied by the phase shift between the two IR sources. Thus, for a translation of the grating by $\Delta x_0$ the $q$-th harmonic fringe pattern will shift by $4q\pi\Delta x_0/d$.  If the grating is scanned through it's full period of $d$, then the phase difference between the two harmonic beams of order $q$ will span a range of phases up to $4q\pi$.  Due to the high  non-linearity of HHG, this technique is very sensitive to small shifts in phase between the two beams, and it is precisely this sensitivity that will be leveraged in later experiments to extract more information in transient absorption experiments.  It is important to be clear that we are not looking to measure the absolute phase difference between the two sources.  Instead, we are primarily interested in our ability to measure a very small phase difference between the two sources introduced by the SWPG.
 
-The measured effect of translating the grating is shown in figure \ref{fig:harmonic_spatialgrams}. Four harmonics orders have been selected and their spatial profile have been plotted versus grating offset position $x_0$.  These types of figures will be referred to as a spatialgram. Each spatialgram exhibits a tilted fringe pattern that corresponds to the fringe shift induced by a phase shift between the two XUV sources.  As expected, the higher order harmonics have a higher frequency fringe pattern because of their shorter wavelength  If one counts the number of fringes over the full grating period scan, then one would find $2q$ fringes for harmonic order $q$. This provides a direct measure of the harmonic order $q$ and is used in a calibration scheme for the spectrometer.  The ability to measure the harmonic order $q$ from the spatialgram verifies that the SWPG is able to control the phase difference between the two IR sources with a precision of a few mrad.
+The measured effect of translating the grating is shown in figure \ref{fig:harmonic_spatialgrams}. Four harmonic orders have been selected and their spatial profile have been plotted versus grating offset position $x_0$.  These types of figures will be referred to as a spatialgram. Each spatialgram exhibits a tilted fringe pattern that corresponds to the fringe shift induced by a phase shift between the two XUV sources.  As expected, the higher order harmonics have a higher frequency fringe pattern because of their shorter wavelength.  If one counts the number of fringes over the full grating period scan, then one would find $2q$ fringes for harmonic order $q$. This provides a direct measure of the harmonic order $q$ and is used in a calibration scheme for the spectrometer.  The ability to measure the harmonic order $q$ from the spatialgram verifies that the SWPG is able to control the phase difference between the two IR sources with a precision of a few mrad.
 
 An additional feature of the spatialgrams in figure \ref{fig:harmonic_spatialgrams} is a slower modulation that has a period of $d/2$.  This effect is present for all harmonic orders, and appears in a very similar way.  This slower modulation is due to the interference between the two IR sources that were introduced in equation \ref{eqn:intensity_modulation}.  The modulations with a period of $d/2$ is due to interference between the $\pm1$ and $\mp1$ diffraction orders.  There is also a modulation with a period of $d$ that is present in the spatialgrams.  This modulation is due to interference between the 0th order and the $\pm1$ orders.  In general, the frequency of the modulations is related to the separation between the diffraction orders that are interfering.  These modulations are a limiting factor in using the phase grating for Fourier transform spectroscopy in the XUV.
 
