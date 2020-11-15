@@ -14,7 +14,7 @@ A common difficulty in working with extreme ultraviolet (XUV) light is the lack 
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!COME BACK TO THIS SECTION LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-In many experimental designs, it is advantageous to be able to shape the spatial intensity distribution of light to be something other than a typical Gaussian beam.  A common example of this is generating a beam with an approximately constant intensity across its spatial profile (a flat-top beam).  For the experiments described herein, we will be interested in duplicating an input beam with relative phase control between the two duplicate beams.  Both of these examples are part of the general concept of laser beam shaping.  The challenge is to design an optical system such that given an input beam profile $I_{in}(x,y)$ we can generate the desired output beam profile $I_{out}(x,y)$. Ideally, this optical system is designed in such a way that it can be nearly lossless.  The relevant optical system which will be discussed in this chapter is shown in figure \ref{fig:beam_shaping_scheme}.  The system consists of a phase element which modifies the phase of the input field by $\phi(x,y)$ and a Fourier transform lens which adds a quadratic phase to the beam to focus it at the focal plane.  By appropriate choice of the phase profile of the phase element, one can produce the desired beam profile at the focal plane.
+In many experimental designs, it is advantageous to be able to shape the spatial intensity distribution of light to be something other than a typical Gaussian beam.  A common example of this is generating a beam with an approximately constant intensity across its spatial profile (a flat-top beam).  For the experiments described herein, we will be interested in duplicating an input beam with relative phase control between the two replica beams.  Both of these examples are part of the general concept of laser beam shaping.  The challenge is to design an optical system such that given an input beam profile $I_{in}(x,y)$ we can generate the desired output beam profile $I_{out}(x,y)$. Ideally, this optical system is designed in such a way that it can be nearly lossless.  The relevant optical system which will be discussed in this chapter is shown in figure \ref{fig:beam_shaping_scheme}.  The system consists of a phase element which modifies the phase of the input field by $\phi(x,y)$ and a Fourier transform lens which adds a quadratic phase to the beam to focus it at the focal plane.  By appropriate choice of the phase profile of the phase element, one can produce the desired beam profile at the focal plane.
 
 
 \begin{figure}
@@ -25,7 +25,7 @@ In many experimental designs, it is advantageous to be able to shape the spatial
 \end{figure}
 
 
-This problem can be theoretically described in terms of Fourier optics \cite{dickeyLaserBeamShaping2000, romeroMathematicalAspectsLaser2010, goodmanIntroductionFourierOptics2005}.  If one assumes that a field $u(x,y,0)$ is incident upon an an aperture at $z=0$, then the field for $z>0$ can be written under the Fresnel approximation by the Fresnel integral
+This problem can be theoretically described in terms of Fourier optics \cite{dickeyLaserBeamShaping2000, romeroMathematicalAspectsLaser2010, goodmanIntroductionFourierOptics2005}.  If one assumes that a field $u(x,y,0)$ is incident upon an aperture at $z=0$, then the field for $z>0$ can be written under the Fresnel approximation by the integral
 \begin{equation}
 \label{fresnel_integral}
 	u(x,y,z)=\frac{i k}{2\pi z}e^{i k z}e^{i k (x^2+y^2)/2z}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}u(\xi,\eta,0) e^{ik(\xi^{2}+\eta^{2})/2z} e^{-ik(x\xi + y\eta)/z} \diff\xi\diff\eta
@@ -40,7 +40,7 @@ After propagating through the thin Fourier transform lens of focal length $f$, a
 	u(x,y,f)=\frac{ik}{2\pi f}e^{ikf}e^{ik(x^2+y^2)/2f}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}F(\xi,\eta)e^{i\phi(\xi,\eta)}
 	e^{-ik(x\xi + y\eta)/f}\diff\xi\diff\eta
 \end{equation}
-where the quadratic phase in integral of equation \ref{fresnel_integral} is exactly canceled by the quadratic phase introduced by the lens.
+where the quadratic phase in the integral of equation \ref{fresnel_integral} is exactly canceled by the quadratic phase introduced by the lens.
 
 Now, the idea is to rewrite this field profile at the focal plane into a more intuitive form by introducing the equation
 \begin{equation}
@@ -73,12 +73,12 @@ This problem is difficult in general, so the challenge in many beam shaping prob
 It is possible to gain more insight into how difficult a beam shaping problem will be by reformulating the problem in terms of relevant length scales \cite{dickeyLaserBeamShaping2000,romeroMathematicalAspectsLaser2010}.  The idea is to introduce a dimensionless parameter whose magnitude will reflect the validity of underlying assumptions, and so for a given value of this parameter one can intuitively understand the performance (or lack thereof) of the beam shaping system.  This is done by reformulating the above situation in terms of the natural length scales of both the incoming field and the desired field at the focal plane
 \begin{align}
 	I_{\mathrm{input}} &= \rvert f(x,y)\rvert^2=\rvert\hat{f}(x/\sigma,y/\sigma)\rvert^2\\
-	I_{\mathrm{desired}} &= Q(x,y)=\hat{Q}(x/d,y/d)
+	I_{\mathrm{desired}} &= Q(x,y)=\hat{Q}(x/D,y/D)
 \end{align}
-where $\sigma$ is the characteristic length scale of the input field (typically the beam radius) and $d$ is the characteristic length scale of the desired field.  By expressing the fields in this way, we can now introduce the dimensionless parameter
+where $\sigma$ is the characteristic length scale of the input field (typically the beam radius) and $D$ is the characteristic length scale of the desired field.  By expressing the fields in this way, we can now introduce the dimensionless parameter
 \begin{equation}
 \label{eqn:beta_parameter}
-	\beta=\frac{2\pi\sigma d}{\lambda f}.
+	\beta=\frac{2\pi\sigma D}{\lambda f}.
 \end{equation}
 Using this dimensionless parameter, one can rewrite equations \ref{eqn:big_G} and \ref{eqn:beam_shaping_equality} as
 \begin{align}
@@ -113,7 +113,7 @@ As shown in section \ref{sec:beam_shaping}, the beam shape at the focal plane of
 then it can be shown that each of the Fourier coefficients represents a diffracted beam and the energy contained in each diffracted beam is given by the square complex modulus of the Fourier coefficient $\rvert a_n\rvert^2$ \cite{romeroTheoryOptimalBeam2007}.  Thus, by making our phase element in figure \ref{fig:beam_shaping_scheme} a phase grating, we have split the beam into many diffraction orders.  We have defined the period of the phase grating by requiring $\phi(x)=\phi(x+d)$, however we have not yet determined its shape.  This can be accomplished by specifying the distribution of energy into the various diffraction orders.  Since we want to split the incoming beam into two duplicate beams, we are searching for $d$-periodic function that puts equal energy into two diffraction orders and a maximal amount of the input energy is put into those two orders. It can be shown that the $d$-periodic function which meets these criteria is a $0-\pi$ square-wave phase grating given by
 \begin{equation}
 \label{eqn:swpg}
-	P(x,x_0) = \mathrm{sign}\Bigg( \cos\bigg( \frac{2\pi(x-x_0)}{d}\bigg)\Bigg)
+	P(x,x_0) = \mathrm{sgn}\Bigg( \cos\bigg( \frac{2\pi(x-x_0)}{d}\bigg)\Bigg)
 \end{equation} 
 where $x_0$ is an offset of position of the SWPG in the plane transverse to the optical axis \cite{camperHighRelativephasePrecision2019, romeroMathematicalTheoryLaser2010}. From this equation, it can be seen that the phase of the incoming beam is modulated by either $0$ or $\pi$ by the phase grating, and this is shown in figure \ref{fig:swpg} for the offset positions $x_0=0$ and $x_0=d/10$.
 
@@ -207,7 +207,7 @@ Therefore, by controlling the offset of the SWPG we can control the relative pha
 	\label{fig:LP_inputs}
 \end{figure}
 
-So far, we have demonstrated that a binary $0-\pi$ SWPG can theoretically achieve our requirements of an efficient beam duplicator with phase control between the two duplicate beams.  However, all of the results shown above have been only considering the monochromatic case, and for the experiments of interest we will using a femtosecond IR pulse with bandwidth on the order of 50 nm.  This presents a challenge because the SWPG will be constructed by etching a fused-silica plate to have the desired phase step of $\pi$, and the inherent dispersion as the beam passes through the material means that the step will be $\pi$ for only one wavelength.  Thus, it is important to get a handle on how an imperfect non-$\pi$ phase step affects the properties of the SWPG.  To do this, we introduce a non-$\pi$ phase step into the above analysis by a parameter $\zeta$, such that the $0-\pi$ step becomes a $0-\zeta\pi$ step,
+So far, we have demonstrated that a binary $0-\pi$ SWPG can theoretically achieve our requirements of an efficient beam duplicator with phase control between the two duplicate beams.  However, all of the results shown above have been only considering the monochromatic case, and for the experiments of interest we use a femtosecond IR pulse with bandwidth on the order of 50 nm.  This presents a challenge because the SWPG will be constructed by etching a fused-silica plate to have the desired phase step of $\pi$, and the inherent dispersion as the beam passes through the material means that the step will be $\pi$ for only one wavelength.  Thus, it is important to get a handle on how an imperfect non-$\pi$ phase step affects the properties of the SWPG.  To do this, we introduce a non-$\pi$ phase step into the above analysis by a parameter $\zeta$, such that the $0-\pi$ step becomes a $0-\zeta\pi$ step,
 \begin{equation}
 \label{eqn:zeta}
 	\phi(x,x_0,\zeta)=\zeta \phi(x,x_0).
@@ -273,7 +273,7 @@ where $\lambda_0$ is the design wavelength and $n_0$ is the refractive index at 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/zeta_theta.pdf}
-	\caption[Non-$\pi$ phase step parameter $zeta(\lambda,\theta)$ plotted for various wavelengths and angles of incidence]{Non-$\pi$ phase step parameter $\zeta(\lambda,\theta)$ calculated for a range of relevant wavelengths and incident angles.  The ability to effectively tune the optical path length of the step enables the SWPG to be used for a much larger range of wavelengths that are longer than the initial design wavelength.}
+	\caption[Non-$\pi$ phase step parameter $zeta(\lambda,\theta)$ plotted for various wavelengths and angles of incidence]{Non-$\pi$ phase step parameter $\zeta(\lambda,\theta)$ calculated for a range of relevant wavelengths and incident angles.  The ability to effectively tune the optical path length of the step enables the SWPG to be used for a much larger range of wavelengths that are longer than the design wavelength.}
 	\label{fig:zeta_theta}
 \end{figure}
 
@@ -312,9 +312,46 @@ While it has become clear that choosing a grating period such that $\sigma\gg d$
 \end{figure}
 Using these gratings and a $f=400$ mm lens at 1450 nm, we are able to achieve a source separation of 331 $\mu$m and 464 $\mu$m for the grating periods $d=3.5$ mm and $d=2.5$ mm.  These parameters correspond to $\beta\approx7$ for the 3.5 mm grating and $\beta\approx10$ for the 2.5 mm grating for an input beam radius of $\sigma=4$ mm.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Two_source/SWPG_focus_measurement.pdf}
+	\caption[Schematic of the measurement used to verify the performance of the SWPG]{Schematic of the measurement used to verify the performance of the SWPG by measuring the beam profile at the focal plane using a CCD camera.  The wavelength was varied from 1300 - 1550 nm, and the incidence angle $\theta$ was varied from 0-50$^{\circ}$.}
+	\label{fig:focus_img_schematic}
+\end{figure}
+
+To verify the expected behaviour of the SWPG as a duplicator, the intensity profile at the focal plane was measured for a variety of wavelengths and incidence angles for the SWPG with a grating period of $d=3.5$ mm.  The setup to perform this measurement is shown in figure \ref{fig:focus_img_schematic}. The wavelength was varied from 1300 - 1550 nm, and the incidence angle was varied from 0-50$^{\circ}$.  For each combination of wavelength and incidence angle an image was taken of the intensity profile.  An example is shown in figure \ref{fig:focus_imgs_no_zero_order}, and this corresponds to a wavelength of 1350 nm and an incidence angle of $0^{\circ}$.  These parameters represent the design condition of the SWPG, and excellent agreement is seen between the measured intensity profile and the one calculated by numerically propagating the beam profile shown in figure \ref{fig:LP_inputs} (a) for $\zeta=1$.  
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Two_source/focus_imgs.pdf}
+	\caption[Measured and calculated intensity profile at the focal plane when using the SWPG]{(a) Measured intensity profile at the focal plane of the SWPG for a wavelength of 1350 nm and an incidence angle of $0^{\circ}$.  (b) Calculated intensity profile by numerical propagation for a wavelength of 1350 nm and $\zeta=1$.  (c) Line outs for $y=0$ mm showing the different diffraction orders.  Reasonable agreement is demonstrated between calculation and measurement.}
+	\label{fig:focus_imgs_no_zero_order}
+\end{figure}
+
+This measurement also allows the performance of the SWPG outside of the design conditions to be investigated.  An example of just such a case is shown in figure \ref{fig:focus_imgs_zero_order}, and this corresponds to a wavelength of 1350 nm and an incidence angle of $30^{\circ}$.  From equation \ref{eqn:zeta_theta}, we expect that the non-$\pi$ phase step parameter $\zeta$ will not be unity for this case, and this is confirmed by the agreement between the measured intensity profile and the numerical propagation for $\zeta=1.19$.  As can be seen in the intensity profile, the amplitude of the zero-order diffraction from the SWPG is non-zero due $\zeta$ not being unity, as was predicted by equation \ref{eqn:a_0_zeta}. The dependence of the zero-order amplitude on wavelength and incidence angle is shown in figure \ref{fig:measured_zero_order}, and this compared to the expected dependence based upon equations \ref{eqn:zeta_theta} and \ref{eqn:a_0_zeta}.  Reasonable agreement is shown between the measured and calculated zero-order amplitude. 
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Two_source/focus_imgs_zero_order.pdf}
+	\caption[Measured and calculated intensity profile at the focal plane when using the SWPG]{(a) Measured intensity profile at the focal plane of the SWPG for a wavelength of 1350 nm and an incidence angle of $30^{\circ}$.  (b) Calculated intensity profile by numerical propagation for a wavelength of 1350 nm and $\zeta=1.19$.  (c) Line outs for $y=0$ mm showing the different diffraction orders and a pronounced zero-order amplitude.}
+	\label{fig:focus_imgs_zero_order}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/Two_source/zero_order_amp_measured.pdf}
+	\caption[Measured zero-order diffraction amplitude as a function of wavelength and incidence angle]{(a) Measured zero-order diffraction amplitude as a function of wavelength and incidence angle.  (b) Zero-order amplitude calculated using equations \ref{eqn:a_0_zeta} and \ref{eqn:zeta_theta}.}
+	\label{fig:measured_zero_order}
+\end{figure}
+
+
+These measurements of the intensity profile at the focal plane confirm the capability of the SWPG to generate two duplicates of an input IR pulse as the $\pm 1$ diffraction orders.  However, only the intensity profile is measured for a variety of input conditions, and this does not demonstrate the expected ability of the SWPG to be able to control the relative phase between the $\pm1$ orders.  To demonstrate this capability, high-harmonics will be generated from the $\pm1$ orders, and the interference between the generated high-harmonics will reveal the relative phase control.
+
 \section{Two-source high-harmonic generation}
 
-To demonstrate that the $0-\pi$ SWPG can be used as a femtosecond beam duplicator with relative phase control, we will generate harmonics from the $\pm1$ diffraction orders.  This experiment will be performed in the transient-absorption beamline (TABLe), and a schematic is show in figure \ref{fig:schematic}.  A $0-\pi$ SWPG will be used to generate two intense lobes at the focal plane of a $\mathrm{CaF}_2$ plano-convex lens with a focal length of 400 mm.  A piezoelectric pulsed valve gas jet with a nozzle diameter of 500 $\mu m$ is placed near the focus to deliver a gas medium in which high-harmonics are generated.  The gas that will be used for generation will be argon.  An image of the two sources is shown in \ref{fig:piezo_jet}.  The laser which was used for this experiment is the output of an HE-TOPAS pumped by the Spitfire laser system.  We will be working with a central wavelength of 1435 nm and a pulse energy of 2 mJ.  The harmonics that are generated will pass through a 200 nm Al filter to filter out the fundamental. In the energy ranges that we will be generating harmonics, Al will transmit harmonics in the energy range of 20 - 72 eV.  After the metallic filter, the XUV will pass through a mirror with a hole in it and it will be refocused by an ellipsoidal mirror with a demagnification of 3.  The XUV will then enter the spectrometer which consists of a Hitachi 1200 lines/mm variable line spaced (VLS) grating with a microchannel plate (MCP)/phosphor detector.  The output of the phosphor is imaged by an Andor Neo 5.5 camera.  The VLS grating focuses spectrally onto a flat-field, but in the transverse dimension it maintains the spatial profile. With this spectrometer we are able to simultaneously get spatial and spectral information about the incoming light.
+To demonstrate that the $0-\pi$ SWPG can be used as a femtosecond beam duplicator with relative phase control, we will generate harmonics from the $\pm1$ diffraction orders.  This experiment will be performed in the transient-absorption beamline (TABLe), and a schematic is show in figure \ref{fig:schematic}.  A $0-\pi$ SWPG will be used to generate two intense lobes at the focal plane of a $\mathrm{CaF}_2$ plano-convex lens with a focal length of 400 mm.  A piezoelectric pulsed valve gas jet with a nozzle diameter of 500 $\mu m$ is placed near the focus to deliver a gas medium in which high-harmonics are generated.  The gas that will be used for generation will be argon.  An image of the two sources is shown in figure \ref{fig:piezo_jet}.  The laser which was used for this experiment is the output of an HE-TOPAS pumped by the Spitfire laser system.  We will be working with a central wavelength of 1435 nm and a pulse energy of 2 mJ.  The harmonics that are generated will pass through a 200 nm Al thin film to filter out the fundamental. In the energy ranges that we will be generating harmonics, Al will transmit harmonics in the energy range of 20 - 72 eV.  After the metallic filter, the XUV will pass through a mirror with a hole in it and it will be refocused by an ellipsoidal mirror with a demagnification of 3.  The XUV will then enter the spectrometer which consists of a Hitachi 1200 lines/mm variable line spaced (VLS) grating with a microchannel plate (MCP)/phosphor detector.  The output of the phosphor is imaged by an Andor Neo 5.5 camera.  The VLS grating focuses spectrally onto a flat-field, but in the transverse dimension it maintains the spatial profile. With this spectrometer we are able to simultaneously get spatial and spectral information about the incoming light.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Two_source/schematic_table.png}
@@ -369,36 +406,5 @@ Another interesting result from these measurements is that the symmetry of the a
 
 \section{Conclusion}
 In this chapter, the general concept of laser beam shaping was introduced, and the methods therein were applied to the specific problem of generating duplicates of a femtosecond IR pulse with precise control over their relative phase. The diffractive optical element that was shown to meet these demands is a $0-\pi$ square-wave phase grating (SWPG).  It's properties were discussed, and the final design parameters were chosen to optimize the SWPG for high-harmonic generation.  The properties of the SWPG were demonstrated by  generating high-harmonics and observing their corresponds fringe shifts.  This experiment has also demonstrated the ability measure small phase shifts between the two relative phase locked XUV beams.  This property will be leveraged in experiments described in the following chapters.
-
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Two_source/SWPG_focus_measurement.pdf}
-	\caption[Spatialgram of all harmonic orders combined when generated using two-color HHG]{(a) Spatialgram of all harmonic orders combined. Diagonal stripes show the attosecond pulses that make up the APT. A second harmonic field was added to break the symmetry and generate even harmonics. (b) Lineout from the full spatialgram.  Only two attosecond bursts are seen, which is expected from the asymmetric two-color generation field.  The increased modulation with a period $d/2$ is due to the stronger interference between the two sources.}
-	\label{fig:focus_img_schematic}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Two_source/focus_imgs.pdf}
-	\caption[Spatialgram of all harmonic orders combined when generated using two-color HHG]{(a) Spatialgram of all harmonic orders combined. Diagonal stripes show the attosecond pulses that make up the APT. A second harmonic field was added to break the symmetry and generate even harmonics. (b) Lineout from the full spatialgram.  Only two attosecond bursts are seen, which is expected from the asymmetric two-color generation field.  The increased modulation with a period $d/2$ is due to the stronger interference between the two sources.}
-	\label{fig:focus_imgs_no_zero_order}
-\end{figure}
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Two_source/focus_imgs_zero_order.pdf}
-	\caption[Spatialgram of all harmonic orders combined when generated using two-color HHG]{(a) Spatialgram of all harmonic orders combined. Diagonal stripes show the attosecond pulses that make up the APT. A second harmonic field was added to break the symmetry and generate even harmonics. (b) Lineout from the full spatialgram.  Only two attosecond bursts are seen, which is expected from the asymmetric two-color generation field.  The increased modulation with a period $d/2$ is due to the stronger interference between the two sources.}
-	\label{fig:focus_imgs_zero_order}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{figures/Two_source/zero_order_amp_measured.pdf}
-	\caption[Spatialgram of all harmonic orders combined when generated using two-color HHG]{(a) Spatialgram of all harmonic orders combined. Diagonal stripes show the attosecond pulses that make up the APT. A second harmonic field was added to break the symmetry and generate even harmonics. (b) Lineout from the full spatialgram.  Only two attosecond bursts are seen, which is expected from the asymmetric two-color generation field.  The increased modulation with a period $d/2$ is due to the stronger interference between the two sources.}
-	\label{fig:measured_zero_order}
-\end{figure}
 
 
